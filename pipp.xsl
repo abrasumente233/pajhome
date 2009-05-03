@@ -39,7 +39,7 @@
       <link rel="stylesheet" href="{pipp:relative-path(concat('/styles/', pipp:import('style'), '.css'))}"/>
       <xsl:if test="@target"><base target="{@target}"/></xsl:if>
     </head>
-    <body>
+    <body onload="align_popups()">
       <xsl:value-of disable-output-escaping="yes" select="pipp:map-view('/breadcrumb.xsl')"/>
       <table style="width:100%">
         <!--

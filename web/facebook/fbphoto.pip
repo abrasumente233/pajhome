@@ -3,7 +3,7 @@
 <desc>A Python script to help you match photos on your computer with photos uploaded to Facebook.</desc>
 <body>
 
-<pipp-child-file src="fbphoto.py" title="fbphoto.py"/>
+<pipp-file src="fbphoto.py"/>
 
 <p>This is a Python script that matches photos on your computer with photos uploaded to Facebook. This helps you link from your blog or web site, to your Facebook photos. It is this script that lets me easily have photos on <a href="../../aboutme/blog/index.html">my blog</a> that link to Facebook.</p>
 
@@ -30,7 +30,7 @@
 
 <p>The main use for the URL is to automatically link to Facebook from your blog or web site. If you build your site using <a href="../pipp/index.html">Pipp</a>, URLs in JPEG comments are automatically detected, and a link constructed around the image. If you're using other software, you'll need to add your own hooks, or request the author add this feature.</p>
 
-<p>Another potential use is exchanging more information from Facebook. For example, details who is tagged in the photo could be extracted, and added to the JPEG file. Alternatively, comments made in offline photo software could be posted as Facebook comments.</p>
+<p>Another potential use is exchanging more information with Facebook. For example, details who is tagged in the photo could be extracted, and added to the JPEG file. Alternatively, comments made in offline photo software could be posted as Facebook comments.</p>
 
 
 <h3>Future Plans</h3>

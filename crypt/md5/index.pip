@@ -21,14 +21,11 @@
 <pipp-child src="auth.pip"/>
 <pipp-child src="uses.pip"/>
 
+<pipp-file src="browsertest.cgi"/>
 <pipp-file src="2.2/md5-min.js"/>
 <pipp-file src="2.2/sha1-min.js"/>
 <pipp-file src="contrib/*"/>
 <pipp-file src="*.js"/>
-
-<style>
-.source { margin-left: 50px; }
-</style>
 
 <p>MD5 is a secure hash algorithm. It takes a string as input, and produces a 128-bit number, the hash. The same string always produces the same hash, but given a hash, it is not generally possible to determine the original string. Secure hash algorithms are useful for protecting passwords and ensuring data integrity.
 <!--<a href="http://www.unixwiz.net/techtips/iguide-crypto-hashes.html">more...</a>--></p>
@@ -57,7 +54,7 @@
         req = new XMLHttpRequest();
     md5 = md5_vm_test() ? 1 : 0;
     sha1 = sha1_vm_test() ? 1 : 0;
-    req.open("GET", 'browsertest.py?md5='+md5+'&amp;sha1='+sha1, true);
+    req.open("GET", 'browsertest.cgi?md5='+md5+'&amp;sha1='+sha1, true);
     req.send('');
 </script>
 

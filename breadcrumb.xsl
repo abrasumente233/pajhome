@@ -20,19 +20,22 @@
 <xsl:template match="/page">
     <xsl:for-each select="//page[exports/link=pipp:import('link')]">
     <script>
-    function align_popup(name){
-        var theElement = document.getElementById(name + "_link");
-        var popup = document.getElementById(name + "_popup");
-        if(!theElement || !popup) return;
-        var posX = 0;
-        var posY = 0;
-        while(theElement != null){
-            posX += theElement.offsetLeft;
-            posY += theElement.offsetTop;
-            theElement = theElement.offsetParent;
+    function align_popups(){
+        for(i = 1;; i++)
+        {
+            var node = document.getElementById("crumb" + i + "_link");
+            var popup = document.getElementById("crumb" + i + "_popup");
+            if(!node || !popup) break;
+            var posX = 0;
+            var posY = 0;
+            while(node != null){
+                posX += node.offsetLeft;
+                posY += node.offsetTop;
+                node = node.offsetParent;
+            }
+            popup.style.top = posY + 10;
+            popup.style.left = posX - 10;
         }
-        popup.style.top = posY + 10;
-        popup.style.left = posX - 10;
     }
     </script>
 
@@ -41,17 +44,15 @@
         <xsl:for-each select="ancestor-or-self::page">
             <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
-            <a id="x{position()}_link" href="{exports/link}"><xsl:value-of select="exports/title"/>
+            <a id="crumb{position()}_link" href="{exports/link}"><xsl:value-of select="exports/title"/>
                 <xsl:call-template name="popup">
-                    <xsl:with-param name="prefix" select="concat('x', position())"/>
+                    <xsl:with-param name="prefix" select="concat('crumb', position())"/>
                 </xsl:call-template>
             </a>
-            <script>align_popup("x<xsl:value-of select="position()"/>");</script>
             <xsl:if test="position() != last()">
                 <xsl:value-of select="': '"/>
             </xsl:if>
         </xsl:for-each>
-        <script>align_popup("xx");</script>
         </strong>
     </div>
 
