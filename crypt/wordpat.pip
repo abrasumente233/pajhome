@@ -1,0 +1,46 @@
+<pipp>
+<title>Word Patterns</title>
+<desc>Another simple cipher is a monoalphabet. In its classic form, the key is a table mapping each plaintext letter to/from a ciphertext letter. With enough ciphertext, you can break these by making guesses such as E being the most frequent letter. You can also look for series of characters that repeat characters in the same pattern as known words, for example XJJX might be Abba, Anna, Boob, etc. This program takes a list of words, and produces a file that lets you find the words quickly, based on their pattern of repeating characters.</desc>
+<body>
+
+<pipp-child src="wordpat_src.pip"/>
+<pipp-child-file src="wordpat.zip" title="Download"/>
+<pipp-child-file src="patterns.zip" title="Patterns"/>
+
+<p>This program generates word codes showing the patterns of repeating letters in words. It is intended for use in breaking simple substitution ciphers such as monoalphabets.</p>
+
+<ul>
+<li><a href="wordpat.zip">Download the program</a> to generate word patterns from any word list.</li>
+<li><a href="patterns.zip">Just the patterns</a> based on a free American-English word list.</li>
+</ul>
+
+<h2>About Word Patterns</h2>
+
+Examples:
+
+<p><table>
+<tr><td>ABBA</td><td>4-1221</td></tr>
+<tr><td>COMPUTER</td><td>8-12345678</td></tr>
+<tr><td>IT</td><td>2-12</td></tr>
+<tr><td>APPROPRIATE</td><td>11-12234235167</td></tr>
+</table></p>
+
+<p>Lets lok at what the parts mean. The first number, before the dash is the length of the word.  After that, there is a number for each letter in the word. Every time a particular letter appears, the corresponding number is the same - both the 'A's is Abba are '1' and both 'B's are '2'. If there are more than nine different letters in a word, then 'A' 'B' 'C' etc are used after '9'. The numbers are given out in order - '1' is given to the first letter, then '2' to the second letter - unless the second letter is the same as the first, in which case '2' is given to the third letter, and so on. This means that the number after the dash will always be '1'. </p>
+
+<p>Word patterns are used to help crack substitution ciphers. Details on the techniques for using them can be obtained in a cryptographic reference.</p>
+
+<h2>Using the Pattern Generator</h2>
+
+<p>You can use the program to calculate a pattern from a word, and (usually) to find the words that fit a given pattern. To calculate a word pattern, simple type 'wordpat' and enter the word when prompted. All non-alphabetic charactars in the word will be ignored.</p>
+
+<p>Going the other way round is somewhat more difficult. The idea is that the program generates a huge list of word patterns, and the words that have these patterns. To make this, it needs a word list - a text file containg many
+words. These are available on the Internet, and often included in Unix installations. The word list should be separated by spaces and/or new line characters. No line should be more than 255 charactars long (include new line charactars). All non-alphabetic charactars will be ignored; case does not matter; duplicate words will be recognised, and only one copy included in the output.</p>
+
+<p>To generate the list of word patterns, type 'wordpat wordlist1 wordlist2 ...' where wordlistX is the file name of each word list you have. This may take some time, depending on the length of your word lists and the speed of your computer. Note that whilst doing this, the SORT program is used - so this must be in your path.</p>
+
+<p>When the program has completed, it will have generated several .WL files. They are named according to the length of the words then contain - 3.WL has all the three letter words, and so on. Inside each file, the patterns appear in sorted order, and on the lines following each pattern are all the words which fit that pattern, in sorted order. Patterns which no words fit are not included in the .WL file.</p>
+
+<p>So, if you have a pattern and you want to find the words that match it, you open the appropriate .WL file, locate the pattern and if present the words are immediately beneath the pattern. If the pattern is not present, the word list did not contain a word with that pattern.</p>
+
+</body>
+</pipp>

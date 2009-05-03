@@ -1,0 +1,25 @@
+<pipp>
+<title>RSA</title>
+<desc>RSA cryptography is a popular asymmetric key cryptosystem, used in the famous PGP email program. I first became interested in this during the sixth form, and volunteered to talk to my school's maths society on the subject. These pages began as the overheads I used, but have since been substantially revised and new material added.</desc>
+<keywords>RSA, PGP, Fermat, prime, maths, cryptography, security</keywords>
+<body>
+
+<pipp-child src="intro.pip"/>
+<pipp-child src="rsa.pip"/>
+<pipp-child src="implementation.pip"/>
+<pipp-child src="pract.pip"/>
+<pipp-child src="maths.pip"/>
+
+<p>R.S.A. stands for Rivest, Shamir and Adleman - the three cryptographers who invented the first practical commercial public key cryptosystem. Today it is used in web browsers, email programs, mobile phones, virtual private networks, secure shells, and many other places. Exactly how much security it provides is debatable, but with sufficiently large keys you can be confident of foiling the vast majority of attackers. Until recently the use of RSA was very much restricted by patent and export laws. However, the patent has now expired and US export laws have been relaxed.</p>
+
+<pipp-map-view src="/section.xsl"/>
+
+<h2>Further Reading</h2>
+Two books I found very informative on this subject are:
+<ul>
+<li>Introduction to Algorithms, Cormen, Leiserson &amp; Rivest</li>
+<li>Applied Cryptography, Bruce Schnier</li>
+</ul>
+
+</body>
+</pipp>

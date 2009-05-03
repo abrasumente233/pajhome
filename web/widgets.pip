@@ -1,0 +1,115 @@
+<pipp>
+<title>Widgets</title>
+<desc></desc>
+<body>
+
+
+
+
+<h2>Reusable Components and Forms Handling</h2>
+
+<h3>Reusbale Components</h3>
+
+<p>A framework needs to provide the following:</p>
+
+<ul>
+<li>A a way to package and use reusable components, comprising of template code, JavaScript and CSS resources, and server-side code.</li>
+<li>A useful set of components - e.g. popup calendar (see below)</li>
+<li>A community area for sharing components</li>
+<li>A means to view information on components installed on the system</li>
+</ul>
+
+
+<h3>Useful Components</h3>
+
+<ul>
+<li>Popup Calender</li>
+<li>Rich text editor</li>
+<li>Autocomplete</li>
+<li>Editable list</li>
+<li>Captcha</li>
+<li>File upload with progress</li>
+</ul>
+
+
+<h3>Validation and Forms Library</h3>
+
+<p>The aim of a forms library is to handle form validation, with detailed error messages returned to users on failure. A common design is to build this on top of the component system, which relies on components being nestable. The requirements for such a system are:</p>
+
+<ul>
+<li>Generate a form, validate the response; in case of an error, display the form with inline error messages.</li>
+<li>Allow custom validation functions, and customisation of error messages. Needs to support validation of one field having dependencies on the value of other fields.</li>
+<li>Allow customisation of the appearance of the form.</li>
+<li>Support generation of JavaScript validation code, based on rules defined in the server, and support Ajax validation.</li>
+<li>Support dynamic client-side forms, e.g. grids that grow on the client, and fields that appear where certain options are selected.</li>
+<li>A smart, neutral default style, with icons such as: calendar, add, del, copy, paste, etc.</li>
+<li>Security - CSRF protection, choice validation, viewstate</li>
+</ul>
+
+<h3>Automatic Forms</h3>
+
+<ul>
+<li>The ability to automatically generate form definitions from model code. The model needs to allow annotation to give hints to the form generator. Also, the generator should support user-defined policies for form construction.</li>
+<li>An automatically generated data manager, based on the model.</li>
+</ul>
+
+<p>A framework should also support other approaches for forms support, e.g. HTML generation and htmlfill.</p>
+
+
+
+<h2>View Layer</h2>
+
+<h3>Display Helpers</h3>
+
+<p>Many frameworks have the concept of display helpers. This is a bit of a catch-all for various functionality, generally functions that can be called from templates, to help with common tasks, including:</p>
+
+<ul>
+<li>Separating search results over multiple pages</li>
+<li>Displaying once-only status messages on pages</li>
+<li>Formating data for output, e.g. 1000000 -> 1 Million</li>
+</ul>
+
+<p>It may be sensible to make display helpers be reusable components.</p>
+
+
+<h3>JavaScript Support</h3>
+
+<p>Most modern web applications make heavy use of JavaScript and Ajax. Support for this has two main parts:</p>
+
+<ul>
+<li>Use of a JavaScript library on the client. This is largely separate from the server-side framework.</li>
+<li>Generation of JSON from controller methods.</li>
+</ul>
+
+
+<h2>Widgets</h2>
+
+<p>Widgets present something of a binding problem. It's not the widgets framework that has the problem - it's all the individual widgets. Each widget will generally be tightly bound to both a template language, and a javascript library.</p>
+
+<p>One issue with widgets is dependence of HTML template language and JavaScript library. The widgets framework is largely independent of these, but individual widgets will be coded in a specific templating language. It is possible to mix templating languages, but at a performance cost. This is leading to a situation where there are dual releases of widgets, e.g. ToscaWidgetsForms comes in Genshi and Mako. If a widget depends on a JavaScript library (doing so is common) there is a similar issue. There is a big download penalty if a page uses multiple JS libraries.</p>
+
+
+jslib - minimal core
+template - do some benchmarking - how bad is it serialising to string?
+Also, widgets can pick up other bindings, e.g. ORM
+
+
+
+<p>One approach is to build the forms library on top of the widgets library. This requires widgets to additionally:</p>
+
+<ul>
+<li>Supporting nesting, with compound name generation</li>
+<li>Supporting validation, with a framework for reporting errors</li>
+<li>Have a library of simple widgets for form components - text boxes, choice fields, etc.</li>
+</ul>
+
+<p>A serious drawback with this approach is that it makes customising the appearance of the form somewhat difficult. Convoluted code used while setting up the Widgets is needed, when a simple HTML edit could suffice.</p>
+
+<p>There is an alternative approach, using htmlfill. Define your HTML by hand, and your validation schema. htmlfill applies the output of validation to the HTML, to include error messages.</p>
+
+http://blog.ianbicking.org/on-form-libraries.html
+
+
+
+</body>
+</pipp>

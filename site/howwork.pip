@@ -1,0 +1,45 @@
+<pipp>
+<title>How it works</title>
+<desc>The system for generating the website and server hosting.</desc>
+<status>old</status>
+<body>
+
+<h2>Hosting</h2>
+
+<p>This website is running on a box called dvorak, which hosts <a href="http://www.unfinished.org/">The Unfinished Project</a>. This is a collection of friends who run the server together. It's hosted by <a href="http://www.gradwell.net/">Gradwell</a>.</p>
+
+<h2>Software</h2>
+
+<p>All the server software I use is free:</p>
+
+<ul>
+<li><a href="http://www.debian.org/">Debian Linux</a></li>
+<li><a href="http://httpd.apache.org/">Apache</a></li>
+<li><a href="http://www.python.org/">Python</a></li>
+<li><a href="http://www.webalizer.org/">Webalizer</a></li>
+</ul>
+
+<h2>Server setup</h2>
+
+<p>pajhome.org.uk is an Apache virtual host, with *.pajhome.org.uk as an alias. The website is mostly static, but a couple of CGI scripts work using a MySQL back-end. mod_rewrite is used to redirect people when a page changes its URL. There's also a rule to detect users that inadvertently browse to the stats from another site, and redirect them to the homepage. Most of the pages are uploaded from my computer, but the stats section is automatically updated by Webalizer each night.</p>
+
+<h2>Building the Site</h2>
+
+<p>I've written my own program called <a href="../web/pipp/index.html">Pipp</a> to build websites. Every so often I make a .tar.gz file, transfer this to my server using scp, and then unpack it to publish the new site.</p>
+
+<p>I must mention one piece of commercial software now - <a href="http://www.textpad.com/">TextPad</a>. This is a fantastic Windows text editor that makes all my file editing quick and reliable. It is dead easy to integrate with the command line, so that "tp filename" loads the file straight away, and the call doesn't block.</p>
+
+<h2>HTML Compatibility</h2>
+
+<p>I aspire to make the site HTML 4 and XHTML compatible, and to display correctly in Netscape 4, Mozilla, IE and Opera. I've no desire to maintain backwards compatibility with pre-CSS browsers. The site will never require Java or JavaScript for basic navigation, but will use them as bells and whistles.</p>
+
+<p>The guest book contains some clever fall-back code:</p>
+
+<p class="code">&lt;a href="guest.py?detail=$$id" target=detail
+onclick="return !window.open('guest.py?detail=$$id', 'detail',
+'dependent=yes, toolbar=no, status=no, menubar=no, location=no, width=500, height=300, resizable=yes, scrollbars=yes')"&gt;more...&lt;/a&gt;</p>
+
+<p>With JavaScript enabled, a popup window is opened with size, etc. specified, and the return value prevents the link being followed. Without JavaScript, the link is followed, and the target= attribute opens a new window, albeit without the options the JavaScript is able to set.</p>
+
+</body>
+</pipp>

@@ -1,0 +1,76 @@
+<pipp>
+<title>Style Guide</title>
+<desc>Some guidelines on writing well-structured programs, that will be easy for others to understand and maintain.</desc>
+<body>
+
+<h2>Introduction</h2>
+
+<p>Good code is essentially code that is easy to understand. This is subjective and no guidelines can completely specify it. Indeed, experienced programmers have their own individual style. I think the most important thing is to read over your code, imagining you knew nothing about it, and try to honestly assess whether it's easy to understand. </p>
+
+<h2>Comments and Documentation</h2>
+
+<p>The main purpose of comments is to describe at a high-level the purpose of a block of code. Most languages now support automatic generation of documentation from code, and I strong recommend its use. In some languages (e.g. Java) you use comment blocks that match a particular format. Other languages (e.g. Python) have a specific "documentation string" syntax.</p>
+
+<p>In general, if the automatic documentation reads well, you've got adequate comments. More complicated programs may also need a high-level design document.</p>
+
+<p>Using very short comments generally offers little benefit:</p>
+
+<p class="code">$cnt++; # increment the counter<br/>
+print "\n" if($cnt % 10 == 0); # print a new line every tenth iteration
+</p>
+
+<p>These may be useful to explain tricky implementation details, that are not immediately obvious, although it's generally better to avoid the trickery in the first place.</p>
+
+
+<h2>Functions</h2>
+
+<p>A good approach is to use lots of small functions. Each one focuses on a specific purpose, following a clear step by step procedure. If half the function deals with special cases, bounds checking, error handling and such, consider splitting the function up further. My <a href="../crypt/vigenere_src.html">Vigenere program</a> is a good example of this.</p>
+
+<p>However, some programming tasks are very sequential, and in this case I prefer avoiding functions altogether. For programs around 100-200 lines, this is the most readabile approach. There is a general rule here:</p>
+
+<p class="emphasized">Only define a function if it is used two or more times.</p>
+
+<p>Or at least, you expect that you'll going to use it a second time shortly.</p>
+
+<h2>Naming</h2>
+<p>The general rule with variable names (all names in fact):</p>
+<p class="emphasized">The length of a name should be proportional to its scope.</p>
+<ul>
+<li>Single letters are fine for short loops (use i, j) and parameters of short functions. I try to follow the mathematical convention of x, y for continuous variables and n, m for discrete ones.</li>
+<li>For most variables you want a single word as a name. You can abbreviate this, e.g. msg instead of message, but don't go overboard. Sometimes two words are needed to convey meaning, but I try to avoid this.</li>
+<li>Global variables (which should generally be avoided) need to have long names, often I include the name of that section of code, to ensure uniqueness, e.g. htable_root_node.</li>
+</ul>
+
+<p>For longer identifiers, prefer names_like_this to NamesLikeThis. Reserve case variations to distinguish types, for example name C macros LIKE_THIS, and Java classes Like_this.</p>
+
+<h2>Avoiding short comments</h2>
+
+<p>Sometimes I am tempted to use a short comment to explain an obscure programming construct, for example:</p>
+
+<p class="code">str = reduce(lambda x,y: y+x, str) # reverse the string</p>
+
+<p>But it is much better to rewrite the code, so the code is readable. One way would be to define a reverse function; another approach I like is:</p>
+
+<p class="code">reversed_str = reduce(lambda x,y: y+x, str)</p>
+
+<p>There are times when a short comment is appropriate, but generally long comments and readable code work best.</p>
+
+<h2>Efficiency</h2>
+
+<p>To some extent there is trade-off between code clarity and efficiency. I've seen some C code which used 15 instructions instead of 20, by using a very obscure while loop. This is worth doing when the code is used a lot, but if that loop was just used once on startup there would be no point in the optimisation. There is an important priciple here:</p>
+
+<p class="emphasized">Premature optimization is the root of all evil.</p>
+
+<p>If you program in a logical, readable way then your code will generally be quite efficient. Once you have it working you may want to apply some optimizations. It's only worth doing these in cases they'll make a real difference - long loops, widely-used low-level functions, etc. Often a clean program structure makes it easy to add features like caching in a nice, readable way. If you do have to resort to obscure while loops to save nanoseconds, put a comment next to it with the unoptimized code.</p>
+
+<h2>Random points</h2>
+<ul>
+<li>Avoid true/false function arguments, e.g. cipher(true, str) - encrypt, cipher(false, str) - decrypt. Better to have encrypt(str) and decrypt(str). </li>
+<li>When dealing with files, load them up completely, process in memory and then write to disk. Let the OS handle virtual memory, rather than using the input/output files as virtual-virtual-memory. One exception to this is databases, but you're unlikely to need to write your own DB code. </li>
+<li>Use the canonical test. If you want to check if the operating system is Windows NT, the best way is <code>if $OS=="Windows_NT"</code> rather than say <code>if exists %SYSTEMROOT%/system32/drivers/etc</code>. The former is much easier to read, and is less likely to be confused by e.g. someone downgrading from NT.</li>
+<li>Write code so it's never more than 80 characters wide, so it can be read easily on a text mode screen. Also, this length limit stops you doing too ridiculous things in one line, which brings us to...</li>
+<li>If you can do it on one line then do so. Some one-line constructs are dubious through, for example <code>$file = `cat filename`</code> in Perl is a very inefficient way to load a file.</li>
+</ul>
+
+</body>
+</pipp>

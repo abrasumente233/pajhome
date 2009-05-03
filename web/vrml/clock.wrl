@@ -1,0 +1,145 @@
+#VRML V1.0 ascii
+Separator {
+	
+	Separator {
+		Material {
+			diffuseColor 1 1 1
+			ambientColor 1 1 1
+			emissiveColor 0 0 0
+			specularColor 0 0 0
+			transparency 0
+			shininess 0.4
+		}
+		Transform {
+			rotation 1 0 0  1.57079
+		}
+		Cylinder {
+			radius 15
+			height 4
+		}
+
+		Material {
+			diffuseColor 0 0 0
+			ambientColor 0 0 0
+		}
+		Transform {
+			translation 0 2 0
+		}
+		Cylinder {
+			radius 0.5
+			height 1
+		}
+	}
+	
+	Material {
+		diffuseColor 0 0 0
+		ambientColor 0 0 0
+	}
+    		
+	Separator {
+		DEF Line Group {
+			Transform {
+				rotation 0 0 1  0.52359
+			}
+			Separator {
+				Transform {
+					translation 0 12 2
+				}
+				Cube {
+					width 0.5
+					height 3
+					depth 0.2
+				}
+			}
+		}
+		USE Line
+		USE Line
+		USE Line
+		USE Line
+		USE Line
+		USE Line
+		USE Line
+		USE Line
+		USE Line
+		USE Line
+		USE Line
+	}
+
+	DEF MinuteHand Separator {
+		Transform {
+			rotation 0 0 1 -1.57079
+		}
+		Material {
+			diffuseColor 0 0 0
+			ambientColor 0 0 0
+		}
+
+		Coordinate3 {
+			point [	-0.5 -1 0,
+					0.5 -1 0,
+					0 13 0,
+			]
+		}
+
+		Transform {
+			translation 0 0 2.25
+		}
+
+		IndexedFaceSet {
+			coordIndex [ 0, 1, 2, -1,
+			]
+		}
+	}
+
+	DEF HourHand Separator {
+		Transform {
+			rotation 0 0 1  -0.13089
+		}
+		Material {
+			diffuseColor 0 0 0
+			ambientColor 0 0 0
+		}
+
+		Coordinate3 {
+			point [	-0.5 -1 0,
+					0.5 -1 0,
+					0 7 0,
+			]
+		}
+
+		Transform {
+			translation 0 0 2.26
+		}
+
+		IndexedFaceSet {
+			coordIndex [ 0, 1, 2, -1,
+			]
+		}
+	}
+
+	DEF SecondHand Separator {
+		Transform {
+			rotation 0 0 1  2.30383
+		}
+		Material {
+			diffuseColor 1 0 0
+			ambientColor 1 0 0
+		}
+
+		Coordinate3 {
+			point [	-0.25 -1 0,
+					0.25 -1 0,
+					0 13 0,
+			]
+		}
+
+		Transform {
+			translation 0 0 2.27
+		}
+
+		IndexedFaceSet {
+			coordIndex [ 0, 1, 2, -1,
+			]
+		}
+	}
+}

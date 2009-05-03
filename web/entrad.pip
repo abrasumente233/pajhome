@@ -1,0 +1,225 @@
+<pipp>
+<title>Enterprise RAD</title>
+<desc></desc>
+<keywords></keywords>
+<body>
+
+<p><b>Vision:</b> A rapid application development toolkit for the Enterprise</p>
+
+<ul>
+<li>Speed up development and change the cost:benefit equation</li>
+<li>Incorporate innovative technologies with relative ease</li>
+<li>Divide up work in a team with varying skills</li>
+<li>Form a community that shares best practice</li>
+<li>Build on existing tools in this space</li>
+</ul>
+
+What are the benefits of this?
+    People feel better about working internal processes
+    Processes can be flexible as needs change
+
+
+
+
+
+<h2>How?</h2>
+
+I envisage a solution based on TurboGears
+
+
+<ol>
+<li>A stable base
+<ul><li>Runs ok</li>
+<li>Documented</li>
+<li>Support channels exist</li>
+<li>Going to be around a while</li>
+</ul>
+</li>
+
+<li>Support for Microsoft technologies
+<ul><li>Windows</li>
+<li>SQL Server</li>
+<li>Integrated Windows Authentication</li>
+</ul>
+</li>
+
+<li></li>
+</ol>
+
+
+A solid base
+    Main concern is the kid/so/tg vs genshi/sa/tw issues and to some extent cp vs pylons
+        ** Mission: Make SA support solid!
+        ** Related - Elixir
+    Lack of documentation on tw
+    After all this flux, needs some time to mature
+    Security
+        ** do a security audit
+
+Support for MS technologies
+    Windows in general pretty good; a bit more doc needed
+    SA & SQLServer - getting pretty solid (major achievement!)
+    IIS with IWA deployment - can be done
+        ** needs doc and some work - how does this fit with identity et al
+
+Proceduralise more common tasks
+    Maintaining database - some progress
+        ** can develop further, inc migrations
+
+
+Enterprisey Widgets
+    Something of a concern with all of these is tying more closely to the whole app
+    SmartList connects more closely to the model - you have to use SA.
+    ChoiceOther relies on a particular table format
+
+
+    SmartList (what about FastDataGrid?)
+    AutoGrow (like dynwidget)
+        Also block-based autogrow
+    Hiding SSF
+    Choice with other
+    ContactLookup
+    SecretText
+    Copy & Paste rows
+
+    A bit in terms of layout etc. (probably not "enterprisey" !)
+    Also, icon for calendar
+
+
+
+General usability:
+    Start up time
+    Error reporting
+    Quickstart, here's an idea.
+        Selecting the ORM only changes db-specific files
+            (plus maybe .cfg files)
+        Selecting the template only changes template files
+            (plus maybe .cfg files)
+        ...
+
+    General task: identify all the components of TG
+
+    Fastdata / autoadmin
+        Borrow from Django!
+
+
+1) SA and TG
+
+    Aim: fully pluggable database support
+    Pretty loose binding between framework and ORM
+    A bit tighter between quickstart and ORM
+    Some bits much tighter - identity, fastdata, catwalk, etc.
+
+    For TG 2, middleware seems a good solution
+        Config management, inc. multiple databases
+        Wrap requests in transactions
+        Potentially do retrying
+        tg-admin wraps the ORM's admin script
+
+
+    For TG 1.1
+        Make robust with minimal changes
+
+
+    Specifics:
+        http://trac.turbogears.org/query?status=new&status=assigned&status=reopened&component=SQLAlchemy&order=priority
+
+    Generally the project needs a bit of leadership and guidance regarding SA.
+        Whether to use Elixir, etc.
+            On this, I'll just have to put more time into understand Elixir.
+            Preliminary thoughts are "why's it so complicated?"
+        What to do about 0.3/0.4
+            Most of TG shouldn't care, but apps written in TG definitely will
+
+    And a good lot of tests :-)
+
+    So, how much work is all this...? Very much depends on how hard it is to write tests.
+    And what resource do we have?
+
+
+
+2) DB Management
+
+    Work with dbcook
+
+    admin - create, drop, copydata
+    autocode
+    status
+        get code changes into SA 0.4
+
+    migrate
+    automigrate
+
+
+3) Security Audit
+    There was someone (on webappsec?) who mentioned this.
+    Some quick wins are easy, but it's potentially a massive job
+    And do I want to put my name to saying it's ok? Hmmm... shouldn't be afraid of doing that, just cautious.
+
+    ** Quick win on JS hijacking
+
+
+4) Windows and IWA
+    Ok, there's the bigger question of authentication and authorization here.
+
+    Authentication:
+        Forms login (identity)
+            maybe with MD5
+        NTLM
+        SSL cert
+        Multi factor...
+
+    Authorization
+        DB Tables
+        Windows groups
+        SSL CAs
+        ...
+
+    Ok, don't want to solve the world here :-)
+    Step 1 is to just document setups to do IWA at all.
+        Really this means understanding the NTLM header that ReverseProxy passes
+
+
+
+5) SA and MSSQL
+    Had a lot of wins here already!
+
+    A handful of remaining problems to patch up
+    PyODBC on Unix... (probably not for me!)
+
+
+
+6) Enterprise Widgets
+
+
+
+
+7) ToscaWidgets docs - much later!
+
+8) General TG issues
+    Startup time
+    error reporting
+
+9) FastData
+    fieldfactory is a good start!
+
+
+
+Big direction... make TG run in IronPython!
+
+
+MVC MTCW
+
+Model Template Controller Widget
+
+Model is the data and structure of data
+    Should this include validation? and others, moving towards view
+In web app terms, view is the template
+    In a GUI you might argue differently
+
+
+
+
+
+</body>
+</pipp>

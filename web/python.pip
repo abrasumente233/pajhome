@@ -1,0 +1,61 @@
+<pipp>
+<title>Python</title>
+<body>
+
+
+<h2>Introduction</h2>
+
+<p>There are many <a href="http://wiki.python.org/moin/WebFrameworks">Python web frameworks</a>, indeed so many that the choice can be overwhelming. I will mention five frameworks here:</p>
+
+<ul>
+<li><a href="http://www.djangoproject.com/">Django</a> - a self-contained, tightly integrated framework, aims to make things easy for the developer.</li>
+<li><a href="http://divmod.org/trac/wiki/DivmodNevow">Nevow</a> - a web framework for Twisted, a non-blocking application framework.</li>
+<li><a href="http://www.pylonshq.com/">Pylons</a> - a loosely coupled framework, that lets you pick and choose Python components.</li>
+<li><a href="http://www.turbogears.org/">TurboGears</a> - moderately coupled; uses pre-existing Python components and attempts to present them in an integrated manner.</li>
+<li><a href="http://www.zope.org/">Zope</a> - a self-contained, tightly coupled framework, with unique infrastructure around it.</li>
+</ul>
+
+<p>Zope is by far the longest running project and has some high-profile support, but is sometimes considered overly complex. Nevow has its own niche; its non-blocking nature increases complexity, but has major advantages in some use cases. Django, Pylons and TurboGears are all aiming at a similar space - practical, rapid web app development. Django is considerably more polished than the other two, and almost certainly the best choice for a beginner. TurboGears is in something of a state of flux, but this may improve when the TurboGears 2 release happens.</p>
+
+
+<h2>WSGI</h2>
+
+<p>WSGI is a Python standard for communication between web servers and web applications. Somewhat like the Java Servlet API, it allows frameworks to implement a single interface to work with all web servers that support WSGI.
+</p>
+
+pluggable stuff / pylons
+
+<p>A framework that shows some promise to me is <a href="http://www.turbogears.org/">TurboGears</a>. This uses a <a href="components.html">component design</a>, making the framework itself relatively small, while it makes use of existing, high-quality components.</p>
+
+
+
+<h2>Open Source Involvement</h2>
+
+<p>I've been quite active on some projects:</p>
+
+<ul class="gap">
+<li><b>SQLAlchemy</b> - object-relational mapper
+<ul class="nogap">
+<li>Progressed MS SQL Server support from basically working to fully supported.</li>
+<li>Developed basic MS Access support.</li>
+<li>Initiated some tools: <a href="http://code.google.com/p/sqlautocode/">autocode</a> and dbcopy.</li>
+</ul></li>
+
+<li><b>TurboGears</b> - web application framework
+<ul class="nogap">
+<li>Improved SQLAlchemy support, including changes for SA0.4.</li>
+<li>Various bug fixes, including avoiding the need for ET() calls using TG Widgets in Genshi templates.</li>
+<li>Developed <a href="http://iisproxy.googlecode.com">iisproxy</a>, a tool to deploy TurboGears applications with Microsoft IIS.</li>
+</ul></li>
+
+<li><a href="http://www.toscawidgets.org/"><b>ToscaWidgets</b></a> - re-usable web widgets
+<ul class="nogap">
+<li>Numerous bug fixes and minor enhancements</li>
+<li>Greatly improved documentation</li>
+<li>Created <a href="XXX">tw.dynforms</a>, a widget library for dynamic websites</li>
+<li>Started the ToscaWidgets-experimental branch</li>
+</ul></li>
+</ul>
+
+</body>
+</pipp>

@@ -1,0 +1,189 @@
+<pipp>
+<title>Components</title>
+<body>
+
+
+<h2>Introduction</h2>
+
+<p>A web framework does not need to be a single, monolithic environment. There are many functions to perform, which can be handled by interchangable components. For example, a web app can use a change the javascript library it uses, without making changes to the controller. With WSGI, the bindings between functional components are relatively loose, but there are challenges around widgets and the ORM. An application built using the framework will be tightly bound to the component it uses. Also, with few exceptions, the components are tightly bound to the host langauge.</p>
+
+<p>Where there are choices, it is important not to overwhelm new users. The introductory tutorials need to recommend a particular way of doing things. This may be either a particular choice of component, or a particular style of using a component. In many cases the choice is not significant, any one of the choices will serve most people's needs. But there are some areas where the best approach will vary between use cases, including:</p>
+
+<ul>
+<li>Template language - XML-based vs text-based. Whether to allow python code in templates.</li>
+<li>ORM - Data mapper vs Active record. Reflecting tables vs synchronising database.</li>
+<li>Controller - Object dispatch vs URL declarations. Declarative modifiers vs calls from code.</li>
+<li>Automatic forms - Dynamic generation vs generated templates that can be edited.</li>
+<li>JavaScript library - lightweight vs fully featured.</li>
+</ul>
+
+For defaults, I reckon:
+    XML-based with python
+    active record, sync
+    object dispatch (open minded), not sure
+    Dynamic generation
+    Lightweight
+
+
+<h2>Binding</h2>
+
+<p>The main bindings between functional components are shown below. These are on the whole fairly soft - code for a different component could be written quite easily. Bindings are directional - changing the ORM requires changes to automatic forms, but if the automatic forms library is changed, no changes are need to the ORM.</p>
+
+<ul>
+<li>Transaction support - ORM</li>
+<li>Template wrapper - Template (and Buffet helps)</li>
+<li>Authentication/Authorisation - ORM</li>
+<li>Display helpers - ORM, Session, Controller</li>
+<li>Individual widgets - Template, JavaScript Library; potentially ORM and others</li>
+<li>Automatic forms - ORM, Controller</li>
+<li>Validation - Internationalisation</li>
+<li>Project creation, configuration, command line and web admin - Many components</li>
+<li>Many components - configuration</li>
+</ul>
+
+<p>So, for example, to support a new ORM, changes would be needed to the transaction support, auth* system, some display helpers and the automatic forms system. The bindings shown assume WSGI, with the application creating the middleware stack. Without WSGI, there would be more dependence on the controller.</p>
+
+
+<h2>Functional Components</h2>
+
+<p>Sometimes, multiple components are used to create a single functional components. For example, validation, widgets and the forms library form a functional unit. Within that functional unit the components are tightly bound, for example, it would not be easy to make ToscaWidgets work with a different validation library. The main instances of this are:</p>
+
+<ul>
+<li>ORM: orm, active record, database administration, model designer</li>
+<li>Widgets: validation, widgets, forms forms library, automatic forms, widget browser</li>
+<li>Auth: auth, session</li>
+</ul>
+
+
+<h2>Widgets</h2>
+
+<p>Widgets present something of a binding problem. It's not the widgets framework that has the problem - it's all the individual widgets. Each widget will generally be tightly bound to both a template language, and a javascript library.</p>
+
+<p>One issue with widgets is dependence of HTML template language and JavaScript library. The widgets framework is largely independent of these, but individual widgets will be coded in a specific templating language. It is possible to mix templating languages, but at a performance cost. This is leading to a situation where there are dual releases of widgets, e.g. ToscaWidgetsForms comes in Genshi and Mako. If a widget depends on a JavaScript library (doing so is common) there is a similar issue. There is a big download penalty if a page uses multiple JS libraries.</p>
+
+
+jslib - minimal core
+template - do some benchmarking - how bad is it serialising to string?
+Also, widgets can pick up other bindings, e.g. ORM
+
+---
+
+Open issues:
+    overall - bindings need to be documented
+    widgets - template, js lib
+    how exactly should config work, say for the ORM?
+        Quite possibly a job for transactional middleware
+             middleware calls the ORM functions with parameters to pass in config
+            ORM is completely unaware of config.
+
+        Components can bind to config, guess it's best to generally avoid it
+            Auth could have settings like login url, timeout, etc
+            Could bind to config directly - controller doesn't need to know what the settings are
+        -> is there a need for a wsgi config standard?
+
+<h2>Choices</h2>
+
+Some of these are new user choices, some framework design
+
+Template:
+    XML based
+        For XML languages:
+            Enforces validity
+            Automatically protects against XSS
+            Template code can be easier
+        Challenges:
+            Very weak at non-XML output - need for alternate language
+            Speed
+
+    Include python code
+        I like this, because:
+            Lets you do the odd bit of "fixup" right where it's needed
+        Challenges:
+            Separation of duties
+            Security
+            Binding temlate to specific host language (c.f. xslt / quicksilver)
+        --> Open choice
+
+Model:
+    Reflect or sync
+        I like sync, because:
+            You can version control the model
+            Easier to deploy to test/live even on different DBs
+            Able to attach metadata, e.g. validation hints
+            Easier to edit the model than issue ddl
+        Challenges:
+            You don't get the full power of the db
+        --> Overall, pretty clearly in favour of sync
+        http://spyced.blogspot.com/2006/02/why-schema-definition-belongs-in.html
+
+    Simple ORM + hardcoded SQL / Mega ORM
+        I like full blown:
+            Eagerloader
+            More ability to push complexity into the model
+        Challenges:
+            Sheer complexity
+            Hardcoded SQL may be more efficient
+        Also option of putting complexity in views
+
+
+Controller
+    Dispatch into python code / table of URL handlers
+        I like python code
+            I keep URLs pretty simple with parameters
+            URLs within the app are a bit of a problem, can be controlled by making most things relative
+            Challenges around different handlers for http methods
+        Table / routers
+            Much better for rest style urls e.g. /thing/123/view
+        Possibilities for hybrid? Maybe routes is that!
+            Also, table opens up possibility for more declarative stuff, e.g. access controls
+        --> Open choice; I need to look at routes!
+
+    Decorators vs just doing stuff in the function
+        @expose()
+        @validate(myvalidator)
+        def myfunc(self, **kw)
+            ...
+
+        @expose
+        def myfunc(self, **kw)
+            kw = myvalidator.validate(kw)
+            ...
+
+        Hmmm... the latter is probably more pythonic. Certainly more "pedestrian"
+        Does depend on how much magic there is in the declarative behaviour
+
+Auto widgets:
+    Build from model/code vs autogen html (or template, etc.) that you can edit
+
+
+Overall design
+    How much boilerplate to put in projects
+        Pylons and TG very different here
+        Still need config without boilerplate
+    --> Open choice
+    The big challenge here is how you do upgrades
+
+
+Choice:
+    Build on widgets
+    htmlfill
+    ...
+
+<p>One approach is to build the forms library on top of the widgets library. This requires widgets to additionally:</p>
+
+<ul>
+<li>Supporting nesting, with compound name generation</li>
+<li>Supporting validation, with a framework for reporting errors</li>
+<li>Have a library of simple widgets for form components - text boxes, choice fields, etc.</li>
+</ul>
+
+<p>A serious drawback with this approach is that it makes customising the appearance of the form somewhat difficult. Convoluted code used while setting up the Widgets is needed, when a simple HTML edit could suffice.</p>
+
+<p>There is an alternative approach, using htmlfill. Define your HTML by hand, and your validation schema. htmlfill applies the output of validation to the HTML, to include error messages.</p>
+
+http://blog.ianbicking.org/on-form-libraries.html
+
+
+
+</body>
+</pipp>

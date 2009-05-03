@@ -1,0 +1,61 @@
+<pipp>
+<title>Using vi</title>
+<status>old</status>
+<body>
+
+<p>Vi is a text editor often found on Unix systems. I don't particularly like it, and generally avoid using it, but it has the benefit of being almost always available.</p>
+
+<p>The difference between vi and most other editors is it has two modes: command mode and insert mode. You start off in command mode, and usually press i to get into insert mode, where you can actually type. To get back to command mode, press escape. In some versions of vi it tells you at the bottom if you're in insert mode, otherwise you have to remember. </p>
+
+<p>There's not much to say about insert mode - you just type. Here are the most common keystrokes I use in command mode:</p>
+
+<h2>Moving about</h2>
+<table>
+<tr><td width="100">w</td><td>forward a word</td></tr>
+<tr><td>b</td><td>back a word</td></tr>
+<tr><td>$</td><td>end of line</td></tr>
+<tr><td>0</td><td>beginning of line</td></tr>
+<tr><td>G</td><td>end of file</td></tr>
+<tr><td>&lt;num&gt;G</td><td>go to line <em>num</em></td></tr>
+<tr><td>0G</td><td>beginning of file</td></tr>
+<tr><td>h,j,k,l</td><td>alternative cursor keys (left, down, up, right)</td></tr>
+</table>
+
+<h2>Cut &amp; paste</h2>
+<table>
+<tr><td width="100">dd</td><td>cut the current line</td></tr>
+<tr><td>yy</td><td>copy the current line</td></tr>
+<tr><td>dw</td><td>delete a word</td></tr>
+<tr><td>D</td><td>cut from cursor until end of line</td></tr>
+<tr><td>p</td><td>paste after cursor</td></tr>
+<tr><td>P</td><td>paste before cursor</td></tr>
+</table>
+
+<h2>Getting into insert mode</h2>
+<table>
+<tr><td width="100">i</td><td>insert text before cursor</td></tr>
+<tr><td>a</td><td>append text after cursor</td></tr>
+<tr><td>A</td><td>append text at end of line</td></tr>
+<tr><td>cw</td><td>change a word</td></tr>
+<tr><td>C</td><td>change from cursor to end of line</td></tr>
+<tr><td>s</td><td>subsitute character at cursor</td></tr>
+</table>
+
+<h2>Others</h2>
+<table>
+<tr><td width="100">.</td><td>repeats last operation. very good with 'dd'</td></tr>
+<tr><td>&lt;num&gt;&lt;cmd&gt;</td><td>do <em>cmd</em> repeated <em>num</em> times</td></tr>
+<tr><td>r&lt;chr&gt;</td><td>replace a character without going into insert mode</td></tr>
+<tr><td>ZZ</td><td>save and quit</td></tr>
+<tr><td>:!&lt;shell&gt;</td><td>runs a shell command</td></tr>
+</table>
+
+<h2>Points to note</h2>
+<ul>
+<li>If it all goes totally mad, you've probably got caps-lock on by mistake.</li>
+<li>You can get out of the help with :q</li>
+<li>Sometimes you paste into vi (in a x-term or putty window) and it misses part of the text. That's when you've done it in command mode - it starts doing your text as commands (which can wreak havoc) and drops into insert mode when it his an i, finally typing some of what you pasted.</li>
+</ul>
+
+</body>
+</pipp>

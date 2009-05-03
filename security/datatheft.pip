@@ -1,0 +1,85 @@
+<pipp>
+<title>Data Theft</title>
+<desc>Many organisations handle people's personal data in bulk, and it can be stolen by malicious employees, leaked by accident, or disclosed through hacking attacks. The ability of criminals to use this data for fraud and identity theft makes it a common target.</desc>
+<body>
+
+<pipp-child src="valreduce.pip"/>
+
+<h2>Introduction</h2>
+
+<p>Many organisations handle people's personal data in bulk, and the ability of criminals to use this data for fraud and identity theft makes it a common target. There have been numerous high-profile incidents relating to this, one of the <a href="http://en.wikipedia.org/wiki/2007_UK_Child_Benefit_data_scandal">most notorious</a> in the UK involving a government department losing details for 25 million people. In fact, these kinds of data breaches have the highest profile, and present the greatest reputational risk to organisations.</p>
+
+<p>The main routes this can occur are:</p>
+
+<ul>
+<li>Accidental loss, e.g. CDs being lost in the post</li>
+<li>Malicious employees, or honest employees who are being intimidated</li>
+<li>Hacking attacks</li>
+</ul>
+
+<p>This section won't consider hacking attacks, but will focus on acts that are authorised at the technical level.</p>
+
+
+<h2>Long Term Solution</h2>
+
+<p>In the long term, a promising solution is to reduce the value of personal data to fraudsters. For example, at present identity theft is possible just by knowing fairly basic personal information. If organisations put stronger controls on account applications, identity theft would be much harder, and the value of stolen personal data would be reduced. Organisations would still have to protect this information (it's confidential in and of itself), but the primary threat would be removed</p>
+
+<p>Unfortunately, it seems there is no easy way to strengthen account application; it would involve substatial changes to how people conduct their affairs. A strong national ID card system could be used for this, although there are concerns that would create an even greater temptation for criminals to compromise the ID cards.</p>
+
+<p>Read the <a href="valreduce.html">full article</a> on possible solutions.</p>
+
+
+<h2>Tactical Solutions</h2>
+
+<p>In the short term, any organisation handling personal data should certainly have policy in place to control its use. However, such policies are often not reflected in day-to-day operations; it's not uncommon for authorised business procedures to violate the high-level policies. So, practical controls are needed, and some possibilities are:</p>
+
+<ul>
+<li>Don't store the data - side step the problem</li>
+<li>Restrict access - stop people getting at the data in the first place</li>
+<li>Contain data - stop anything leaving the organisation</li>
+<li>Data loss prevention - stop confidential data leaving</li>
+</ul>
+
+
+<h2>Don't Store the Data</h2>
+
+<p>Obvious as this solution sounds, it is only now it is really being explored. Traditionally, merchants that take credit cards have stored a lot of data for audit purposes, inadventently making them a target (e.g. <a href="http://www.tjx.com/TJX_press_release_Jan_17_%2007.pdf">the T.J. Maxx breach</a>). In reality, there is no need for merchants to store this data; the card issuers could do it instead. Some merchants choose to store details to support features like repeat payments, although this practice may become less common in the future.</p>
+
+<p>In some cases this is not an option. For example, a credit card issuer absolutely has to store all the credit card information, along with the customer's details. But where this is possible, it is the most effective defense.</p>
+
+
+<h2>Restrict Access</h2>
+
+<p>In many organisations, customer-facing staff have access to all customer records. Access is logged, but logs are rarely reviewed. In principle, there is no need to give so many people this access.</p>
+
+<p>One possible solution is to only allow access to internal staff when the customer has successfully authenticated, e.g. by giving their passcode over the phone. There will still need to be some staff who have wider access, e.g. to deal with forgotten passcodes, but this significantly reduces the exposure. In addition, analytical staff can usually work with anonymised data. All told, the number of people needing open access can be reduced considerably. If reduced far enough, it could eventually be subject to dual-control - two people would have to work together to get access.</p>
+
+<p>I think this is something organisations should strive for, but realistically it's a medium to long-term measure. It would involve major changes to internal procedures, that would cost a great deal and affect customer service.</p>
+
+
+<h2>Contain Data</h2>
+
+<p>Getting control of points that data can leave an organisation ("egress" points) is often persued as a tactical solution. One difficulty is that there are many egress points, including:</p>
+
+<ul>
+<li>Removable storage - writable CDs, floppy disks, USB drives, bluetooth, SD cards, firewire, etc.</li>
+<li>Network - email, websites, web drives, modems, fax, etc.</li>
+<li>Physical removal - printouts, hard drives being carried out, etc.</li>
+</ul>
+
+<p>If an organisation was to disable all of these, it would prevent normal working. There's still something to be gained by closing the more obvious routes, e.g. USB and writable CDs, although there needs to be a procedure for people with a business need to have this access enabled. And of course, many breaches that occur are a result of authorised business processes - the access would likely have been granted. Attempting to control egress points is unlikely ever to be a complete solution.</p>
+
+
+<h2>Data Loss Prevention</h2>
+
+<p>An interesting alternative to controlling egress points is to control the data. So, rather than disabling email altogether, confidential data is prevented from being emailed externally. One way this can be achieved is by fingerprinting the confidential data that exists, monitoring egress points, and blocking confidential data. Digital Rights Management (DRM) is another potential approach.</p>
+
+<p>Several commercial products exist to do this, under the general banner of "Data Loss Prevention". This is a tactical solution that can be deployed at reasonable cost and stands a good chance of preventing the most common breaches. These technologies will not stop determined hackers, but they would have stopped some of the high-profile incidents.</p>
+
+
+<h2>Conclusion</h2>
+
+<p>For organisations, the best solution is to avoid storing personal data at all. Where this is not possible, data loss prevention is a tactical solution, while strong access control is the strategic solution. On a broader scale, the procedural changes to payment and account application systems will reduce the value of stolen data, removing the main threat.</p>
+
+</body>
+</pipp>

@@ -1,0 +1,85 @@
+
+Lets consider a website that allows registration and login, and does not particularly attempt to connect users with a real world identity. You can ask for a handle and a password, but as soon as you ask for a name or email address, you are beginning to tie this to a real world identity.
+
+Ok, so they login with a username and a password. Lets suppose you let them choose their own username & password. How does this stand up?
+
+It's a good start, gives reasonable protection.
+
+
+
+
+
+
+
+
+How can you authenticate somebody?
+
+
+Security theory:
+  Something you know
+  Something you have
+  Something you are
+  Somewhere you are
+  (+ sort of contactability)
+
+
+Password / pin
+  i.e. pre-agreed shared secret, one that can be memorised by a human
+  (Long password stored on computer medium - won't, use pkey)
+
+  This is good authentication, but relies on the password being setup, and people will sometimes forget them.
+
+
+Contactability
+  Phone
+  Text
+  Email
+  Mail
+  In person
+
+  --> via card bill (e.g. paypal)
+
+  This is a strong authentication, but not one you'd want to use too often. Great for registrations and forgotten passwords.
+
+
+Personal details
+  Name
+  Address
+  DOB
+
+Memorable questions
+  Mother's maiden name
+  Father's first name
+  Name of first school
+  Place of birth
+  Mother's first name
+  First pet's name
+  Who was you childhood hero
+  Father's middle name
+  Make of first car
+  Where did you meet your spouse?
+
+  Credit card number
+  Bank account number
+
+  This is a fairly weak authentication - these details can be public knowledge
+
+
+Details of things on your account
+  Recent transactions
+  Opening dates
+  Details of what you have
+  -- credit reference agencies are in a uniquely good position here!
+  -> note, this is insecure against call centre workers
+
+
+Interesting variation - Leisure suit larry!
+
+
+
+Public key
+Secure ID token
+Smart card
+Scratch off cards
+
+

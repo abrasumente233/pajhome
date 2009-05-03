@@ -1,0 +1,106 @@
+<pipp>
+<title>Vigenere Cipher</title>
+<desc>The is an old cipher, from the days of paper-based cryptography. With a computer it becomes quite easy to cryptanalyse. I have written a program which allows you to encrypt and decrypt strings and files. Given enough ciphertext, it can decode English plaintexts without the key.</desc>
+<body>
+
+<pipp-child src="vigenere_src.pip"/>
+<pipp-child-file src="vigenere.zip" title="Download"/>
+
+<h2>Introduction</h2>
+
+<p>This cipher was invented in the 16th century, and first written down by a French diplomat, Blaise de Vigen&#232;re. For a long time it was thought to be uncrackable, and it was popular for encoding sensitive data for transmission over the telegram system during the 19th century. It was first cracked by Kasiski in 1863.</p>
+
+<p>I've written a program that allows you to encrypt and decrypt messages and files using the original form of the cipher, which only handles capital letters. It can also break the cipher - decode a ciphertext without the key - given enough text.</p>
+
+<p>By today's standards the cipher is weak. Nonetheless, it is still used, slightly modified, in the "save document with password" function in some applications. The modification allows it to handle all bytes rather than just capital letters (by using XOR), but it still has the same vulnerabilities.</p>
+
+<p>This program has been used to solve various <a href="http://www.geocaching.com/">GeoCaches</a>, for example <a href="http://www.geocaching.com/seek/cache_details.aspx?guid=988d4b60-bfa8-454d-9823-c4a56b9ef158">CryptoCache Prime</a>, <a href="http://www.geocaching.com/seek/cache_details.aspx?pf=&amp;guid=5814deaf-37dc-48ed-974c-cf6a7c1bda97&amp;decrypt=y&amp;log=">Belaso's Stolen Cipher</a> and <a href="http://www.geocaching.com/seek/cache_details.aspx?pf=&amp;guid=6d0815af-6ad8-4c88-8969-a680211169b0&amp;decrypt=&amp;log=">You Can't Get There From Here</a>.</p>
+
+
+
+<h2>Using the Program</h2>
+
+<p>The <a href="vigenere.zip">download package</a> contains a Windows 32-bit executable, HTML documention and C source code. So far, I've tested the code using DevStudio and gcc under Windows NT, but it should work on most platforms. If you are familiar with computers and basic cryptography then the program is largely self explanatory, although these points are worth highlighting:</p>
+
+<ul>
+<li>To work with a file, enter <code>!filename</code> when prompted for a string. The output is written to <code>filename.vig</code></li>
+<li>At any prompts ending <code>(suggest ...)</code>, just press enter to use the suggested value</li>
+<li>While trying to work out an unknown key, a sample of the ciphertext is shown in lower case, alongside a sample of the uncovered plaintext in captials.</li>
+</ul>
+
+<h2>How the Cipher Works</h2>
+
+<p>The cipher needs a plaintext/ciphertext and a key to start. These are tidied by removing all non-alphabetic characters, and capitalising what remains. The tidied key must not be zero length. Firstly, each character in the text is assigned to a character in the key, like this:</p>
+
+<p class="code">
+PLAINTEXTMESSAGE<br/>
+KEYKEYKEYKEYKEYK
+</p>
+
+<p>Then, each character has a <em>Caesar shift</em> applied, with the amount of shift determined by the key character. The table below shows exactly what happens. To encrypt a character, find the column with the plaintext at the top, and the row with the key on the left side. The ciphertext is the character that this row and column intersect on. To decrypt, locate the row with the key on the left side, and look along this until you find the ciphertext. The plaintext is the character at the top of this column.</p>
+
+<pre style="text-align:center">
+<b>  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</b>
+<b>A</b> A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+<b>B</b> B C D E F G H I J K L M N O P Q R S T U V W X Y Z A
+<b>C</b> C D E F G H I J K L M N O P Q R S T U V W X Y Z A B
+<b>D</b> D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+<b>E</b> E F G H I J K L M N O P Q R S T U V W X Y Z A B C D
+<b>F</b> F G H I J K L M N O P Q R S T U V W X Y Z A B C D E
+<b>G</b> G H I J K L M N O P Q R S T U V W X Y Z A B C D E F
+<b>H</b> H I J K L M N O P Q R S T U V W X Y Z A B C D E F G
+<b>I</b> I J K L M N O P Q R S T U V W X Y Z A B C D E F G H
+<b>J</b> J K L M N O P Q R S T U V W X Y Z A B C D E F G H I
+<b>K</b> K L M N O P Q R S T U V W X Y Z A B C D E F G H I J
+<b>L</b> L M N O P Q R S T U V W X Y Z A B C D E F G H I J K
+<b>M</b> M N O P Q R S T U V W X Y Z A B C D E F G H I J K L
+<b>N</b> N O P Q R S T U V W X Y Z A B C D E F G H I J K L M
+<b>O</b> O P Q R S T U V W X Y Z A B C D E F G H I J K L M N
+<b>P</b> P Q R S T U V W X Y Z A B C D E F G H I J K L M N O
+<b>Q</b> Q R S T U V W X Y Z A B C D E F G H I J K L M N O P
+<b>R</b> R S T U V W X Y Z A B C D E F G H I J K L M N O P Q
+<b>S</b> S T U V W X Y Z A B C D E F G H I J K L M N O P Q R
+<b>T</b> T U V W X Y Z A B C D E F G H I J K L M N O P Q R S
+<b>U</b> U V W X Y Z A B C D E F G H I J K L M N O P Q R S T
+<b>V</b> V W X Y Z A B C D E F G H I J K L M N O P Q R S T U
+<b>W</b> W X Y Z A B C D E F G H I J K L M N O P Q R S T U V
+<b>X</b> X Y Z A B C D E F G H I J K L M N O P Q R S T U V W
+<b>Y</b> Y Z A B C D E F G H I J K L M N O P Q R S T U V W X
+<b>Z</b> Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
+</pre>
+
+<p>The ciphertext for the above example works out to be:</p>
+
+<p class="code">ZPYSRROBRWIQCEEO</p>
+
+<h2>Cracking the Cipher</h2>
+
+<p>Decrypting a ciphertext without a key is usually possible, provided that the message is substantially longer than the key (the program only works with keys of less than 255 characters), and the plaintext's language is known (the program only works with English). Of course, the program can't be <em>sure</em> of what the key is - it can only find the most likely possibility. Because of this, information about each decision is presented to the user, who then has a chance to override the automatic suggestion.</p>
+
+<p>The first step is to determine the length of the key, using the method of <em>coincidence indices</em>. To calculate a coincidence index, shift the ciphertext and compare against itself, counting character matches:</p>
+
+<p class="code">
+CIPHERTEXT<br/>
+&#160;&#160;&#160;CIPHERTEXT<br/>
+&#160;&#160;&#160;----*-*
+</p>
+
+<p>In this example, for a shift of three, there are two matches out of a possible seven, so the coincidence index is 28.57%. For random text the expected value is 3.85%, but this number tends to be higher for non-random text in any language, because some letters are more frequent than others. For Vigenere ciphertexts, the coincidence index is higher for shifts that are a multiple of the key length than otherwise (can you see why?). The program calculates the first 256 shifts, and finds the shortest length for which all shifts that are a multiple of this length have a coincidence index greater than 6%, which it suggests as the key length.</p>
+
+<p>Knowing the key length, you can break the ciphertext up into chunks, each of which have been encrypted by the same character in the key. For each chunk, try decrypting it with each possible key letter (A...Z). Compare the letter frequencies in each possible plaintext with a table of English letter frequencies. The key letter which results in the least squared deviation is the most likely candidate, which the program suggests.</p>
+
+<p>To test the cracking code, I used <code>/usr/share/dict/words</code> from a Linux system, a list of many English words. With this much ciphertext, keys as long as 200 characters can be uncovered without the user overriding any automatic suggestions.</p>
+
+<h2>Program Design</h2>
+
+<ul>
+<li>The general idea is to make the code look as if it were written in a functional language, like ML. This isn't rigorously enforced though, e.g. loops are used instead of deep recursion.</li>
+<li>Errors are handled by calling vig_error as soon as the error is detected. This uses setjmp/longjmp to escape back to the main menu, so there's no null return codes to worry about.</li>
+<li>vig_malloc is used instead of malloc. This keeps track of allocated memory, so calling vig_freeall frees everything.</li>
+<li>Functional style low-level routines are written, e.g. vig_loadfile takes a file name and loads it into newly allocated memory.</li>
+<li>For portability, size and endianness of data types doesn't matter, and only POSIX system calls are used. The program assumes at least an 80 x 25 character terminal.</li>
+<li>Global variables are avoided, except where necessary in low level functions, e.g. storing the stack environment for error handling. Function names all have the prefix vig_.</li>
+</ul>
+
+</body>
+</pipp>

@@ -1,0 +1,27 @@
+<pipp>
+<title>Introduction</title>
+<desc>The basics of cryptography - Alice wants to talk to Bob, in private.</desc>
+<body>
+
+<h2>The Problem</h2>
+
+<p align="center"><pipp-img src="problem.gif"/></p>
+
+<p>Alice and Bob want to communicate in secret, while Eve wants to eavesdrop. Alice and Bob could be military jets, on-line businesses or just friends trying to have a private conversation. They can't stop Eve listening to their radio signals (or tapping their phone line, or whatever), so what can they do to keep their communication secret? </p>
+
+<h2>Symmetric Encryption</h2>
+
+<p align="center"><pipp-img src="symmetric.gif"/></p>
+
+<p>One solution is for Alice and Bob to exchange a digital key, so they both know it, but it's otherwise secret. Alice uses this key to encrypt messages she sends, and Bob reconstructs the original messages by decrypting with the same key. The encrypted messages (ciphertexts) are useless to Eve, who doesn't know the key, and so can't reconstruct the original messages. With a good encryption algorithm, this scheme can work well, but exchanging the key while keeping it secret from Eve is a problem. This really requires a face to face meeting, which is not always practical.</p>
+
+<h2>Public Key Encryption</h2>
+
+<p align="center"><pipp-img src="publickey.gif"/></p>
+
+<p>Public key encryption is different, because it splits the key up into a public key for encryption and a secret key for decrpytion. It's not possible to determine the secret key from the public key. In the diagram, Bob generates a pair of keys and tells everybody (including Eve) his public key, while only he knows his secret key. Anyone can use Bob's public key to send him an encrypted message, but only Bob knows the secret key to decrypt it. This scheme allows Alice and Bob to communicate in secret without having to meet.</p>
+
+<p>However, if Eve can tamper with Alice and Bob's communication as well as passively listening, she could substitute her public key for Bob's, and then decrypt Alice's messages using her own private key. The <a href="pract.html">practicalities</a> section explains how problems like this are avoided.</p>
+
+</body>
+</pipp>

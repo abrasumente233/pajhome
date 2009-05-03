@@ -1,0 +1,40 @@
+<pipp>
+<title>Language</title>
+<desc>Something we take as a given, but what is it?</desc>
+<body>
+
+<p>Sometimes language seems very illogical. You would expect this, because it's evolved to be easy for you sub-conscious brain to use, not to be easy for your conscious brain to academically analyse. Lots of clues as to the nature of the sub-conscious are probably hidden in all the world's languages. This is a very good reason for opposing gradual consumption of other languages by English.</p>
+
+<h2>Language Development</h2>
+
+<p>Language is reproduced by one person learning it from others, and <em>mutations</em> arise because the transfer is imperfect. Also, I think I pick up more from an effective communicator than from others, so there's all the components needed for natural selection! Good communication is a survival advantage, so I conjecture that the physical evolution of our voice boxes happened along-side this. Because of this, I support futher evolution of language:</p>
+
+<ul>
+<li>adoption of new words for new things, e.g. minidisc, dvd</li>
+<li>new spellings, e.g. doughnut becoming donut, through becoming thru</li>
+<li>refinements when language is used with new technology, e.g. <code>txt msgs</code></li>
+</ul>
+
+<h2>Language Limitations</h2>
+
+<p>Natural languages work best for communicating everyday ideas, which is not surprising given how they developed. They are less suited to discussing abstract concepts, because words are imprecise and contain inbuilt assumptions that you're generally not aware of. It's difficult to discuss whether there is a real 'self' when you have to assume that to use language (I think, I am not sure I agree, etc).</p>
+
+<h2>Paradoxes</h2>
+
+<p class="indented">In a small village, the barber shaves everyone who does not shave themselves. So, who shaves the barber?</p>
+
+<p>We can't answer the question. If we start by assuming he shaves himself, we see this is wrong because he only shaves people who do not shave themselves. If he doesn't shave himself, then the barber does, so this is wrong too! This is an example of a paradox. I think paradoxes are only a problem with the imprecise language we use, and never happen in nature. You simply can't have a small village exactly as described above, it makes no more sense than:</p>
+
+<p class="indented">In a small village, everyone shaves themselves and everyone does not shave themselves. So, who shaves the barber?</p>
+
+<p>We can't answer this question either. Paradoxes don't just arise with natural language; mathematical set notation, has <em>Russell's paradox</em> (Consider the set of all sets that do not contain themselves. Does this set contain itself?). In principle, you can refine languages to remove the possibility of paradoxes. However, this tends to result in impractically complicated systems, such as Russell's <em>Unified Theory of Types</em>. I think it's best to stick to our simple, sloppy language that allows paradoxes. Whenever one occurs, just dismiss it as clumsy wording. Unless you're careful, the following can appear to lead to paradoxes:</p>
+
+<ul>
+<li>Self-reference, e.g. <em>This statement is false</em></li>
+<li>Zero and infinity, e.g. division by zero or infinite speed</li>
+<li>Writing complex mathematical concepts in English, e.g. special relativity twin's paradox</li>
+<li>Forgetting that square roots have both positive and negative answers, e.g. 2 = -2 proofs</li>
+</ul>
+
+</body>
+</pipp>

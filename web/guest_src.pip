@@ -1,0 +1,12 @@
+<pipp>
+<title>Guest Book</title>
+<desc>Source code to the guest book script previously used on pajhome.</desc>
+<status>old</status>
+<body>
+
+<p>Here is the source code to the guest book that used to be on my site. Unfortunately, it has now been removed due to spam. A few years back, it was a nice example of a CGI script that provides an HTML interface to a MySQL back-end. These days with frameworks like <a href="http://www.turbogears.org/">TurboGears</a> and <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a>s like <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>, it's looking a little dated, although some of the principles still hold true.</p>
+
+<pipp-code src="guest.py"/>
+
+</body>
+</pipp>

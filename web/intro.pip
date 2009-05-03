@@ -1,0 +1,81 @@
+<pipp>
+<title>Introduction</title>
+<desc>Web applications have become an incredibly important area in computing. Almost every aspect of life can be managed through a web app now - banking, ticket booking, even reporting crimes. A great variety of technologies have appeared around this space, from browser plugins for flashy graphics up to hardware appliances for web server acceleration. A set of technologies I am particularly intereted in is web frameworks. These are development environments that make it faster and easier to build quality web apps.</desc>
+<body>
+
+<p>Web frameworks are development environments that make it faster and easier to build quality web apps. Many frameworks exist, including ASP.NET and Java Struts. Different frameworks have radically different approaches, resulting in a variety of strengths and weaknesses. Recently there has been particular interest around frameworks in dynamic languages, where Ruby on Rails is a pioneer.</p>
+
+
+<h2>Before Frameworks</h2>
+
+<p>Before frameworks, many web apps were coded in languages like PHP, JSP and ASP. These languages make it easy to embed code in a web page, but don't offer much further support. Regardless of the language used, most web apps use an SQL database to store data on the server. This arrangement certainly works, and has supported major websites for several years, but there are some problems:</p>
+
+<ul>
+<li>Code and presentation is tied together; a designer who doesn't program cannot easily update the look and feel.</li>
+<li>Database access uses embedded SQL, and requires quite a lot of code.</li>
+<li>A lot of code is required for helpfully validating form data.</li>
+<li>Pages are independent; it is difficult to do site-wide tasks, such as checking for a login session.</li>
+<li>Common components (e.g. a popup calendar) require some work to integrate.</li>
+<li>Considerable knowledge and care is required to avoid security vulnerabilities.</li>
+</ul>
+
+
+<h2>MVC Architecture</h2>
+
+<p>Most frameworks are based on a <a href="http://en.wikipedia.org/wiki/Model-view-controller">Model-View-Controller</a> (MVC) architecture. Roughly speaking, this means code is separated depending on whether it is to do with data storage (model), presentation (view) or everything else (controller). Frameworks vary in the precise definition of each component, and the degree to which this architecture is followed. In general, this is a very helpful way of dividing an application into components.</p>
+
+<p>To take a contrasting example, most PHP applications have no separation between the model, view and controller - each page contains some code relating to all three.</p>
+
+
+<h2>Other Features</h2>
+
+<p>As well as helping to structure your application in a useful way, most frameworks try to offer convenient ways to achieve common developer requirements. Some of the more common ones are:</p>
+
+<ul>
+<li>Authentication and authorization, user registration, forgotten passwords, etc.</li>
+<li>Reusable components - popup calendars, rich text editors, etc.</li>
+<li>Libraries for form generation and validation; automatic construction from a database model.</li>
+<li>JavaScript libraries and server-side code to work with JSON.</li>
+<li>Tools to assist with deployment and management of a live application.</li>
+<li>Internationalisation and localisation.</li>
+</ul>
+
+
+<h2>Model - Object-Relational Mapper</h2>
+
+<p>Most frameworks encourage the use of an <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">object-relational mapper</a> (ORM) for the model. An ORM provides an object-orientated interface to an SQL database, with classes representing tables, and class instances representing rows. This has a number of benefits:</p>
+
+<ul>
+<li>The data classes provide a convenient place to put code relating to data storage.</li>
+<li>Common database uses can be achieved in much less code than embedded SQL, and this helps avoid a conceptual shift between program code and SQL.</li>
+<li>The ORM can offer advanced functionality, such as polymorphism and sharding.</li>
+<li>The data classes act as a master definition for data structure in the application.</li>
+<li>Most ORMs provide portability across a variety of SQL databases (Oracle, MySQL, etc.).</li>
+</ul>
+
+<p>ORMs do not suit all applications. If there is a lot of complex data querying, the ORM may do no more than add another layer of complexity, and using plain SQL would be appropriate. An MVC architecture does not enfore use of an ORM, but they do work well together.</p>
+
+
+<h2>View - Template Languages</h2>
+
+<p>Most frameworks use a templating language for the view. This is generally HTML with some extra annotations. For example, in <a href="http://genshi.edgewall.org/">Genshi</a> templates, py:for can be used to do a for loop. These annotations are processed on the server, so the client only sees regular HTML. Templating languages generally have the following features:</p>
+
+<ul>
+<li>Variable subsitution - e.g. $username is replaced by the username variable.</li>
+<li>Loops (for) and conditional blocks (if).</li>
+<li>Embedding expressions or code, e.g. ${username.lower()}</li>
+<li>Reusable blocks, somewhat like functions.</li>
+</ul>
+
+<p>Some template languages work only with XML-based files, e.g. <a href="http://www.w3.org/TR/xslt">XSLT</a>. Others work with any text file, e.g. <a href="http://www.cheetahtemplate.org/">Cheetah</a>. Some deliberately restrict the ability to include code, e.g. <a href="http://docs.djangoproject.com/en/dev/ref/templates/builtins/">Django</a>, while most allow arbitrary code. Most template languages are bound to a programming language, but some are general, e.g. <a href="http://www.clearsilver.net/">Clearsilver</a>.</p>
+
+
+<h2>Controller</h2>
+
+<p>For a web framework, the main function of a controller is to deliver web requests to application code. Many languages have a common interface to web servers (e.g. the <a href="http://en.wikipedia.org/wiki/Java_Servlet">Java Servlet</a> interface). Frameworks can utilise this to support all web servers that can interface with their language. In addition, most frameworks have a built-in web server, which is convenient for development as it can be run without configuration.</p>
+
+<p>There are several approaches to translating web requests to code calls. One approach is to treat functions somewhat like pages - a request to /myfunc results in myfunc() being called. Another approach is to have a definition table that provides rules to map URLs to functions. These approaches are useful in different applications; many frameworks offer the user a choice.</p>
+
+
+</body>
+</pipp>

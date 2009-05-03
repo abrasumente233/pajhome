@@ -1,0 +1,101 @@
+<pipp>
+<title>My Career</title>
+<desc>I've had an interesting and varied career in IT, doing programming, system administration and security.</desc>
+<body>
+
+<h2>2005 - 2008: HBOS Plc - Penetration Testing Manager</h2>
+
+<p>I had a varied role in Group Information &amp; IT Risk, a group-wide operational risk function which specialises in information and IT risks. The team won the SC magazine "Best FS Information Security Team" in 2007. Primary responsibilities:</p>
+
+<ul>
+<li><b>Penetration testing</b> - I have embedded pen tests in the project governance cycle, and transformed what was primarily a systems vulnerability assessment service into a comprehensive penetration testing service, with a heavily involvement in web applications. Particular emphasis is placed on making business-aware risk assessments and communicating these appropriately, especially when a significant vulnerability is discovered.</li>
+<li><b>Non-compliance assessment</b> - I am a front-line assessor of security standards non-compliances, tasked with performing risk assessments, challenging business areas' risk assumptions, accepting minor risks, and influencing key stakeholders to make tough steps, when major risks are identified.</li>
+<li><b>Project governance</b> - I have provided support for several projects to meet their governance requirements, from design to delivery, ensuring compliance with the group information security policy, which is broadly aligned to BS7799/ISO270001. </li>
+<li><b>Standards maintenance</b> - I provide input into new standards and ongoing reviews of existing standards, to ensure the technical details reflect the control objectives defined in policy, and are current.</li>
+<li><b>Forum representation</b> - I have represented information and IT risk concerns at a number of specialist forums, e.g. e-commerce security forum and design authorities.</li>
+<li><b>Vendor relationships</b> - I managed the group's relationship with penetration testing companies, establishing an approved supplier panel, identifying vendors' key strengths and setting up procedural aspects such as NDAs, preferred points of contact, etc.</li>
+<li><b>Operation risk challenge</b> - Using knowledge gained during technical work, I have challenged capital adequacy calculations.</li>
+</ul>
+
+
+<h2>2002 - 2005: Westpoint Ltd - Internet Security Specialist</h2>
+
+<p>My primary responsibility
+is running automated vulnerability scans of large, remote customer networks,
+removing false positives and reporting the results in a customer-focused
+manner. I have gained experience in automated scanning software such as nmap,
+nessus and nikto as well as manual investigation tools such as netcat, stunnel,
+scapy and dig. I am able to communicate vulnerability information to both
+technicians and managers. I have also conducted penetration tests, which
+involve a higher level of detail and more manual effort.</p>
+
+<p>I am responsible for
+continually improving the test set to incorporate new vulnerabilities and
+reduce false positives. I have contributed numerous improvements to nessus,
+which have been incorporated into the tool. I have also developed bespoke
+auditing tools, for example "icmpscan" which solicits various ICMP messages
+from remote hosts. These tools have been written in Perl, Python and NASL
+(Nessus Attack Scripting Language). I have conducted vulnerability research
+which has led to three CVE candidate numbers being assigned to vulnerabilities
+I discovered.</p>
+
+<p>I have done development
+work on the reporting system, creating new reports and debugging existing ones.
+This involves using Oracle SQL, XSQL, XSLT, HTML, CSS, JavaScript and Perl. I
+have also served as the administrator for the office network, using the
+relevant skills from previous jobs.</p>
+
+<h2>2001 - 2002: Effective IT - Systems Administrator and Developer</h2>
+
+<p>My major responsibilities
+were developing and maintaining a web hosting company and an ISP. I developed
+new features such as a domain renewal reminder and an ADSL number checker. This
+involved research, design, coding, testing and documentation, using Python,
+MySQL and Linux. I debugged the pre-existing code and audited it for security
+problems. I found several vulnerabilities caused by design errors and
+insufficient input validation. I fixed the specific bugs and introduced designs
+that reduced the possibility of future bugs. I also reviewed the configuration
+of server software including Apache, BIND, Sendmail and Proftpd to ensure it
+was both secure and useful to customers.</p>
+
+<p>I was also responsible for the
+security and availability of the office systems and served as an on-call
+engineer for our small business customers. This involved configuring small
+networks with Windows workstations and a Linux server to have web access,
+email, central file stores and shared printers. The technical knowledge of the
+customers varied considerably and all solutions had to be appropriate to their
+level.</p>
+
+<h2>2000 - 2001: World Online - Unix systems administrator</h2>
+
+<p>I worked in a busy NOC, responding to monitoring systems,
+serving as technical backup for customer services and identifying trouble spots
+before they became problems. I solved many day-to-day issues, which required
+continuous learning from manuals, web sources and other staff. This covered
+several operating systems: FreeBSD, Linux, Solaris, Windows NT and Cisco IOS,
+and much server software including: Apache, Zeus, Sendmail, Exim, Bind, Cistron
+Radius and Oracle. I passed on the knowledge I gained by producing
+documentation and answering questions when managers or other sys-admins came to
+me. I also developed new systems including tape backups and SMS alerting, using
+FreeBSD and Perl.</p>
+
+<p>Proactively identifying problems involved using tools like
+nmap to map the little-documented network and explore it from an attacker's
+perspective. I also manually investigated the configuration of key systems. I
+discovered and resolved numerous security issues without affecting the customer
+experience. In some cases it was necessary to completely reinstall hosts and
+rewrite control scripts.</p>
+
+<h2>1998 - 1999: Data Connection - Software developer</h2>
+
+<p>I worked in the "SNA for Unix" group, which produces a
+networking toolkit to connect legacy mainframes to TCP/IP networks. I developed
+various tools to assist with testing and debugging the product. These were
+primarily coded in C and compiled for AIX, SCO UnixWare, Solaris and HP-UX. My
+kernel dump analysis tool automated many manual tasks and significantly reduced
+time spent investigating customer crashes. My regression testing suite provided
+nightly user simulation testing of main product areas on all platforms.</p>
+
+
+</body>
+</pipp>

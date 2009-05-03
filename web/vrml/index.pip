@@ -1,0 +1,42 @@
+<pipp>
+<title>Web 3D</title>
+<desc>Information about Web 3D (previously called VRML) and some example objects.</desc>
+<keywords>web32, VRML, WWW, 3D, worlds, models, VR, tutorial, light, camera, rotation, view</keywords>
+<status>old</status>
+<body>
+
+<pipp-child src="vectors.pip"/>
+<pipp-child src="lights.pip"/>
+<pipp-child src="material.pip"/>
+<pipp-file src="*.wrl"/>
+
+<p>Web 3D, or VRML as it used to be called. Virtual Reality Modelling Language lets you put three dimensional, interactive worlds on web pages. The plug-in to view these is widely available. I learned about VRML during two weeks work experience at <a href="http://www.leeds.ac.uk">Leeds University</a>. Here I show off some of my attempts at writing VRML, and also explain some aspects of the language I found difficult.</p>
+
+
+<p style="text-align:center">
+  <a href="clock.wrl"><pipp-img src="clock.gif" style="vertical-align:middle"/></a>
+  <a href="rubik.wrl"><pipp-img src="rubik.gif" style="vertical-align:middle"/></a>
+  <a href="light.wrl"><pipp-img src="light.gif" style="vertical-align:middle"/></a>
+  <a href="eyes.wrl"><pipp-img src="eyes.gif" style="vertical-align:middle"/></a>
+</p>
+
+<h2>Introduction</h2>
+
+<p>Web3D is the new name for VRML. Virtual Reality Modelling Language lets you put three dimensional, interactive worlds on web pages. Verious plug-ins are available on most platforms, and are included in the <em>gold</em> versions of Netscape and Internet Explorer. For background information, look at:</p>
+
+<ul>
+<li><a href="http://vrmlworks.crispen.org/faq/">The VRML FAQ</a></li>
+</ul>
+
+<h2>Concepts</h2>
+
+<p>I found these concepts difficult to understand at first. Note that I first wrote these in 1996 when VRML 1.0 was all the rage, so some details might be out of date.</p>
+
+<ul>
+<li><a href="vectors.html">Co-ordinates, Vectors, Rotations and Views</a></li>
+<li><a href="lights.html">Light Sources</a></li>
+<li><a href="material.html">Material Attributes</a></li>
+</ul>
+
+</body>
+</pipp>

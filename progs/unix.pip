@@ -1,0 +1,58 @@
+<pipp>
+<title>Unix</title>
+<desc>Some handy information about using Unix.</desc>
+<keywords>system, systems, administration, administrator, sys-admin, unix, linux, freebsd, solaris</keywords>
+<status>old</status>
+<body>
+
+<pipp-child src="linuxnt.pip"/>
+<pipp-child src="vi.pip"/>
+
+<h2>Introduction</h2>
+
+<p>These pages provide some pertient information about Unix. When I worked as a sys-admin, I originally planned to expand this part of the site considerably. However, my work and interests have changed since then and it is no longer updated.</p>
+
+<ul>
+<li><a href="linuxnt.html">Linux vs NT</a></li>
+<li><a href="vi.html">Using vi</a></li>
+</ul>
+
+
+<h2>Handy bash features</h2>
+
+<table>
+<tr><td>Ctrl-r</td><td>Reverse search through command history</td></tr>
+<tr><td>Ctrl-o</td><td>Execute a command in the history, then go to next command in history</td></tr>
+<tr><td>Alt-#</td><td>Cancels current command, but leaves it in history</td></tr>
+<tr><td>Alt-f, Alt-b</td><td>Forward / backward a word</td></tr>
+<tr><td>Alt-d, Alt-Backspace</td><td>Forward / backward delete a word</td></tr>
+<tr><td>Ctrl-a, Ctrl-e</td><td>Beginning / end of line</td></tr>
+<tr><td>echo $((17+15))</td><td>A handy calculator</td></tr>
+<tr><td>echo prefix_{two,endings}</td><td>Gives you: prefix_two prefix_endings</td></tr>
+</table>
+
+<h2>Tape Backups</h2>
+Some tips:
+<ul>
+<li>Label the tapes, but don't label the boxes. This way a tape can never get into the wrong box.</li>
+<li>Use an external drive. If you computer is stolen, this is much less likely to go with it.</li>
+<li>Have the software eject the tape at the end, but only if the backup is successful. This way admins know if there were any problems without having to check the logs.</li>
+</ul>
+
+And <b>please,</b> learn how to restore from the backups. There may be some gotchas which you really don't want to hit in an emergency.
+
+<h2>Ideas for a Linux Distribution</h2>
+
+<p>Most Linux distributions have startup scripts that are very complicated shell scripts. Also, there is no standard place to store configuration, like the Windows registry. To deal with these issues, a distribution could:</p>
+
+<ul>
+<li>Use python instead of bash for the startup scripts.</li>
+<li>Startup scripts have a dependency tree, rather than a numerical order.</li>
+<li>Store configuration in a database (probably MySQL or PostgreSQL). When a service is installed, it adds itself to the startup table, the log rotate table, etc. This would replace files in /etc like passwd, aliases, etc.</li>
+<li>There's a tool that works like RedHat's "service iptables save" that saves the current network configuration. This means you can setup the network using ifconfig/route directly, then just save it. Or if you like, you can edit the save file and reload it.</li>
+</ul>
+
+<p>Delivering this is no simple task. You need to update all software to understand the configuration database. However, quite a lot of software does this already, e.g. Exim, MyDNS, Apache, Courier IMAP/POP3.</p>
+
+</body>
+</pipp>

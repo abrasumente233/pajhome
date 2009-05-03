@@ -1,0 +1,21 @@
+<pipp>
+<title>Auth*</title>
+<desc></desc>
+<body>
+
+<h2>Sessions, Authentication and Authorization</h2>
+
+<p>For convenience, I will refer to "sessions, authentication and authorisation" as auth*. A good auth* system will:</p>
+
+<ul>
+<li>Provide a range of session storage options - memory, database, files, encrypted cookies, etc.</li>
+<li>Support a range of authentication techniques - HTML forms with cookie, HTTP basic/digest, OpenID, Windows authentication, etc.</li>
+<li>Provide code hooks to let authentication work against arbitrary user database back ends.</li>
+<li>Provide a range of authorisation approaches, both coarse and granular. Allow permissions to be managed without modifying code.</li>
+<li>Provide user registration and forgotten password features.</li>
+<li>Be implemeneted securely, e.g. supporting lockouts.</li>
+<li>Have good handling of real-world problems, such as cookies being disabled.</li>
+</ul>
+
+</body>
+</pipp>

@@ -1,0 +1,29 @@
+<pipp>
+<title>Materials</title>
+<body>
+
+<h2>Introduction</h2>
+
+<p>The appearance of an object is determined by the way it reflects light - colours, shininess, transparency, etc. It also depends on the lighting. In VRML you just specify how the object reflects light, and the engine takes care of the rest.</p>
+
+<h2>Colour</h2>
+
+<p>There are four different colour attributes:</p>
+<ul>
+<li>Diffuse Colour - This is the most significant attribute, the colour the object appears when illuminated with a white light source. The intensity depends on the light source, colour of object and the angle between then. A surface facing the light source perpendicularly reflects the most light.</li>
+<li>Ambient Color - The component of the object's colour coming from reflected ambiet light. Usually this is close to the diffuse colour, so that in shadows the object appears a similar, but darker colour. An object reflecting only ambient light is substantially dimmer that a similar object reflecting diffuse light.</li>
+<li>Emissive Color - The colour of light the object emits itself. A bright emissive object only produces a small amount of light compared to a light source. This is used to model glowing objects such as LEDs and
+candles.</li>
+<li>Specular Color - The colour of highlights on the object. Typically this will be set to bright white. See description of shininess below for more.</li>
+</ul>
+All these color fields take a (red, green, blue) triplet of floating point numbers between 0 (not reflected) and 1 (fully reflected), for example: <code>diffuseColour 0.8 0.6 0</code>
+
+<h2>Transparency and Shininess</h2>
+Both these are floating point values between 0 and 1.
+<ul>
+<li>A completely opaque object has transparency 0, while one with transparency 1 lets all light through.</li>
+<li>Shiny objects sometimes reflect highlights - think of a snooker ball or polished apple. For a very shiny object (shininess close to 1) you get small sharp highlights, which you can only see when the light is reflecting directly off the object. For duller objects you get larger, softer highlights with a larger field of view.</li>
+</ul>
+
+</body>
+</pipp>

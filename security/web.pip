@@ -1,0 +1,112 @@
+<pipp>
+<title>Web Applications</title>
+<desc>Security on the web is relatively immature, and not widely embedded in development processes. With so many teams building web applications, and these performing critical functions such as online banking, this vector poses a major avenue of attack.</desc>
+<status>new</status>
+<body>
+
+<pipp-child src="webchecks.pip"/>
+
+<p>Web applications are a target for hackers if not properly secured. There are a number of technical subtles in correctly securing a web application. Coding errors can lead to vulnerabilities like SQL injection and cross-site scripting. Different risks affect sites with different functions:</p>
+
+<ul class="gap">
+<li><b>Static Sites</b><br/>
+To the server, static sites are just a collection of files. There are general risks to the server, such as denial of service, but there is no significant risk of application coding errors.</li>
+
+<li><b>Simple Dynamic Sites</b><br/>
+Some sites have simple server-side logic, e.g. a store locator, or a guest book. All the information is public, but the server itself needs to be protected. There is a risk, for example, that a coding error could allow a hacker to take control of the server.</li>
+
+<li><b>Sites with Authentication</b><br/>
+Sites where you can login and access a private area have more risks to deal with. As well as protecting the server, the application also needs to protect users' data. There is a risk, for example, that a coding error could allow one user to access another user's data.</li>
+</ul>
+
+<p>Different threats affect sites with different user bases and business functions:</p>
+
+<ul class="gap">
+<li><b>General Sites</b><br/>
+Sites without large user bases, or financial access, are relatively unlikely to be attacked.</li>
+
+<li><b>High-Profile Sites</b><br/>
+Popular sites, such as webmail providers and social networks, are very likely to be attacked if they have even minor vulnerabilities.</li>
+
+<li><b>High-Value Sites</b><br/>
+Sites that have a financial incentive for hackers, e.g. online banking, face even more threats. As well as attacks against the server, users of the application are targeted too. Phishing emails attempt to trick people into revealing login details, while trojans sit quietly on compromised workstations, waiting for login details to be entered.</li>
+</ul>
+
+
+<h2>How Bad are Things?</h2>
+
+<p>From working in the web security world, my experience is:</p>
+
+<ul>
+<li>Vulnerabilities that allow a server compromise are rare on any kind of site.</li>
+<li>Less serious vulnerabilities are common on general sites, but rarely attacked.</li>
+<li>Vulnerabilities of any kind are rare on high-profile and high-value sites, but they happen.</li>
+<li>Users of high-value sites are often vulnerable, and often attacked.</li>
+</ul>
+
+<p>In general, operators of high-value and high-profile sites work hard to ensure there are no vulnerabilities in their sites, as any vulnerabilities are likely to be exploited. There have been high-profile cases of social networking worms and webmail viruses, caused by such weaknesses. Operators of high-value sites also generally work hard to protect their users, as it's usually the company that bears the cost of fraud, not the individual.</p>
+
+<p>Operators of general sites have less of an incentive to secure their sites. If they do nothing - a cheap option - they are still unlikely to suffer a serious incident. Some general sites make efforts to be secure anyway. Many only do so when regulations enforce it, e.g. PCI DSS.</p>
+
+
+<h2>How to Secure a Web Application</h2>
+
+<p>From a manager's point of view:</p>
+
+<ul>
+<li>Use technologies that promote security.</li>
+<li>Make sure developers are security aware.</li>
+<li>Consider application security testing.</li>
+<li>Consider deploying a web application firewall.</li>
+<li>For high-value sites, provide additional protection for your users.</li>
+</ul>
+
+<p>This almost makes it sound easy! Sadly, being a web application security specialist, I can't just have the manager's overview. There is a huge amount of detail behind these statements.</p>
+
+<h2>Technologies that Promote Security</h2>
+
+<p>Older technologies like PHP and ASP are very difficult to use securely. Unless great care is taken, applications are likely to be vulnerable to attacks like cross-site scripting and SQL injection. Newer technologies, such as ASP.Net or Ruby on Rails, take on much more security responsibility, leaving less chance of developer errors.</p>
+
+<h2>Developer Security Awareness</h2>
+
+<p>Ideally, all programmer education would include a significant amount of security awareness. In practice, not all trained programmers have good security awareness, although this is certainly improving. To have reasonable confidence in a team, all the web developers need basic security knowledge, and there needs to be a security "champion" in the team. Companies that employ developers need to be prepared to allocate time for training, and fund some courses.</p>
+
+<p>Reference information for developers:</p>
+
+<ul>
+<li><a href="http://www.owasp.org/index.php/OWASP_Guide_Project">The OWASP Guide</a></li>
+<li><a href="http://westpoint.ltd.uk/advisories/Paul_Johnston_GSEC.pdf">Authentication and Session Management on the Web</a> - I wrote this paper as part of my <a href="http://www.giac.org/">GSEC</a> certification.</li>
+</ul>
+
+
+<h2>Web Application Security Testing</h2>
+
+<p>There are two main approaches to testing - black box and code review. For black box testing, the site is accessed in the same was a user would access it, and the test uses similar techniques to those used by hackers. A code review is an offline analysis of the source code. Both techniques require either specialist people or tools, which are generally expensive. Code reviews inparticular tend to be time consuming and expensive. While a code review can find more vulnerabilities, black box testing is cheaper, and can find most of the vulnerabilities that are likely to be exploited.</p>
+
+<p>For both kinds of testing there is a choice of manual testing or using automated tools. Manual tests can find more vulnerabilities, as a human can understand the intricacies of each application. I've discovered serious flaws, such as server compromise by a malicious file upload, that an automated tool would not be able to discover. However, you need a specialist to do manual testing. A great advantage of automated tools is the ability for developers to use them, so problems are found early in the development cycle. Both approaches tend to be expensive, although manual testing costs for every test, while once you have a tool, each test is usually free.</p>
+
+<p>I recommend that all commercial sites (apart from purely static sites) have manual black-box testing performed before release, and before major updates. High-profile and high-value sites should also embed automated security tools into the development cycle.</p>
+
+<p>Reference information for testers:</p>
+
+<ul>
+<li><a href="webchecks.html">Testing Checklist</a></li>
+</ul>
+
+
+<h2>Web Application Firewalls</h2>
+
+<p>A Web Application Firewall (WAF) aims to protect a web application even if it has technical vulnerabilities. Requests are analysed for patterns that appear in attacks, and blocked or modified as appropriate. I don't have a great deal of experience with WAFs, but knowing roughly how they work, I believe the moderate vendor claims of blocking most attacks and not interfering with the user experince. One concern I have is that in some cases a skilled attacker could still exploit a vulnerability through the WAF, by carefully crafting the attack to confuse the WAF.</p>
+
+<p>My opinion is that most sites do not need a WAF. Even for high-value sites, if there is confidence in development processes, and security testing is done, a WAF is not necessary.</p>
+
+
+<h2>Protecting Users</h2>
+
+<p>The idea is to design the site so that even if the user access it from a trojaned system, or is tricked by a phishing email, their account remains secure. A technique used by many high-value sites is multi-factor authentication (MFA). To perform sensitive operations (such as transfering money), the user needs to have a physical device present, as well as their user name and password. Some sites issue a token, while others use a device the user already has, most commonly a mobile phone.</p>
+
+<p>In the medium-term I expect MFA to be very successful at preventing attacks. However, it does not provide complete protection against either phishing or trojans. Attackers can increase the complexity of their attacks, and still be successful in some circumstances. My opinion is that most high-value sites should implement MFA, and monitor the situation to see if more complex attacks become common.</p>
+
+
+</body>
+</pipp>

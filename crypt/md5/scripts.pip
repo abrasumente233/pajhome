@@ -1,0 +1,100 @@
+<pipp>
+<title>Scripts</title>
+<desc>Download the scripts, see information about their history and future plans, and links to other resources.</desc>
+<body>
+
+<pipp-child src="md4src.pip"/>
+<pipp-child src="md5src.pip"/>
+<pipp-child src="sha1src.pip"/>
+
+<pipp-file src="jshash-1.1.zip"/>
+<pipp-file src="jshash-2.1.zip"/>
+<pipp-file src="jshash-2.2-beta.zip"/>
+
+<h2>Download</h2>
+
+<ul>
+<li>Current version - <a href="jshash-2.1.zip">jshash-2.1.zip</a></li>
+<li>Next version - <a href="jshash-2.2-beta.zip">jshash-2.2-beta.zip</a></li>
+<li>Old version - <a href="jshash-1.1.zip">jshash-1.1.zip</a></li>
+</ul>
+
+<h2>Future Plans</h2>
+
+<p>The 2.2-beta version is planned to become a final release in June 2009.</p>
+
+<p>Version 3.0 is planned (no time frame yet) that will break backward-compatibility. The most significant change will be presenting the hash algorithm as a JavaScript object. Some potential approaches have been submitted, and further suggestions are welcome:</p>
+
+<ul>
+<li><a href="contrib/md5-obj1.js">Version A</a> by <a href="mailto:andrewrcollins@yahoo.com">Andrew Collins</a></li>
+<li><a href="contrib/md5-obj2.js">Version B</a> by <a href="mailto:kai@meder.info">Kai Meder</a></li>
+<li><a href="contrib/md5-proto.js">MD5 using JavaScript prototypes</a>, by <a href="mailto:gasperfm@uc.edu">Felipe Gasper</a></li>
+</ul>
+
+
+<h2>Change History</h2>
+
+<dl>
+<dt>2.2-beta (3 May 2009)</dt>
+<dd><ul>
+<li>More algorithms - RIPEMD-160, SHA-256 and SHA-512 are now supported, based on contributed code. Support for MD4 has been dropped.</li>
+<li>Compressed versions of the scripts are available, processed by <a href="xxx">YUI Compressor</a>. <code>sha1-min.js</code> is less than 3kb.</li>
+<li>Improved unicode support. By default, the input string is now encoded as utf-8, before being hashed, which is what most people want. It is still possible to use utf-16, but the <code>chrsz</code> configuration variable is gone.</li>
+<li>Arbitrary output encoding. You can specify a string of characters to use for output encoding; the string length does not need to be a power of two. This is helpful for password makers, which want to use as much unpredictability as possible, in a short password.</li>
+<li>Bug fixes:
+<ul>
+<li>The scripts now work correctly if immediate code is not executed, so they support some unusual platforms, including GreaseMonkey.</li>
+<li>rstr2binl now pre-initialises the array with zeros, to work around bugs in some browsers.</li>
+<li>md5_vm_test now works if hex_case is set to 1</li>
+</ul></li>
+</ul></dd>
+
+<dt>2.1 (15 Dec 2002)</dt>
+<dd><ul>
+<li>Binary string output</li>
+<li>Improved browser compatibility. Version 2.0 had a number of problems and should not be used.</li>
+<li>Backward-compatibility with version 1 is removed.</li>
+</ul></dd>
+
+<dt>2.0 (2 Oct 2002)</dt>
+<dd><ul>
+<li>Base-64 output</li>
+<li>Unicode input. Note: this uses utf-16 encoding, which is rarely what is desired. Version 2.2 has improved unicode support, with utf-8 encoding.</li>
+<li>HMAC - keyed hashing</li>
+<li>New function interface, to support the new features.</li>
+</ul></dd>
+
+<dt>1.1 (15 Jun 2001)</dt>
+<dd><ul>
+<li>Renamed the add function to safe_add because add is a reserved word in ActionScript. Reported by <a href="mailto:mammo@hotmail.com">Amanuel Workneh</a>.</li>
+<li>All variables are now prefixed with <code>var</code> to make them local. Suggested by <a href="mailto:Richard.Mitchell@HSV.Boeing.com">Richard Mitchell</a> and <a href="mailto:zathras@chaos.org.uk">Ian Richardson</a>.</li>
+<li>The code now works on Macintoshes, thanks to
+<a href="mailto:greg@Brim.Net">Greg Holt</a> and <a href="mailto:andrew@frey.newcastle.edu.au">Andrew Kepert</a>.</li>
+<li>The code now returns a lower-case hex string, like most MD5 functions. Thanks to <a href="mailto:brian@massassi.com">Brian Lozier</a> for noticing this.</li>
+<li>Code changed to use <code>charCodeAt</code> function instead of the dodgy <code>sAscii</code> variable. Thanks to <a href="mailto:ej@corp.talkcity.com">Erik Johnson</a>.</li>
+<li>Calls to Math.pow removed, now I've discovered the <code>&gt;&gt;&gt;</code> operator.</li>
+<li>The code now works in Opera, because <a href="mailto:pvalach@gmx.net">Peter Valach</a> fixed a precedence problem.</li>
+</ul></dd>
+
+<dt>1.0</dt>
+<dd><ul>
+<li>Original version</li>
+</ul></dd>
+
+</dl>
+
+
+<h2>More Hash Scripts</h2>
+<ul>
+<li><a href="contrib/md5.wsc">Automation Object</a> (ActiveX, COM) by Don Arsenault</li>
+<li>Java versions of both <a href="contrib/md5.java">MD5</a> and <a href="contrib/sha1_java.zip">SHA-1</a> have been contributed, although I recommend using the built-in Java crypto libraries instead.</li>
+<li><a href="http://mivo.truxoft.com/art0037.htm">Miva</a> by Petr Kutil and <a href="mailto:truxa@truxoft.com">Ivo Truxa</a></li>
+<li><a href="contrib/OneWayEncrypt.inc">VB Script wrapper</a> by <a href="mailto:ian@cyrona.com">Ian Brennan</a></li>
+<li><a href="http://www.lundin.info/files/md5_aspnet.zip">.NET</a> version by <a href="http://www.lundin.info/">Patrik Lundin</a></li>
+<li><a href="http://www.devpro.it/as2_id_44.html">ActionScript Class</a> by <a href="mailto:andrea@3site.it">Andrea Giammarchi</a></li>
+<li><a href="http://www.onicos.com/staff/iz/amuse/javascript/expert/md5.txt">Alternative JavaScript MD5</a> by Masanao Izumo</li>
+</ul>
+
+
+</body>
+</pipp>

@@ -1,0 +1,138 @@
+Any site with passwords should be pretty secure - the use of passwords makes users expect it.
+User must be able to logon with just knowledge (otherwise use secure id or smartcard).
+The point of passwords is that someone can go to any trusted computer, and login with just what's in their head.
+If you don't need that flexibility, use SSL certs - much stronger.
+
+...
+
+Choices:
+  Allow user to change?
+    Makes it easier for user to remember, lets them use passwordmaker, etc.
+    Risk that they re-use a password from another system
+    A possible workaround is to Length limit, forbid chars, but bad to use
+    --> How to mitigate risk of another admin knowing pw??
+
+    Risk that they choose a poor password, but...
+    Strength checking
+      Prevents them picking an easily guessable password
+      Does make it harder for them to remember
+      Especially as strength rules (and allowed lenghts/chars) vary so much **
+
+    Recommend: Allow change. Usually have strength checking
+
+
+  Aging
+    If a password is compromised, this limits the expose.
+    But it makes it harder for the user to remember.
+
+    Once-a-month changes are very hard to keep up with.
+    I think for most sites six months would be pushing it for users, but that's little protection.
+    Few sites do this, not even banks.
+
+    Recommend: usually no
+
+    Forbid reuse
+    Minimum age
+
+  Brute force protection
+
+
+    Lockout -
+    Idea: soft lockout & hard
+
+
+  Have a forgotten password function?
+    All sites need to have this in some form.
+      -> although it may be through their phone channel
+    It's obviously a risk!
+    Some similarities with creating accounts.
+
+    Generally reset password to a new value.
+      Can't tell user current password (as hashed)
+
+    Usually tied to some way of contacting the user - email/phone/sms/post
+    This seems quite secure, although email is unencrypted.
+    However, phone/sms/post is expensive especially internationally
+    Definitily some mileage in banks, etc. using SMS
+
+    To mitigate that, force user to change pw straight away after reset
+
+    Need to control triggering of the reset process - to prevent annoyance/dos/exposure
+      Ask for some personal details; doesn't need to be loads.
+      Something they know, that doesn't change.
+      Surname/DOB is good, although perhaps too widely known.
+
+      Favorite colour/pets name/place of birth/etc.
+        Dodgy as I wouldn't necessarily remember what I'd said.
+        Probably ok if you ask a few and don't require all of them to allow login.
+          -> but that's a real pain!
+        name of your first school
+        mother's maiden name
+        town/city of birth
+        father's first name
+
+        paypal do two questions that you choose
+
+        account history
+          credit cards used (they give you name, expiry & last 2 digits)
+          bank accounts (give you name, last 2 digits)
+
+        leakage that they tell you that lot & two sec questions (although not the answers!)
+        But this does fire off an email to the user, so it's not a quiet attack
+
+
+    How about, instead of a reset, they just prove they got the activation code
+      AHA!!!
+
+
+    Does reset clear lockout status?
+      -> I reckon not, but...
+
+  What to use for a user name?
+    email address is good - unique & user will remember
+    But there's an argument that user names should be more unknown than that.
+    User picks name; must be unique
+      -> this inherently leaks user name existence
+
+    System assigns
+      -> but then it's hard for user to remember
+
+
+  Paypal call you and have you enter a pin (provided on web site) into the phone
+    -> entering pin is even better than receiving, because just being able to eavesdrop is not enough!!!
+
+  Ebay leaks user name existence through "forgot password"
+    but forgot user name doesn't reveal emails
+    asks for
+
+  Yahoo ask for dob, postcode, country, and
+    email -> sends you user name
+    username
+      -> emails you new password, or
+      -> enter pet'sc
+
+
+  Creating accounts
+
+
+
+
+
+
+No choice:
+  Don't store plaintext password - users may use same p/w elsewhere
+
+
+
+
+
+
+8 chars 2^16 words
+  mixed case 2^8 cap
+  2 tweaks - 2^8 max
+  i.e. 2^32 - optimistics
+
+  or 2^15 words
+  1 cap 2^3
+  1 tweak 2^5
+  i.e. 2^23

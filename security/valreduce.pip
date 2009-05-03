@@ -1,0 +1,44 @@
+<pipp>
+<title>Value Reduction</title>
+<body>
+
+<h2>Introduction</h2>
+
+<p>One approach to the problem of data theft is to reduce the value of stolen data. For example, if it is not possible to use stolen credit card numbers to make purchases, the value of that stolen data is greatly reduced. Doing this involves making significant changes to how people do business, but I believe is should be a long-term goal.</p>
+
+
+<h2>Payment Fraud</h2>
+
+<p>The original intention of credit and debit cards was that the card would have to be physically present for a transaction. However, "card holder not present" transactions are now allowed, to enable use over the phone and internet. One protection for these transactions is to only deliver to the billing address. However, sometimes it's desirable to deliver to other addresses (e.g. for gifts) and sometimes there is no physical good to deliver (e.g. purchasing funding for a PayPal account).</p>
+
+<p>Given this, someone who knows a credit (or debit) card number, and associated details such as card holder name and expiry date can potentially use that information to make purchases. There are several precautions against such abuse:</p>
+
+<ul>
+<li>Fraud monitoring - card issuers monitor transaction patterns, and where high-risk transactions are identied, will request additional authorisation (e.g. by phoning the customer) or decline the transaction.</li>
+<li>Card verification value (CVV) - the three digit number on the back of the card. The idea is to strengthen the authentication; the CVV is required for purchases, but never stored by merchants. In principle, if a merchant suffers a breach, the CVV will not be captured. In practice it is a relatively weak control; much stolen card data includes the CVV.</li>
+<li><a href="http://www.visaeurope.com/merchant/handlingvisapayments/cardnotpresent/verifiedbyvisa.jsp">Verified by Visa</a> / <a href="http://www.mastercard.com/us/personal/en/cardholderservices/securecode/index.html">MasterCard SecureCode</a> - these approaches also strengthen the authentication. A step is added to Internet transactions, where the customer is directed to their card issuer's website, and required to enter a password. This is potentially a strong control, although current implementations allow a degree of <a href="http://www.channel4.com/news/articles/business_money/verified+by+visa/994747">bypass</a>, to cope with forgotten passwords, etc.</li>
+<li>One-time card numbers - allow a user to generate a temporary card number for use with merchants the user has concerns about. These have a pre-defined limit and short lifespan, reducing the exposure.</li>
+</ul>
+
+<p>Despite all these precautions, stolen card details can still be used to make payments. This is primarily because controls aren't universally applied, e.g. verified by Visa doesn't apply to phone transactions. And ultimately, this is because card issuers don't want to hinder legitimate users. If fraud problems become worse, they may be more willing to do so.</p>
+
+<p>Many payment systems have potentially similar problems, e.g. direct debit, a UK system to take money directly from bank accounts. However, these are not attacked on such a wide scale.</p>
+
+
+<h2>Identity Theft</h2>
+
+<p>What I mean by "identity theft" is applying for an account in the name of someone else. Currently, this is relatively easy to do knowing fairly basic personal information on the victim.</p>
+
+<p>For example, To open a credit card account, you need to provide various bits of personal information (name, DOB, address, etc.), pass a credit check, and receive the credit card at a nominated address. If you have someone else's personal info, you can use this on an application, giving their current address as the previous address. Use an address you can access (but is not traceable, e.g. an empty house) as the current address. The application will pass the credit check on the other person's credentials and the card will arrive at the address you control. At this point you can use the card and forget all about the bills.</p>
+
+<p>This problem is somewhat harder to fix that the card fraud problem, primarily because the organisation handling the application doesn't have an existing relationship with the customer. If they wanted to speak to the customer to verify the application, they only have contact information provided on the form, which has been submitted by the identity thief.</p>
+
+<p>Some tactical steps may help, for example, risk assessing applications and subjecting some (e.g. recent change of address) to particular scutiny. Consumers can at least be alerted when this occurs by subscribing to credit monitoring services. Attempts to fix the problem more generally tend to rely on an organisation being the overall authority for people's identity, for example:</p>
+
+<ul>
+<li>A national ID card system</li>
+<li>Credit reference agencies taking a more active role</li>
+</ul>
+
+</body>
+</pipp>

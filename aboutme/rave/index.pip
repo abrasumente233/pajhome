@@ -1,0 +1,25 @@
+<pipp>
+<title>Acid Techno</title>
+<logo>raving.jpg</logo>
+<style>rave</style>
+<desc>A crazy time back in 1999, exploring London's Acid Techno underground.</desc>
+<keywords>London, techno, trance, gabba, acid, rave, squat, party</keywords>
+<body>
+
+<pipp-child src="memories.pip"/>
+<pipp-child src="themail.pip"/>
+
+<p><pipp-thumb src="partyline.jpg" height="125" alt="Partyline Flyer" align="left"/>
+During 1999, as a result of some very unlikely and unexpected events, I discovered a wonderful scene of all night dance parties in clubs, squats and fields. I love the music - acid techno, gabba, trance, NRG, and more - especially when dancing in a crowd to a big system. Moreover, I really like a lot of people who I've met at these events, and it's been a lot of fun, so I've kept:</p>
+
+<br clear="all"/>
+
+<pipp-map-view src="/section.xsl"/>
+
+<p style="text-align:center">
+  <pipp-thumb src="waterden.jpg" height="150" alt="Waterden Road Flyer"/>
+  <pipp-thumb src="xbones.gif" height="150" alt="Cross Bones Flyer"/>
+</p>
+
+</body>
+</pipp>

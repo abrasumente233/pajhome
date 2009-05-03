@@ -1,0 +1,45 @@
+<pipp>
+<title>History</title>
+<desc>Pipp is over ten years old now; this is its history.</desc>
+<body>
+
+<h2>Releases</h2>
+
+<table>
+<tr><td>pipp-2.0.2 (current)</td><td>6 Jan 2008</td></tr>
+<tr><td>pipp-2.0.1</td><td>16 Dec 2007</td></tr>
+<tr><td>pipp-2.0.0</td><td>Aug 2004</td></tr>
+<tr><td>pipp-1.0.0</td><td>1998</td></tr>
+</table>
+
+
+<h2>Pipp History</h2>
+
+<p>I wrote Pipp to get me out of a bind. Back in 1998, HTML used lots of &lt;font&gt; tags. These were laborious to enter in the first place and a real pain if you wanted to change the look of your site. There did not seems to be any satisfactory solution to this. Most sites were presented inconsistently, which did not look good to me. I realised that something like the C pre-processor could help and so I developer the Perl Internet Pre-Processor - Pipp.</p>
+
+<p>In hindsight, it has been a great success for me - I used it to build my site for six years. The original version stayed very close to the C pre-processor. The main commands this provides are #include, #define and #ifdef, which are just enough to do what I needed. This keeps the Pipp processor simple, but makes Pipp code more complicated. The arrangement was a success because the complex Pipp code could be isolated in a header file. This made the individual .pip files quick and easy to create, which is what enabled me to create so much content.</p>
+
+<p>I took the original version through to a release - it even had documentation. It gets a few downloads but I haven't had much mail asking about its use. After the release I kept the basic design but added several new features: hierarchial navigation bar, graphical titles and syntax-highlighted source code. My own website has been heavily dependent on these features but I never considered them release quality. For example, the graphical titles relied on a horrendous chain of different tools, which was very fragile.</p>
+
+<p>For a long time I have considered the possibility of Pipp 2. I've attempted it in Perl, Python and even C++, but it never got very far. I researched various similar programs but didn't really like any of them. Perhaps the problem was that I wanted it to be perfect, and that isn't realistic.</p>
+
+<p>In 2004 I really picked this up again. By then, most of the original problems had other solutions. CSS solves almost all the display issues. There is a choice of templating languages, such as XSLT, which are more suited to HTML than the C pre-processor. And a number of syntax highlighting tools are available. Although there were some features, such as the navigation bar, that nothing else did as effectively.</p>
+
+<p>Once I made the decision to use XSLT, instead of coding my own template language, I wrote a functional Pipp 2 quickly. It has less than 1000 lines of code, while it runs much faster than Pipp 1. It uses the <a href="http://4suite.org/index.xhtml">4Suite</a> XML toolkit, the <a href="http://www.pythonware.com/products/pil/">Python Imaging Library</a>, and <a href="http://pygments.org/">pygments</a>. This version worked great for producing my site. I did release the code, and it gets a few downloads, but having received no emails about it, I don't think anyone's really using it.</p>
+
+<p>In late 2007 I took another look at Pipp. I finally implemented a long-planned feature - dependency tracking and partial rebuilds. I also created the built-in web server for development, and the Windows system tray application. With the installer and tray application, it's now very easy for someone to download Pipp and try it out. Still, no-one seems to be using it.</p>
+
+
+<h2>Future Plans</h2>
+
+<ul>
+<li>Increased speed: avoid rebuilding graphical titles, thumbnails, etc. every time</li>
+<li>Multi threaded: more responsive http server; take advantage of multi-core CPUs</li>
+<li>Tool tray app: build option, start project option, better icon; visual indicator when processing; tooltip shows % complete; do full rebuild in a separate thread.</li>
+<li>Features: delete orphaned files, file iterators</li>
+<li>Automatic publishing, with ftp and scp, and incremental uploads. Upload new files before changed files, to avoid temporarily broken links while the site is uploading.</li>
+</ul>
+
+
+</body>
+</pipp>

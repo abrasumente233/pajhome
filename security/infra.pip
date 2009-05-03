@@ -1,0 +1,55 @@
+<pipp>
+<title>Infrastructure</title>
+<desc>Traditionally this was the front line of security, but in recent years, network software (such as web and email servers) has greatly improved in security, and defences like firewalls are widely deployed. As such, infrastructure attacks like worms are much rarer.</desc>
+<body>
+
+<pipp-child src="citrix.pip"/>
+<pipp-child src="hardening.pip"/>
+
+<h2>Introduction</h2>
+
+<p>Infrastructure is a broad term - it covers the network itself, and network devices such as routers and switches. It also covers computers and devices connected to the network, their operating systems and server software, such as databases and web servers.</p>
+
+<p>A major concern in infrastructure security is remote compromise vulnerabilities - bugs in software that allow an attacker to take control of the system over the network. There are also vulnerabilties in the networks themselves, such as sniffing and spoofing. Careful network design allows many of these risks to be minimized, primarily by partitioning networks using firewalls.</p>
+
+<p>This page talks about the general principles of network security. There are also pages on <a href="hardening.html">hardening</a>, and <a href="citrix.html">Citrix</a>.</p>
+
+<h2>Remote Attacks</h2>
+
+<p>The primary security goal for almost any system is simple: the system should be able to exist on a network without a hacker being able to take control of it. In addition, the system should not leak information, allow unauthorised use of resources, or become unresponsive. Historically though, computer systems have been at high risk of these occuring. There are two main causes:</p>
+
+<ul>
+<li>Patching - coding errors in software lead to security vulnerabilities. As these are discovered, patches are issued to fix the problems, and often exploits appear which allow hacking attacks.</li>
+<li>Configuration - weakness such as default passwords, or pointing a web server at a confidential directory.</li>
+</ul>
+
+<p>A technique that can help is reducing attack surface, sometimes called "hardening". The idea is to turn off all the services that are not needed, so that patching or configuration problems in those services will not be exploitable. Also, turning off unused features in services can avoid some vulnerabilities being exploitable.</p>
+
+<p>The general situation is certainly improving. Vulnerabilities in network software are becoming less common as software vendors become more aware of the need for security. Many systems come hardened by default, with functionality having to be explicitly enabled. Configuration is becoming better designed to avoid problems. For example, rather than coming with a default password, the software install process may require the user to enter their own password. This makes it much harder to accidentally leave a system exposed.</p>
+
+
+<h2>Sniffing and Spoofing</h2>
+
+<p>Ethernet networks have some inherent vulnerabilities. It is generally possible for an attacker to "sniff" the network traffic of other users on the same ethernet network, perhaps capturing passwords or confidential documents. It is also possible to "spoof" another computer's identity, perhaps to gain access to a resource restricted by IP address. Attacks can only happen on the same ethernet network; an IP router blocks such attacks.</p>
+
+<p>There are several reasons for these problems. Originally, ethernet was a broadcast network medium, so sniffing was known and accepted as part of the design. More recently, network switches have become common, which direct packets directly to the target rather than broadcasting, and avoid trivial sniffing attacks. However, IP networking over ethernet relies on the Address Resolution Protocol (ARP) to translate IP addresses to ethernet MAC addresses. ARP was not designed for security and is susceptible to <a href="http://www.oxid.it/downloads/apr-intro.swf">ARP Poisoning</a>, where an attacker captures a victim's traffic, by substituting their MAC address for the victims.</p>
+
+<p>There are several solutions to this problem. One option is to disable ARP and manually maintain IP/MAC address mappings. Another is to use layer-3 switches, which put every system on a separate ethernet network, only allowing IP traffic between systems. However, the most common approach is somewhat different: use encryption for sensitive network traffic. The encryption means that an attacker who can tamper with network traffic cannot access or modify the actual data. This has the advantage of maintaining protection even in the case that network infrastructure, such as the switch, is compromised.</p>
+
+<p>Common practice now (as of 2008) is that the risks of sniffing and spoofing are accepted. Usually people on the same ethernet network have a degree of mutual trust, and sensitive traffic is encrypted, so any attacks will have limited impact.</p>
+
+<p>Network attacks can lead to system compromise. For example, if a system is managed over telnet, the login details are sent over the network without encryption. An attacker could sniff the details and then use these to connect to the server directly. It is now common practice to use encryption for all remote administration, which largely prevents this. Other protocols could be attacked, e.g. file sharing, although these would not usually allow a direct compromise.</p>
+
+
+<h2>Network Design</h2>
+
+<p>In theory, if all computers were secure, everyone could be on one massive network with no firewalls. In practice though, computers are often not secure, and network separation provides an opportunity for further controls. For example, if an organisation has all its systems directly connected to the internet without a firewall, a vulnerability in any system will be exploitable by anyone on the Internet. If instead the organisation has an internal network that is separated from the Internet by a firewall, most vulnerabilities will only be exploitable internally. This is clearly a powerful approach for reducing risk.</p>
+
+<p>One problem with this approach is that it encourages complacency. Vulnerabilities in internal systems could become neglected, because they can only be exploited internally. If this becomes common, such networks are can be described as "hard shell and soft centre". A single external attack could lead to a damaging series of internal compromises. Indeed, determined attackers are likely to be able to access the internal network through creative means, such as exploiting a <a href="desktop.html">desktop vulnerability</a> or gaining physical access to a building.</p>
+
+<p>Beyond this there can be further network separation. Internet-facing servers go in a separate network, called a demilitarised zone. Sensitive internal functions, such as finance and HR, go into their own network. Challenges are faced as "holes" need to be opened in the firewalls to allow legitimate traffic - if too many holes are opened, the value of the firewall is diminished. Balancing these conflicting requirements requires considerable skill in network design.</p>
+
+<p>Looking forward, links between organisations are becoming more common. More and more holes and being created in perimeter firewalls. This trend is known as deperimeterisation.</p>
+
+</body>
+</pipp>

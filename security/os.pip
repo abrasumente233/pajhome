@@ -1,0 +1,30 @@
+<pipp>
+<title>OS</title>
+<body>
+<p><b>(Under construction)</b></p>
+
+<h2>Users, Groups and UIDs</h2>
+
+<p>...</p>
+
+<p>The kernel only works with UIDs and GIDs. User names and passwords are done entirely in user space.</p>
+
+<h2>File security</h2>
+
+<p>In Unix, every file has an owner, a group and a mode. New files are owned by the user who created them. The owner of a file can change the mode and group, though they are restricted to groups they are a member of. Only root has the power to change the owner. The mode specifies the level of access for the owner, the group and for everyone else. It is a bit-field, usually expressed as an octal number. For example, a common mode is 0644, which means the owner can read and write the file, while members of the group and anyone else can only read it. Mode 0640 gives the same access for the owner and group, but now anyone else is denied access.</p>
+
+<p>Directories also have an owner, group and mode. The mode has a slightly different meaning. Read access lets you list the files in directory. Write access lets you create or delete files in it. Execute access lets you use the directory as part of a path. For example, you'd usually want your unix home directory, say /home/paj to have mode 0750. This gives yourself full access, members of your group read-only access, and everyone else has no access. Even the files inside you home directory that are world-readable are protected, as untrusted users don't have execute access to the home directory. The /home directory would usually be 711, which means people can execute /home and so access directories like /home/paj. However, they can't read /home to get a list of the all users.</p>
+
+<p>There are more advanced concepts, including setuid and setgid execution, the sticky bit and flags. But the only other thing you really need to know about is symbolic links. These.....</p>
+
+<p><b>What's the problem?</b></p>
+
+<p>In fact, you can delete files that you do not own or have any access to.</p>
+
+<ul>
+<li><a href="http://www.cs.berkeley.edu/~smcpeak/cs261/">Abolish Root Daemons!</a></li>
+<li><a href="http://www.sysinternals.com/ntw2k/source/misc.shtml#streams">Tool to enumerate Windows "Additional Data Streams" on files</a></li>
+</ul>
+
+</body>
+</pipp>

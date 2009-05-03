@@ -1,0 +1,122 @@
+<pipp>
+<title>Introduction to DNS</title>
+<status>unfinished</status>
+<desc>A practical guide to using and debugging the domain name system.</desc>
+<body>
+
+<h2>Dig</h2>
+
+<p>My favorite tool for investigating the DNS is dig, because it produces very clear and detailed output, for example:</p>
+
+<pre class="indented">$ dig pajhome.org.uk
+
+; &lt;&lt;&gt;&gt; DiG 9.2.1 &lt;&lt;&gt;&gt; pajhome.org.uk
+;; global options:  printcmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 41
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2
+
+;; QUESTION SECTION:
+;pajhome.org.uk.                        IN      A
+
+;; ANSWER SECTION:
+pajhome.org.uk.         86400   IN      A       195.72.113.151
+
+;; AUTHORITY SECTION:
+pajhome.org.uk.         86400   IN      NS      ns0.serve.co.uk.
+pajhome.org.uk.         86400   IN      NS      ns0.serve.net.uk.
+
+;; ADDITIONAL SECTION:
+ns0.serve.co.uk.        103288  IN      A       212.69.192.10
+ns0.serve.net.uk.       103288  IN      A       212.69.192.11
+
+;; Query time: 370 msec
+;; SERVER: 62.30.32.121#53(62.30.32.121)
+;; WHEN: Fri Dec 20 17:40:36 2002
+;; MSG SIZE  rcvd: 149</pre>
+
+<p>Here we have looked for the A record - the IP address corresponding to the domain name. We get this back in the "answer" section, but we also get the "authority" section which specifies the autorative nameservers for the domain. The "additional" section is for efficiency - it saves us looking up the IP addresses of the nameservers.</p>
+
+<p>Most of the complexity here is only needed for communication between DNS servers - clients have little need for the details, but they are still present in the protocol. Dig provides a complete readable dump of the packet received. </p>
+
+<h2>Getting Dig</h2>
+
+<p>Dig is available by default on most Unix systems. The easiest way to get it on Windows is to install <a href="ftp://ftp.isc.org/isc/bind/contrib/ntbind-9.2.1/BIND9.2.1.zip">BIND</a>. To get it to work properly, you need to create a file called <code>c:\windows\system32\drivers\etc\resolv.conf</code> This needs to contain <code>nameserver n.n.n.n</code> where n.n.n.n is the IP address of one of your DNS servers. You can find these out by typing <code>ipconfig /all</code> in a DOS prompt.</p>
+
+<h2>Another query</h2>
+
+<pre class="indented">$ dig pajhome.org.uk mx
+
+; &lt;&lt;&gt;&gt; DiG 9.2.1 &lt;&lt;&gt;&gt; pajhome.org.uk mx
+;; global options:  printcmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 41
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 3
+
+;; QUESTION SECTION:
+;pajhome.org.uk.                        IN      MX
+
+;; ANSWER SECTION:
+pajhome.org.uk.         86400   IN      MX      5 mail.pajhome.org.uk.
+
+;; AUTHORITY SECTION:
+pajhome.org.uk.         77100   IN      NS      ns0.serve.co.uk.
+pajhome.org.uk.         77100   IN      NS      ns0.serve.net.uk.
+
+;; ADDITIONAL SECTION:
+mail.pajhome.org.uk.    86400   IN      A       195.72.113.152
+ns0.serve.co.uk.        93988   IN      A       212.69.192.10
+ns0.serve.net.uk.       93988   IN      A       212.69.192.11
+
+;; Query time: 300 msec
+;; SERVER: 62.30.32.121#53(62.30.32.121)
+;; WHEN: Fri Dec 20 20:15:36 2002
+;; MSG SIZE  rcvd: 170</pre>
+
+<p>This time we have queried the MX records for pajhome.org.uk. The MX or Mail eXchanger specifies the machine that handles email for the domain. There is only one in my case, but several can be specified. The 5 next to the machine name specifies the priority of that MX record; the lowest priority is tried first, e.g.</p>
+
+<pre class="indented">
+;; QUESTION SECTION:
+;msnbc.com.                     IN      MX
+
+;; ANSWER SECTION:
+msnbc.com.              900     IN      MX      10 mail1.msnbc.com.
+msnbc.com.              900     IN      MX      20 mail2.msnbc.com.
+msnbc.com.              900     IN      MX      30 mail3.msnbc.com.
+</pre>
+
+<h2>Other record types</h2>
+
+<p>SOA, NS, CNAME. DNS supports a few other records, for example TXT records containing arbitrary text, but these are rarely used.</p>
+
+<h2>Zone files</h2>
+
+The significance of the terminating dot
+The serial number... how to recover an inadvertently incremented one
+
+<h2>Reverse DNS</h2>
+
+And classless redelegation
+
+<h2>Efficiency</h2>
+
+glue records / glueless domains
+
+<h2>Two types of DNS server</h2>
+
+<h2>Checking zone delegation</h2>
+
+Relevance of glue records
+
+<h2>Query flags</h2>
+
+<p>More interesting one is 'aa' - authorative answer.</p>
+
+<p>You always get an aa repsponse from a server that is authorative for that domain. If you query a recursive resolver, you get an aa response if it's not cached, but then non-aa in future.</p>
+
+<h2>Nominet</h2>
+
+The .uk registry
+
+</body>
+</pipp>

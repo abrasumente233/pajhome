@@ -1,0 +1,315 @@
+<pipp>
+<title>Curriculum Vitae</title>
+<body>
+
+<div align="center">
+
+<table border="0" cellspacing="6" cellpadding="0">
+ <tr>
+  <td valign="top">
+  <b>Address:</b>
+  </td>
+  <td width="158" valign="top">
+  &#160;
+  </td>
+  <td width="36" valign="top">
+  <b>Mobility:</b><br/>
+  <b>D.O.B:</b><br/>
+  <b>Nationality:</b><br/>
+  <b>Telephone:</b><br/>
+  <b>Email:</b>
+  </td>
+  <td valign="top">
+  Full, clean licence<br/>
+  26 April 1980<br/>
+  British<br/>
+  &#160;<br/>
+  <a href="mailto:paj@pajhome.org.uk">paj@pajhome.org.uk</a>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<h2>Profile</h2>
+
+<p>I am a self-motivated and hard working IT professional with
+over four years experience working as a security specialist, systems
+administrator and developer. I have repeatedly demonstrated an ability to use
+my own initiative and problem solving skills to provide real business benefits.
+I am a fast learner and work well as part of a technical team, learning from
+other members and passing on what I know. I have a strong ability at writing
+technical documentation and communicating technical issues to non-technical
+people.</p>
+
+<p>I have developed various open-source software of which my
+JavaScript MD5 library has become particularly popular. It is used on many
+websites to protect passwords during login. The most well-known user is Yahoo!
+and you will find my work in the source code of <a href="http://mail.yahoo.com/">http://mail.yahoo.com/</a>.</p>
+
+<h2>Technical Skills</h2>
+
+<p align="center"><table border="1" cellspacing="0" cellpadding="0" align="center">
+ <tr>
+  <td width="350" valign="top">
+  <p align="center"><b>Skill</b></p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center"><b>Level of
+  knowledge</b></p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center"><b>Length of use</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>TCP/IP, firewalls, network design, DNS</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">Expert</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">4 years</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>Perl, CGI, DBI</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">Expert</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">4 years</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>Unix, Linux, Solaris, FreeBSD</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">High</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">4 years</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>Security auditing, nmap, nessus, NASL scripting</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">High</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">3 years</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>Security policy, hardening, patching, user education</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">High</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">3 years</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>SQL, Oracle, MySQL, (PostgreSQL)</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">High</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">3 years</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>HTML, CSS, JavaScript</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">High</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">3 years</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>Python, wxPython, mod_python, DB API</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">High</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">2 years</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>XML, XSLT, XSQL, DOM, (SVG)</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">Moderate</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">1 year</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="350" valign="top">
+  <p>C, Java, PHP, shell scripting</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">Moderate</p>
+  </td>
+  <td width="132" valign="top">
+  <p align="center">Up to 1 year</p>
+  </td>
+ </tr>
+</table></p>
+
+<p>My current focus is security auditing of networks and
+systems. I am experienced in running network and vulnerability scans of large,
+heterogeneous networks using automated scanning software and also detailed
+penetration tests with a significant manual effort. These skills are based on a
+deep understanding of TCP/IP networks, Unix systems and security policies. I
+originally learned audit techniques to verify the security of networks and
+devices that I have been responsible for.</p>
+
+<p>A cornerstone of my skill set is a strong software
+development ability in several languages. I am able to quickly produce
+well-structured code with an emphasis on maintainability and security. This
+ability has greatly assisted my work in other areas by allowing me to automate
+repetitive tasks. I have experience developing utilities, web applications,
+back-end control scripts and GUI applications. I also have experience debugging
+and improving undocumented legacy code.</p>
+
+<h2>Work Experience</h2>
+
+<p><b>2002 - Now: Westpoint Ltd - Internet Security Specialist</b></p>
+
+<p>My primary responsibility
+is running automated vulnerability scans of large, remote customer networks,
+removing false positives and reporting the results in a customer-focused
+manner. I have gained experience in automated scanning software such as nmap,
+nessus and nikto as well as manual investigation tools such as netcat, stunnel,
+scapy and dig. I am able to communicate vulnerability information to both
+technicians and managers. I have also conducted penetration tests, which
+involve a higher level of detail and more manual effort.</p>
+
+<p>I am responsible for
+continually improving the test set to incorporate new vulnerabilities and
+reduce false positives. I have contributed numerous improvements to nessus,
+which have been incorporated into the tool. I have also developed bespoke
+auditing tools, for example "icmpscan" which solicits various ICMP messages
+from remote hosts. These tools have been written in Perl, Python and NASL
+(Nessus Attack Scripting Language). I have conducted vulnerability research
+which has led to three CVE candidate numbers being assigned to vulnerabilities
+I discovered.</p>
+
+<p>I have done development
+work on the reporting system, creating new reports and debugging existing ones.
+This involves using Oracle SQL, XSQL, XSLT, HTML, CSS, JavaScript and Perl. I
+have also served as the administrator for the office network, using the
+relevant skills from previous jobs.</p>
+
+<p><b>2001 - 2002: Effective IT - Systems Administrator and Developer (short-term contract)</b></p>
+
+<p>My major responsibilities
+were developing and maintaining a web hosting company and an ISP. I developed
+new features such as a domain renewal reminder and an ADSL number checker. This
+involved research, design, coding, testing and documentation, using Python,
+MySQL and Linux. I debugged the pre-existing code and audited it for security
+problems. I found several vulnerabilities caused by design errors and
+insufficient input validation. I fixed the specific bugs and introduced designs
+that reduced the possibility of future bugs. I also reviewed the configuration
+of server software including Apache, BIND, Sendmail and Proftpd to ensure it
+was both secure and useful to customers.</p>
+
+<p>I was also responsible for the
+security and availability of the office systems and served as an on-call
+engineer for our small business customers. This involved configuring small
+networks with Windows workstations and a Linux server to have web access,
+email, central file stores and shared printers. The technical knowledge of the
+customers varied considerably and all solutions had to be appropriate to their
+level.</p>
+
+<p><b>2000 - 2001: World Online - Unix systems administrator (made redundant)</b></p>
+
+<p>I worked in a busy NOC, responding to monitoring systems,
+serving as technical backup for customer services and identifying trouble spots
+before they became problems. I solved many day-to-day issues, which required
+continuous learning from manuals, web sources and other staff. This covered
+several operating systems: FreeBSD, Linux, Solaris, Windows NT and Cisco IOS,
+and much server software including: Apache, Zeus, Sendmail, Exim, Bind, Cistron
+Radius and Oracle. I passed on the knowledge I gained by producing
+documentation and answering questions when managers or other sys-admins came to
+me. I also developed new systems including tape backups and SMS alerting, using
+FreeBSD and Perl.</p>
+
+<p>Proactively identifying problems involved using tools like
+nmap to map the little-documented network and explore it from an attacker's
+perspective. I also manually investigated the configuration of key systems. I
+discovered and resolved numerous security issues without affecting the customer
+experience. In some cases it was necessary to completely reinstall hosts and
+rewrite control scripts.</p>
+
+<p><b>1998 - 1999: Data Connection - Software developer (gap year placement)</b></p>
+
+<p>I worked in the "SNA for Unix" group, which produces a
+networking toolkit to connect legacy mainframes to TCP/IP networks. I developed
+various tools to assist with testing and debugging the product. These were
+primarily coded in C and compiled for AIX, SCO UnixWare, Solaris and HP-UX. My
+kernel dump analysis tool automated many manual tasks and significantly reduced
+time spent investigating customer crashes. My regression testing suite provided
+nightly user simulation testing of main product areas on all platforms.</p>
+
+<h2>Education</h2>
+
+<p>1999 - 2000 <b>Christ's
+college, Cambridge</b></p>
+
+<ul>
+ <li>Studying
+     Natural Sciences. I left after the first year for personal reasons.</li>
+</ul>
+
+<p>1991 - 1998 <b>Manchester Grammar School</b></p>
+
+<ul>
+ <li>4 A Levels: Maths <b>[A]</b>, Further Maths <b>[A]</b>, Physics <b>[A]</b>, Chemistry <b>[B]</b></li>
+ <li>10 GCSEs: 6 <b>[A*]</b>, 4 <b>[A]</b></li>
+ <li>UK finals of Informatics (computer programming) Olympiad 1996, 97, 98</li>
+</ul>
+
+<h2>Interests</h2>
+
+<ul>
+ <li>Cycling. I commute to work
+     on my mountain bike. I have completed two 1250 mile rides from Amsterdam
+     to Barcelona and raised over &#163;500 in sponsorship for Orbis, the flying eye
+     hospital.</li>
+ <li>Exercising at the gym. I
+     am a member of "Virgin Active" and exercise at least once a week,
+     following a cardiovascular, strength and flexibility training programme. I
+     also do some Yoga classes.</li>
+ <li>Juggling. I can juggle up to four balls or three clubs, but I specialise in three ball juggling. I can do many tricks including "Mill's Mess", "Burke's Barrage" and "The Machine". I often attend the "Juggler's Ball" juggling club.</li>
+ <li>My website <a
+     href="http://pajhome.org.uk/">http://pajhome.org.uk/</a> provides a range
+     of information about computers, particularly cryptography. It gets around
+     20,000 visitors and 100,000 hits per month.</li>
+ <li>Reading. I particularly
+     like humorous authors such as Ben Elton and captivating authors such as
+     Robert Harris and Iain Banks. I also enjoy some more classical authors,
+     such as Orwell and Huxley.</li>
+ <li>"Jeet Kune Do" - Bruce Lee's self defence system. I recently passed my level two grading.</li>
+</ul>
+
+</body>
+</pipp>

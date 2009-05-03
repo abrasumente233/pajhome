@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<!--
+	RSA key parameters:
+
+	p1 = 37751404861025150047
+	p2 = 64845143588964943
+
+	n = p1 * p2 =
+	  = 2447995268898324993537772139997802321 (decimal)
+	  = 01D7777C38863AEC21BA2D91EE0FAF51      (hex)
+
+	phi(n) = phi(p1) * phi(p2) = (p1 - 1) * (p2 - 1)
+	       = 2447995268898324955721522135383687332 (decimal)
+	       = 01D7777C38863AEA14EBDE8CC7AC40A4      (hex)
+
+	e = 23227 (decimal)
+	  = 5abb  (hex)
+
+	d = multiplicative inverse of e mod phi(n)
+	  = a number such that 23227 * d =~ 1 (mod
+	                                       2447995268898324955721522135383687332)
+	  =~ 1435260669559451898523945771716323851 (decimal)
+	  =~ 1146BD07F0B74C086DF00B37C602A0B       (hex)
+
+-->
+
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<meta name="Author" content="Dave Shapiro">
+	<meta name="The thing I used to write this" content="VIM 5.7">
+	<meta name="Keywords"
+	 content="RSA, JavaScript, Cryptography, Encryption, Public-Key">
+	<meta name="Keywords" content="Infinite, Multiple, Arbitrary, Precision">
+	<link href="/main.css" rel="stylesheet" type="text/css">
+	<title>RSA In JavaScript - Dave Service Pack 2.h3)P</title>
+
+<script language="JavaScript" src="../util.js">
+</script>
+
+<script language="JavaScript" src="BigInt.js">
+</script>
+
+<script language="JavaScript" src="RSA.js">
+</script>
+
+<script language="JavaScript">
+<!--
+
+	var key;
+
+	function bodyLoad()
+	{
+		key = new RSAKeyPair("5ABB", "01146BD07F0B74C086DF00B37C602A0B",
+		                     "01D7777C38863AEC21BA2D91EE0FAF51");
+	}
+
+	function showPublicKey()
+	{
+		document.frm.txtMessages.value = "Public key:\n" +
+		                                 "m = " + biToHex(key.m) + "\n" +
+		                                 "e = " + biToHex(key.e);
+	}
+
+	function cmdEncryptClick()
+	{
+		with (document.frm) {
+			txtMessages.value = "Encrypting. Please wait...";
+			txtCiphertext.value = encryptedString(key, txtPlaintext.value);
+			txtMessages.value = "Done.";
+		}
+	}
+
+	function cmdVerifyClick()
+	{
+		with (document.frm) {
+			txtMessages.value = "Decrypting. Please wait...";
+			txtVerification.value = decryptedString(key, txtCiphertext.value);
+			txtMessages.value = "Done.";
+		}
+	}
+
+// -->
+</script>
+
+</head>
+
+<body bgcolor="white" onload="bodyLoad()">
+
+<div align=center>
+
+<!-- Banner section. -->
+<table width=600 cellpadding=0 cellspacing=0 border=0>
+	<!-- Top line. -->
+	<tr>
+		<td colspan=5 height=1 bgcolor=black></td>
+	</tr>
+	<tr>
+		<!-- Left vertical line. -->
+		<td width=1 bgcolor=black></td>
+		<!-- Banner and header. -->
+		<td><img src="../little_banner.png" width=164 height=37></td>
+		<td align=right width=424 bgcolor="#ffd642" valign=middle
+		 ><strong>RSA In JavaScript</strong></td>
+		<td width=10 bgcolor="#ffd642">&nbsp;</td>
+		<!-- Right vertical line. -->
+		<td width=1 bgcolor=black></td>
+	</tr>
+</table>
+
+<!-- Main section. -->
+<table width=600 cellpadding=0 cellspacing=0 border=0>
+	<tr>
+		<!-- Left vertical line. -->
+		<td width=1 bgcolor=black></td>
+		<!-- Contents section. -->
+		<td width=10>&nbsp;</td>
+		<td>
+			<small>
+				<br>
+				<p>
+				Ok, so it's not the fastest thing around. But it can be <EM>done</EM>.
+				The example below uses a 31-hex-digit (124-bit) modulus with my
+				multiple-precision math library, all written in JavaScript. The
+				encryption exponent is small-ish, making for faster encryption.
+				(Presumably, decryption would be handled on the server, where things
+				aren't as slow.) A truly secure system would certainly need a larger
+				key, and would be even more painfully slow. Hey, it's the concept that
+				counts.
+				</p>
+				<form name="frm">
+					Plaintext
+					<br>
+					<textarea rows=2 cols=40 name="txtPlaintext"></textarea>
+					&nbsp;
+					<input type=button value="Encrypt Plaintext" name="cmdEncrypt"
+					 onclick="cmdEncryptClick()"
+					>
+					<br>
+					<br>
+					Ciphertext
+					<br>
+					<textarea rows=2 cols=40 NAME="txtCiphertext"></textarea>
+					&nbsp;
+					<input type=button value="Verify Ciphertext" name="cmdVerify"
+					 onclick="cmdVerifyClick()"
+					>
+					<br>
+					<br>
+					Verification
+					<br>
+					<textarea rows=2 cols=40 name="txtVerification"></textarea>
+					<br>
+					<br>
+					Messages
+					<br>
+					<textarea ROWS=3 COLS=40 NAME="txtMessages"></textarea>
+					&nbsp;
+					<input type=button value="Show Public Key" name="cmdShowPublicKey"
+					 onclick="showPublicKey()"
+					>
+				</form>
+			</small>
+		</td>
+		<td width=10>&nbsp;</td>
+		<!-- Right vertical line. -->
+		<td width=1 bgcolor=black></td>
+	</tr>
+</table>
+
+<!-- Footer main nav bar. -->
+<table width=600 cellpadding=0 cellspacing=0 border=0>
+	<tr>
+		<!-- Left vertical line. -->
+		<td width=1 bgcolor=black></td>
+		<td bgcolor="#fcd24e" id="idChest"
+		><a href=".." onmouseover="highlightCell('idChest')"
+		  onmouseout="unhighlightCell('idChest')"
+		 ><img src="../myicons/afro.gif" width=38 height=37 border=0
+		   alt="Home"></a></td>
+		<td bgcolor="#fcd55a" id="idSpoon"
+		><a href="../srml" onmouseover="highlightCell('idSpoon')"
+		  onmouseout="unhighlightCell('idSpoon')"
+		 ><img src="../myicons/spoon.gif" width=38 height=37 border=0
+		  alt="Spoon River Markup Language"></a></td>
+		<td bgcolor="#fcd865" id="idPhone"
+		><a href="../johnny" onmouseover="highlightCell('idPhone')"
+		  onmouseout="unhighlightCell('idPhone')"
+		 ><img src="../myicons/phone.gif" width=38 height=37 border=0
+		   alt="Johnny Calls!"></a></td>
+		<td bgcolor="#fcd973" id="idTooth"
+		><a href="../atridox" onmouseover="highlightCell('idTooth')"
+		  onmouseout="unhighlightCell('idTooth')"
+		 ><img src="../myicons/tooth.gif" width=38 height=37 border=0
+		   alt="The Coolest Pamphlet Ever"></a></td>
+		<td bgcolor="#fcdb71" id="idCamera"
+		><a href="../photos" onmouseover="highlightCell('idCamera')"
+		  onmouseout="unhighlightCell('idCamera')"
+		 ><img src="../myicons/camera.gif" width=38 height=37 border=0
+		   alt="Photo Gallery"></a></td>
+		<td bgcolor="#fcde7d" id="idGlasses"
+		><a href="../delphi" onmouseover="highlightCell('idGlasses')"
+		  onmouseout="unhighlightCell('idGlasses')"
+		 ><img src="../myicons/glasses.gif" width=38 height=37 border=0
+		   alt="Delphi Code"></a></td>
+		<td bgcolor="#b2d0b2" id="idCalculator"
+		 ><img src="../myicons/calculator.gif" width=37 height=37 border=0
+		   alt="You Are Here"></td>
+		<td bgcolor="#fde495" id="idFlower"
+		><a href="../wcb" onmouseover="highlightCell('idFlower')"
+		  onmouseout="unhighlightCell('idFlower')"
+		 ><img src="../myicons/flower.gif" width=37 height=37 border=0
+		   alt="Wallpaper Changer Builder 6"></a></td>
+		<td bgcolor="#fde7a0" id="idPedalSteel"
+		><a href="../pedal_steel" onmouseover="highlightCell('idPedalSteel')"
+		  onmouseout="unhighlightCell('idPedalSteel')"
+		 ><img src="../myicons/pedal_steel.gif" width=37 height=37 border=0
+		   alt="Pedal Steel Tabs"></a></td>
+		<td bgcolor="#fdeaac" id="idGuitar"
+		><a href="../guitar" onmouseover="highlightCell('idGuitar')"
+		  onmouseout="unhighlightCell('idGuitar')"
+		 ><img src="../myicons/guitar.gif" width=37 height=37 border=0
+		   alt="Guitar Tabs"></a></td>
+		<td bgcolor="#fdedb8" id="idTiger"
+		><a href="../mulder" onmouseover="highlightCell('idTiger')"
+		  onmouseout="unhighlightCell('idTiger')"
+		 ><img src="../myicons/tiger.gif" width=37 height=37 border=0
+		   alt="The Mulder Photo Gallery"></a></td>
+		<td bgcolor="#fef0c4" id="idAirplane"
+		><a href="../twa" onmouseover="highlightCell('idAirplane')"
+		  onmouseout="unhighlightCell('idAirplane')"
+		 ><img src="../myicons/airplane.gif" width=37 height=37 border=0
+		   alt="A Trying Experience"></a></td>
+		<td bgcolor="#fef3d0" id="idFlask"
+		><a href="http://www.biosoft.com" onmouseover="highlightCell('idFlask')"
+		  onmouseout="unhighlightCell('idFlask')"
+		 ><img src="../myicons/flask.gif" width=37 height=37 border=0
+		   alt="My Silly Little UnGraph"></a></td>
+		<td bgcolor="#fef6db" id="idNote"
+		><a href="../bands" onmouseover="highlightCell('idNote')"
+		  onmouseout="unhighlightCell('idNote')"
+		 ><img src="../myicons/note.gif" width=37 height=37 border=0
+		   alt="The Bands"></a></td>
+		<td bgcolor="#fef9e7" id="idHeart"
+		><a href="../me" onmouseover="highlightCell('idHeart')"
+		  onmouseout="unhighlightCell('idHeart')"
+		 ><img src="../myicons/heart.gif" width=37 height=37 border=0
+		   alt="About Me"></a></td>
+		<td bgcolor="#fefcf3" id="idBlah"
+		><a href="mailto:dave@ohdave.com" onmouseover="highlightCell('idBlah')"
+		  onmouseout="unhighlightCell('idBlah')"
+		 ><img src="../myicons/afro.gif" width=37 height=37 border=0
+		   alt="Contact Me"></a></td>
+		<!-- Right vertical line. -->
+		<td width=1 bgcolor=black></td>
+	</tr>
+	<!-- Bottom line. -->
+	<tr>
+		<td colspan=18 height=1 bgcolor=black></td>
+	</tr>
+</table>
+
+</div>
+
+</body>
+
+</html>
+
+<html></html>

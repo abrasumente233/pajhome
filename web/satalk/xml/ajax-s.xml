@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ajax-s>
+	<pages>
+		<page>
+			<heading>SQLAlchemy - What is it?</heading>
+			<content>
+				<list>
+                    <listitem>Object-Relational Mapper (ORM)</listitem>
+                </list>
+			</content>
+		</page>
+		<page>
+			<heading>Basic Use</heading>
+			<content>
+			</content>			
+		</page>
+		<page>
+			<heading>The main advantages of this approach</heading>
+			<content>
+				<paragraph>These are the advantages of using this separation of functionality, presentation and content:</paragraph>
+				<list>
+					<listitem>No HTML knowledge needed at all</listitem>
+					<listitem>Only one page loaded a time, so there should be no flash of unstyled content</listitem>
+					<listitem>Easy to customize by adding your own CSS file/-s</listitem>
+					<listitem>You can have the same HTML, CSS and JavaScript file, and only change the XML and/or the XSLT file to create a brand new presentation</listitem>
+					<listitem>You can change the entire design by only altering the CSS file/-s</listitem>
+				</list>	
+			</content>
+		</page>
+		<page>
+			<heading>Available formatting nodes in the XML</heading>
+			<content>
+				<paragraph>These are the different nodes in the XML that you can use for formatting as of now. However, adding node types and logic to that is really a small feat, if necessary. The heading element is only used once for the page and then the rest of the content is wrapped within a node named content. The nodes below only works as direct children of the content node.</paragraph>
+				<list>
+					<listitem>heading, for the page heading</listitem>
+					<listitem>paragraph</listitem>
+					<listitem>image, with the attributes source, alternativetext and layout</listitem>
+					<listitem>list</listitem>
+					<listitem>orderedlist</listitem>
+					<listitem>definitionlist</listitem>
+					<listitem>subheading</listitem>
+				</list>
+			</content>
+		</page>
+		<page>
+			<heading>Using images</heading>
+			<content>
+				<paragraph>When using images, you have three layouts to choose from:</paragraph>
+				<list>
+					<listitem>left</listitem>
+					<listitem>center</listitem>
+					<listitem>right</listitem>
+				</list>
+				<paragraph>Left and right will let the following paragraph texts flow next to it while center centers the image and uses a line for the image only. Remember that the layout you specify is case sensitive compared to the corresponding class name in the CSS.</paragraph>
+			</content>
+		</page>
+		<page>
+			<heading>Link, bold and italic</heading>
+			<content>
+				<paragraph>If you want to insert links in the middle of a text, or make it bold or italic (or other inline formatting), you need to resort to HTML tags and then escape them. You can do this either by including the tags in a <![CDATA[<code>CDATA</code>]]> section, or by replacing <![CDATA[<]]> with &amp;lt; and <![CDATA[>]]> with &amp;gt;.</paragraph>
+				<paragraph>Since escaping escaped text is no child's play to present here, I recommend looking in the XML file how these elements were created.</paragraph>
+				<list>
+					<listitem><![CDATA[<a href="http://www.robertnyman.com">A link</a>]]></listitem>
+					<listitem>Some &lt;b&gt;bold&lt;/b&gt; text</listitem>
+					<listitem>A little &lt;i&gt;italic&lt;/i&gt; text</listitem>
+					<listitem>How to display code: <![CDATA[<code>&lt;a href="http://www.robertnyman.com"&gt;A link&lt;/a&gt;</code>]]></listitem>
+				</list>
+			</content>
+		</page>
+		<page>
+			<heading>Settings in the JavaScript file</heading>
+			<content>
+				<paragraph>In the JavaScript file, you can set the path to the XML file, the XSLT content file and the XSLT paging file. You can also set a boolean if the font should scale or not according to the current window size. It looks like this:</paragraph>
+				<list>
+					<listitem>var strXMLURL = "xml/ajax-s.xml";</listitem>
+					<listitem>var strPagingXSLTURL = "xslt/ajax-s-paging.xslt";</listitem>
+					<listitem>var strXSLTURL = "xslt/ajax-s.xslt";</listitem>
+					<listitem>var bUseFontScaling = true;</listitem>
+				</list>
+			</content>
+		</page>
+		<page>
+			<heading>Navigating</heading>
+			<content>
+				<paragraph>A drop down menu is automatically created listing the headings of each page while providing a quick way to navigate to a certain page. You can also click anywhere in the document to navigate to the next page.</paragraph>
+				<paragraph>Another way of navigating is using the keyboard. The available keyboard shortcuts are:</paragraph>
+				<definitionlist>
+					<definitiontitle>To move forward</definitiontitle>
+					<definitiondescription>Space bar, Enter and right-arrow</definitiondescription>
+					<definitiontitle>To move back</definitiontitle>
+					<definitiondescription>Backspace and left-arrow</definitiondescription>
+				</definitionlist>
+			</content>
+		</page>
+		<page>
+			<heading>Requirements</heading>
+			<content>
+				<paragraph>First of all, you need to have JavaScript turned on. Second, it only works in IE 6 and Mozilla-based web browsers as of now. This is because of the need to do on the fly transformations on the client, which means the necessary support for ActiveXObject or XSLTProcessor has to be there. I think Opera 9 will support XSLTProcessor and probably some upcoming version of Safari too, so more widespread support in the future is very likely.</paragraph>
+			</content>
+		</page>
+		<page>
+			<heading>Rounding up</heading>
+			<content>
+				<paragraph><a href="http://robertnyman.com/ajax-s/AJAX-S.zip">Download AJAX-S</a> now! Play around with it, tweak it and customize it. And let me know what you think!</paragraph>
+				<paragraph>Robert Nyman, <![CDATA[<a href="http://www.robertnyman.com">http://www.robertnyman.com</a>]]></paragraph>
+			</content>
+		</page>
+	</pages>
+</ajax-s>

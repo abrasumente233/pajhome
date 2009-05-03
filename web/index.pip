@@ -1,0 +1,19 @@
+<pipp>
+<title>Web Applications</title>
+<desc>How to build useful and compelling web applications.</desc>
+<keywords>web, application, site, design, tools, javascript, test, python, turbogears, model, controller, view, sqlalchemy</keywords>
+<logo>web.jpg</logo>
+<body>
+
+<pipp-child src="frameworks.pip"/>
+<pipp-child src="facebook/index.pip"/>
+<pipp-child src="pipp/index.pip"/>
+<pipp-child src="guest_src.pip"/>
+<pipp-child src="lottery/index.pip"/>
+<pipp-child src="vrml/index.pip"/>
+<pipp-child src="theory.pip"/>
+
+<pipp-map-view src="/section.xsl"/>
+
+</body>
+</pipp>

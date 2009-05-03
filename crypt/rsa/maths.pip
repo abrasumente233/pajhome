@@ -1,0 +1,116 @@
+<pipp>
+<title>Mathematics</title>
+<desc>A mathematical proof that RSA works, which I've made as simple as possible.</desc>
+<body>
+
+<h2>Introduction</h2>
+
+<p>This page explains some of the maths concepts that RSA is based on, and then provides a complete proof that RSA works correctly. However, there is no mathematical proof that RSA is secure, everyone takes that on trust! This is fairly advanced material and not necessary to understand the use and applications of the algorithm.</p>
+
+<h2>Modular Arithmetic</h2>
+
+<p><pipp-img src="clock.gif" align="left"/>
+RSA uses modular arithmetic. This is similar to conventional arithmetic, but only uses positive integers that are less than a chosen value, called the modulus. Addition, subtraction and multiplication work like regular maths, but there is no division. You can use any value for the modulus; the diagram uses 13, so counting goes 0, 1, 2, ..., 11, 12, 0, 1, 2 ... The notation used for expressions involving modular arithmetic is:</p>
+
+<p class="math">x = y (mod m)</p>
+
+<p>Which reads as "<span class="math">x</span> is equivalent to <span class="math">y</span>, modulo <span class="math">m</span>". What this means is that <span class="math">x</span> and <span class="math">y</span> leave the same remainder when divided by <span class="math">m</span>. For example, <span class="math">7 = 23 (mod 8)</span> and <span class="math">22 = 13 (mod 9)</span>. The following statement is a basic principle of modular arithmetic:</p>
+
+<p class="math">a + kp = a (mod p)</p>
+
+<p>You can visualise this on the diagram - each time you add <span class="math">p</span> you go round the circle, back to where you started. It doesn't matter where you start, how big the circle is, or how many times you do it, it's always true.<br clear="all"/></p>
+
+
+<h2>Primality and Coprimality</h2>
+<ul>
+<li>A number is prime if the only numbers that exactly divide it are 1 and itself. e.g. 17 is prime, but 15 isn't, because it's divisible by 3 and 5.</li>
+<li>A pair of numbers are coprime if the largest number that exactly divides both of them is 1. The numbers themselves don't have to be prime. e.g. 8 and 9 are coprime, but 8 and 10 are not, because they're both divisible by 2.</li>
+<li>If you have a pair of distinct prime numbers, they will always be coprime to each other.</li>
+</ul>
+
+<h2>Chinese Remainder Theorem</h2>
+
+<p>This theorem provides a way to combine two modular equations that use different moduli.</p>
+
+<table>
+  <tr><th rowspan="3">Theorem</th><td/><td class="math">x = y (mod p)</td></tr>
+  <tr><td/><td class="math">x = y (mod q)</td><td>with <span class="math">p</span> and <span class="math">q</span> coprime</td></tr>
+  <tr><td><imp/></td><td class="math">x = y (mod pq)</td></tr>
+  <tr><td/></tr>
+  <tr><th rowspan="8">Proof</th><td/><td class="math">x = y (mod p)</td></tr>
+  <tr><td><imp/></td><td class="math">x = y + kp</td></tr>
+  <tr><td><imp/></td><td class="math">x - y = kp</td></tr>
+  <tr><td><imp/></td><td><span class="math">p</span> divides <span class="math">(x - y)</span></td></tr>
+  <tr><td/><td colspan="2"> by a similar route, <span class="math">q</span> divides <span class="math">(x - y)</span></td></tr>
+  <tr><td/><td colspan="2"> as <span class="math">p</span> and <span class="math">q</span> are coprime, <span class="math">pq</span> divides <span class="math">(x - y)</span></td></tr>
+  <tr><td><imp/></td><td class="math">x - y = l(pq)</td></tr>
+  <tr><td><imp/></td><td class="math">x = y (mod pq)</td></tr>
+</table>
+
+<h2>Fermat/Euler Theorem</h2>
+
+<p>This theorem is a surprising identity that relates the exponent to the modulus.</p>
+
+<table>
+  <tr><th rowspan="2">Theorem</th><td/><td class="math">x<sup>p-1</sup> = 1 (mod p)</td></tr>
+  <tr><td/><td>if <span class="math">p</span> is prime and <span class="math">x <ne/> 0 (mod p)</span></td></tr>
+  <tr><td/></tr>
+  <tr><th rowspan="22">Proof</th><td/><td>consider the set <span class="math">Q</span>, of numbers <span class="math">1, 2, ... p-1</span></td></tr>
+  <tr><td/><td colspan="2">as <span class="math">p</span> is prime, these numbers are coprime to <span class="math">p</span></td></tr>
+  <tr><td/><td colspan="2"><span class="math">0</span> is not coprime to <span class="math">p</span></td></tr>
+  <tr><td><imp/></td><td><span class="math">Q</span> includes all the numbers in <span class="math">(mod p)</span> coprime to <span class="math">p</span></td></tr>
+  <tr><td/></tr>
+  <tr><td/><td colspan="2">now consider the set <span class="math">U</span>, obtained by multiplying each element of <span class="math">Q</span> by <span class="math">x (mod p)</span></td></tr>
+  <tr><td/><td>both <span class="math">x</span> and each element of <span class="math">Q</span> are coprime to <span class="math">p</span></td></tr>
+  <tr><td><imp/></td><td>each element of <span class="math">U</span> is coprime to <span class="math">p</span></td></tr>
+  <tr><td/></tr>
+  <tr><td/><td>also, each element of <span class="math">U</span> is distinct, which we prove by contradiction</td></tr>
+  <tr><td/><td>start by assuming two elements are not distinct:</td></tr>
+  <tr><td/><td><span class="math">xQ<sub>i</sub> = xQ<sub>j</sub> (mod p)</span> with <span class="math">i <ne/> j</span></td></tr>
+  <tr><td><imp/></td><td><span class="math">Q<sub>i</sub> = Q<sub>j</sub> (mod p)</span> as <span class="math">x <ne/> 0</span></td></tr>
+  <tr><td/><td>but elements of <span class="math">Q</span> are distinct, so this is a contradiction</td></tr>
+  <tr><td><imp/></td><td>elements of <span class="math">U</span> are distinct</td></tr>
+  <tr><td/></tr>
+  <tr><td/><td><span class="math">U</span> uses all the numbers in <span class="math">(mod p)</span> that are coprime to <span class="math">p</span>, just like <span class="math">Q</span></td></tr>
+  <tr><td><imp/></td><td><span class="math">U</span> is a permutation of <span class="math">Q</span></td></tr>
+  <tr><td><imp/></td><td><span class="math">U<sub>1</sub>.U<sub>2</sub> ... U<sub>p-1</sub> = Q<sub>1</sub>.Q<sub>2</sub> ... Q<sub>p-1</sub> (mod p)</span></td></tr>
+  <tr><td><imp/></td><td><span class="math">xQ<sub>1</sub>.xQ<sub>2</sub> ... xQ<sub>p-1</sub> = Q<sub>1</sub>.Q<sub>2</sub> ... Q<sub>p-1</sub> (mod p)</span></td></tr>
+  <tr><td/><td>and if we cancel <span class="math">Q<sub>1</sub>.Q<sub>2</sub> ... Q<sub>p-1</sub></span></td></tr>
+  <tr><td><imp/></td><td><span class="math">x<sup>p-1</sup> = 1 (mod p)</span></td></tr>
+</table>
+
+<h2>RSA Correctness</h2>
+
+<p>Here we prove that the combined process of encrypting and decrypting a message correctly results in the original message.</p>
+
+<table>
+  <tr><th rowspan="5">Theorem</th><td/><td class="math">C = M<sup>e</sup> (mod n)</td></tr>
+  <tr><td/><td class="math">M' = C<sup>d</sup> (mod n)</td></tr>
+  <tr><td><imp/></td><td class="math">M' = M (mod n)</td></tr>
+  <tr><td/><td>where <span class="math">(d, e, n)</span> is a valid RSA key, with <span class="math">n = pq</span></td></tr>
+  <tr><td/><td>and <span class="math">0 &lt; M &lt; minimum(p,q)</span></td></tr>
+  <tr><td/></tr>
+  <tr><th rowspan="20">Proof</th><td/><td>first we combine the two exponentiations:</td></tr>
+  <tr><td/><td class="math">M' = M<sup>ed</sup> (mod n)</td></tr>
+  <tr><td/><td><span class="math">d</span> and <span class="math">e</span> are generated so that <span class="math">de = k(p-1)(q-1) + 1</span></td></tr>
+  <tr><td><imp/></td><td class="math">M' = M<sup>k(p-1)(q-1) + 1</sup> (mod n)</td></tr>
+  <tr><td><imp/></td><td><span class="math">M' = M.M<sup>k(p-1)(q-1)</sup> (mod n)</span> &#160; &#160; <b><big>*</big></b></td></tr>
+  <tr><td/></tr>
+  <tr><td/><td>consider <span class="math">X = M<sup>k(p-1)(q-1)</sup> (mod p)</span></td></tr>
+  <tr><td><imp/></td><td class="math">X = <big>(</big>M<sup>(p-1)</sup><big>)</big><sup>k(q-1)</sup> (mod p)</td></tr>
+  <tr><td/><td>the Fermat/Euler theorem tells us that <span class="math">M<sup>(p-1)</sup> = 1 (mod p)</span></td></tr>
+  <tr><td><imp/></td><td class="math">X = 1<sup>k(q-1)</sup> (mod p)</td></tr>
+  <tr><td><imp/></td><td class="math">X = 1 (mod p)</td></tr>
+  <tr><td/><td>by a similar route, <span class="math">X = 1 (mod q)</span></td></tr>
+  <tr><td/></tr>
+  <tr><td/><td>as <span class="math">p</span> and <span class="math">q</span> are distinct primes, we can combine these with the Chinese remainder theorem</td></tr>
+  <tr><td><imp/></td><td class="math">X = 1 (mod pq)</td></tr>
+  <tr><td><imp/></td><td class="math">M<sup>k(p-1)(q-1)</sup> = 1 (mod n)</td></tr>
+  <tr><td/></tr>
+  <tr><td/><td>finally, we substitute this back into the equation marked <b><big>*</big></b></td></tr>
+  <tr><td><imp/></td><td class="math">M' = M.1 (mod n)</td></tr>
+  <tr><td><imp/></td><td class="math">M' = M (mod n)</td></tr>
+</table>
+
+</body>
+</pipp>

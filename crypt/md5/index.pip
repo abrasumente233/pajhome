@@ -1,0 +1,109 @@
+<pipp>
+<title>JavaScript MD5</title>
+<desc>I provide free JavaScript implementations of these secure hash algorithms. Their most common applications is for improving security on web login forms.</desc>
+<keywords>java, script, javascript, MD5, MD4, SHA, SHA-1, secure, hash, algorithm, digital, signature, password, protection</keywords>
+<status>new</status>
+<advert>
+<!--  <p style="text-align:left"><a href="http://fiorelli.co.uk/shop/home.html" title="Fiorelli - Fashion handbags, sunglasses, gifts &amp; accessories">Fiorelli - Fashion handbags, sunglasses, gifts &amp; accessories</a></p>
+    <p style="text-align:left;"><a href="http://racinggreen.co.uk/shop/home.html" title="Racing Green - Affordable stylish trousers and shirts">Affordable stylish trousers and shirts</a></p>
+    <p style="text-align:left;"><a href="http://mountainwarehouse.com/shop/home.html" title="Mountain Warehouse - Affordable outdoor clothing specialist">Mountain Warehouse - Affordable outdoor clothing specialist</a></p>
+    <p style="text-align:left;"><a href="http://ryanairbuyasyoufly.com/shop/home.html" title="RyanAir Buy as you fly - Ryanair">RyanAir Buy as you fly</a></p>
+-->
+<p style="text-align:left;"><a href="http://minimode.co.uk/" title="mini mode childrenswear - Girls Clothing">Girls Clothing</a></p>
+<p style="text-align:left;"><a href="http://caraudiosecurity.com/shop/home.html" title="Car Audio &amp; Security - Car Radio">Car Radio</a></p>
+<p style="text-align:left;"><a href="http://adams.co.uk/" title="Adams Childrenswear - Childrens clothes online">Adams Childrenswear</a></p>
+<p style="text-align:left;"><a href="http://janeshilton.co.uk/" title="Jane Shilton - Jane Shilton shoulder bags">Jane Shilton</a></p>
+</advert>
+<body>
+
+<pipp-child src="scripts.pip"/>
+<pipp-child src="instructions.pip"/>
+<pipp-child src="auth.pip"/>
+<pipp-child src="uses.pip"/>
+
+<pipp-file src="2.2/md5-min.js"/>
+<pipp-file src="2.2/sha1-min.js"/>
+<pipp-file src="contrib/*"/>
+<pipp-file src="*.js"/>
+
+<style>
+.source { margin-left: 50px; }
+</style>
+
+<p>MD5 is a secure hash algorithm. It takes a string as input, and produces a 128-bit number, the hash. The same string always produces the same hash, but given a hash, it is not generally possible to determine the original string. Secure hash algorithms are useful for protecting passwords and ensuring data integrity.
+<!--<a href="http://www.unixwiz.net/techtips/iguide-crypto-hashes.html">more...</a>--></p>
+
+<p>This site has a JavaScript implementation of MD5, and some other secure hash algorithms. This allows web sites to perform simple cryptography on clients, enabling some useful applications:</p>
+
+<dl>
+<dt>Protecting Passwords</dt>
+<dd>Without protection, passwords are vulnerable to network sniffing. An attacker could be monitoring an open wireless access point, or using a tool like tcpdump on an ethernet network. JavaScript MD5 protects your users' passwords, without the cost of using SSL. <a href="auth.html">more...</a></dd>
+
+<dt>Generating Passwords</dt>
+<dd>Most people have accounts on many different web sites. It isn't possible to remember so many passwords, so most people use the same password everywhere. If one web site suffers a security breach, or has a malicious operator, all your online accounts are at risk. Password generators help solve this problem. <a href="uses.html#passgen">more...</a></dd>
+
+<dt>Self-Decrypting Pages</dt>
+<dd>Internet email messages are vulnerable to interception and generally considered unsuitable for confidential communication. A self-decrypting page is unreadable until the correct password is entered. Pages can be attached to emails to support confidential communication. <a href="uses.html#sdp">more...</a></dd>
+</dl>
+
+
+<h2>Demonstration</h2>
+<script type="text/javascript" src="2.2/md5-min.js"></script>
+<script type="text/javascript" src="2.2/sha1-min.js"></script>
+<script>
+    if(window.ActiveXObject)
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+    else
+        req = new XMLHttpRequest();
+    md5 = md5_vm_test() ? 1 : 0;
+    sha1 = sha1_vm_test() ? 1 : 0;
+    req.open("GET", 'browsertest.py?md5='+md5+'&amp;sha1='+sha1, true);
+    req.send('');
+</script>
+
+<form><table class="indented">
+  <tr><th>Input</th><td><input type="text" name="input" size="40"/></td></tr>
+  <tr><th>Calculate</th>
+  <td style="text-align:center">
+  <input type="button" value="MD5" onclick="hash.value = hex_md5(input.value)"/>
+  <input type="button" value="SHA-1" onclick="hash.value = hex_sha1(input.value)"/></td></tr>
+  <tr><th>Result</th><td><input type="text" name="hash" size="40"/></td></tr>
+</table></form>
+
+<pipp-code lexer="js">
+hex_md5("message digest") = "f96b697d7cb7938d525a2f31aaf161d0"
+hex_sha1("160-bit hash") = "90d925d853c3d35cd54070bb75280fefad9de9e7"
+</pipp-code>
+
+
+<h2>More Information</h2>
+
+<pipp-map-view src="/section.xsl"/>
+
+<h2>Algorithm Information</h2>
+
+<table class="hgap">
+<tr><th>MD4</th><td><a href="md4src.html">view source</a></td><td><a href="http://www.ietf.org/rfc/rfc1320.txt">RFC 1320</a></td></tr>
+<tr><th>MD5</th><td><a href="md5src.html">view source</a></td><td><a href="http://www.ietf.org/rfc/rfc1321.txt">RFC 1321</a></td></tr>
+<tr><th>SHA-1</th><td><a href="sha1src.html">view source</a></td><td><a href="http://www.itl.nist.gov/fipspubs/fip180-1.htm">FIPS PUB 180-1</a></td></tr>
+</table>
+
+<h2>Collision Weakness</h2>
+
+<p>In 2004, a cryptographic weakness was discovered in both the MD5 and SHA-1 algorithms. One of the design goals of secure hash algorithms is "collision resistance". In others words, someone can't find two strings that hash to the same value. Because MD5 is 128-bit, by random chance you will find a collision by producing 2<sup>64</sup> hashes. The weakness in MD5 is that a way has been found to produce such collisions with only 2<sup>42</sup> hashes. This makes producing collisions practical and I have seen an example of 100 different collisons. <a href="http://cryptography.hyperlink.cz/MD5_collisions.html">more...</a></p>
+
+<p>Most uses of JavaScript hashing (e.g. protecting passwords) do not rely on the collision resistance property. These weaknesses do not create any vulnerability in such web sites. I recommend continuing to use MD5 for JavaScript hashing.</p>
+
+
+<h2>Users of the Script</h2>
+<ul>
+<li>Yahoo used it for non-SSL logins, around 2001 - 2006.</li>
+<li><a href="http://users.guardian.co.uk/signin/0,12930,-1,00.html">Guardian Unlimited</a> use it for registered user login.</li>
+<li><a href="http://paradigm-healthcare.com/">Paradigm Healthcare</a> use it for admin logins. One of their engineers contributed a bug fix to the base-64 routines.</li>
+<li>The <a href="http://captchas.net/">Captchas</a> project.</li>
+<li><a href="http://www.vbulletin.com/">vBulletin</a></li>
+<li><a href="http://www.netjukebox.nl/">netjukebox</a>. The <a href="http://live.netjukebox.nl/">live demo</a> uses the <a href="advancedauth.html#alternative">alternative login system</a>.</li>
+</ul>
+
+</body>
+</pipp>

@@ -1,0 +1,47 @@
+<pipp>
+<title>Photo Fetch</title>
+<desc>A Python script to help you match photos on your computer with photos uploaded to Facebook.</desc>
+<body>
+
+<pipp-child-file src="fbphoto.py" title="fbphoto.py"/>
+
+<p>This is a Python script that matches photos on your computer with photos uploaded to Facebook. This helps you link from your blog or web site, to your Facebook photos. It is this script that lets me easily have photos on <a href="../../aboutme/blog/index.html">my blog</a> that link to Facebook.</p>
+
+<h3>Using the Script</h3>
+
+<p>To use the <a href="fbphoto.py">script</a>, you need <a href="http://www.python.org/">Python</a>, the <a href="http://www.pythonware.com/products/pil/">Python Imaging Library</a>, and <a href="http://pipp.googlecode.com/files/jpeg-0.1.5.win32.zip">JPEG Meta</a>. A normal run of the script will take several minutes; if you're worried it has locked, you can use <code>-v</code> to see detailed progress. Go into the album directory and issue:</p>
+
+<code>python fbphoto.py [-v] [-d] [url] [path]</code>
+
+<dl>
+<dt>[url]</dt>
+<dd>The public URL of the Facebook album. When browsing a Facebook album, this link is shown right at the bottom of the page.</dd>
+<dt>[path]</dt>
+<dd>The path to the local photo directory. (default: current directory)</dd>
+<dt>[-v]</dt>
+<dd>Verbose mode</dd>
+<dt>[-d]</dt>
+<dd>Debug mode - keeps the <code>fbphoto</code> subdirectory after the script has finished. If you use select this option, you can look at <code>check.html</code> to visually confirm the images were matched correctly.</dd>
+</dl>
+
+<p>On all the photos that match an online photo, the script sets the JPEG comment block to the Facebook public URL for that photo.</p>
+
+<h3>Using Linked Photos</h3>
+
+<p>The main use for the URL is to automatically link to Facebook from your blog or web site. If you build your site using <a href="../pipp/index.html">Pipp</a>, URLs in JPEG comments are automatically detected, and a link constructed around the image. If you're using other software, you'll need to add your own hooks, or request the author add this feature.</p>
+
+<p>Another potential use is exchanging more information from Facebook. For example, details who is tagged in the photo could be extracted, and added to the JPEG file. Alternatively, comments made in offline photo software could be posted as Facebook comments.</p>
+
+
+<h3>Future Plans</h3>
+
+<ul>
+<li>GUI interface, progress indicator</li>
+<li>Is there a better place to save the URL in the JPEG metadata? In particular, it would be good to be able to see the URL in Windows Explorer.</li>
+<li>Make image matching more reliable</li>
+<li>Performance - resize local images while thumbnails are downloading</li>
+<li>Do all albums automatically, in one go</li>
+</ul>
+
+</body>
+</pipp>

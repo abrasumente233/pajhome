@@ -1,0 +1,50 @@
+<pipp>
+<title>History</title>
+<desc>I first created a web site around 1995, and it's gradually evolved into the pajhome today.</desc>
+<body>
+
+<h2>History</h2>
+
+<p>I first saw a web page during a one week visit to Leeds University in 1992, when I also converted some lecture notes into HTML format. When I got a modem in 1995, I was immediately interested in making web sites. The first I made was for the <a href="http://knutsfordgangshow.co.uk/">Knutsford Gang Show</a> which lots of other people contributed to.</p>
+
+<p>In 1996 I was back in Leeds finding out about VRML and documenting it. I ended up publishing what I wrote on <a href="http://www.zetnet.co.uk/">Zetnet's</a> free web space. After that I played with a few pretty pointless sites, learning about HTML and JavaScript the whole time. I became particularly interested in making sites interactive, for which I really needed to write CGI scripts.</p>
+
+<p>So in 1997 I paid for web space with Oaktree (who now seem to have folded), which had CGI scripts, logs and Unix shell access. I spent a year or so building my perl scripts to let visitors annotate my web pages. They never worked that well and my focus drifted after awhile to producing content. By now I'd written Pipp and was using it for my site, although the layout was still very basic.</p>
+
+<p>During 1998 my <a href="http://www.murky.org/">cryptography teacher</a> suggested the Vigenere and Word Patterns programs. When I put them on the web he warned me of the legal issues, and so the legal notice was born. Around July I tied all the disparate sections together with a main index page, with the first "about me" section. From there I started tweaking the organisation of the site, arriving at the hierarchial structure that remains today.</p>
+
+<p>Over the course of 1999 I added some key new features to Pipp, which let me completely rethink the look of the site. I introduced graphical titles, section dividers and the hierarchial site map. I added the Acid Techno, JavaScript MD5 and CRC library sections. I still wasn't getting much traffic, so I joined a couple of web rings. Quite coincidentally, my cryptography teacher reappeared when I joined Crypt ring, as he was the ring administrator.</p>
+
+<p>During 2000 I bought the domain pajhome.org.uk and transferred from Oaktree onto my friend's virtual server, for rnj.com. I didn't add much new content, but went over existing content improving it; A few sections were almost completely rewritten. This was when I created the guest book, and this is also when the site started ranking high on search engines and getting traffic.</p>
+
+<p>In 2001 I moved the site onto my own server, which I got as a perk of my job as a sys-admin at World Online. I've sorted out <a href="http://www.webalizer.org/">Webalizer</a> <a href="statsframe.html">stats</a> for the site,  and substantially improved the RSA and MD5 sections. This produced an interesting period where Google started returning some of my stats pages for loads of warez related searches. This tripled traffic, and a few people went on to read the site, but was more like a problem than good promotion.</p>
+
+<p>Sadly, in February 2002 I stopped having my own server and moved the site onto another DSVR virtual server. This turned out to be very nearly as good, but the VS was not my own, I couldn't take the whole thing over. In September I moved the site again, onto schubert. An excellent host, which runs the hosting company RDNS. I've finally setup mod_rewrite to redirect people who find my stats pages on Google, so they get the homepage instead!</p>
+
+<p>An interesting source of traffic I've noticed is from links people leave in web message boards. Sometimes when I appear on a popular one traffic will peak for a few days. One time the daily traffic tripled, to well over 2000 distinct sites in a couple of days.</p>
+
+<p>With all this extra traffic the guest book has been getting much busier. In January 2003 I rewrote the Perl script which used a static file to a Python script that uses a MySQL database. This became quite heavily used, but increasingly only for people to ask how to crack Yahoo! passwords. In August I finally got fed up and started moderating the entries much more strictly. This included making the entries not appear until they have been approved. I was reluctant to take this step but it seems necessary.</p>
+
+<p>I didn't actually delete the old Perl guest book, I just changed all the links to the Python one. Turns out I missed one or two links and a few people managed to find the old guest book. I was most surprised when I stumbled on it by accident and found new entries. I let this continue for a while until my security consciousness made me delete it.</p>
+
+<p>I wrote some content over 2003, going up to eight sections, although some were pretty bare bones. In 2004 I finally wrote Pipp 2, which worked much better. I hardly touched the content through 2004 and 2005. Tinkered a bit with new JavaScript MD5 code, but didn't release it. In 2006 I put forums on the site, and started an appeal for content owners. A few people expressed interest, but no new content ever came from this. The forums got a little use, but were heavily spammed. In 2007 I cut back the appeal and forums.</p>
+
+<p>In December 2007 I suddenly got back my enthusiasm for doing the site, after about four years of minimal updates. I cut back areas that had never been properly developed and rewrote stale sections, particularly in "about me". I finally wrote about the <a href="../aboutme/cycling.html">cycling trip</a>. I started work on substatial new sections about security and web application frameworks. Pipp also received a lot of attention and has a considerably more polished download. The enthusiasm only lasted a coupe of months in the end.</p>
+
+<p>In November 2008 I started traveling and became a blogger, but using LiveJournal, not my own site. After years of dodgy profile pictures, I finally got a good one, me in Bollywood!</p>
+
+<p>In April 2009 I decided to use my website to promote myself as a freelance IT professional, resulting in the <a href="../consult/index.html">consultancy</a> section. To appear more professional, I made an effort to tidy up the site, particularly any half-written pages. This resulted in the new look. The old logos are replaced by <a href="logos.html">photos</a>. The navigation side bar is replaced by a breadcrumb navigator at the top. The section contents pages are now automatically generated, resulting in a more consistent appearance. H2 tags are used less; links with "more..." are used liberally. External and email links now get icons next to them. To help me update the site from low-bandwidth connections, I have moved the big downloads and images off-site, to Google code and Facebook photos. A .zip file of the whole site is now only 2.4mb.</p>
+
+
+<h2>Security</h2>
+
+<p>So far - touch wood - no-one has succeeded in a significant hack. One of my CGIs was vulnerable to a remote command execution attack, it was a long time until I noticed this. The flaw was related to Perl's open() function. Until recently the guest book and MD5 board allowed you to insert HTML tags, making them vulnerable to cross-site scripting attacks. The MD5 board could probably have been exploited in a way that leaked passwords.</p>
+
+<p>A far more practical concern is abuse, mostly in the guest book. There have been a few offensive comments which I've just deleted, though in one case I had to block a set of IP addresses from posting. Probably the cleverest attack was someone who simply copied the whole page and pasted it as their message - this messed the page up royally. The script has only recently been improved to check message length.</p>
+
+<p>I've also had people spam the referrer field, to get their URL an appearance in my stats. I recently blocked a couple of IP addresses because of this - my referrers were all porn sites!</p>
+
+<p>A totally different abuse was experienced by my friend Ray, who runs <a href="http://www.2pass.co.uk/">2 Pass</a>; I hosted a script to mark theory tests. Some lowlife had ripped off Ray's site, and was even using my marking script. I put a referrer check in, so that people from his site would get a message explaining what had happened, and encouraging them to complain. The pirate site disappeared shortly afterwards.</p>
+
+</body>
+</pipp>

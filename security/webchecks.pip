@@ -1,0 +1,108 @@
+<pipp>
+<title>Checklist</title>
+<body>
+
+<p>This checklist is a helpful reference when performing a web application security test. It is not a complete list though - there are often application-specific vulnerabilities and subtle issues that this does not cover.</p>
+
+<p><b>Authentication</b><br/>
+Logging in with an invalid user name does not reveal whether the user exists<br/>
+Accounts are locked after a number of failed logins<br/>
+An attacker cannot reset the lockout (e.g. by removing cookies)<br/>
+Can't easily lockout an account to cause a denial of service<br/>
+After login a redirect is issued, to prevent refresh attacks<br/>
+Both "change password" and "logout" functions are provided<br/>
+User is informed of last login time<br/>
+Change password requires provision of old password<br/>
+Passwords are proactively checked for strength<br/>
+Password is never revealed (e.g. in the source of change password)<br/>
+</p>
+<p><b>Session Management</b><br/>
+Session tokens are at least 128-bit<br/>
+Session tokens are unpredictable<br/>
+A new session is allocated at login (i.e. session fixation is prevented)<br/>
+Logout invalidates the session token on the server<br/>
+Cookie has "secure" and "httponly" options set and is non-persistent<br/>
+Sessions have an inactivity timeout<br/>
+Sessions have an absolute timeout<br/>
+</p>
+<p><b>Injection Attacks</b><br/>
+Cross-site scripting<br/>
+HTTP response splitting<br/>
+SQL injection<br/>
+LIKE pattern injection<br/>
+LDAP injection<br/>
+XPATH injection<br/>
+Mail header injection<br/>
+Directory traversal<br/>
+Null-byte injection<br/>
+Shell script / batch injection<br/>
+Server-side script injection (PHP, Perl, etc.)<br/>
+XML injection<br/>
+Try to bypass filters using over-long utf-8 encodings<br/>
+Try to bypass filters using wide-ascii, or other unicode equivalents<br/>
+</p>
+<p><b>Content Checks</b><br/>
+No script tags reference resources on other servers<br/>
+Use of eval, document.write, innerHTML, etc. does not cause XSS<br/>
+Comments in files do not reveal sensitive information<br/>
+Frames/iframes, if used, have frame spoofing protection<br/>
+autocomplete=off is set on all forms asking for personal information<br/>
+Private IP addresses<br/>
+</p>
+<p><b>Server Side Script Behaviour</b><br/>
+Arbitrary redirection<br/>
+Arbitrary message inclusion<br/>
+File upload features restrict uploaded content to prevent compromise<br/>
+JavaScript Hijacking<br/>
+Scripts that cause write actions require POST with a CSRF token<br/>
+Scripts that act as an open proxy or mail relay<br/>
+Exponential format accepted<br/>
+Server compromise by uploading XML that sources a stylesheet<br/>
+Source code disclosure through scripts that allow read access to files<br/>
+</p>
+<p><b>Authorization</b><br/>
+All protected resources check for a valid session<br/>
+All protected resources check for user permissions (forced browing)<br/>
+Parameter tampering does not allow access to others' data<br/>
+Page-to-page flow is correctly enforced where required<br/>
+Form POST targets perform the same authorization as form views<br/>
+</p>
+<p><b>Miscellaneous</b><br/>
+cache-control: private or stronger is used on sensitive pages<br/>
+All client-side validation is repeated on the server<br/>
+Site supports HTTPS, and sensitive pages forbid HTTP access<br/>
+All pages are displayed with status and address bars<br/>
+All URLs are expected from a customer's point of view<br/>
+No "Mixture of secure and insecure content" warnings<br/>
+</p>
+<p><b>Server Configuration</b><br/>
+There are no "orphaned" files (exist on the web server, but not linked)<br/>
+No backup versions of files are accessible (may reveal source code)<br/>
+No common insecure scripts (e.g. snoop servlet) are accessible<br/>
+Error messages do not provide overly-detailed information<br/>
+</p>
+<p><b>Special Cases</b><br/>
+Dynamic login questions: question cannot be changed by the user<br/>
+Application forms: restarting a transcation doesn't leak information<br/>
+Smoke &amp; mirrors: generated emails are appropriately protected<br/>
+Domain auth: domain accounts cannot be locked out from the internet<br/>
+Forgotten password: understand any information leaked or risks created<br/>
+</p>
+<p><b>SSL Client Certificates</b><br/>
+Does login check username matches certificate?<br/>
+Can you lock out an account without holding the certificate?<br/>
+Is certificate required for every request?<br/>
+Does it check the certificate matches the session ID?<br/>
+Can you login using a self-signed certificate?<br/>
+Are test/pre-prod certicates separated from live?<br/>
+</p>
+<p><b>Nested Web Service</b><br/>
+Is the WSDL file accessible?<br/>
+Does access to the web service require a web session?<br/>
+Does it check the web session user matches the WS user?<br/>
+Also, most of this checklist also applies to the web service.<br/>
+</p>
+
+
+</body>
+</pipp>

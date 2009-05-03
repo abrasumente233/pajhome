@@ -1,0 +1,33 @@
+<pipp>
+<title>Scanning</title>
+<body>
+<p><b>(Under construction)</b></p>
+
+
+<h2>Security Scanning</h2>
+
+<p>There is a growing movement for "hacker's eye view" scanning. Many open source and commercial tools exist for this, including the very popular <a href="http://www.insecure.org/nmap">nmap</a> and <a href="http://www.nessus.org/">Nessus</a>.</p>
+
+<p>Interestingly, people are learning to block IP addresses of scanners. For example, some universities scan their networks for student web servers - as these often contain pirate software. I have heard cases of students firewalling the scanning addresses to continuing sharing.</p>
+
+<h2>Vulnerability Scanning</h2>
+
+Port scan
+Service identification
+Version identification + checks
+Service-specifics checks - config, direct vuln tests
+Password bruting
+Web stuff - discovery, direct tests, light app testing
+Local checks
+
+
+<h2>Reverse DNS Probe</h2>
+
+<p>Sometimes DNS servers are misconfigured can determine what domains they have cached. This is actually quite common.</p>
+
+<p>An interesting exploit for this is to determine what IP addresses have visited a website. If the server does reverse DNS on visitors (which is fairly common), you can tell if a given IP address has visited the site, by checking the DNS server for having the reverse domain cached. And if you do your queries cleverly, you can brute force through the IP address space hierarchially, to enumerate everyone who's visited.</p>
+
+
+
+</body>
+</pipp>

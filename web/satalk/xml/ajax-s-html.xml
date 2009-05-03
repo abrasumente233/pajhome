@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../xslt/ajax-s-html.xml"?>
+<ajax-s>
+	<pages>
+        <page>
+            <h2>Database Magic with SQLAlchemy</h2>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <h3>PyConUK 2007</h3>
+            <p>Paul Johnston<br/>
+            http://pajhome.org.uk/</p>
+        </page>
+		<page>
+			<h2>SQL Alchemy</h2>
+            <ul>
+            <li>Database Toolkit</li>
+            <li>Object-Relational Mapper</li>
+            <li>Version 0.4</li>
+            </ul>
+		</page>
+        <page>
+            <h2>Creating a Table</h2>
+            <pre>
+>>> from sqlalchemy import *
+
+>>> metadata = MetaData('mssql://./test')
+
+>>> customer = Table('customer', metadata,
+...         Column('id', Integer, primary_key=True),
+...         Column('name', String),
+...         Column('priority', Boolean, default=False)
+...     )
+
+>>> customer.create()            
+            </pre>
+        </page>
+		<page>
+			<img src="images/ms-customer.png"/>
+		</page>
+		<page>
+			<h2>Creating a Mapped Class</h2>			
+            <pre>
+>>> from sqlalchemy.orm import *
+>>> session = scoped_session(sessionmaker(autoflush=False, transactional=False))
+
+>>> class Customer(object):
+...     pass            
+
+>>> session.mapper(Customer, customer)
+            </pre>
+
+        </page>
+        <page>
+            <h2>Creating a Customer</h2>
+            <pre>
+>>> c = Customer()
+>>> c.name = 'PyConUK'
+
+>>> session.flush()
+            </pre>
+		</page>
+        <page>
+            <img src="images/ms-customer2.png"/>
+        </page>
+        <page>
+            <h2>Selecting Customers</h2>
+            <pre>
+>>> Customer.query.all()
+[&lt;&#65279;Customer object at 0x00D8F130&gt;]
+
+>>> Customer.query.filter(Customer.priority == True).all()
+[]
+
+>>> Customer.query.filter(Customer.name.startswith('Py')).all()
+[&lt;&#65279;Customer object at 0x00D8F130&gt;]
+
+>>> Customer.query.get(1)
+&lt;&#65279;Customer object at 0x00D8F130&gt;
+            </pre>
+        </page>
+        <page>
+            <h2>Updating and Deleting</h2>
+            <pre>
+>>> c = Customer.query.get(1)
+>>> c.priority = True
+>>> session.flush()
+
+>>> session.delete(c)
+>>> session.flush()
+            </pre>
+        </page>        
+        <page>
+            <h2>Refining the Class</h2>
+            <pre>
+class Customer(object):
+    def __init__(self, **kw):
+        self.__dict__.update(kw)
+
+    def __str__(self):
+        return self.name
+
+    @property
+    def initials(self):
+        return ''.join(n[0] for n in self.name.split())
+            </pre>
+        </page>
+        <page>
+            <h2>Refining the Class</h2>
+            <pre>
+>>> c = Customer(name='National Aeronautics&amp; Space Agency', priority=True)
+
+>>> print c
+National Aeronautics&amp; Space Agency
+
+>>> print c.initials
+NASA
+            </pre>
+        </page>
+        <page>
+            <h2>Defining a Relation</h2>
+            <pre>
+pentest = Table('pentest', metadata,
+        Column('id', Integer, primary_key=True),
+        Column('customerid', Integer, ForeignKey('customer.id')),
+        Column('name', String),
+    )
+
+class PenTest(object):
+    def __init__(self, **kw):
+        self.__dict__.update(kw)
+    def __str__(self):
+        return self.name
+
+session.mapper(PenTest, pentest)
+
+session.mapper(Customer, customer, properties={
+        'pentest': relation(PenTest, backref='customer'),
+    })
+            </pre>
+        </page>
+        <page>
+        <h2>Using Relations</h2>
+        <pre>
+>>> c = Customer.query.get(1)
+
+>>> p = PenTest(name='Web site test')
+
+>>> c.pentest.append(p)
+
+>>> print p.customer
+PyConUK
+
+>>> c.pentest.append(PenTest(name='Wireless site survey'))
+
+>>> c.pentest
+[&lt;&#65279;PenTest object at 0x0172C5F0>, &lt;&#65279;PenTest object at 0x01724A70>]
+
+>>> Customer.query.get(2).pentest.append(PenTest(name='Perimeter scan'))
+        </pre>
+        </page>
+        <page>
+            <h2>Joins</h2>
+            <pre>
+>>> PenTest.query.join('customer').filter(Customer.priority == True)
+            </pre>
+        </page>
+        <page>
+            <h2>SQLAlchemy in a Web Framework</h2>
+            <pre>
+@expose(template='satalk.templates.customers')
+def customers(self):
+    return dict(customers=Customer.query.all())
+    
+    
+&lt;&#65279;html xmlns:py="http://genshi.edgewall.org/">
+    &lt;&#65279;body>
+        &lt;&#65279;h1>Customers&lt;&#65279;/h1>
+        &lt;&#65279;ul>
+            &lt;&#65279;li py:for="c in customers">$c&lt;&#65279;/li>
+        &lt;&#65279;/ul>
+    &lt;&#65279;/body>
+&lt;&#65279;/html>
+            </pre>
+        </page>
+        <page>
+            <img src="images/ff-customer.png"/>
+        </page>
+        <page>
+            <h2>Using a Relation</h2>
+            <pre>
+@expose(template='satalk.templates.customers')
+def customers(self):
+    return dict(customers=Customer.query.all())
+    
+    
+&lt;&#65279;html xmlns:py="http://genshi.edgewall.org/">
+    &lt;&#65279;body>
+        &lt;&#65279;h1>Customers&lt;&#65279;/h1>
+        &lt;&#65279;ul>
+            &lt;&#65279;li py:for="c in customers">
+                $c
+                &lt;&#65279;ul>&lt;&#65279;li py:for="t in c.pentest">$t&lt;&#65279;/li>&lt;&#65279;/ul>
+            &lt;&#65279;/li>
+        &lt;&#65279;/ul>
+    &lt;&#65279;/body>
+&lt;&#65279;/html>
+            </pre>
+        </page>
+        <page>
+            <img src="images/ff-customer2.png"/>
+        </page>
+        <page>
+            <h2>Lazy Loading</h2>
+<pre>>>> c = customer.query.all()
+SELECT  customer.priority AS customer_priority, 
+        customer.name AS customer_name, 
+        customer.id AS customer_id
+FROM    customer 
+ORDER BY customer.id
+
+>>> c[0].pentest
+SELECT  pentest.name AS pentest_name, 
+        pentest.row_type AS pentest_row_type, 
+        pentest.customerid AS pentest_customerid, 
+        pentest.id AS pentest_id, 
+FROM    pentest 
+WHERE   pentest.customerid = ? 
+</pre>
+        </page>
+        <page>
+            <h2>Eager Loading</h2>            
+            <pre>
+>>> c = Customer.query.options(eagerload('pentest')).all()
+SELECT  customer.priority AS customer_priority, 
+        anon_d683.name AS anon_d683_name, 
+        anon_d683.customerid AS anon_d683_customerid, 
+        anon_d683.id AS anon_d683_id, 
+        customer.name AS customer_name, 
+        customer.id AS customer_id
+FROM    customer 
+LEFT OUTER JOIN pentest AS anon_d683 ON anon_d683.customerid = customer.id 
+ORDER BY customer.id, 
+        anon_d683.id
+
+>>> c[0].pentest
+[no query issued]
+            </pre>
+        </page>
+        <page>
+            <h2>Data Mapper Pattern</h2>
+            <pre>
+customer = Table('customer', metadata,
+        Column('id', Integer, primary_key=True),
+        Column('name', String),
+        Column('priority', Boolean, default=False)
+    )
+    
+class Customer(object):
+    def __init__(self, **kw):
+        self.__dict__.update(kw)        
+    def __str__(self):
+        return self.name
+    @property
+    def initials(self):
+        return ''.join(n[0] for n in self.name.split())
+
+session.mapper(Customer, customer, properties={
+        'pentest': relation(PenTest, backref='customer'),
+    })
+            </pre>            
+        </page>
+        <page>
+            <h2>Elixir - Active Record Pattern</h2>
+            <pre>
+from elixir import *
+
+class Customer(Entity):
+    has_field('name', String)
+    has_field('priority', Boolean, default=False)
+
+    def __str__(self):
+        return self.name
+    @property
+    def initials(self):
+        return ''.join(n[0] for n in self.name.split())
+            </pre>
+        </page>
+        <page>
+            <h2>Elixir - Active Record Pattern</h2>
+            <pre>
+from elixir import *
+
+class Customer(Entity):
+    has_field('name', String)
+    has_field('priority', Boolean, default=False)
+
+    def __str__(self):
+        return self.name
+    @property
+    def initials(self):
+        return ''.join(n[0] for n in self.name.split())
+
+class PenTest(Entity):
+    belongs_to('customer', of_kind='Customer', 
+            colname='customerid', backref='pentest')
+    has_field('name', String)
+
+    def __str__(self):
+        return self.name
+            </pre>
+        </page>
+        <page>
+            <h2>Inheritence</h2>
+            <p>Specialise PenTest into:</p>
+            <ul>
+                <li>WebAppTest</li>
+                <li>VulnScanTest</li>
+            </ul>
+        </page>
+        <page>
+            <h2>Inheritence</h2>
+            <pre>
+class PenTest(Entity):
+    using_options(inheritance='multi', polymorphic=True)
+    belongs_to('customer', of_kind='Customer', 
+            colname='customerid', backref='pentest')
+    has_field('name', String)
+    def __str__(self):
+        return self.name
+
+class WebAppTest(PenTest):
+    using_options(inheritance='multi', polymorphic=True)
+    has_field('url', String)
+    def __str__(self):
+        return '%s (%s)' % (self.name, self.url)
+    
+class VulnScanTest(PenTest):
+    using_options(inheritance='multi', polymorphic=True)
+    has_field('ipaddress', String)
+    def __str__(self):
+        return '%s (%s)' % (self.name, self.ip)
+            </pre>
+        </page>
+        <page>
+            <h2>Using Inheritence</h2>
+            <pre>
+>>> c = Customer.query.get(1)
+>>> c.pentest.append(WebAppTest(name='Web test', url='example.com'))
+>>> c.pentest.append(VulnScanTest(name='Scan', ipaddress='1.2.3.4'))
+
+>>> WebAppTest.query.all()
+[&lt;&#65279;WebAppTest object at 0x00D8DAB0>]
+
+>>> PenTest.query.all()
+[&lt;&#65279;WebAppTest object at 0x00D8DAB0>, &lt;&#65279;VulnScanTest object at 0x00DC86F0>,
+&lt;&#65279;PenTest object at 0x00D8D4B0>, &lt;&#65279;PenTest object at 0x00D8D2B0>,
+&lt;&#65279;PenTest object at 0x00D8D0B0>]
+
+>>> c.pentest
+[&lt;&#65279;PenTest object at 0x00D8D4B0>, &lt;&#65279;PenTest object at 0x00D8D2B0>,
+&lt;&#65279;WebAppTest object at 0x00D8DAB0>, &lt;&#65279;VulnScanTest object at 0x00DC86F0>]
+            </pre>
+        </page>
+        <page>
+            <h2>Polymorphic Query</h2>
+            <pre>
+SELECT  pentest.name AS pentest_name, 
+        webapptest.url AS webapptest_url, 
+        pentest.row_type AS pentest_row_type, 
+        pentest.customerid AS pentest_customerid, 
+        pentest.id AS pentest_id, 
+        vulnscantest.ipaddress AS vulnscantest_ipaddress, 
+        webapptest.pentest_id AS webapptest_pentest_id, 
+        vulnscantest.pentest_id AS vulnscantest_pentest_id
+FROM    pentest 
+LEFT OUTER JOIN webapptest ON pentest.id = webapptest.pentest_id 
+LEFT OUTER JOIN vulnscantest ON pentest.id = vulnscantest.pentest_id
+WHERE   pentest.customerid = ? 
+ORDER BY pentest.id            
+            </pre>
+        </page>
+        <page>
+            <h2>Polymorphic Relation</h2>
+            <pre>
+@expose(template='satalk.templates.customers')
+def customers(self):
+    return dict(customers=Customer.query.all())
+    
+    
+&lt;&#65279;html xmlns:py="http://genshi.edgewall.org/">
+    &lt;&#65279;body>
+        &lt;&#65279;h1>Customers&lt;&#65279;/h1>
+        &lt;&#65279;ul>
+            &lt;&#65279;li py:for="c in customers">
+                $c
+                &lt;&#65279;ul>&lt;&#65279;li py:for="t in c.pentest">$t&lt;&#65279;/li>&lt;&#65279;/ul>
+            &lt;&#65279;/li>
+        &lt;&#65279;/ul>
+    &lt;&#65279;/body>
+&lt;&#65279;/html>
+            </pre>
+        </page>
+        <page>
+            <img src="images/ff-customer3.png"/>
+        </page>
+        <page>
+            <h2>Many-to-Many Relations</h2>
+            <ul>
+                <li>Secondary table</li>
+                <li>Similar to one-to-many</li>
+                <li>Association proxy</li>
+            </ul>
+        </page>
+        <page>
+            <h2>Maintaining Database Structure</h2>
+            <p>Two approaches:</p>
+            <ul>
+                <li>Reflection - load structure from database</li>
+                <li>Syncronisation - update database to match Python definitions</li>
+            </ul>
+        </page>
+        <page>
+            <h2>Reflection</h2>
+            <ul>
+                <li>Table reflection
+                <pre>customer = Table('customer', metadata, autoload=True)</pre>
+                </li>
+                <li>Metadata reflection
+                <pre>metadata = MetaData('mssql://./test', reflect=True)</pre>
+                </li>
+                <li>SQLSoup
+                <pre>from sqlalchemy.ext.sqlsoup import SqlSoup
+soup = SqlSoup('mssql://./test')</pre>
+                </li>
+            </ul>
+        </page>
+        <page>
+            <h2>Syncronisation</h2>
+            <ul>
+                <li>ModelUpdate</li>
+                <li>AutoCode</li>
+                <li>Migrate</li>
+            </ul>
+        </page>
+        <page>
+            <h2>Other Features</h2>
+            <ul>
+                <li>Custom relations</li>
+                <li>Unit-of-work pattern &amp; transactional systems</li>
+                <li>Migrating databases</li>
+                <li>Optimistic concurrent locking</li>
+                <li>Versioning</li>
+            </ul>
+        </page>
+        <page>
+            <h2>Benefits of SQLAlchemy</h2>
+            <ul>
+                <li>Less code - faster development</li>
+                <li>Better modularisation - easier modification</li>
+                <li>Ability to use advanced features</li>
+                <li>Better control of database structure</li>
+            </ul>
+        </page>
+        <page>
+            <h2>Database Magic with SQLAlchemy</h2>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <h3>PyConUK 2007</h3>
+            <p>Paul Johnston<br/>
+            http://pajhome.org.uk/</p>
+        </page>
+    </pages>
+</ajax-s>

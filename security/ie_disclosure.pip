@@ -1,0 +1,38 @@
+<pipp>
+<title>IE Disclosure</title>
+<body>
+
+<h2>Description</h2>
+
+<p>Internet Explorer 6.0 (and possibly other versions) reveal details of software installed on your system. When you fetch a website, IE sends a request like this:</p>
+
+<p class="code">GET / HTTP/1.1<br/>
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, */*<br/>
+Accept-Language: rs1_d12bc2c9e67;q=0.0,rs2_84605b65e8e;q=0.0,rs3_06a7e579f2;q=0.0<br/>
+Accept-Encoding: gzip, deflate<br/>
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)<br/>
+Host: pajhome.org.uk<br/>
+Connection: Keep-Alive</p>
+
+<p>It is the "Accept:" header that is the problem. If you have all of Office installed, then the accept header looks like this:</p>
+
+<p class="code">Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-powerpoint, application/vnd.ms-excel, application/msword, */*</p>
+
+<p>So, completely hidden from you, IE is revealing whether you have Excel, PowerPoint or Word installed, to every website you visit.</p>
+
+<h2>Is this a bug?</h2>
+
+<p>I'm sure that Microsoft could completely justify this design as being useful. For example it lets servers return different document types depending on what the client can read. However, I think this is leaking far too much information about your system. The information may even be useful to hackers, as there have been security problems with these programs in the past, e.g. macro viruses.</p>
+
+<p>I can only speculate at what information is leaked in the cryptic-looking "Accept-Language:" header.</p>
+
+<h2>Solution</h2>
+
+<p>Fortunately you can stop the information leakage quite easily, by editing the registry. Just delete the affected keys from this branch:</p>
+
+<p class="indented">HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Accepted Documents</p>
+
+<p>The solution comes from <a href="http://kimihia.org.nz/articles/ieaccept/modify">this article</a> on Kimihia.</p>
+
+</body>
+</pipp>

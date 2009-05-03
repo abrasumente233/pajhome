@@ -1,0 +1,63 @@
+<pipp>
+<title>About Me</title>
+<logo>aboutme.jpg</logo>
+<desc>Find out about me, including my current adventure in Asia.</desc>
+<body>
+
+<pipp-child src="blog/index.pip"/>
+<pipp-child src="cycling.pip"/>
+<pipp-child src="career.pip"/>
+<pipp-child src="phil/index.pip"/>
+<pipp-child src="rave/index.pip"/>
+<pipp-child src="/site/index.pip"/>
+
+
+<p>So, you're wondering who I am? My real name is Paul Johnston, although a lot of people call me Paj. Since November 2008 I've been traveling the world. India was my first stop, I spent nearly four months traveling from Delhi in the North, all the way down to Kanyakumari, the southern-most tip. I've been keeping a <a href="blog/index.html">blog</a>, where you can read the latest news.</p>
+
+<p>Prior to traveling, I lived in Leeds, the UK's fourth city. It's an ok place, there's lots of social life nearby, as well as easy access to the countryside. I used to go running along a canal just by the house. Only problem is all the bloody traffic. I was still hanging on to the student life, living in a house share with four lovely people.</p>
+
+<p>I worked for HBOS, which was one of the major banks in the UK, before becoming part of Lloyds Banking Group in a rescue takeover. The bank is better known in England as the Halifax, and in Scotland as Bank of Scotland. I worked in information security, where I had a varied role, with a good chunk of penetration testing. I think HBOS was a great employer, and would have recommended the company. I've had quite an eventful <a href="career.html">IT career</a> already. I mention on the front page that I was "booted out from corporate land", but this isn't quite true. I was briefly displaced (without a role - the precursor to redundancy), and that day I decided to go traveling, but in the end a role was found and I left voluntarily.</p>
+
+<p>I've got a bunch of hobbies. I like keeping fit with cycling, running and the gym, all with varied frequency. I've done some long rides, including cycling all the way <a href="cycling.html">across Europe</a> - from Amsterdam to Barcelona. I like Salsa dancing, you may find me at <a href="http://www.thesalsaholics.com/">Salsaholics</a> or Fuego Latino. And I'm a juggler - more on this below. I used to train <a href="http://www.jeet-kune-do.info/">Jeet Kune Do</a>, although I've not kept it up recently.</p>
+
+<p>Generally, I've not been big on the online social networks. But I am now on <a href="http://www.facebook.com/profile.php?id=514659623">Facebook</a> and LinkedIn, although I usually only accept friend requests from people I know in real life. For the wider community, I have created a <a href="http://groups.google.com/group/pajhome/">Google group</a> for discussion of this site, although there is virtually no traffic.</p>
+
+<p>I quite like reading, although it comes in bursts. I like fast paced, action books authors like Dan Brown, Michael Crichton, Robert Harris and Chuck Palahniuk. For a long time I really liked Isaac Asimov, and I still think the ideas in his books are just about the best around, although his writing style isn't quite as gripping as the others I've mentioned.</p>
+
+<p>For music, I am a bit "homeless" at the moment. For years, I listened to really heavy dance music - techno, drum &amp; bass, all that, writing off everything other kind of music. At some point I realised heavy dance music does my head in, I mean, it's got its time and place, just not often. Nowadays, I like some stuff, mostly individual songs more than groups, although REM, Kosheen and Queen are usually good picks. If you've got any ideas for stuff to soothe my ears, give me a shout.</p>
+
+<table>
+  <tr>
+    <td>
+      <applet code="Jmj.class" archive="jugglem.jar" width="220" height="300">
+        <param name="file" value="jugglem.pat"/>
+        <param name="embed" value="true"/>
+      </applet>
+      <pipp-file src="jugglem.jar"/>
+      <pipp-file src="jugglem.pat"/>
+    </td>
+    <td>
+      <p>I've been juggling for about half my life, a bit on and off. I can do lots of three ball tricks, including Burke's Barrage and my favorite, The Machine. My four balls aren't as steady, but I can keep shower going for a while now. I've got clubs as well and have almost mastered four count passing. In my time, I've been involved in a few juggling clubs, including Passed Imperfect and <a href="http://www.srcf.ucam.org/cuja/">CUJA</a>.</p>
+
+      <p>The Juggler on the left is a modified version of <a href="http://freshmeat.net/projects/jugglemaster/">Juggle Master</a>, performing The Machine. This is a fantastic, free program that can juggle all sorts of patterns including many beyond any human. I've hacked out lots of the program to embed it in this page, which isn't a violation of the <a href="../site/legal.html#jugglem">license</a>. I recommend downloading the full version; it's an excellent piece of software.</p>
+
+      <p>JuggleMaster Java Version 1.03 Copyright 1995 - 1999 Ken Matsuoka, Masuda Kazuyoshi, Yuji Konishi, Asanuma Nobuhiko.</p>
+    </td>
+  </tr>
+</table>
+
+<h2>More Information</h2>
+
+<pipp-map-view src="/section.xsl"/>
+
+
+<h2><a name="paj">Paj - that's not a name!</a></h2>
+
+<p>It often surprises new people when I introduce myself this way. My full name is:</p>
+
+<p class="indented"><b>P</b>aul <b>A</b>ndrew <b>J</b>ohnston</p>
+
+<p>or PAJ for short. It's pronounced "Padge" but not spelt that way. And NO, I am not Raj, Patch, Podge or Hedge and definitely not Fadge!</p>
+
+</body>
+</pipp>

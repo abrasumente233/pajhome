@@ -1,0 +1,27 @@
+<pipp>
+<title>Risk Appetite</title>
+<body>
+
+
+
+Security objectives
+
+High level
+    Ultra secure - compromise cost &amp; convenience
+    Highly secure - cost no object, but needs to be convenient
+    Good security
+    Stop common attacks [is this a viable level?]
+    Security not important
+
+Threat profile
+    Keep outsiders out
+    Restrict people to accessing their own stuff
+    App specific requirements
+        areas people can access
+        a can request; b must approve
+
+
+
+
+</body>
+</pipp>

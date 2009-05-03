@@ -1,0 +1,43 @@
+<pipp>
+<title>Vectors</title>
+<body>
+
+<h2>Co-ordinate System</h2>
+
+<p>The VRML 1.0 Final Specification explains this:</p>
+
+<p class="emphasized">VRML uses a cartesian, right-handed, 3-dimensional coordinate system. By default, objects are projected onto a 2-dimensional device by projecting them in the direction of the positive Z axis, with the positive X axis to the right and the positive Y axis up. A camera or modeling transformation may be used to alter this default projection. The standard unit for lengths and distances specified is meters. The standard unit for angles is radians.</p>
+
+<h2>Vectors</h2>
+
+<p>Vectors are used to specify directions and points, relative to the origin. VRML defines two types of vector:</p>
+
+<ul>
+<li>SFVec2f - Two-dimension vector made of x and y displacements.
+<p align="center"><pipp-img src="2dvec.gif"/></p></li>
+<li>SFVec3f - Two-dimension vector made of x, y and z displacements.
+<p align="center"><pipp-img src="3dvec.gif"/></p></li>
+</ul>
+
+<p>Any of the displacements - x, y or z - can be negative. There are also types for lists of vectors - MFVec2f and MFVec3f.</p>
+
+<h2>Rotations</h2>
+
+<p>To apply a rotation to an object, you need to specify the axis of rotation using a vector, and the angle of rotation.</p>
+
+<p align="center"><pipp-img src="rotate.gif"/></p>
+
+<h2>Camera Views</h2>
+
+<p>You can set the starting point of the viewer, by defining a perspective camera. With this kind of view objects that are further away appear smaller. It has these properties:</p>
+
+<ul>
+<li>position (SFVec3f) - The initial position of the viewer.</li>
+<li>orientation (3FRotation) - The vector part of this specifies the direction the viewer is looking, and the angle rotates their head. </li>
+<li>heightAngle (SFFloat) - Sets the width of view: large values are like a wide angled lense, while small values telescopic.</li>
+</ul>
+
+<p align="center"><pipp-img src="heightang.gif"/></p>
+
+</body>
+</pipp>

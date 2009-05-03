@@ -1,0 +1,76 @@
+<pipp>
+<title>Links</title>
+<desc>Some interesting sites for work and fun, and friends' sites.</desc>
+<body>
+
+<table width="100%">
+  <tr>
+    <td width="50%">
+
+      <p><strong>Sites I helped build</strong><br/>
+      <a href="http://home.abel.co.uk/support/adsl-instructions.html">ADSL Instructions</a>,
+      <a href="http://www.2pass.co.uk/35test.htm">Driving Theory Practice</a></p>
+
+      <p><strong>Cool Stuff</strong><br/>
+      <a href="http://www.free-dome.org/orr/PassingPage/Simulators/JavaMaster/home.htm">Juggle Master</a>,
+      <a href="http://www.twinbee.org/hob/">Java ZX Spectrum</a>,
+      <a href="http://fontastic.i-n.net/fontastic/">Fontastic</a>,
+      <a href="http://www.cbrd.co.uk/">Roads</a>,
+      <a href="http://www.sosmath.com/">S.O.S. Mathematics</a></p>
+
+      <p><strong>Friend's Sites</strong><br/>
+      <a href="http://www.unfinished.org.uk/">The Unfinished Project</a>,
+      <a href="http://www.scarrott.org.uk/">Scarrott</a>,
+      <a href="http://www.pastonroot.co.uk/derek/">Derek Williams</a>
+      (<a href="http://www.pastonroot.co.uk/derek/Section23/">Section 23</a>),
+      <a href="http://www.olympiad.org.uk/">BIO</a>,
+      <a href="http://www.redrazor.co.uk/">RedRazor</a>,
+      <a href="http://www.johndang.co.uk/">John Dang</a>,
+      <a href="http://www.ourvenicecarnival.com/">Our Venice Carnival</a>,
+      <a href="http://www.triviasecurity.net/">Trivia Security</a></p>
+
+      <p><strong>Cryptography</strong><br/>
+      <a href="http://www.cryptopp.com/">Crypto++</a>,
+      <a href="http://mr01001101.co.uk/">MR01001101</a></p>
+
+      <p><strong>Security</strong><br/>
+      <a href="http://bcheck.scanit.be/">Browser security check</a>,
+      <a href="http://www.aboutidentitytheft.co.uk">About Identity Theft</a></p>
+
+    </td>
+    <td width="50%">
+
+      <p><strong>Web Development</strong><br/>
+      <a href="http://yav.sourceforge.net/">Yav</a></p>
+
+      <p><strong>Programming</strong><br/>
+      <a href="http://www.vijaymukhi.com/">Vijay Mukhi</a>,
+      <a href="http://hem.passagen.se/zeela/main.html">Languages list</a>,
+      <a href="http://www.meetingtomorrow.com/cms-category/unix-programming">UNIX Programming</a>,
+      <a href="http://www.whitefang.com/sup/secure-faq.html">Secure Programming</a>,
+      <a href="http://www.setbb.com/phpbb/index.php?mforum=sudoku">Sudoku</a></p>
+
+      <p><strong>C and C++</strong><br/>
+      <a href="http://www.iecc.com/gclist/GC-faq.html">Garbage Collection FAQ</a>,
+      <a href="http://c-faq.com">C FAQ</a>,
+      <a href="http://www.cs.ucdavis.edu/~gusfield/strmat.html">Strmat</a>,
+      <a href="http://www.snippets.org/">Snippets</a></p>
+
+      <p><strong>DJing</strong><br/>
+      <a href="http://music.hyperreal.org/dj/AVH/">DJ Basics</a>,
+      <a href="http://www.rupespad.com/html/djGuide/index.html">Rupespad DJ Guide</a>,
+      <a href="http://www.truelove.co.uk/">True Love Collective</a></p>
+
+      <p><strong>Partying and Squatting</strong><br/>
+      <a href="http://www.accessallareas.org/main.html">Access all Areas</a>,
+      <a href="http://www.sorted.org/london/">Dale's London Techno</a>,
+      <a href="http://www.partyvibe.com/">Partyvibe</a>,
+      <a href="http://www.geocities.com/CapitolHill/Lobby/6423/law.html">The Law</a>,
+      <a href="http://www.squatter.org.uk/">Squatting</a></p>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</pipp>

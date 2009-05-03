@@ -1,0 +1,87 @@
+<pipp>
+<title>Lottery Check</title>
+<status>old</status>
+<desc>JavaScript to let people visually select lottery numbers.</desc>
+<body>
+
+<pipp-file src="*.gif"/>
+
+<p>Bearing in mind this is from 2000, this is one of the coolest bits of JavaScript I've written. It provides a way for people to enter their lottery choices to my friend's <a href="http://lotterycheck.co.uk/">LotteryCheck.co.uk</a> site. This site then sends email or SMS notifications of the <a href="http://lottery.co.uk">UK National Lottery</a> results. In 2007, people's expectations have moved on, and with drag and drop, this now looks a little dated.</p>
+
+<p>Click on balls to add them to your selection, or remove them.</p>
+
+<p>This page is just a demonstration of the JavaScript. For the checking service visit <a href="http://www.lotterycheck.co.uk">LotteryCheck.co.uk</a></p>
+
+<table bgcolor="#316BA9" cellspacing="0" cellpadding="3" border="0" align="center">
+<tr><td>
+<script type="text/javascript">
+var blank_img = "blank.gif"
+function ball_img(ball) { return ball + ".gif"; }
+var sel = new Array(6)
+var nsel = 0
+
+function select(ball)
+{
+  if(nsel &gt;= 6) return
+  for(i = 0; i &lt; nsel; i++) { if(sel[i] == ball) return }
+  document.images["i"+ball].src = blank_img
+  sel[nsel] = ball
+  nsel++
+  update()
+}
+
+function unselect(slot)
+{
+  if(slot &gt;= nsel) return
+  document.images["i"+sel[slot]].src = ball_img(sel[slot]);
+  sel[slot] = 999;
+  nsel--;
+  update();
+}
+
+function update()
+{
+  sel.sort()
+  for(i = 0; i &lt; 6; i++)
+    document.images["s"+i].src = (i &lt; nsel) ? ball_img(sel[i]) : blank_img
+}
+
+function dosubmit()
+{
+  if(nsel &lt; 6)
+  {
+    alert("Please select six balls");
+    return false;
+  }
+  s = "";
+  for(i = 0; i &lt; 6; i++) s += sel[i]+" "
+  document.data.numbers.value = s;
+}
+
+for(i = 1; i &lt; 50; i++)
+{
+  n = i &lt; 10 ? "0"+i : i
+  document.write("&lt;a href='javascript:select(\""+n+"\")'&gt;&lt;img name='i"+n+"' border=0 src='" + ball_img(n) + "'&gt;&lt;/a&gt;")
+  if(i % 10 == 0) document.write("&lt;p&gt;");
+}
+</script>
+
+<br/><br/><br/></td></tr><tr><td align="center">
+
+<script type="text/javascript">
+for(i = 0; i &lt; 6; i++)
+{
+  document.write("&lt;a href='javascript:unselect("+i+")'&gt;&lt;img name='s"+i+"' border=0 src='" + blank_img +"'&gt;&lt;/a&gt;")
+}
+</script>
+
+</td></tr>
+</table>
+
+<form name="data" onsubmit="dosubmit(); return false">
+<p align="center"><input type="submit" value="Done"/></p>
+<p align="center">No JavaScript? Use this: <input type="text" name="numbers"/></p>
+</form>
+
+</body>
+</pipp>

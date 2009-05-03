@@ -1,0 +1,40 @@
+<pipp>
+<title>Other Uses</title>
+<desc>The scripts have uses besides protecting passwords.</desc>
+<body>
+
+<h2><a name="passgen">Password Generation</a></h2>
+
+<p>A password generator creates a unique password for each web site you use. To use it, you go to the password generator page, and enter your master password, and the URL of the web site. The password generator combines these, usually using a hash algorithm, producing a unique password for the site.</p>
+
+<p>While password generators are a good idea, they are inconvenient to use, so most people continue to use the same password on all web sites. Some password makers have browser extensions to make them more convenient. However, single sign-on, e.g. <a href="http://openid.net/">OpenID</a> seems to be a more promising approach to the problem.</p>
+
+<p>Some password generator sites:</p>
+
+<ul>
+<li><a href="http://passwordmaker.org/">Password Maker</a></li>
+<li><a href="http://www.ocf.berkeley.edu/~jjlin/jsotp/">JavaScript OTP</a></li>
+</ul>
+
+<h2><a name="sdp">Self Decrypting Pages</a></h2>
+
+<p>The idea of a self-decrypting page (SDP) is that it's a self-contained HTML page, that requires a password to view it, but does not require the reader to have any special software installed.</p>
+
+<p>The hash function is not the main JavaScript component. <a href="http://www.hanewin.net/encrypt/aes/aes.htm">JavaScript AES</a> does the encryption. SHA-1 is used as part of the process for deriving the cryptographic key from the password, using <a href="http://anandam.name/pbkdf2/">PBKDF2</a>.</p>
+
+<ul>
+<li><a href="http://jgae.de/sdaeng.htm">JavaScript Self Decrypting Archive</a></li>
+</ul>
+
+
+<h2>Other Uses</h2>
+
+<ul>
+<li>Performing cryptography in Flash objects; the script works with ECMA-script compatible languages, including ActionScript.</li>
+<li>Performing server-side cryptography, using server-side JavaScript.</li>
+<li>Generating unique id numbers, e.g. from an email address</li>
+<li>Bit commitment, e.g. this <a href="contrib/mastermind.tgz">logic game</a> by <a href="mailto:thomas.lussnig@bewegungsmelder.de">Thomas Lussnig</a>. Here the server sends a hash to the client, which commits it to a particular choice of secret colours, but without revealing what the colours are.</li>
+</ul>
+
+</body>
+</pipp>

@@ -1,0 +1,35 @@
+<pipp>
+<title>TCP/IP</title>
+<desc>Here I describe briefly how TCP/IP works; this is the protocol that runs the internet.</desc>
+<keywords>tcp, ip, tcp/ip, tcpip, networking, ip4, routing, dns, bind</keywords>
+<body>
+
+<pipp-child src="dns.pip"/>
+
+<p align="center"><pipp-img src="architecture.png"/></p>
+
+<p>This is a high-level overview of the TCP/IP protocol suite. At the bottom is the <b>Physical Layer</b> with protcols like 10baseT add G703 that specify line voltages, cable characteristics and connector types. V90 encodes data as audio tones, and is used by modems. There are other kinds of physical protocols, like "Tunnel" that we'll talk about later. The protocols shown are only a sample of the many available.</p>
+
+<p>Above this is the <b>Device Layer</b> which is a set of software protocols. These check for transmission errors in the device layer and control the "line discipline" of setting up the connection. PPP - Point to Point Protcol - is a common device-level protcol, because it can run over various physical protocols.  </p>
+
+<p>IP stands for <b>Internetworking Protocol</b>. It ties all the device layers together, enabling messages to be routed between networks that are not directly connected. Each packet has to go through multiple hops. ICMP provides the control messages this requires like "Host unreachable" and "Connection refused". BGP and OSPF are vital, because they let routers exchange information about who is connected to who. This is what enables a packet to go from your computer to anywhere in the world.</p>
+
+<p>Above IP there are various protocols in the <b>Transport Layer</b>. UDP provides a quick, but not-guaranteed way to send individual packets. TCP uses a complex system of acknowledgements and retransmissions to provide a reliable two-way data stream. An important feature of these transport protocols is that they contain the port number, that enables multiple network applications to run on a single computer. </p>
+
+<p>At the top is the <b>Application Layer</b> which contains all the protocols used for web, email, remote administration, etc. An important one of these is DNS - the Domain Name System, which translates host names into IP addresses. Because the rest of TCP/IP does so much work, these protocols can be relatively simple. In the simplest case a web browser just says "GET /" and the server dumps back the index page. Complexities arise when you need to do more complicated things, but you can always talk the basic protocol by hand.</p>
+
+<p>There are two main provisions for <b>Security</b> - SSL and IPsec. SSL - Secure Sockets Layer - provides encryption for a TCP connection. First a digital certificate is presented by the server, so the client knows that the site really does match the domain name, and then all communication is encrypted to prevent eavesdropping. Most protocols just work the same over SSL, e.g. HTTPS is just HTTP over SSL, nothing more. IPsec is an alternative approach that provides encryption without the TCP layer; this is more useful for doing Virtual Private Networking (VPN).</p>
+
+<h2>Further Reading</h2>
+
+<pipp-map-view src="/section.xsl"/>
+
+<h3>External Links</h3>
+
+<ul>
+<li><a href="http://www.ietf.org/rfc/rfc1948.txt">RFC 1948</a> - Defending Against Sequence Number Attacks</li>
+<li><a href="http://www.sns.ias.edu/~jns/security/iptables/index.html">Iptables</a></li>
+</ul>
+
+</body>
+</pipp>

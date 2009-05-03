@@ -1,0 +1,143 @@
+#VRML V2.0 utf8
+DEF Eyes Transform {
+    children [
+        DEF Eye Transform {
+            children [
+                DEF EyeBall Transform {
+                    children [
+                        Transform {
+                            scale 1 1.5 1
+                            children [
+                                Shape {
+                                    appearance Appearance {
+                                        material Material {
+                                            diffuseColor 1 1 1
+                                            ambientIntensity 0.8
+                                            emissiveColor 0 0 0
+                                            specularColor 1 1 1
+                                            shininess 0.5
+                                            transparency 0
+                                        }
+                                    }
+                                    geometry Sphere {
+                                        radius 5
+                                    }
+                                }
+                            ]
+                        }
+                        Transform {
+                            translation 0 0 5
+                            scale 1 1.5 0.25
+                            children [
+                                Shape {
+                                    appearance Appearance {
+                                        material Material {
+                                            diffuseColor 0 0 0
+                                            ambientIntensity 0
+                                        }
+                                    }
+                                    geometry Sphere {
+                                        radius 1
+                                    }
+                                }
+                            ]
+                        }
+                        DEF EyePoke TouchSensor {}
+                    ]
+                } # EyeBall
+
+                DEF EyeBrow Transform {
+                    children [
+                        Transform {
+                            translation 0 10 0
+                            children [
+                                Transform {
+                                    rotation 0 0 1 1.9634954
+                                    translation -2 0 0
+                                    children [
+                                        Shape {
+                                            appearance DEF EyeBrowHair Appearance {
+                                                material Material {
+                                                    diffuseColor 0.5 0.25 0
+                                                    ambientIntensity 0.3
+                                                    emissiveColor 0 0 0
+                                                    specularColor 0 0 0
+                                                    shininess 0
+                                                    transparency 0.1
+                                                }
+                                            }
+                                            geometry Cylinder {
+                                                radius 0.5
+                                                height 4
+                                            }
+                                        }
+                                        DEF EndSphere Transform {
+                                            translation 0 2 0
+                                            children [
+                                                Shape {
+                                                    appearance USE EyeBrowHair
+                                                    geometry Sphere {
+                                                        radius 0.5
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                                Transform {
+                                    rotation 0 0 1 -1.963495
+                                    translation 2 0 0
+                                    children [
+                                        Shape {
+                                            appearance USE EyeBrowHair
+                                            geometry Cylinder {
+                                                radius 0.5
+                                                height 4
+                                            }
+                                        }
+                                        USE EndSphere
+                                    ]
+                                }
+                                Transform {
+                                    translation 0 0.75 0
+                                    children [
+                                        Shape {
+                                            appearance USE EyeBrowHair
+                                            geometry Sphere {
+                                                radius 0.5
+                                            }
+                                        }
+                                    ]
+                                }
+                                DEF BrowMove PositionInterpolator {
+                                    key [ 0, 0.5, 1 ]
+                                    keyValue [
+                                        0, 0, 0
+                                        0, 5, 0
+                                        0, 0, 0
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                } # EyeBrow
+            ]
+        } # Eye
+        Transform {
+            translation 12 0 0
+            children [
+                USE Eye
+            ]
+        }
+    ]
+} # Eyes
+
+DEF BrowMoveTimer TimeSensor {
+    loop FALSE
+    startTime 0
+    cycleInterval 3
+}
+
+ROUTE EyePoke.touchTime TO BrowMoveTimer.startTime
+ROUTE BrowMoveTimer.fraction_changed TO BrowMove.set_fraction
+ROUTE BrowMove.value_changed TO EyeBrow.translation

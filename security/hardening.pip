@@ -1,0 +1,89 @@
+<pipp>
+<title>Hardening</title>
+<body>
+
+<p><b>(Old content; kept as still useful)</b></p>
+
+<p>There are several ways in which you to harden a system. This is presented in Unix terms, but the underlying priciples apply to all operating systems.</p>
+
+<b>Against network attacks</b>
+<ul>
+<li>Disable all unused services.</li>
+<li>Restrict administrative services to trusted addresses, and use encrypted protocols like ssh.</li>
+<li>Turn off many ICMP features - redirects, timestamp requests, netmask requests, etc. Consider whether you need pings.</li>
+<li>Configure services not to advertise their type and version in their banner, headers or in response to queries like help, syst or version.bind.</li>
+<li>Install a firewall, although for a well-configured device this doesn't give as much protection as generally hyped.</li>
+<li>Have a message like "authorized users only" in your banners - this will make it easier to prosecute a hacker.</li>
+<li>Don't use rhosts authentication.</li>
+</ul>
+
+<b>Against Denial-of-Service attacks</b>
+<ul>
+<li>Limit number of connections per IP address per second, also ICMP replies, etc.</li>
+<li>Limit number of processes per user, memory and CPU time per process, etc.</li>
+<li>Turn on disk quotas.</li>
+<li>Take care not to provide remote disk-filling services - log files, root mailboxes, etc.</li>
+</ul>
+
+<b>Against malicious local users</b><br/>
+This may be an attacker who has already hacked a non-root service.
+<ul>
+<li>Where possible, turn the setuid/gid bit off binaries e.g. ping, making them usable only by root.</li>
+<li>Restrict access to /proc and other sensitive locations to root.</li>
+<li>Turn off users' access to cron, sendmail, etc.</li>
+<li>Disable ptrace</li>
+<li>The best protection is to keep all users inside a chroot that contains no device nodes or setuid binaries.</li>
+<li>FreeBSD can go one step further and do a chroot jail which restricts network access, as well as filesystem access.</li>
+</ul>
+
+<b>Against legitimate users' clumsiness</b>
+<ul>
+<li>Use a password checker to stop people using weak passwords.</li>
+<li>Don't let administrators use the same password for admin services as they do for unencrypted things like POP3.</li>
+<li>Make users home directiories root owned, with permissions 770, so the user can still write to their home directory, but they cannot accidentally change the permissions to let others in.</li>
+<li>Gives users a strict default umask, e.g. 077.</li>
+</ul>
+
+<b>Against software bugs</b>
+<ul>
+<li>Use library functions to escape HTML, SQL, etc.</li>
+<li>Avoid PHP register_globals.</li>
+<li>One tmp directory per user, instead of a system-wide one.</li>
+<li>Some steps can be taken to reduce the exploitability of buffer overruns. OpenBSD takes the best approach - making the heap and stack non-executable, and using a token to check stack integrity.</li>
+</ul>
+
+<b>Against a hacker who has broken one service</b>
+<ul>
+<li>Don't run services as root.</li>
+<li>Consider running services inside a chroot.</li>
+<li>The best solution is to run each service on a separate computer.</li>
+<li>A close emulation of this on a single computer is to run each service in a separate user-mode Linux.</li>
+</ul>
+
+<b>Against an attacker who has gained root</b>
+<ul>
+<li>secure level / capabilities</li>
+<li>Use chflags to make logs append-only, or use a central log server.</li>
+<li>mount file systems read-only where possible</li>
+</ul>
+
+<b>Against physically-local attacks</b>
+<ul>
+<li>Password protected single-user maintainance mode, and the boot loader (to stop anyone entering kernel parameters).</li>
+<li>Set BIOS to only boot off the hard drive, and password protect the BIOS.</li>
+<li>Padlock the case. Most cases are able to do this, though you may have to fit the attachment.</li>
+<li>Disable serial consoles and ctrl-alt-delete.</li>
+<li>Don't leave the console logged in!</li>
+<li>The best protection against physically-local attacks is to use an encrypted file system, where the key is entered at boot-time and only stored in memory. As soon as the box is powered down or reset, the information is safe.</li>
+</ul>
+
+<h2>Detecting an attack</h2>
+
+<ul>
+<li>Crank up logging</li>
+<li>tripwire</li>
+<li>portscan detector</li>
+</ul>
+
+</body>
+</pipp>

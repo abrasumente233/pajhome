@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet 
+	version="1.0" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:output method="html" indent="no" omit-xml-declaration="yes" />
+	
+	<xsl:param name="pageNo" />
+	<xsl:template match="/">
+		<xsl:apply-templates select="ajax-s/pages/page[position() = $pageNo]" />
+	</xsl:template>
+	
+	<xsl:template match="page">
+		<h2>
+			<xsl:value-of select="heading" />			
+		</h2>
+		<xsl:apply-templates select="content/child::*" />
+	</xsl:template>
+	
+	<xsl:template match="*">
+		<xsl:choose>
+			<xsl:when test="name() = 'paragraph'">
+				<p><xsl:value-of select="." /></p>
+			</xsl:when>
+			<xsl:when test="name() = 'image'">
+				<img src="{source}" alt="{alternativetext}" class="{layout}" />
+			</xsl:when>
+			<xsl:when test="name() = 'list'">
+				<ul><xsl:apply-templates select="listitem" /></ul>
+			</xsl:when>
+			<xsl:when test="name() = 'orderedlist'">
+				<ol><xsl:apply-templates select="listitem" /></ol>
+			</xsl:when>
+			<xsl:when test="name() = 'definitionlist'">
+				<dl><xsl:apply-templates select="definitiontitle" /></dl>
+			</xsl:when>
+			<xsl:when test="name() = 'subheading'">
+				<h3><xsl:value-of select="." /></h3>
+			</xsl:when>
+		</xsl:choose>
+	</xsl:template>
+	
+	<xsl:template match="listitem">
+		<li>
+			<xsl:value-of select="." />
+		</li>
+	</xsl:template>
+	
+	<xsl:template match="definitiontitle">
+		<dt>
+			<xsl:value-of select="." />
+		</dt>
+		<dd>
+			<xsl:value-of select="following-sibling::definitiondescription[position() = 1]" />
+		</dd>
+	</xsl:template>
+	
+</xsl:stylesheet>

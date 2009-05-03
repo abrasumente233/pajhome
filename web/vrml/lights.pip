@@ -1,0 +1,51 @@
+<pipp>
+<title>Lights</title>
+<body>
+
+<h2>Introduction</h2>
+
+<p>Obviously you need lights in a world to see anything. Typically, the browser will provide the viewer with some kind of headlight, so they can see what they're looking at. In addition, you will often want to deliberately put lights at specific points in the world. VRML provides three types of light sources for this:</p>
+
+<p align="center"><pipp-img src="lights.gif"/></p>
+
+<p>Light sources only affect subsequent objects in the same separator. If you want to apply a transformation to a lightsource, but still want it to affect later objects, use <code>TransformSeparator</code> instead of <code>Separator</code>.</p>
+
+<p>Each type of light has these properties:</p>
+
+<ul>
+<li>Color (SFColor) - more <a href="material.html">here</a></li>
+<li>Intensity (SFFloat) - 0 off; 1 fully on.</li>
+<li>On (SFBool)</li>
+</ul>
+
+<p>Each type of light source also has it's own additional properties.</p>
+
+<h2>PointLight</h2>
+
+<p>This kind of light source shines uniformly in all directions, like an unshaded light bulb. It has this property:</p>
+
+<ul>
+<li>location (SFVec3f) - The point that the rays come from.</li>
+</ul>
+
+<h2>Directional Light</h2>
+
+<p>A direction light source emits parrallel rays which do not diverge or become dimmer with distance, like a laser with an infinitely wide and infinitely thick beam. Typically the headlight is a directional light. It has this property:</p>
+
+<ul>
+<li>direction (SFVec3f) - All rays are parallel to this vector.</li>
+</ul>
+
+<h2>SpotLight</h2>
+
+<p>This is a directional light source, where rays originate from a single point. They diverge outwards in the shape of a cone, and so become dimmer with distance. These properties are available:</p>
+
+<ul>
+<li>location (SFVec3f) - The point that the rays originate from.</li>
+<li>direction (SFVec3f) - The direction of the cone's axis.</li>
+<li>cutOffAngle (SFFloat) - The angle at the tip of the cone.</li>
+<li>dropOffRate (SFFloat) - The rate at which light dimms with distance.</li>
+</ul>
+
+</body>
+</pipp>

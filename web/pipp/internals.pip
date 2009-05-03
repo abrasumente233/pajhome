@@ -1,0 +1,65 @@
+<pipp>
+<title>Internals</title>
+<desc>Desciption of the internal workings of Pipp. Only advanced users should need to read this.</desc>
+<status>unfinished</status>
+<body>
+
+<h2>State Document</h2>
+
+In-memory XML is used for everything
+The shared dom means that pipp is not thread-safe
+
+
+<h2>Build Process</h2>
+
+<p>Note: this describes an ideal build process. The current implementation is a bit more hacky, mostly due to the need to build new children before pages that depend on changed state.</p>
+
+
+<h3>Partial Builds</h3>
+
+<p>Normal command line usage of Pipp is to conduct partial builds, effectively that only changed files are built. To do this, Pipp examines each page in <code>pipp.xml</code>, and on each page, goes through every file dependency. If any of the source files are newer than the target file, the page needs to be rebuilt. This gives a list of files for the first build phase.</p>
+
+<p>A build phase works as follows: the files are built in turn, with the output files written as each file is built. Any new children, or changes to exported variables are recorded. At the end of a build phase, <code>pipp.xml</code> is updated. If there are any changes to exported variables, dependencies are analysed to determine what pages need to be rebuilt. Any new children are also built. This gives a list of files for the next build phase.</p>
+
+<p>For partial builds, only two phases should ever be necessary, but the development web server may require more.</p>
+
+<h3>Development Web Server</h3>
+
+<p>The development web server essentially provides on-demand partial builds. It uses a slightly process to produce the list of files for the first build phase. When a page is accessed, it identifies all the pages that this page depends on exported variables from (including itself). If any of these have changed file dependencies, they are rebuilt.</p>
+
+<h3>Full Rebuilds</h3>
+
+<p>There is also the option to perform a full rebuild. This deletes the existing <code>out</code> and <code>pipp.xml</code> and stats again. The feature is intended for edge-cases, such as a corrupt <code>pipp.xml</code> file. However, there are some cases that require a full rebuild:</p>
+
+<ul>
+<li>To remove orphaned files in out TBD</li>
+<li>pipp:file with wildcard TBD</li>
+</ul>
+
+<p>In future versions of Pipp, These issues will be handled in partial builds.</p>
+
+<h3>Error Handling</h3>
+
+<p>If Pipp encounters an error, the build stops immediately. Both the command-line and development web server report the exception to the use.</p>
+
+<p>There are some issues around loss of state if a page fails to build. Some pages may have already been built successfully. If these have changed any state, <code>pipp.xml</code> may be out-of-date, and pages that depend on this may not have been rebuilt. Running a partial build again will not fix this, as the page that changed its state is now seen as up-to-date.</p>
+
+<p>To address this, while building, Pipp keeps track of files that have changed their state. If there is an error later in the build, Pipp deletes their output files. This ensures that they will be rebuilt during the next partial build.</p>
+
+
+<h2>Dependencies</h2>
+
+<p>To support partial builds, Pipp stores dependency information in <code>pipp.xml</code>. Each page can have any number of dependencies on either files, or exported variables from other pages. If a page depends on the special exported variable "children" on another page, the first page will be rebuilt whenever the second page's list of children changes.</p>
+
+<p>In general, the user does not need to be aware of dependency tracking. File dependencies are automatically created by pipp_file, pipp_map_view, pipp_code, pipp_thumbnail and pipp_gtitle. Export dependencies are automatically created by pipp_import and pipp_import_join. However, a stylesheet used by pipp_map_view must explicitly record dependencies, by calling pipp_export_depend.</p>
+
+<p>Pages are often dependent on their own exported variables. This is due to an implementation detail of pipp_map_view. Because pipp.xml is only generated after each build phase, it is out-of-date when the pipp_map_view tag is processed, so the page needs to be built again in next phase. This issue may be addressed in future versions of Pipp.</p>
+
+
+<h2>Tooltray App</h2>
+
+Use of registy
+
+
+</body>
+</pipp>

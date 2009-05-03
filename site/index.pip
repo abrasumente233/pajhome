@@ -1,0 +1,19 @@
+<pipp>
+<title>Site Info</title>
+<desc>Information about the pajhome site.</desc>
+<keywords>links, disclaimer, legal, guest, book, web, site, design, principles</keywords>
+<logo>home.jpg</logo>
+<body>
+
+<pipp-child src="logos.pip"/>
+<pipp-child src="history.pip"/>
+<pipp-child src="new_content.pip"/>
+<pipp-child src="statsbar.pip"/>
+<pipp-child src="howwork.pip"/>
+<pipp-child src="links.pip"/>
+<pipp-child src="legal.pip"/>
+
+<pipp-map-view src="/section.xsl"/>
+
+</body>
+</pipp>

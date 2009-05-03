@@ -1,0 +1,19 @@
+<pipp>
+<title>Programming</title>
+<desc>Information about programming, particularly using Python.</desc>
+<keywords>programming, languages, ML, SML, c, c++, java, perl, python, bash, awk, sed, tr</keywords>
+<logo>programming.jpg</logo>
+<body>
+
+<pipp-child src="python.pip"/>
+<pipp-child src="style.pip"/>
+<pipp-child src="tcpip.pip"/>
+<pipp-child src="langs.pip"/>
+<pipp-child src="unix.pip"/>
+
+<p>I've been programming for many many years now; here are a few articles I've written about how to do it:</p>
+
+<pipp-map-view src="/section.xsl"/>
+
+</body>
+</pipp>

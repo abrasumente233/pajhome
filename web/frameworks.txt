@@ -1,0 +1,835 @@
+Frameworks essentially help you build an app from scratch quickly
+Another approach is taking an app that already does roughly what you want, and customising it
+
+Single python web app framework...
+    ToscaWidgets on Django
+    SA on dj
+    AuthKit
+
+
+
+
+
+2 phase commit - db, file system, sending emails
+
+<p>The idea of reusable components is that a developer can easily insert a complex component into a page, such as a popup calender or rich text editor. These are often called widgets. Widgets are primarily work in the view of a program, but break the MVC separation a little. This area has a lot of potential, although at the moment (Jan 2008) no framework has quite got it right.</p>
+
+<p>Although specifics vary, in general a widget is a collection of:</p>
+<ul>
+<li>An HTML template</li>
+<li>JavaScript and CSS resources</li>
+<li>Scripting code</li>
+</ul>
+
+<p>When a widget is used, the framework will call the appropriate scripting code and render the template to insert into the page. It will also insert links to JavaScript and CSS resources, in the &lt;head&gt; section of the page.</p>
+
+<p>Most frameworks have a collection of built in widgets, and a community area for sharing widgets. There is commonly a Widgets browser, where the installed widgets can be viewed.</p>
+
+<p>One issue with widgets is dependence of HTML template language and JavaScript library. The widgets framework is largely independent of these, but individual widgets will be coded in a specific templating language. It is possible to mix templating languages, but at a performance cost. This is leading to a situation where there are dual releases of widgets, e.g. ToscaWidgetsForms comes in Genshi and Mako. If a widget depends on a JavaScript library (doing so is common) there is a similar issue. There is a big download penalty if a page uses multiple JS libraries.</p>
+
+<p>ToscaWidgets has the widget declared in Python code, usually referencing a separate template file. Another avenue to explore is making them pure template files. These can contain scripting code; you just need some hook to pick up the JS/CSS.</p>
+
+
+Documentation
+    Nice to have:
+        Philosophy docs
+        Cool ideas & tips
+        Recipes (is that "how to"?)
+
+    -> To some extent, decent documentation depends on there being decent ways of doing things.
+    General development headache here! Do you document something dodgy, or invest in making the way better?
+    ** deep challenge. Suffice to say TG took the latter option and never got any docs!
+
+Twist on documentation
+    Framework to make it easy for you to document your project
+    http://www.sqlalchemy.org/trac/wiki/UsageRecipes/SchemaDisplay
+
+
+My notes on web frameworks in general.
+I was thinking of writing a document about these in general, but I'm not so sure now.
+
+
+
+Idea: else in kid like this:
+
+<py:if test="xx">
+</py:if>
+<py:if test="else">
+</py:if>
+
+http://spyced.blogspot.com/2006/02/why-schema-definition-belongs-in.html
+
+
+
+
+
+A Perl of Wisdom for Python Web Coders
+
+"There's more than one way to do it" is a core philosophy of Perl developers (TMTOW). Contrast this to Python's philosophy "there's only one way to do it" (TOOW) - at least one main, recommended way. These are two very different approaches. The advantage of Python's philosophy is that the recommended way gets more attention; the programmer's experience is more polished. In Perl, sometimes a choice that seems sensible at first, later brings you trouble as you hit limitations. But what if what you're doing doesn't quite fit Python's one recommended way? Well, then you could be a little stuck, back to building things from scratch.
+
+Some programming problems have been around for years and are well understood. Looping through lists, making network connections, parsing CSV files. Python's recommended approach for these works almost universally. And in Perl there's not really so many different ways of performing these tasks. Other programming problems are not nearly so well understood. Building a GUI, interfacing with a database, dynamically generating HTML. Despite some bold claims, no-one has found a silver bullet for any of these. Following TOOW will just bind programmers into a particular approach with known limitations.
+
+For example, when it comes to templating engines, one design decision is whether to allow program code inside the template. This issue can cause passionate debate. Forbiding program code forces discipline - the separation of the "view" from other code. But on a practical level sometimes it's just handy to put in some code. "I know what I'm doing - I won't take it too far." For all the debate, I think there is no right or wrong answer to this, quite simply TMTOW.
+
+This is true at least for the time being. Perhaps in the future, templating languages will evolve to better cater for diverse requirements, and the need for embedded program code will diminish. As the problem becomes better understood, there is a tendency towards TOOW.
+
+In the templating engine space, we have TMTOW in that there is a wide choice of templating engines. Once you have picked an engine, it  tends to encourage TOOW. This is not such a problem as templating engines are relatively simple beasts. There are many open source projects with a quality product. The concerns about the multiple approaches all being less polished are not so significant.
+
+In fact, the diversity drives innovation. From time to time, a project will try something new and innovative. If it is successful, it will often then appear in other projects. This "market research" (or perhaps plaigarism!) creates a Darwinian system. If there was just one open source templating engine, innovation would be slower. Proposed new features would be argued over, watered down and perhaps rejected for compatibility reasons. Competition is a great way to get people to solve these problems!
+
+An object relational mapper (ORM) is somewhat more complicated. While there are many open source attempts at this, there are few with a quality product. Some would say that none could currently claim to be "polished". In this space, the benefits of TOOW would be that developers could focus on producing one polished system.
+
+This may in fact be achievable in the near future. For example, SQLAlchemy promotes TMTOW by exposing interfaces at multiple levels. You can choose to use raw SQL and just have its connection pool help you. Or you can go further and get assistance constructing SQL queries. Beyond that there is ORM functionality and then high-level, declarative mapping. In this space, if we have TOOW in that SQLAlchemy is the main, recommended ORM, programmers can get the best of both worlds. The polish of TOOW and the flexibility of TMTOW. And perhaps in the future we will get closer to that TOOW silver bullet.
+
+Web frameworks are another problem that is still at the TMTOW stage. Some people like automatic code generation, like Ruby on Rails' Scaffolding. Others abhor this and favor a declarative approach like Django's auto-admin system. While I have hopes for the future, we're not anywhere near resolving this for the next few years. And right at the moment, these seem to be TMTOW in that there are loads of frameworks, and TOOW once you've picked a framework. The fragmentation of Python web frameworks is a significant problem - beginners don't know where to turn, and none are nearly as polished as we'd like.
+
+Perhaps the future lies in a web framework that promotes TMTOW internally. The building blocks for this have sprung up over recent years. Setuptools allows packages to have many external dependencies, and still be easily installable. WSGI is another important building block. The architecture of TG encourages exploits both these and more. Still, we need more than just foundations to achieve this. Providing programmers with TMTOW has to be a conscious decision.
+
+
+
+
+
+
+
+
+The main things you need in a framework are:
+  map http requests to python code - ala CherryPy or mod_python
+    actually, mod_python was too low-level, my frameworks ended up abstracting it away
+    CherryPy does seem to work well
+  provide an abstraction around the database - ala SQLObject
+    I thought I was doing well with my dodgy dict setups - how little did I know!
+    SQLObject is amazing
+  a templating system - ala Cheetah / Kid
+    Can't believe how long I used the homebrew regex templates
+    Cheetah and Kid are both great
+  param parsing / validation engine - ala FormEncode
+    think back to Abel (four years ago now!!!) - this was kind of well covered
+    then it got well complicated with tsrweb
+    Hopefully FormEncode will do the trick
+  widgets
+  admin system
+
+
+
+
+
+
+The time is right for diversity (to end?)
+
+
+These are exciting times for web developers. There are a whole lot of ways to develop web applications. Be it PHP, ASP.NET, one of the new frameworks like Ruby on Rails and TurboGears, or many others. In fact, I just discovered the Google Web Toolkit, it's amazing! But, with all this diversity comes confusion. As a Python user looking for a web framework, I didn't know where to start. The number of projects is huge, and it's hard (impossible?) to see what will really work for you.
+
+The thing is, no-one has figured out a perfect solution to the web app problem yet. When someone does, perhaps then there will be one framework that is obviously the best. In the meantime, this diversity means that all sorts of ideas get tried out, and hopefully just the good ones will stick around.
+
+One thing most frameworks seem agreed upon is the "Model Controller View" architecture, at least in the broad sense. In practice this means the framework provides:
+  * A templating language - for the view
+  * An object-relational mapper - for the model
+  * A high-level web server interface - for the controller
+By providing these components, the framework encourages the MVC pattern.
+
+Auto-admin
+Fastdata
+
+
+
+
+Django isn't monolithic - they use Dojo and will use SQLAlchemy
+
+
+
+What's everyone trying to do?
+
+  Auto admin system
+  CRUD from widgets def
+  Auto widgets from model
+  Widgets
+  JS library
+
+  Templating
+  ORM
+  Controller
+  i18n
+  testing framework
+  quickstart
+  management interface - sync db
+
+
+ORM
+
+When defining the model, there is a tradeoff between convenience and flexibility. Django offers great convenience, with get-outs when you need to do more complex tasks (like circular relationships).
+
+Django/SQLObject can't do composite keys
+SQLObject can only do interger primary keys (I /think/) - what about Django?
+Django doesn't hit the database until you explicitly call save().
+  -> big advantage for "id=NEW"
+
+
+
+Templating
+
+All templating languages are similar on the basics (if, for, etc.) and most offer convenient access to variables, e.g. $variable rather than <xsl:value-of select="variable"/>. The main differences are:
+ * Whether template processing uses the XML DOM (e.g. kid) or strings (e.g. cheetah).
+ * Whether to allow embedding of arbitrary python code (e.g. kid) or not (e.g. django).
+There is no clear "best" answer to these design decisions. Also, templating languages vary in features and performance. However, the templating language is loosely-bound to the rest of the framework. Supporting a number of templating languages is practical. In fact, mixing languages inside a single project may be justifiable, for generating HTML (using an XML templating language) and plain text.
+
+
+Controller
+
+Turbogears is more simple and convenient, in particular the integrated validation
+But it looses things, e.g. GET/POST distinction
+  can you do @expose(method='GET') ???
+Django is more flexible, less convenient
+
+
+
+ORMs
+
+Generally agree that Python code is best definition format - so you can include CODE.
+Compare to WebWare's MiddleKit
+
+Django is cool because the model definition is very concise and you can annotate it with high-level details.
+
+SQLObject is cool because SQLBuilder lets you construct complex queries in a fairly neat manner.
+Also, inheritance is a good feature.
+
+SQLAlchemy is cool because it can be very efficient, generating SQL close to what would be hand-crafted.
+Also, support for composite keys is great, in particular as it allows use of legacy databases without modifying the schmea.
+
+
+
+Good exercise: code TSR table is SQLObject and Django - with the customer id allocator
+
+In terms of tsrweb, gut feel is to forget Django for now. I should take a look at its forms support, but not bust
+a gut to use it. First step is to get autogrow forms working (nearly there!). Beyond that there's a tradeoff
+between moving to the new technologies (SA, Toscawidgets, etc.) and just getting working now.
+
+I think SA is definitely the ORM to
+use, and I can like without Catwalk (just using SQLManager). So move to that ASAP. There is the ActiveMapper vs
+TurboEntity choice, but I should probably play with raw SA a bit first. Don't think I'm going to use FastData, so
+not practical problems, just the SA learning curve.
+
+Then there's ToscaWidgets vs built-in.
+
+
+
+
+
+
+There's a strong tie between the framework and the language (i.e. ruby/python/java/.net)
+Why do people say Django's ORM is weak?
+  http://mail.python.org/pipermail/python-list/2005-September/339799.html
+
+Things to try...
+  Can Djando do cyclic relationships - it can!
+
+
+
+http://www.catalystframework.org/
+
+http://groups.google.com/group/turbogears-trunk/browse_thread/thread/91cc8644ad2b3ca2/2615eaf3699de523#2615eaf3699de523
+  -> binding of widgets to js libs!
+
+
+
+ASP.NET
+  I guess good at widgets
+    JS libs for widgets, but not usable beyond
+  No ORM
+  No CatWalk
+  Wizards instead of FastData
+
+
+
+
+All the choices, what should you use?
+
+
+
+Ok, here's how to build webapps...
+
+Use Elixir to define your model
+Put userdata tags on your model to make them appear properly in FastData
+Use authkit
+
+
+
+Interesting links...
+    http://foss.eepatents.com/sAsync/
+    http://www.reportlab.org/rl_toolkit.html
+
+http://wistful.googlecode.com/files/fieldfactory.py
+http://code.google.com/p/sqlalchemy-migrate/
+
+IIS Deployment
+    http://www.iis.net/default.aspx?tabid=1000051
+    http://trac.saddi.com/flup
+
+Ideas
+    Elixir - get rid of the need for Field calls!
+    Paginate/SA unit tests
+    use stacklevel in warnings
+
+http://wiki.pylonshq.com/display/pylonscookbook/Custom+ToscaWidgets+Forms
+
+
+
+
+
+
+The glue that TG provides is ultimately fairly limited:
+    Quickstart
+    Controller - template
+    Controller - orm
+
+
+http://grok.zope.org/
+
+
+
+History...
+
+DSVR - working in PHP
+Machine database for DSVR
+Lets move house
+MIAR
+HWH
+Westpoint
+Driving theory test
+
+
+So, it seems our webapps have a lot in common...
+
+1) Python, CGI, embedded HTML, DIY data files
+2) Relational db
+3) Better than CGI
+4) Templates
+5) DB abstraction
+6) More helper libraries
+
+
+
+Home grown templates
+    Substitution is ok
+    Conditional blocks and looping become hard
+    You end up wanting to insert the odd little bit of python
+    to do this, you end up using a template language
+    this gives other useful stuff, e.g.
+        reusable blocks
+
+    Most are intertwined with python, but ClearSilver and XSLT are not.
+        Obviously, in the non-python-bound ones, you can't call python
+    Some are XML-specific, some support freeform text
+        Generally, xml-specific ones are better for generating XML
+
+Model
+    Hand coded SQL
+    Quick thing to make dicts based on cursor.description (PySQLite just does it)
+    Helper functions to do simple updates/deletes easily
+    keeping track of the cursor is a pain
+    end up doing lots of small queries
+    or my page.queries from pajapp - big queries up front
+
+    also, having some tools to help you manage the db is helpful
+    (or you can take the "reflect everything" approach)
+
+Form validation
+Re-usable fancy "bits" (i.e. widgets)
+Auth*
+
+
+
+Auth modes
+
+User name tricks (e.g. dob as well) to do lockout with reduced dos risk
+Long lived cookie on machine with email challenge if it doesn't exist
+Enter letters 3, 7 from your secret word
+Forgotten password that sends a reset code to the email address
+last login / failed login notifier
+email notification on password change
+
+
+Overall aims:
+    Defeat common attacks that are effective against simple username/password
+    Function with minimal impact on the user
+
+
+
+ok, now we want a control script
+    admin inv-model create mssql://./giitr
+    admin inv-model copy access:///c:/blah.mdb mssql://./giitr
+
+
+
+
+
+
+Web Frameworks
+
+
+I'm an enthusiast for Python web app frameworks. They're cool!
+
+
+Python frameworks have had a curious history. A powerful framework (Zope) has existed for years, somewhat longer than Ruby on Rails. Despite this, three "new kids on the block" have become popular recently. There is warrented concern that there are too many, and none are as polished as they could be. Moves to integrate Pylons and TurboGears should help alleviate this.
+
+Three frameworks, reflecting three philosophies:
+
+ 1) Django - a self-contained, tightly integrated framework, aims to make things easy for the developer.
+ 2) Pylons - a loosely coupled framework, that lets you pick and choose Python components, but helps integrate them.
+ 3) TurboGears - moderately coupled; uses pre-existing Python components and attempts to present them in an integrated manner.
+
+I am in the TurboGears camp, I think it has the best philosophy. Right at the moment, it's arguably the weakest of the three in terms of readiness. It has had some issues moving from SQLObject, Kid and TGWidgets to SQLAlchemy, Genshi and ToscaWidgets. I hope that with these issues in hand, it will pick up again.
+
+
+What:
+    Get things stable enough for long-term use (& documented enough)
+        Make TG solid on MS technologies - Windows, SQLServer, IIS, Domain Authentication
+        Able to delegate aspects of development to less-skilled
+    Widgets with a business focus
+    Tools for doing enterprisey things, e.g. migrating old Access DBs
+
+
+Specifics:
+    Stability
+        Major concern with TG - push on with Genshi/SQLAlchemy
+        Get 2.0 out!
+        Document ToscaWidgets
+    MS technolgies
+        Windows - seems to just work (Python is good for this)
+        SQLServer - coming on nicely
+        IIS - ReverseProxy is ok - other options?
+        DomainAuth - have something working, it's not pretty
+    Widgets
+        HidingSSF - interesting challenge with Form
+
+
+Hiding SSF
+    Structure that maps option values to lists of fields
+        or perhaps include this as an extra column in the options
+    {
+        1: ['targets'],
+        2: ['cfghostname', 'cfgipaddress', 'cfgusername', 'cfgpassword'],
+    }
+    Controls both display tags at load time, and javascript updating
+
+Choice with Other
+    The issue here is that it needs closer awareness of the database
+    Not impossible though...
+
+AutoGrow
+    Very much like dynwidget and others people have done
+
+
+
+
+
+SQLAlchemy Talk
+
+
+Old way:
+    SQL statements embedded in code
+    Rudimentary helper functions to reduce code
+    - Lots of code
+    - Thinking in two domains
+
+New way:
+    ORM wraps db-access
+    Don't see SQL (for simple use anyway)
+    + solves two problems
+
+
+Relations
+    e.g. an Order has multiple Items
+    Create item, add to order
+    Don't talk about cascading (yet...)
+
+    Two ends of relationship
+        You're less aware of this in SQL; matters more in the object work
+
+
+Talk about the object-relational mismatch [?]
+    And it's not hopeless - just don't expect silver bullets
+
+
+
+
+Turbogears
+----------
+
+http://groups.google.com/group/turbogears/browse_thread/thread/418a9d29dedc374b/176e0ade3f11c592?q=variable+form&rnum=4#176e0ade3f11c592
+
+For doing "variforms"
+  SQLObject can do it
+  Kid I'm sure can (template engine has the easy part!)
+  FormEncode can supposedly do it
+  Mochikit may even help with the JS
+
+
+
+from sqlobject import *
+sqlhub.processConnection = connectionForURI('postgres://localhost/marap')
+
+class Person(SQLObject):
+  firstName = StringCol()
+  middleInitial = StringCol(length=1, default=None)
+  lastName = StringCol()
+
+class Person(SQLObject):
+  class sqlmeta:
+    fromDatabase = True
+
+
+So it can probably do views
+
+
+
+Pajapp
+------
+
+Ok, now it's nearly releasable, lets criticise it!
+
+XML definition file
+This works ok, but the major limitation is that it's difficult to integrate Python code with it.
+Solution -> use a python definition file
+
+Getting things as dictonaries
+Does work, but makes for obtuse code data['contact']['name'] vs data.contact.name
+Also, the current implementation is quite inefficient
+Using classes as the main datatype could fix this
+and it would help with things like dynamically generating controls
+
+spelling out sql
+many queries follow styles, e.g. select * from x where id=?
+complex queries can always be pushed into views anyway
+hmmmm, you need the ability to do complex queries right from the page
+
+
+lack of name mapping
+i like it as it is!
+
+
+
+
+could i just use sqlobject?
+
+looks like it can handle the mapping and hierarchial formpage stuff easy!
+
+
+
+
+
+
+
+Webapp Framework
+----------------
+
+Turbogears - Python
+  http://www.turbogears.org/
+Django - Python
+  http://www.djangoproject.com/
+Ruby Rails
+
+http://groups.google.com/group/turbogears/browse_frm/thread/7e23ff3e32ab9147/06648a43241453bb
+A good intro! Seems these are like work I did on itsec2, areas are:
+
+  ORM - Object Relational Mapping
+    i.e. effectively what I've done with SQL -> dictionaries
+    I read some musings that dictionaries may be better!
+  Templating
+    I used Cheetah; there are other options
+
+
+https://equinox.dev.java.net/framework-comparison/WebFrameworks.pdf
+
+http://www.artlogic.com/resources/sql-python-xml/
+
+
+http://www.rpbourret.com/xmldbms/index.htm
+  XML-DBMS -> lots of info!
+
+http://www.orafaq.com/faqxml.htm
+  XML Schemas can easily be converted into CREATE TABLE statments.
+
+http://www.perl.com/pub/a/2001/02/dbix.html
+  DBIx::Recordset
+  --> compare to java beans
+
+http://struts.apache.org/
+http://www.myfaces.org/
+
+Better xmltramp
+  http://news.hping.org/comp.lang.python.archive/25694.html
+
+Check method - when it's POST, check the form fields :-) when its GET, it's first call
+
+
+xml & databases
+traditional object-relational mapping techniques or SQL 3 object views
+http://www.rpbourret.com/xml/XMLDataBinding.htm
+http://www.rpbourret.com/xml/DTDToDatabase.htm#generate section 4
+http://xmldb-org.sourceforge.net/projects.html
+
+what are object-oriented databases???
+
+
+Templating engines
+------------------
+Embeding HTML in code gets tedious very quickly
+  messes up indentation of file
+  quoting is a pain
+  this is one thing that was easier in perl!
+Embeding code in HTML becomes a pain with lots of code
+  It's fine for the odd dynamic bit
+  Limitation of PHP was that you couldn't loop around bits of HTML (am I sure??)
+
+But you have to integrate on some level!
+  One approach for PHP/ASP is to have include files full of code,
+    keeping the code in display files to simple stuff
+    --> this seems a reasonable approach
+  Rob's template system for Abel
+    Keeps HTML right out of code and the html isn't too messy, just a few $VARS
+    Some stuff ends up in code that I'd rather have with presentation
+    Often hit limits of system - would do more stuff if it was easier
+  XSLT
+    Not bad, but the input has to be XML, which can be dodgy
+    All the xsql:value-of calls get a bit verbose
+      there's no ?:
+  XSLT/XSQL
+    Works well when you functionality down into SQL & XSLT include files
+    Can solve the "repeated naming" problem quite well,
+      e.g. if you do select * in the SQL, you only name the column in the XSLT
+    Sometimes annoying that you can't "proper program"
+  XSLT/Pipp
+    I like it
+    One weakness is perhaps sometimes you want to do if, for in the pages
+
+So, what I want is a template system that lets you put quite a lot of intelligence in the presentation.
+  lets you include vars easily
+  works off generic program input (i.e. python hashes & lists)
+
+This does make me wonder why I abandoned PHP so readily...
+  It avoids have a coding language and a templating language
+  If you can't do for/if around blocks though, that would explain it
+  Also, the code isn't as nice a python
+
+Well, cheetah to the rescue...
+
+
+Database Access
+---------------
+
+I started defining functions like select, update, etc.
+This does encourage using lots of little SQL statements, which is bad for performance.
+More recently tended to just do SQL with bind params - this works ok
+Insert and updates tend to be quite formulaic - perhaps use SQL dict
+  One issue is that sometimes you want to do now() or something, rather that just data
+Selects can be too - if you push the logic down into a database view
+
+I guess the change from my early database days to now is the amount of logic in the db
+  with mysql all logic goes in the app
+  at westpoint almost all went in the db
+
+Now I think I just want to get an ITERATOR that returns a hash, based on the column names from cursor.description
+
+class dbcur_iter:
+  def __init__(self, cur):
+    self.cur = cur
+    self.names = [x[0] for x in cur.description]
+  def __iter__(self):
+    return self
+  def next(self):
+    x = cur.fetchone()
+    if x is None:
+      raise StopIteration
+    return dict(zip(self.names, x))
+
+That's cool from a usage point of view, but is inefficient.
+
+Also, it would be stylistically better to use class members, e.g. person.address.city rather than person['address']['city']
+
+
+
+Say we're coding an invoice system.
+Each invoice has a list of invoice_items
+All invoice_items must have total_cost
+An invoice_item can be a invoice_item_part or invoice_item_labour (and possible more in the future)
+an invoice_item_part must have a partid & quantity
+an invoice_item_labour must have a staffid & total_time
+
+How do we code this in SQL?
+There are basically three choices:
+
+1) Single invoice_item table
+This have all the fields for part and labour items, they're just NULL if not being used
+
+2) Two tables: invoice_item_part and invoice_item_labour
+The common fields for invoice_items (total_cost, invoiceid, etc.) appear on both tables
+
+3) Three tables, invoice_item, invoice_item_part and invoice_item_labour
+Now the data for an invoice_item is spread across two tables
+
+
+For 1 & 3 we have the option of including a invoice_item_type field that shows part/labour
+In theory it's unnecessary - we should be able to figure it out from the data
+
+Now, how CORRECT is each approach?
+
+1) We can't use database NOT NULL contraints
+Could be worked-around using triggers
+Also, the field names can't clash, although this can be worked around too!
+
+2) We need to take care with IDs
+Easiest is to make IDs unique across the two tables
+Alternatively, have a composite ID like P/10045 or L/10092
+
+3) Seems ideal for correctness
+
+How CONVENIENT is each in SQL?
+1) Very convenient
+2) Mostly convenient, but if we need to get a list of all invoice_items we have to do a UNION
+Can be worked-around using views
+3) More difficult, will often need to do joins.
+Updates need to be done to two separate tables.
+Again, can be worked-around using views
+
+How EFFICIENT is each?
+1) Potentially stores a lot of NULL data
+But disk space is cheap, and I doubt it affects loading time much
+2) Efficient for space
+General loads will be quick
+union may be expensive (is union all better?)
+I seem to remember union optimises badly when using inside views
+3) Efficient for space
+Most loads now require a join
+Update may need double the network round trips -> but work around with views
+
+what OPTIONS are there for each?
+1)
+invoice_type field - default to yes
+rewrite field names - default to yes
+triggers enforce null - defaut no?
+
+2)
+single id space - default to yes
+  -> if no, we need some combining rules
+create union view - default to yes
+union view has all columns - default???
+  (and should it rewrite field names?)
+
+3)
+invoice_type field - default to yes
+create concrete views - i.e. views that make this look like (2) - default to yes for efficient updating
+create union view (with all columns) - i.e. a view that looks like (1) - default to yes
+
+
+
+General thoughts on efficiency
+One approach is to load all the data you could potentially need right at the start.
+  This should be most efficient in terms of minimizing the SQL queries
+  But it could load a lot of data you don't actually need
+The opposite extreme is to only load data right at the point you need it.
+  This only loads the absolute minimum data required
+  But will be more expensive in terms of network round trips
+And there's a lot of middle ground inbetween these
+The best approach will depend on what you're doing with the data
+So I'd say an ORM should generally be lazy, but let you explicitly tell it what to load up front
+
+
+How do you do this?
+  For now, I'm not going to attempt to optimise individual fields, just table loads
+  planning
+    In a sense we'd like to say something like deep=[All]
+    But how do we tell it to stop at target, and not load vulns, etc? or...
+    Tsr.get(id=self.params.id, ddeep=[Contact, Testing, Supporting])
+    but this won't preload targets, wifi, etc.
+    In fact, perhaps it's better to do them lazily - avoids joining to wifi for every single test
+
+    consider the contact table
+      a shallow load just loads itself
+      a deep load also loads the people and role rows
+      (at this points I'm seriously wanting to ditch the choice table!)
+
+    What are the rules for loads
+      Shallow - just load self
+      Deep
+        load self
+        lookup foreign keys
+        load given list of tables that have a foreign key to self
+        (need a mechanism to say all!)
+        maybe deep=True
+      Ddeep
+        Loads other tables deep
+      Ultra deep
+        child tables are loaded deep as well
+
+    self.tsr = Tsr.get(id=self.params.id, deep=[Contact, Testing, Supporting])
+
+
+  alltsrs
+    get based on a filter
+    load sponsor, role, stage, state
+    note: stage, state not that important as we load the whole table anyway for doing the choice control
+
+    that should be cached somewhere!
+    but sponsor and role are harder
+    best solution is to create a view, which gets the staffid for the sponsor/tester
+
+    Alltsrs.getm(..., deep=[People]
+
+    so for alltsrs
+
+  targetedit
+    lets assume we've got vulnresdesc and vulnresraw views and they're tied into the object model
+    this loads a target by id, deep for vulnresdesc/vulnresraw
+    how to code this?
+
+    Target.get(id=self.params.targetid, deep=[Vulnresraw, Vulnresdesc])
+
+
+So, to even exist in memory, the class must be shallow loaded
+
+
+
+self.tsr = Tsr.get(id=self.params.id, deep=[Contact, Testing, Supporting])
+self.tsr.name # regular columns access
+for test in self.tsr.testing: # loads, if not already loaded
+
+for contact in self.tsr.contact
+  contact.staffid # returns a People object
+  contact.staffid.name # contact automatically creates this
+  contact.role.name
+
+
+restrictions on inheritence
+subclasses can only add fields, they can't remove or redefine them
+
+
+on enforcing database integrity
+We have a choice in where to perform validation checks
+  In the application code (the model)
+  In the database itself
+The database is definitely best for foreign keys, because as well as just checking on insert,
+  it maintains the restriction if the foreign table is later modified.
+A lot of validation can't really be done by the database, e.g. checking if an email address is valid
+  This has to be done by the model
+When it comes to relationships between fields, these can be done at the db-level, but model seems practical
+For relationships between tables, it's difficult to do at the db level, you'd need a way to suppress the validation until you'd updated all the tables. I think this may be possible - but worth it?
+For NOT NULL fields, I suggest saving in the model, to cope with a common requirement:
+  The ability to save a form part completed.
+  While this could go in some holding table, being able to save it in the main table keeps things simple, especially when for a lot of operations you do, you want to include part-completed forms.
+
+
+A concern with enforcing constraints in the model is that someone could bypass the constraints using SQL directly.
+This may not be malicious, it could be a well-meaning admin.
+Many SQL queries make assumptions about the data to simplify their coding
+As long as these are backed up by database constraints there's no problem
+But if they rely on the model, some subtle bugs could get triggered by direct SQL updates.
+To cope with this, the model needs to provide a way to revalidate data in the database.
+This can be called just before running crucial reports, etc.
+Or manually if a problem is reported.
+
+
+
+functions available for fields:
+  get raw value
+  get escaped value
+  get edit control

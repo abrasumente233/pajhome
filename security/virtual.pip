@@ -1,0 +1,90 @@
+<pipp>
+<title>Virtualisation</title>
+<body>
+
+<h2>Introduction</h2>
+
+<p>This document presents a way you can use online banking with greater safety, even if your computer has been compromised with malware. I am starting to do this myself, and the inconvenience is not too bad. In today's dangerous online world, I recommend everyone does the same.</p>
+
+<p>The idea is to split computing tasks into different classes of sensitivity. This is a similar principle to the government classifying information as "secret" or "top secret", etc. In a home context, online banking would be "top secret", while everything else on the computer is "secret". To keep these separate, use virtualisation software to run multiple virtual machines for the different classifications.</p>
+
+
+
+
+<h2>Feasability</h2>
+
+<p>I tried this myself for several weeks, to gauge how feasible it is. I used VMWare Converter to create an image of my physical machine, and VMWare Player to use it. Both are free downloads. My overall impression is that it is not feasible to work inside a virtual machine at all times - the performance impact is too great. Performance aside, my impressions are positive:</p>
+
+<ul>
+<li>Getting started with a Virtual Machine mirroring my original physical machine was impressively straightforward.</li>
+<li>Almost everything works - sound, network, USB devices, extra mouse buttons, CD reading and writing, standby, etc.</li>
+<li>Performance is pretty good - fine for normal usage.</li>
+<li>No stability problems so far.</li>
+</ul>
+
+<p>But there are some problems:</p>
+
+<ul>
+<li>Performance loss - an IO and CPU intensive build process takes around twice as long. There is some flicker on video.</li>
+<li>Some things don't work - the extra buttons on my keyboard (e.g. mute), and there's a bad interaction with my USB KVM switch.</li>
+<li>Windows licensing requirements - if you have a Windows host and a Windows guest, you need two Windows licenses.</li>
+</ul>
+
+
+<h2>Trying This</h2>
+
+<p>If you want to try this out, I recommend the following. This is not what I did, but it seems a better approach, in particular avoiding the need for two Windows licenses.</p>
+
+<ol>
+<li>Install a Linux partition on your computer, configured to dual-boot</li>
+<li>Install VMWare Workstation on the Linux partition</li>
+<li>Configure VMWare to use the existing Windows installation (<a href="http://64.233.183.104/search?q=cache:P31i2QmPwLkJ:advicesource.org/ubuntu/Run_Existing_Windows_Instalation_On_Ubuntu_With_Vmware_player.html+http://advicesource.org/ubuntu/Run_Existing_Windows_Instalation_On_Ubuntu_With_Vmware_player.html&amp;hl=en&amp;ct=clnk&amp;cd=1&amp;gl=uk">read this</a>)</li>
+</ol>
+
+<p>Once you've done this, you would usually boot into Linux and use the Windows VM. Do online banking directly in the Linux partition. If after a while you decide you don't like this arrangement, you can simply boot directly into Windows.</p>
+
+
+<h2>My Experience</h2>
+
+<p>There are a number of virtualisation products available. I decided to try VMWare, primarily because of its reputation, and have been happy with the results. So far, I've been using the evaluation version of VMWare Workstation. When this expires I will have to decide whether to pay for the full product, or switch to either Player or Server, which are free.</p>
+
+<p>To get started I used <a href="http://www.vmware.com/products/converter/">VMWare Converter</a>, which creates a virtual machine by copying a physical machine. This did work very well, but using virtual machine images has some inherent problems. You need a lot of disk space for the image, and you can't easily get at files inside the VM from outside it. Also, if you use both the VM and the physical install of Windows, you should have two Windows licenses. For these reasons I recommend avoiding Converter, and instead pointing the VM at the physical partition.</p>
+
+<p>Some issues I hit:</p>
+
+<ul>
+<li>Windows needed to be reactivated due to significant hardware changes.</li>
+<li>"Duplicate computer name" errors - until I renamed the VM to "pajvm"</li>
+<li>On my 1gb machine, VMWare initially gave the guest OS 768mb, which caused heavy swapping and a significant slow down. Setting this to 512mb improved performance considerably.</li>
+<li>The extra buttons (forward and back) on my Intellimouse didn't work, but adding the following line to the .vmx file fixed this:<br/><code>mouse.vusb.enable = "TRUE"</code></li>
+<li>The extra buttons on my keyboard (home, mute, etc.) don't work, and nothing so far has fixed this.</li>
+<li>CD writing and ripping (capturing audio tracks) didn't work at first, but turning off "Legacy emulation" fixed this.</li>
+</ul>
+
+<p>General tips:</p>
+
+<ul>
+<li>Set VMWare tools to do "Time synchronization between the VM and the host".</li>
+<li><a href="http://communities.vmware.com/thread/90970">Shared drives</a> can be done in VMWare player; you need to edit the .vmx file.</li>
+<li>For me, putting the host into standby worked fine without suspending the guest. The manual recommends you suspend the guest before doing this.</li>
+</ul>
+
+
+<h2>Security</h2>
+
+<p>The idea is that the Linux host operating system will have high security. This comes not from elaborate protections, but simply from doing as little as possible in the host OS. You need to apply the <a href="desktop.html#basic">basic precautions</a> of firewall, automatic updates and anti-virus. Beyond this, all desktop attacks rely on some kind of user-initiated action. A desktop that is only used to access a small number of highly trusted sites is at relatively low risk.</p>
+
+<p>The VM for day-to-day use still needs to be well secured. Because of all the browsing, downloading and such, it is at high risk. You absolutely need to take the basic precautions, and it is worth taking <a href="desktop.html#further">further precautions</a>.</p>
+
+<p>The security of the host OS is dependent on malicious software in the VM not being able to affect the host. This is a design goal for virtualisation, although it's not completely achieved. There have been <a href="http://www.vmware.com/support/player2/doc/releasenotes_player2.html">security problems</a> with VMWare, but not a huge number, and it is encouraging to see that people are looking for these kinds of problems, and they are being fixed. There are also convenience mechanisms, such as shared clipboard and drag and drop, which reduce separation. I recommend these be disabled. Also, take care about firewalling - you need the host to be firewalled from the guest.</p>
+
+
+<h2>Other Classifications</h2>
+
+<p>A common use for VMs is as a "red zone" for performing risky tasks, such as trying out software downloaded from the Internet. VMWare provide a free VM for doing just this.</p>
+
+<p>One option for protecting online banking is to do that work inside a VM, while doing all day-to-day work in the host. This is not a strong security control - it is possible for the host to control the VM. However, it provides enough security by obscurity to defeat most or all current malware.</p>
+
+
+</body>
+</pipp>

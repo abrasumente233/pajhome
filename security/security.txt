@@ -1,0 +1,207 @@
+
+This website is dedicated to everything in the IT security field and, in particular, pen testing. It is intended to be a community resource and contributions from visitors are welcome.
+
+
+What's the problem?
+
+These days, computers are trusted to do all sorts of tasks for us. Be it a washing machine or a nuclear power station, microchips play a vital role. Unfortunately, our trust that the computers are doing what we want them to do may be misplaced. If a hacker takes control of a computer and makes it do what they want, all sorts of consequences can happen.
+
+Some consequences of hacking:
+ * Actual physical damage. There is a case of a disgruntled employee hacking into a sewage plant and deliberately causing an effluent spill.
+ * Financial loss. There are many cases of banking systems being hacked and making fraudulent transactions.
+ * Privacy violations. Home computers can be hacked and the webcam and microphone used to spy on the user.
+ * It has (hopefully) not happened, but the consequences of terrorist hackers taking control of a nuclear missile are unthinkable.
+
+On a more day to day basis:
+ * Loss of service. Virus infections can render computers unusable and destroy data. DDoS attacks have made major websites unavailable.
+ * Theft of confidential data. Almost every week there are stories of companies having credit cards numbers and personal information stolen. This is used for fraud and identity theft.
+
+These are problems that can happen to anyone!
+
+
+Why is it so bad?
+
+The best description I have heard is "technological growing pains". I think computers have advanced so rapidly because the focus has been on getting the job done, not on issues like security. Contrast this to other industries such as construction or motor vehicles; clearly there are different priorities. Unfortunately, society has developed so we need computers to be as solid as buildings.
+
+A particular cause is that mainframe computers, back in the 70s or so, did have good security. When PCs came in, all that was abandoned, presumably for simplicity, and I guess a feeling of "who'd mess with their own personal computer"? This wasn't too much of a problem through the 80s are computers were largely unconnected, although viruses did start to circle on floppy disks. Through the 90s networks became common and with the rise of the Internet the problem has exploded.
+
+
+What can be done about it?
+
+I am confident the problem can be solved. In the short term, by all users of computers taking certain precautions, the risk of attack can be greatly reduced. In the long term, I believe (dream!) that future computers will be intrisicly secure, from the moment you get them out of the box. Getting there is going to be a long haul though!
+
+For now, awareness is the most important thing. Once people are aware they need to take some precautions, that is a start. For a home user there isn't all that much required. But for IT providers, and in particular programmers, there is a huge amount of work just maintaining day to day security.
+
+A completelt different approach is to stop the hackers in the first place, perhaps through law enforcement, or discouraging people becoming hackers. However, with potentially massive financial gains, these people are not going to be easy to stop. I believe the most successful solutions for computer security are technical ones.
+
+
+What do I need to know?
+
+Well, this depends entirely who you are:
+ * Home user
+ * Programmer
+ * Sys-admin
+ * Architect
+...
+
+
+Home User
+
+A home user typically has a Windows PC connected to the Internet, that is used for personal purposes. Some use is private (e.g. email correspondance) and some financially sensitive (e.g. online shopping/banking). Such users will have accounts on several websites, that they trust as being secure (e.g. an ebay account).
+
+To achieve basic security, the following is needed:
+
+ * Use Windows XP with Service Pack 2.
+   The Security Center will prompt you to:
+    * Enable a firewall (the built-in one is fine)
+    * Enable automatic updates
+    * Install anti-virus software. You need to obtain this yourself. I recommend using any one of the main reputable commercial products, they're all more-or-less equal. There are also free products available.
+
+ * Be aware people may be trying to trick you:
+    * Take great care when opening files that have been downloaded or received by email or instant messenger. Many types of files (.exe, .scr, .html) can take over your computer if you open them. Other files (e.g. .jpg, .mp3) are generally safe, but just as dangerous if the software used to open them has a security problem.
+    * Be aware of "phishing" emails and fake websites, trying to trick you into revealing your login details. Only ever enter your login details if you have got to the site by typing the URL or using your favorites. Never trust links in emails!
+
+ * If you have a wireless network, make sure it uses encryption. WPA is far preferable, but WEP is sufficient for home users. WEP can be broken in a few hours by a determined attacker, while WPA is effectively unbreakable, if used correctly.
+
+ * Be prudent with your online passwords. I realise a separate strong password for every website is impossible to remember. At the very least, have one secure password that you use for important websites, and only use on trustworthy brands, and a second throwaway password. Make each password hard to predict by including mixed case and numbers, e.g. L0nd0n52
+
+ * Make sure the Windows user you use day to day is a restricted account, not an administrator.
+
+Just by following these precautions, you make yourself unlikely to be hacked. There are still some potential routes into your computer, the main risks being:
+
+ * Being socially engineered
+ * Security problems with software that is not covered by Windows update (e.g. Firefox, Winzip, etc.)
+ * Malware that is not detected by anti-virus - spyware, etc.
+ * Others?
+
+At this point it becomes a question of how far you want to go to protect yourself. There is certainly more you can do.
+
+
+Sys-admin
+
+Consider the sys-admin of a small company network. There is a mix of Windows and Linux systems, with desktops, internal servers and internet facing servers.
+
+Securing the servers poses a whole new set of challenges. On clients the firewall provides almost complete protection from remotely initiated attacks. On servers holes have to be opened through the firewall to allow legitimate traffic. In fact, for common internal services (e.g. windows file sharing), so many holes would have to be opened that a firewall is fairly pointless. Hackers and viruses can get through the holes just like legitimate traffic.
+
+
+
+
+
+There's a split now, you can start with design of network
+Or you can start with hosts and locking down. hummm...
+Why do we need a firewall?
+  Double-layer of safety (i.e. boxes should just be secure, but just in case)
+  Allows open internal system
+
+
+
+Port Scanning
+
+TCP scan
+Identify TCP services
+UDP port unreachable
+UDP positive response
+icmp scan
+
+funky tcp scans (ack, fin, etc.)
+tweaked source port
+firewalk
+
+
+Generally the funky scans reveal problems with the configuration of stateless packet filters
+Solution: use a default deny stateful firewall
+however, stateless filters will be around for a while (mostly as router filters)
+
+What are the problems
+
+Well, traffic is two way, so when you allow something else, you must allow the responses back in.
+To allow outgoing port 80, a common set of rules is
+
+  iptables -A OUTPUT -p tcp --sport 1024: --dport 80
+  iptables -A INPUT  -p tcp --sport 80    --dport 1024:
+
+Well, this works, and a superficial port scan from the outside would appear to show the rules working. However, if someone from the outside sets their source port to 80 (which they can easily do), they can make inbound connections to the host, on ports above 1024.
+
+(tbd: actually try this)
+
+How to fix this? The most important fix is to only allow established packets inbound,
+  iptables -A INPUT  -p tcp --sport 80 --dport 1024: ! --syn
+
+
+With this precaution, the service is effectively non-accessible. But you can still do reconnaisance. For example, using ACK scan, you could figure out (at least roughly) what the firewall rule is. Using FIN scan, in some cases you can work out what ports are open. You also have a chance to exploit some tcp-level flaws like predictible ISN.
+
+How to tie down as far as possible:
+  minimize outgoing ports, so an attacker has less chance of guess the source port
+    guess this is the real reason network admins want to minimize that!
+    but an attacker already knows what the common ports are
+  tie down the ephemeral port range as far as possible.
+    using the BSD range (49xxx - 65535) seems best
+    most/all oses are configurable
+
+
+What about UDP?
+
+The problem with UDP is that there isn't a SYN bit you can check for. A firewall that understood each protocol could look in the data of each packet, but devices like routers aren't able to do this.
+
+Some UDP protocols work differently, with the source port being the same as the destination. NTP and TFTP do work like this, and DNS requests between servers used to, although newer ones use ephemeral ports. To open these protocols up outbound, you end up opening them inbound as well (this also causes a problem for stateful firewalls).
+
+When ephermal ports are used, if you allow back in packets to ports >=1024, that opens those ports incoming (to someone who tweaks their source port). This could open up access to SQL Server (1433/1434), Citrix (1604) and others.
+
+
+General solutions
+
+Nail down ephemeral ports
+Nail down what is allowed outgoing - in particular, just from some hosts (e.g. proxies)
+
+
+For scanning...
+
+TCP
+
+Regular SYN scan, ephemeral source port
+  ACK test, tells you if it's a stateless with "allow established" as first rule
+
+ACK scan, destination port say 65534 (maybe try 1025 as well)
+  Go through a range of source ports, corresponding to what a firewall would let out
+
+  Some hosts wont respond to this (e.g. freebsd with a sysctl), but most will
+  This gives you a fruitful source port to try
+
+  Do a SYN test to see if they're allowed through (obviously, that's bad!)
+    If they are, do a SYN scan
+    Otherwise, FIN scan
+
+
+
+
+
+
+
+
+http://www.ncftp.com/ncftpd/doc/misc/ephemeral_ports.html#Limits
+
+
+
+
+
+
+http://www.auditmypc.com/adt.asp
+how does it do it???
+
+
+
+
+
+
+Programming things to know...
+
+Problem solving mindset
+A main language you know in depth
+Exposure to other languages so you can understand code in almost any language
+Knowledge of some support languages you'll need - SQL, JavaScript, Shell/Batch, XPATH, etc.
+
+
+For a web programmer...
+  Templating system
+  Database
+  Web server interface

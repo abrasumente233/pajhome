@@ -1,0 +1,135 @@
+<pipp>
+<title>RSA Algorithm</title>
+<desc>A description of the algorithm, and a simple example of its use.</desc>
+<body>
+
+<h2>Overview</h2>
+
+<p align="center"><table class="lined" width="80%" align="center">
+<tr>
+  <td width="50%" rowspan="3">
+    <h3 style="text-align:center">Key Generation</h3>
+    <ol>
+      <li>Generate two large prime numbers, <span class="math">p</span> and <span class="math">q</span></li>
+      <li>Let <span class="math">n = pq</span></li>
+      <li>Let <span class="math">m = (p-1)(q-1)</span></li>
+      <li>Choose a small number <span class="math">e</span>, coprime to <span class="math">m</span></li>
+      <li>Find <span class="math">d</span>, such that <span class="math">de % m = 1</span></li>
+    </ol>
+    <p align="center">Publish <span class="math">e</span> and <span class="math">n</span> as the public key.<br/>
+    Keep <span class="math">d</span> and <span class="math">n</span> as the secret key.</p>
+  </td>
+  <td style="width:50%; text-align:center">
+    <h3>Encryption</h3>
+    <span class="math">C = P<sup>e</sup> % n</span>
+  </td>
+</tr>
+<tr><td style="text-align:center">
+  <h3>Decryption</h3>
+  <span class="math">P = C<sup>d</sup> % n</span>
+</td></tr>
+<tr><td style="text-align:center">
+  <span class="math">x % y</span> means the remainder of <span class="math">x</span> divided by <span class="math">y</span>
+</td></tr>
+</table></p>
+
+<p>The reasons why this algorithm works are discussed in the <a href="maths.html">mathematics</a> section. Its security comes from the computational difficulty of factoring large numbers. To be secure, very large numbers must be used for <span class="math">p</span> and <span class="math">q</span> - 100 decimal digits at the very least.</p>
+
+<p>I'll now go through a simple worked example.</p>
+
+<h2>Key Generation</h2>
+
+<h3>1) Generate two large prime numbers, <span class="math">p</span> and <span class="math">q</span></h3>
+
+To make the example easy to follow I am going to use small numbers, but this is not secure. To find random primes, we start at a random number and go up ascending odd numbers until we find a prime. Lets have:
+
+<p class="math">p = 7<br/>q = 19</p>
+
+<h3>2) Let <span class="math">n = pq</span></h3>
+
+<p class="math">n = 7 * 19<br/>
+ &#160; = 133</p>
+
+<h3>3) Let <span class="math">m = (p - 1)(q - 1)</span></h3>
+
+<p class="math">m = (7 - 1)(19 - 1)<br/>
+ &#160; = 6 * 18<br/>
+ &#160; = 108</p>
+
+<h3>4) Choose a small number, <span class="math">e</span> coprime to <span class="math">m</span></h3>
+
+<p><span class="math">e</span> coprime to <span class="math">m</span>, means that the largest number that can exactly divide both <span class="math">e</span> and <span class="math">m</span> (their greatest common divisor, or gcd) is 1. Euclid's algorithm is used to find the gcd of two numbers, but the details are omitted here.</p>
+
+<p class="math">
+  e = 2 => gcd(e, 108) = 2 (no)<br/>
+  e = 3 => gcd(e, 108) = 3 (no)<br/>
+  e = 4 => gcd(e, 108) = 4 (no)<br/>
+  e = 5 => gcd(e, 108) = 1 (yes!)
+</p>
+
+<h3>5) Find <span class="math">d</span>, such that <span class="math">de % m = 1</span></h3>
+
+<p>This is equivalent to finding <span class="math">d</span> which satisfies <code><span class="math">de = 1 + nm</span></code> where <span class="math">n</span> is any integer. We can rewrite this as <code><span class="math">d = (1 + nm) / e</span></code>. Now we work through values of <span class="math">n</span> until an integer solution for e is found:</p>
+
+<p class="math">n = 0 => d = 1 / 5 (no)<br/>
+n = 1 => d = 109 / 5 (no)<br/>
+n = 2 => d = 217 / 5 (no)<br/>
+n = 3 => d = 325 / 5 <br/>
+&#160; &#160; &#160; &#160; &#160; &#160;= 65 (yes!)</p>
+
+<p>To do this with big numbers, a more sophisticated algorithm called extended Euclid must be used.</p>
+
+<p align="center"><table class="lined" align="center"><tr>
+  <td width="50%">
+    <h3 style="text-align:center">Public Key</h3>
+    <p><span class="math">n = 133<br/>
+    e = 5</span></p>
+  </td>
+  <td width="50%">
+    <h3 style="text-align:center">Secret Key</h3>
+    <p><span class="math">n = 133<br/>
+    d = 65</span></p>
+  </td>
+</tr></table></p>
+
+<h2>Communication</h2>
+
+<h3>Encryption</h3>
+
+<p>The message must be a number less than the smaller of p and q. However, at this point we don't know p or q, so in practice a lower bound on p and q must be published. This can be somewhat below their true value and so isn't a major security concern. For this example, lets use the message "6".</p>
+
+<p class="math">C = P<sup>e</sup> % n<br/>
+&#160; = 6<sup>5</sup> % 133<br/>
+&#160; = 7776 % 133<br/>
+&#160; = 62</p>
+
+<h3>Decryption</h3>
+
+<p>This works very much like encryption, but involves a larger exponation, which is broken down into several steps.</p>
+
+<p class="math">
+  P = C<sup>d</sup> % n<br/>
+  &#160; = 62<sup>65</sup> % 133<br/>
+  &#160; = 62 * 62<sup>64</sup> % 133<br/>
+  &#160; = 62 * (62<sup>2</sup>)<sup>32</sup> % 133<br/>
+  &#160; = 62 * 3844<sup>32</sup> % 133<br/>
+  &#160; = 62 * (3844 % 133)<sup>32</sup> % 133<br/>
+  &#160; = 62 * 120<sup>32</sup> % 133<br/>
+</p>
+
+<p>We now repeat the sequence of operations that reduced <span class="math">62<sup>65</sup></span> to <span class="math">120<sup>32</sup></span> to reduce the exponent down to <span class="math">1</span>.</p>
+
+<p class="math">
+  &#160; = 62 * 36<sup>16</sup> % 133<br/>
+  &#160; = 62 * 99<sup>8</sup> % 133<br/>
+  &#160; = 62 * 92<sup>4</sup> % 133<br/>
+  &#160; = 62 * 85<sup>2</sup> % 133<br/>
+  &#160; = 62 * 43 % 133<br/>
+  &#160; = 2666 % 133<br/>
+  &#160; = 6
+</p>
+
+<p>And that matches the plaintext we put in at the beginning, so the algorithm worked!</p>
+
+</body>
+</pipp>

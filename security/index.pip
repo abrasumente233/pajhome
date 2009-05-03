@@ -1,0 +1,17 @@
+<pipp>
+<title>Security</title>
+<desc>A guide to computer and network security.</desc>
+<keywords>insecure, secure, security, network, vulnerability, privacy, hole</keywords>
+<logo>security.jpg</logo>
+<body>
+
+<pipp-child src="intro.pip"/>
+<pipp-child src="desktop.pip"/>
+<pipp-child src="datatheft.pip"/>
+<pipp-child src="infra.pip"/>
+<pipp-child src="web.pip"/>
+
+<pipp-map-view src="/section.xsl"/>
+
+</body>
+</pipp>

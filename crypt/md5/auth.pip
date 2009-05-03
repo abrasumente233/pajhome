@@ -1,0 +1,120 @@
+<pipp>
+<title>Protecting Passwords</title>
+<desc>How to build a web login system that protects passwords with JavaScript MD5.</desc>
+<body>
+
+<pipp-child src="advancedauth.pip"/>
+
+<p>A user's password is the crown jewels of any password-based authentication system. Such an important asset needs protection; best practice is that a password is encrypted when:</p>
+
+<ul>
+<li>it is transmitted over the internet, or</li>
+<li>it is stored on a server.</li>
+</ul>
+
+<p>This is the bare minimum, that all sites should be doing. Some sites require strong security, such as online banking, and use SSL. SSL offers strong protection, but can be costly to implement. Many sites do not need SSL, which is a reasonable business decision. However, most non-SSL sites transmit passwords over the internet without encryption. This is not reasonable - it's below the bare minimum that everyone should be doing.</p>
+
+<p>By using JavaScript MD5, sites that do not use SSL can still meet these basic minimums. I strongly recommend this for all non-SSL sites that use passwords.</p>
+
+
+<h2>Implementing MD5 Passwords</h2>
+
+<p>I generally recommend using an autentication library, rather than implementing authentication yourself.
+Most languages and frameworks have such a library. However, at present, few authentication libraries support JavaScipt MD5. If you're involved in the development of a framework and would like to add this feature, do <a href="mailto:paj@pajhome.org.uk">email me</a>.</p>
+
+<p>The instructions below describe in general terms how to implement an MD5 authentication system. They avoid refering to any specific server-side language, so apply equally to ASP.Net and Ruby on Rails. Some language-specific instructions are also available, from other sites:</p>
+
+<ul>
+<li><a href="http://www.devarticles.com/c/a/JavaScript/Building-a-CHAP-Login-System-An-ObjectOriented-Approach/">PHP</a></li>
+<li><a href="http://perl-md5-login.sourceforge.net/">Perl</a></li>
+<li>Some notes on using PHP and Java. <a href="http://www.softwaresecretweapons.com/jspwiki/md5_for_ajax">more...</a></li>
+</ul>
+
+
+<h2>Technical Details</h2>
+
+<dl>
+<dt>Session Cookie</dt>
+<dd>When the user does a successful login, the server issues a session cookie. This is effectively a random number that an attacker can't guess. The cookie is used to authorize subsequent access to protected pages. When the user does a logout, the cookie is deleted. This basic design is used by almost all web authentication systems.</dd>
+
+<dt>Challenge-Response Login</dt>
+<dd>The difference with an MD5 login is the "challenge-response" exchange. The server generates a challenge and sends this to the client, as a hidden field in the login form. The simplest challenge to use is the server's current time. Once the user has entered their password and clicked login, the client performs a hash operation including both the challenge and the password. It sends the result to the server, and the server checks this against its own calculation. During this exchange, the password is never transmitted unencrypted. If the hash is captured, it cannot be used again, as the challenge changes for each login. </dd>
+
+<dt>Storing Passwords</dt>
+<dd>The server stores password hashes, instead of unencrypted passwords. A random number unique to the server is included in the hash. This number is called the "salt", and it is not secret. It is also included in a hidden field in the login form. The purpose of the server-specific salt is to ensure that a captured password cannot be used on a different server.</dd>
+
+<dt>HMAC</dt>
+<dd>Both login and storing passwords require hashes that include both the password, and a random number. We could simply hash the two strings concatonated. However, there is an alternative technique called <a href="http://www.ietf.org/rfc/rfc2104.txt">HMAC</a>, which uses two hash operations and some extra logic. This is specifically designed to be secure for such purposes, making it preferable to simple concatonation.</dd>
+</dl>
+
+<p>Some further technical considerations are discussed in the advanced section. <a href="advancedauth.html">more...</a></p>
+
+<h2>Adding MD5 to an Authentication System</h2>
+
+<ol class="gap">
+<li>Store the server salt in global application config.</li>
+
+<li>Modify the login form:
+<ul class="nogap">
+<li>Add a hidden field containing the server salt</li>
+<li>Add a hidden field containing the current server time</li>
+<li>Add a script tag to link to <code>md5.js</code></li>
+<li>Add a JavaScript onsubmit event:<br/>
+<pipp-code lexer="js">
+password.value = hex_hmac_md5(hex_hmac_md5(password.value,
+                        server_salt.value), server_time.value);
+</pipp-code></li>
+</ul></li>
+
+<li>Modify the handler that receives posted login data:
+<ul class="nogap">
+<li>Check the time stamp received from the client is within the last 5 minutes.</li>
+<li>Calculate hex_hmac_md5(password stored on server, time stamp).</li>
+<li>If this matches the hash received from the client, the login is successful.</li>
+<li>Consider adding code to cope with JavaScript being unavailable. <a href="advancedauth.html#nojs">more...</a></li>
+</ul></li>
+
+<li>Update registration and change password:
+<ul class="nogap">
+<li>Add a hidden field containing the server salt.</li>
+<li>Add a script tag to link to <code>md5.js</code>.</li>
+<li>Add a JavaScript onsubmit event:<br/>
+<pipp-code lexer="js">
+password.value = hex_hmac_md5(password.value, server_salt.value);
+confirm_password.value =
+        hex_hmac_md5(confirm_password.value, server_salt.value);
+</pipp-code></li>
+</ul></li>
+
+</ol>
+
+<p>If you have an existing site. the main challenge is how passwords are stored in the database. If they are currently unencrypted, you can do a one-time operation to replace them with hashes. If the passwords are already hashed, you may have some difficulties. You will need to identify the hash algorithm in use, and create JavaScript code to match it.</p>
+
+
+<h2>Risks</h2>
+
+<p>The following technical risks affect this system, as well as all the <a href="../../security/web.html">general risks</a> that affect web applications. For most sites these are not particularly serious. In general, sites that require greater protection should use SSL, although strengthening the system is possible. <a href="advancedauth.html#strengthen">more...</a></p>
+
+<dl>
+<dt>Session ID is Unencrypted</dt>
+<dd>Although the password is always encrypted, the session ID is transmitted unencrypted. If an attacker captures this, they can perform a "session hijack" attack, to access the user's account. The same risk exists for sites that use SSL to protect the login process, but revert to non-SSL after the user has logged-in.</dd>
+
+<dt>Replay Attacks</dt>
+<dd>If an attacker captures a login, it is possible to re-use the password hash, until the timestamp expires. This is generally a minor issue, as an attacker who can capture the login can almost certainly capture the session ID. For web sites that store sessions in a database, this can be easily fixed. <a href="advancedauth.html#replay">more...</a></dd>
+
+<dt>Active Interception</dt>
+<dd>Over the web, JS cryptography can only protect against passive eavesdropping, as the JavaScript itself is downloaded over an insecure link. If an attacker can modify network traffic, they can make malicious changes to the JavaScript code.</dd>
+
+<dt>Registration and Change Password</dt>
+<dd>Both registration and change password transmit a "password equivalent" over the internet. If someone captures this, they can use it to login to the site. The unencrypted password is still never transmitted over the internet.</dd>
+
+<dt>Brute Force Attacks</dt>
+<dd>In a "brute force" attack, an attacker tries many different passwords for a user, until they eventually succeed. The use of challenge-response login creates a new risk here. If an attacker captures a password hash, they can later conduct an offline brute force attack, where passwords are checked without accessing the server. This bypasses any server restrictions, such as locking an account after three incorrect passwords. Some simple steps can make this harder for an attacker. <a href="advancedauth.html#brute">more...</a></dd>
+
+<dt>Stored Password Equivalents</dt>
+<dd>The hash the server stores is a "password equivalent". If someone captures this, they can use it to login to the site. However, the protection is still worthwhile, because its main purpose is to stop an attacker using captured passwords on different sites. If someone has captured a stored password from your database, they have already compromised your site.</dd>
+</dl>
+
+
+</body>
+</pipp>

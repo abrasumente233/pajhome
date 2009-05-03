@@ -1,0 +1,23 @@
+<pipp>
+<title>Features</title>
+<desc>What features should a good framework provide?</desc>
+<body>
+
+<h2>Comet</h2>
+
+<ul>
+<li>Provide a means to have long-lived connections handled in a non-blocking manner by a separate thread.</li>
+<li>High-level API for application to "signal" a client, calling a JavaScript function.</li>
+<li>Reliable support for common browsers, with a choice of transports and a strong default (no loading indicator in the browser).</li>
+<li>Hooks for detecting disconnected clients.</li>
+<li>Support "inline" deployment where everything goes through one port, and "split" deployment where the comet connections are on a different port or ip address.</li>
+</ul>
+
+
+<h2>Web Services</h2>
+
+<p>TBD: this isn't really my area - please send in suggestions.</p>
+
+
+</body>
+</pipp>

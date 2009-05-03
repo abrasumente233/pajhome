@@ -1,0 +1,113 @@
+<pipp>
+<title>Desktop</title>
+<desc>Keeping a workstation secure is a major challenge when it's used to browse the Internet, open documents sent by email, all the day-to-day things that make a computer useful. At present, this activity carries a high risk of compromise; determined attackers are generally able to compromise desktops. This is very much a front-line in the security battle.</desc>
+<body>
+
+<pipp-child src="virtual.pip"/>
+<pipp-child src="ie_disclosure.pip"/>
+
+
+<h2>Introduction</h2>
+
+<p>This document discusses the problem of keeping malicious software off desktop computers. It applies to both home and business users. The content is most applicable to Windows computers; other operating systems are not technically immune, but are attacked much less in practice. Keeping malware off your computer is not the whole of computer security, but it is a very significant part.</p>
+
+<p>A <a href="virtual.html">companion document</a> presents an approach you can use to protect your most sensitive data assets, such as your online banking passwords.</p>
+
+
+<h2>Background</h2>
+
+<p>Despite a great deal of attention in recent years, the desktop security problem is still far from solved. Some <a href="http://www.webroot.com/resources/stateofspyware/excerpt.html">studies</a> have found up to 90% of home computers running some kind of malicious software. Once malware has taken control of a computer, it can conduct all kinds of malicious activity, for example:</p>
+
+<ul>
+<li>Use the computer's processing power and bandwidth to send spam.</li>
+<li>Capture the user's data and keystrokes, including passwords.</li>
+<li>Cause direct damage to the computer, e.g. wiping the hard drive.</li>
+<li>Capture images through a webcam, or sound through a microphone, without the user's knowledge.</li>
+<li>Tamper with the operating system internals, to avoid being detected.</li>
+</ul>
+
+<p>An alarming trend is emerging of malware designed to capture login details for online banks. With so many computers infected with malware, this is highly challenging for banks to control.</p>
+
+
+<h2>How a Compromise Occurs</h2>
+
+<p>There are two main routes a compromise can occur:</p>
+
+<ul>
+<li>Technical vulnerabilities - for example, most web browsers have a history of vulnerabilities that allow a malicious web page to take over the computer.</li>
+<li>User deception - for example, a user may open a spreadsheet thinking it is harmless, while in fact it has malicious code embedded in macros.</li>
+</ul>
+
+<p>The distinction can be blurred at times. For example, most people intuitively feel it should be safe to save a web page on their computer and open it again later. In fact, doing this allows the web page to take control of the computer.</p>
+
+
+<h2><a name="basic">Basic Precautions</a></h2>
+
+<p>The main advice given to protect a desktop is:</p>
+
+<ul>
+<li>Use a firewall</li>
+<li>Turn on automatic updates</li>
+<li>Use anti-malware software</li>
+</ul>
+
+<p>A firewall is very effective for preventing network attacks. But it does not protect user-iniated actions, such as visiting a web site.</p>
+
+<p>Enabling automatic updates is good for preventing technical vulnerabilities. However, it's difficult to be sure everything is patched - Windows automatic updates only covers Microsoft software, and this feature is only starting to be common in other software. Another problem is "Zero day" attacks, where attacks start occuring before a patch is available to protect against them. These are rare but becoming more common.</p>
+
+<p>Anti-malware, in other words anti-virus and anti-spyware helps cover the gaps. This protects against both technical vulnerabilities and user deception. However, it only works against software known to be bad - if a new piece of malware is developed, it will take a little time before anti-malware software can detect it. That's why it's important for anti-malware products to regularly update their signatures. It's becoming more common for malware to "mutate" to avoid detection. To cope with this, anti-malware software vendors are starting to implement behaviour based detection, to detect malware without a signature. It is not yet clear how effective this will be in practice.</p>
+
+<p>So, all told, these are wise precautions, but not enough to ensure complete protection.</p>
+
+
+<h2><a name="further">Further Precautions</a></h2>
+
+<p>Some steps that more advanced users commonly take to protect their systems:</p>
+
+<ul>
+<li>Working as an unprivileged user, rather than an administrator.</li>
+<li>Application lockdown - restrict outbound network access, registry access, writing to system files, etc.</li>
+</ul>
+
+<p>Avoiding running as administrator is relatively straightforward to achieve with Windows XP, and is heavily pushed in Windows Vista. It does reduce the chance of malware damaging the operating system. However, all the user's data will be accessible by this unprivileged user, so malware running in that context can still do significant damage. In addition, there is a risk of privilege escalation vulnerabilities, where malware running as an unprivileged user gains administrative privileges. Such vulnerabilities are relatively common, at least with versions of Windows before Vista.</p>
+
+<p>The "application lockdown" approach is a key part of many commercial firewall programs that go beyond the built-in Windows firewall. These restrict functions that are traditionally provided by the OS, but are rarely used and potentially dangerous. Generally a user prompt is generated, rather than an outright block, so legitimate applications can still work. One major advantage of this is it can prevent malware configuring the system to automatically run the malware on boot up.</p>
+
+<p>Both of these are worthwhile controls, but they don't stop malware getting on the computer; they just reduce what it can do once the computer is infected.</p>
+
+
+<h2>Why is This so Hard to Fix?</h2>
+
+<p>The design of desktop software goes back to a time when security was not a major concern. This brings convenience that users are now accustomed to. For example, it is useful to create spreadsheets with embedded macros, and share this by email, but this is challenging for security. It would be possible to improve security at the cost of convenience, and this is appropriate in some environments. However, the real challenge is finding a way to fix the security problems while maintaining convenience.</p>
+
+<p>It is likely that technical vulnerabilities will continue to be found in desktop products. There is a large "attack surface" - lots of features that could potentially cause vulnerabilities. The design of file formats like Office documents would likely be very different if security had originally been a concern. And software can cause vulnerabilities when it would not be expected that the software has any security significance - e.g. <a href="http://www.securityfocus.com/bid/6430">Winamp</a>.</p>
+
+
+<h2>Changes to Windows</h2>
+
+<p>Despite these difficulties, Microsoft have made massive efforts to improve. Windows XP service pack 2 was developed to increase security of Windows systems, in the knowledge that it would cause compatibility problems. Some of the more important changes are:</p>
+
+<ul>
+<li>The new "Security Center" instructs users to apply the basic precautions mentioned above. In particular, the firewall is enabled by default.</li>
+<li>The source of downloaded files is recorded; if you open an .exe that was downloaded from the internet, you get a warning about the dangers of doing so.</li>
+<li>Many under-the-hood changes to reduce attack surface, addresses subtle weaknesses, and limit the exploitability of new vulnerabilities.</li>
+</ul>
+
+<p>While XP SP2 is a definite improvement, it has certainly not solved the problem of desktop security. Windows Vista has even further reaching changes; the effectiveness of these remain to be seen.</p>
+
+
+<h2>Restricted Environments</h2>
+
+<p>In some environment, particularly in business, it may be acceptable to heavily restrict what users can do. In principle it should be possible to prevent users allowing their system to be compromised. For example if the following controls were in place:</p>
+
+<ul>
+<li>Software is restricted to a pre-approved list.</li>
+<li>All scripting and macro languages are disabled.</li>
+<li>No configuration changes are allowed to be made.</li>
+</ul>
+
+<p>Then it would be almost impossible for a user to accidentally give away control of their computer. In practice, controls this tight will stop legitimate users doing their work. And it's technically difficult to implement these restrictions, although Windows Group Policy is a good start.</p>
+
+
+</body>
+</pipp>

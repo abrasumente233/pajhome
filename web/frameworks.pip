@@ -1,0 +1,44 @@
+<pipp>
+<title>Frameworks</title>
+<desc>These are a useful technology to quickly build functional web applications. This section provides an introduction to web frameworks, and more detailed information on projects I have been involved in.</desc>
+<body>
+
+<pipp-child src="intro.pip"/>
+<pipp-child src="turbogears.pip"/>
+<pipp-child src="satalkbar.pip"/>
+
+<pipp-map-view src="/section.xsl"/>
+
+<h2>Open Source Involvement</h2>
+
+<p>I've been active on seveal Python projects:</p>
+
+<dl>
+<dt>ToscaWidgets</dt>
+<dd>A library for creating re-usable web widgets, and a selection of useful widgets. <a href="http://toscawidgets.org/">more...</a>
+<ul>
+    <li>Numerous bug fixes and minor enhancements</li>
+    <li>Greatly improved documentation</li>
+    <li>Created <a href="http://toscawidgets.org/documentation/tw.dynforms/">tw.dynforms</a>, a widget library for dynamic websites</li>
+    <li>Started the ToscaWidgets-experimental branch</li>
+</ul></dd>
+
+<dt>SQLAlchemy</dt>
+<dd>This is an object-relational mapper. <a href="http://www.sqlalchemy.org/">more...</a>
+<ul>
+<li>Progressed MS SQL Server support from basically working to fully supported.</li>
+<li>Developed basic MS Access support.</li>
+<li>Initiated some tools: <a href="http://code.google.com/p/sqlautocode/">autocode</a> and dbcopy.</li>
+</ul></dd>
+
+<dt>TurboGears</dt>
+<dd>This is a web framework based on a number of existing components. <a href="http://www.turbogears.org/">more...</a>
+<ul>
+<li>Improved SQLAlchemy support, including changes for SA0.4.</li>
+<li>Various bug fixes, including avoiding the need for ET() calls using TG Widgets in Genshi templates.</li>
+<li>Developed <a href="http://code.google.com/p/iisproxy/">iisproxy</a>, a tool to deploy TurboGears applications with Microsoft IIS.</li>
+</ul></dd>
+</dl>
+
+</body>
+</pipp>

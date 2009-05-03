@@ -1,0 +1,21 @@
+<pipp>
+<title>Consultancy</title>
+<logo>consult.jpg</logo>
+<desc>You can hire me on a freelance basis to perform IT work and consultancy.</desc>
+<status>new</status>
+<body>
+
+<pipp-child src="webtest.pip"/>
+<pipp-child src="secconsult.pip"/>
+<pipp-child src="webconsult.pip"/>
+<pipp-child src="busapp.pip"/>
+<pipp-child src="other.pip"/>
+
+<p>I am an <a href="../aboutme/career.html">experienced</a> IT professional, with strong technical skills and the ability to use these to deliver business benefits. I am currently available to do consultancy work on a freelance basis. My areas of specialism are:</p>
+
+<pipp-map-view src="/section.xsl"/>
+
+<p>If you'd like to work with me, please select an area of specialism and follow the instructions in the "Interested?" section.</p>
+
+</body>
+</pipp>

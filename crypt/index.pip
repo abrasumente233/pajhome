@@ -1,0 +1,16 @@
+<pipp>
+<title>Cryptography</title>
+<desc>How to keep information secure, when transmitted across insecure networks.</desc>
+<keywords>cryptography, codes, encryption, cracking, security</keywords>
+<logo>crypto.jpg</logo>
+<body>
+
+<pipp-child src="rsa/index.pip"/>
+<pipp-child src="md5/index.pip"/>
+<pipp-child src="vigenere.pip"/>
+<pipp-child src="wordpat.pip"/>
+
+<pipp-map-view src="/section.xsl"/>
+
+</body>
+</pipp>

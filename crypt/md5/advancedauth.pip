@@ -1,0 +1,146 @@
+<pipp>
+<title>Advanced</title>
+<body>
+
+<p>Most of the ideas in this section are hypothetical, although some have been implemented successfully. I would be interested to hear from people who try to implement anything on this page.</p>
+
+<h2><a name="nojs">If JavaScipt is not Available</a></h2>
+
+<p>If JavaScipt is not available, the site has a choice - it can either allow a login with the password unencrypted, or block the login altogether. I recommend allowing unencypted logins; sites that can't accept this risk should probably be using SSL. However, the site should warn the user that their password will be at risk.</p>
+
+<p>To allow an unencrypted login, the server code to check a password needs to be updated. Calculate hex_hmac_md5(server salt, received password); if this matches the stored serve value, login is successful. To warn users of unencrypted logins, have a script block in the login form, with a noscript tag containing a phrase like "Warning: this login will not be encrypted".</p>
+
+<p>If you want to block unencrypted logins, remove the login button from the HTML, and have JavaScript insert it dynamically. If JavaScript is not available, the user will simply not see the login button.</p>
+
+<p>There is the possibility that JavaScript is available, but the hash scripts don't work. This will be very rare in practice. To help cope with this, the scripts have a function like <code>md5_vm_test</code> that returns true if the script is functioning correctly. If the script is not working, you will want to behave as if JavaScript is not available.</p>
+
+
+<h2>Efficiency</h2>
+
+<p>For some web sites, including a dynamic challenge on every login form is not practical, for performance reasons. This is particularly true on sites that have the login form on every page. It is still possible to use challenge-response authentication on such sites, and avoid replay attacks; one approach is:</p>
+
+<ul>
+<li>Have the login form contain a static master challenge.</li>
+<li>At login, JavaScript on the client generates a secondary challenge. One approach is to combine the user name and the current time.</li>
+<li>The client sends (master challenge, secondary challenge, hash)</li>
+<li>The server checks the secondary challenge has not previously been used, and records it, to prevent replay attacks.</li>
+<li>Periodically, the master challenge is changed, and when this is done, the database of used secondary challenges can be cleared.</li>
+</ul>
+
+
+<h2><a name="strengthen">Strengthening Authentication</a></h2>
+
+<dl>
+<dt>Session ID is Unencrypted</dt>
+<dd>This can be strengthened, but doing so greatly increases complexity. As well as using a session cookie, each URL needs an individual authentication token. <a href="#sessionid">more...</a></dd>
+
+<dt><a name="replay">Replay Attacks</a></dt>
+<dd>If the application can save state on the server, this can be easily fixed. Instead of using a timestamp as the challenge, generate 128-bit random challenges, and keep track of issued challenges. When a login attempt is made, first check the challenge was issued by the server, and then remove it, so it can't be used again. The alternative login system also solves this. <a href="#alternative">more...</a></dd>
+
+<dt>Active Interception</dt>
+<dd>There is no known way to protect against this, other that using SSL.</dd>
+
+<dt>Registration and Change Password</dt>
+<dd>Several ways to strengthen this have been suggested:
+<ul>
+<li>Encyrpting using <a href="http://www.ohdave.com/rsa/">JavaScript RSA</a>. Unfortunately, JavaScript RSA is too slow with secure key sizes.</li>
+<li>Encrypting using <a href="http://www-cse.ucsd.edu/~fritz/rijndael.html">JavaScript AES</a>, with the old password as the key. However, this doesn't fix registration, and is dubious in the case that a user is changing their password because they're worried the old password was compromised.</li>
+<li>The alternative login system solves this. <a href="#alternative">more...</a></li>
+</ul></dd>
+
+<dt><a name="brute">Brute Force Attacks</a></dt>
+<dd>Several approaches can be used to strengthen this:
+<ul>
+<li>Force users to use complex passwords, e.g. 8 characters, at least one letter and one number. However, the server only ever sees hashes, not the original password, so it can't enforce this. JavaScript password strength checking is being considered for future versions of the script.</li>
+<li>Avoid the challenge and response being transmitted together. This forces an attacker to capture the traffic in both directions, to conduct a brute force attack. However, this is of limited benefit, as in most sniffing attacks, traffic in both directions can be captured.</li>
+<li>Increase the computing power needed for brute force attacks. When calculating the response, we can repeat the MD5 operation many times, and an attacker will have to do the same for every password in the brute force attack. Experiments show that 100 repeated hashes in JavaScript is not a performance problem, so this defence is worth applying.</li>
+</ul></dd>
+
+<dt>Stored Password Equivalents</dt>
+<dd>The alternative login system solves this. <a href="#alternative">more...</a></dd>
+</dl>
+
+
+<h2><a name="alternative">Alternative System</a></h2>
+
+<p>There is an alternative approach to challenge-response that resolves several risks, although it creates some new risks too. It is also based on a challenge, but the arrangement it different. When the server issues a challenge, it already knows md5(hmac_md5(password, challenge)). The client sends hmac_md5(password, challenge). The server performs an md5 on the value it receives, and if this matches the stored value, authentication is successful. This is secure, because to produce a value that hashes to the server's stored value, the password must be known.</p>
+
+<p>Once a challenge has been used, we need to create a new one. To do this, the login form contains a next_challenge hidden field. md5(hmac_md5(password, next_challenge)) is sent to the server. To calculate the login hash, the client needs to know the challenge, which is different for each user. When the user name is entered, the client makes an Ajax call to fetch the user's challenge.</p>
+
+<h3>Implementation</h3>
+
+<ol class="gap">
+<li>Store the server secret in global application config. Note: unlike the server salt in the other system, server secret does need to be kept secret.</li>
+
+<li>Add a column to the user table to store the current challenge.</li>
+
+<li>Modify the login form:
+<ul class="nogap">
+<li>Add a hidden field "next_challenge" containing a randomly generated challenge.</li>
+<li>Add an empty hidden field "next_password".</li>
+<li>Add a script tag to link to <code>md5.js</code></li>
+<li>Add a JavaScript onchange event to the username field. This makes an Ajax call to fetch the current challenge.</li>
+<li>Add a JavaScript onsubmit event:<br/>
+<pipp-code lexer="js">
+password.value = hex_hmac_md5(password.value, challenge.value);
+next_password.value = hex_md5(hex_hmac_md5(password.value, next_challenge.value));
+</pipp-code></li>
+</ul></li>
+
+<li>Create the ajax callback:
+<ul class="nogap">
+<li>Fetch the user's challenge.</li>
+<li>If the user doesn't exist, we don't want to reveal this. Instead, return hex_hmac_md5(server secret, user name).</li>
+</ul></li>
+
+<li>Modify the handler that receives posted login data:
+<ul class="nogap">
+<li>Calculate hex_md5(received_value)</li>
+<li>If this matches the stored hash, the login is successful.</li>
+<li>Update the stored password and challenge, with values received from the client.</li>
+</ul></li>
+
+<li>Update registration and change password:
+<ul class="nogap">
+<li>Add a hidden field containing a randomly generated challenge.</li>
+<li>Add a script tag to link to <code>md5.js</code>.</li>
+<li>Add a JavaScript onsubmit event:<br/>
+<pipp-code lexer="js">
+password.value = hex_md5(hex_hmac_md5(password.value, challenge.value));
+confirm_password.value =
+        hex_md5(hex_hmac_md5(confirm_password.value, challenge.value));
+</pipp-code></li>
+</ul></li>
+</ol>
+
+<p>If you have an existing site. the main challenge is how passwords are stored in the database. If they are currently unencrypted, you can do a one-time operation to replace them with hashes. If the passwords are already hashed, you will need a complex migration process.</p>
+
+<h3>New Risks</h3>
+
+<dl>
+<dt>Information Leakage</dt>
+<dd>However, related to this, an attacker can see when a user has logged in, because the random number changes on every successful login. The change in random number confirms to the attacker that the account does exist. </dd>
+
+<dt>Non-Standard Approach</dt>
+<dd>While this approach appears to me to be secure, it has not been subjected to anything like the degree of scrutiny that challenge-response login has.</dd>
+</dl>
+
+
+<h2><a name="sessionid">Protecting the Session ID</a></h2>
+
+<p>The idea is to use JavaScript cryptography to perform a challenge-response exchange for each page. The system could work as follows:</p>
+
+<ul>
+<li>At login, JavaScript saves the password on the client. One way to store this is a cookie with a random path attribute that doesn't exist on the server, so the cookie is never transmitted.</li>
+<li>When a page is requested without a valid token (a URL parameter "auth"), the server produces a stub page containing a challenge, and some JavaScript code. The code uses the saved password and the challenge to generate a valid token, and redirects to the new URL.</li>
+<li>The stub page will need to be coded carefully to work with form posts. For this to work with ajax requests, all the JavaScript that makes ajax requests will need to be recoded to handle the stub page correctly.</li>
+<li>The stub page increases page load time. It can be avoided in many circumstances, by having every page include a challenge, with JavaScript to generate the token when links are clicked. The stub page will still be needed in some circumstances, e.g. if the user has used the browser's back button, and the challenge is now invalid.</li>
+<li>For efficiency, it is recommended that static files, such as images and JavaScript files, are not protected by this system. For most sites, it is only a minor risk for static files to be accessible without authentication.</li>
+<li>It is best to avoid saving the password on the client. Instead, a temporary password can be derived from the plaintext password, and the login challenge, and all tokens generated from this.</li>
+<li>To get the security benefits of this system, replay attacks must also be prevented. <a href="#replay">more...</a></li>
+</ul>
+
+<p>This system is purely hypothetical at present. I advise against its use, as a site that requires this level of security should use SSL. However, I would be interested to hear from anyone who tries to implement this.</p>
+
+</body>
+</pipp>

@@ -1,0 +1,39 @@
+<pipp>
+<title>Implementation</title>
+<desc>A simple implementation in Java, to demonstrate how this is done.</desc>
+<body>
+
+<pipp-file src="contrib/myRSA.java"/>
+<pipp-file src="contrib/RSA_Project.pdf"/>
+
+<h2>Java RSA Code</h2>
+
+<p>A Java implementation of RSA is just a transcription of the algorithm:</p>
+
+<p class="indented"><pipp-code src="rsa.java"/></p>
+
+<h2>That's too easy!</h2>
+
+<p>Java is a very helpful language for this purpose - it's standard libraries do all the hard work. The main points of java.math.BigInteger are:</p>
+<ul>
+<li>Emulating big numbers using arrays of fixed size integers. Arithmetic operations on big numbers are broken down into sequences of operations on the fixed size numbers, using techniques similar to long multiplication and division used on paper.</li>
+<li>Finding large prime numbers, using the Miller-Rabin probabilistic primality test. This can't prove that numbers are prime; just that it's unlikely they're not prime. The <code>100</code> in the <code>BigInteger</code> constructors requests 100 primality tests. The probability that the number returned is not prime is less than 1 in 2<sup>100</sup>.<br/>
+Apparently an algorithm has now been discovered that can prove primality in polynomial time, so the Java libraries might eventually be updated.</li>
+<li>Calculating modular inverses, using the extended Euclid algorithm.</li>
+<li>Breaking large modular exponentiations into several steps, avoiding the need to store massive intermediate numbers.</li>
+</ul>
+
+<p>Equivalent libraries are available for most programming languages, for example the <a href="http://gmplib.org/">GMP</a> library for C programmers. You could write one yourself, but these libraries are heavily optimised. They include advanced multiplication/division algorithms and core routines are written in assembler.</p>
+
+<p><a href="mailto:dirtyharryman@fastmail.fm">Harry Callahan</a> has written an <a href="contrib/myRSA.java">alternative implementation</a> which implements the Miller Rabin and Extended Euclid algorithms itself. It also has some <a href="contrib/RSA_Project.pdf">good documentation</a>.</p>
+
+<h2>Secure Randomness</h2>
+
+<p>For us, java.security.SecureRandom takes care of this, but again this hides a fair bit of hard work. Computers are deterministic, predictible things and not at all suited to generating randomness. The most common source of unpredictibility is user input - key strokes and mouse movement. For example, you could time the gap between key strokes, in microseconds, and then take the lowest bit of this number. Techniques like this are random enough for cryptographic purposes. Nowadays, many kernels include this functionality, which is a good idea as they have more time than a process to build up an entropy pool.</p>
+
+<h2>I want to encrypt strings</h2>
+
+<p>That code is just illustrative of the core algorithm. If you want to encrypt strings and have the ciphertext as a string, you'll want to use a full-blown encryption package, like <a href="http://www.gnu.org/software/gnu-crypto/">GNU Crypto</a>.</p>
+
+</body>
+</pipp>

@@ -1,0 +1,18 @@
+<pipp>
+<title>Philosophy</title>
+<logo>phil.jpg</logo>
+<desc>What is this crazy world we find ourselves on?</desc>
+<keywords>philosophy, moral, issues, abortion, euthanasia, drugs, metaphysics, consciousness, evolution</keywords>
+<body>
+
+<pipp-child src="metaphys.pip"/>
+<pipp-child src="conscious.pip"/>
+<pipp-child src="morality.pip"/>
+<pipp-child src="language.pip"/>
+
+<p>In the past, I've had quite an interest in deep thinking and trying to figure out the world around us. I'm not so big on it these days, it all seems far too complicated and I just want to get on with life. But these pages have generally get a hundred or so reads a month, and they generate a few interesting emails, so I'll keep them here.</p>
+
+<pipp-map-view src="/section.xsl"/>
+
+</body>
+</pipp>

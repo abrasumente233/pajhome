@@ -1,0 +1,48 @@
+<pipp>
+<title>Pipp</title>
+<desc>This is a tool for building static websites; I use it to build this site.</desc>
+<body>
+
+<pipp-child src="docs.pip"/>
+<pipp-child src="internals.pip"/>
+<pipp-child src="history.pip"/>
+
+<p>Pipp is a tool to help build static websites; it is used to produce this website. Pipp can reduce the manual effort needed to perform common tasks, such as:</p>
+
+<ul>
+<li>Updating content across multiple pages</li>
+<li>Multiple presentations of content (e.g. printable view)</li>
+<li>Hierarchial navigation panes</li>
+<li>Image width and height tags</li>
+<li>Thumbnail images</li>
+<li>Source code with syntax highlighting</li>
+<li>Stylised text headings</li>
+</ul>
+
+<p>A Pipp website is coded in .pip files, which are essentially HTML with some Pipp-specific tags. The tool processes this to produce the HTML website. Pipp works as an XSLT transformation - a stylesheet tuned for your website transforms your source code into HTML ready for publishing. Pipp provides a selection of XSLT helper functions that assist with common web development tasks.</p>
+
+<p>Pipp can be controlled by a command line tool and a Windows system tray application.</p>
+
+
+<h2>Quick Start</h2>
+
+<p><b>Windows:</b> Download and run the <a noimg="1" href="http://pipp.googlecode.com/files/pipp-2.0.2.exe">Pipp Windows Installer</a></p>
+
+<p>After install the Pipp icon will appear in the tool tray. Right click this and select "Launch Browser"; the example site will be opened in a browser window. Once you've looked around the site, you can view the source code by right clicking Pipp and choosing "Explore source". The .pip files become the .html files.</p>
+
+<p><b>Other platforms:</b> Consult the <a href="docs.html#install">manual installation instructions</a>.</p>
+
+<h2>Beginning Your Site</h2>
+
+<p>A good way to start is to take the example site and modify it to suit your requirements. To get going:</p>
+
+<p>Try changing some text in a page, and refresh your browser - the changes will be visible immediately. Change a title of a page; the navigation bar is automatically updated on all pages. You can set a logo on a page, and it is inhereited by its children, unless overridden. Styles work the same way. You can add a new page by creating a new .pip file (or copying an existing one), and adding a pipp-child directive to its parent.</p>
+
+<p>To update the look of the site, you will need to edit pipp.xsl - an <a href="http://www.w3.org/TR/xslt">XSLT</a> file. You will need basic knowledge of XSLT to make non-trivial changes. To update look of the navigation bar, edit navbar.xsl.</p>
+
+<h2>More Information</h2>
+
+<pipp-map-view src="/section.xsl"/>
+
+</body>
+</pipp>

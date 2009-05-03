@@ -1,0 +1,59 @@
+<pipp>
+<title>Introduction</title>
+<desc>Information security has taken a high profile in recent years, and rightly so, as it has a bearing on all of us. This website is intended to provide a guide for IT professionals to understand the key issues around security, and it is hoped to be useful to a wider audience. It also aims to provide particular detail to anyone involved in developing and operating web applications.</desc>
+<body>
+
+<h2>Where do the problems come from?</h2>
+
+<p>These days, it's a given that there are dishonest people in the world. People have to lock their front doors. The practical question is: how are dishonest people able to violate security? There are three main causes:</p>
+
+<ul>
+<li>People</li>
+<li>Technical vulnerabilities</li>
+<li>Design limitations</li>
+</ul>
+
+<p>To illustrate these, perhaps it's best to step away from the IT word and think of someone trying to break into your house in the real world:</p>
+
+<ul>
+<li>People - Someone tricks their way into your house, exploiting the fact that you don't verify visitors carefully enough.</li>
+<li>Technical vulnerabilities - Someone uses locksmith tools to pick your front door lock, exploiting technical details of the lock's construction.</li>
+<li>Design limitations - Someone crowbars open your front door, exploiting the fact it's just made of wood, not hardened steel.</li>
+</ul>
+
+<p>One lesson from these scenarios is that there will always be weak spots; perfect security is impossible to achieve. What we can strive for is making common attacks difficult enough that it's not worthwhile for people to attempt them.</p>
+
+<h2>Why are computers such a problem?</h2>
+
+<p>One aspect of this is the ability to conduct computer crime on large scales. Fraudsters can target millions of people in an automated fashion; this would be impossible on the phone or in the real world. Attacks can also be conducted remotely and anonymously, at less personal risk to the perpetrator. There's also a large exposure in that many aspects of day-to-day life can be conducted by computer.</p>
+
+<p>The other aspect is a question of maturity. Go back ten to fifteen years and most cars had technical vulnerabilities, for example it was possible to "hot wire" cars to start them without the key. Nowadays, most cars it is virtually impossible to start without the key - the technical vulnerability has been fixed. Computers still have a lot of technical vulnerabilities, although the situation is starting to improve.</p>
+
+<p>There is also a question of maturity in terms of people. Many people who are savvy in the real world are not used to doing business online and are susceptible to being tricked in the online world, in ways that they wouldn't be in the real world.</p>
+
+<h2>What are the main threats?</h2>
+
+<p>The most serious problem at the moment is large-scale monetary theft, achieved by targeting large numbers of normal people for fraud and identity theft. An underground service-based economy exists, where people specialise in a particular aspect of the theft, and much of the proceeds go to organised crime groups. These are the people behind the "phishing" emails that ask you to confirm you bank details, and many other attacks.</p>
+
+<p>There are many other potential concerns, although not occurring with the same frequency, for example:</p>
+
+<ul>
+<li>Extortion through threats of cyber attacks. In the past threats of "DDOS" attacks were made against organisations, particularly online bookmakers. At the time, there were no effective defences against these attacks, although these have since become available.</li>
+<li>Hacking being used as part of a cyber-bullying campaign, for example sending offensive messages that appear to come from the victim. This could even include capturing sound and images from the victim's web cam and microphone, with the victim unaware.</li>
+<li>Extreme impact hacks. For example, hackers could potentially access top-secret intelligence, steal huge amounts of money electronically, cause havoc on stock markets or with public utilities, and even conduct unauthorised weapons launches. Fortunately, systems that are this critical tend to be well defended, but they are an extremely tempting target.</li>
+</ul>
+
+<h2>Why can't the police fix this?</h2>
+
+<p>Law enforcement is part of the solution, but just because stealing is illegal doesn't mean you can leave your front door unlocked.</p>
+
+<p>Cyber crime presents particular challenges to policing models. The skills to police the internet are not readily available. Traditional laws may not apply in the online world (can you steal 1s and 0s?) and computer laws struggle to remain current. There are often jurisdictional problems, when someone launches a hack across a national boundary, especially as there are countries which have no laws against hacking.</p>
+
+<h2>What can we do about this?</h2>
+
+<p>In the short term, taking some reasonable precautions can significantly reduce the risk of being a victim. Both individuals and organisations will have to invest some effort in this, and refrain from particularly risky activities, but the impact does not need to be significant.</p>
+
+<p>In the longer term, I'm hopeful technical vulnerabilities will come under control, and people will learn to be savvy in the online world, just like the real world. Information security will never go away completely, but it will stop being such a pressing concern.</p>
+
+</body>
+</pipp>

@@ -1,0 +1,102 @@
+<pipp>
+<title>Why Facebook Works</title>
+<desc>What are the key features that make Facebook an effective communication platform?</desc>
+<body>
+
+<p>I've been using the Internet for a long time, but had never really dabbled in social networking. That was until <a href="http://www.facebook.com/">Facebook</a> came along, and before I know it, this sneaky little website has become a major part of my life. The difference is amazing - it really does help me keep in touch with people, who I'd otherwise drift away from - old friends and new. In the past I'd often swap emails or phone numbers, and we'd never get in touch, but with FB there is that little, gentle contact at a distance. For many people, I see parts of their lives that I'd otherwise have missed. A great example was when the feed told me that my 15-year-old cousin was "no longer listed as single".</p>
+
+<p>I think there's three things about the FB approach that make it work:</p>
+
+<ol>
+<li>It does what I want - keeping in touch with real-life friends, not making new friends on the internet.</li>
+<li>Technical competence - many issues like privacy and spam are quietly taken care of, without me noticing.</li>
+<li>Everyone's on it, near enough.</li>
+</ol>
+
+<p>My top FB tip: If you're on a slow connection, say an internet cafe in India, use the mobile version - <a href="http://m.facebook.com/">m.facebook.com</a>.</p>
+
+
+<h2>Features</h2>
+
+<p>The really positive features I see in FB are:</p>
+
+<ul class="gap">
+<li><b>Broadcast communication</b> - when you update your status, or post photos, this is broadcast to all your friends, through the news feed. This feels like the main, novel feature of FB, indeed other sites like <a href="http://twitter.com/">Twitter</a> have followed suit. For advanced users, this could previously be achieved with blogs, RSS and aggregators, but FB brings this to the masses.</li>
+
+<li><b>Easy communication</b> - comments and wall posts are a great medium for informal communication, it's socially acceptable to write something much shorter than you would in a private message. "poke" and "like" are the ultimate in easy communication - just a click. This is new to me - I've not encountered much like this before FB. Although "like" is similar to rating postings, as sites like <a href="http://slashdot.org/">Slashdot</a> have done for years.</li>
+
+<li><b>Friends list</b> - when you have someone on your list, you know you can always get in touch with them. Also, being able to browse your friends' friends lists is useful, a great way to find friends old and new. This is just an online address book, but FB adds a clever twist - using the friends list as the basis of controlling access to your information.</li>
+
+<li><b>Photos with tagging</b> - being able to tag your friends in photos makes the whole photo sharing system much more social; in many ways this is the "killer app" on FB. Their system is based on a standard specification called <a href="http://www.fotonotes.net/">Fotonotes</a>, but again, FB brought this to the masses.</li>
+
+<li><b>Finding old friends</b> - having the site based on real names, you can search for friends of old. This is not new - sites like <a href="http://www.friendsreunited.co.uk/">Friends Reunited</a> have offered this for some years - but FB is free, and has built up the critical mass of users needed to make this work.</li>
+
+<li><b>Little things</b> - chat, groups, events, birthdays, notes, plus an application platform. Put together these make a great integrated system.</li>
+</ul>
+
+<p>There is one feature I've specifically not mentioned here: profiles. Prior to FB, most social networking sites were heavily based around your profile - <a href="http://www.myspace.com/">MySpace</a> is the classic example. Problem is, I never really knew what to write on my profile, and a lot of people feel the same. FB focuses on the news feed, making the profile less important, and this seems to better match what people want.</p>
+
+<p>FB has changed over time, generally for the better. One change I particularly liked was the "New Facebook" that started around September 2008. It refocused FB on the core features, particularly the news feed, and made profile pages quicker to load.</p>
+
+
+<h2>Applications</h2>
+
+<p>FB applications are a mixed bag. Many are of quite dubious value, such as "hug me". However, there are some useful and interesting applications too. I've noticed several broad classes of application:</p>
+
+<ul class="gap">
+<li><b>Games</b> - this accounts for the majority of applications. Classic games like chess and poker, and new games like Knighthood. FB provides good infrastructure to support games - identity of users, notifications when it's someone's turn, and a news feed to put the results on.</li>
+
+<li><b>Presenting information</b> about you. A great example is <a href="http://www.facebook.com/apps/application.php?id=2583332131">Travel Map</a> that shows a world map, with the places you've visited marked. Applications like this work particularly well when they're social, providing features like "which of my friends have visited Timbuktoo?" Other interesting applications include <a href="http://www.facebook.com/apps/application.php?id=2575475179">The Political Compass</a>, <a href="http://www.facebook.com/apps/application.php?id=2490151219">My Personality</a>, and <a href="http://www.facebook.com/apps/application.php?id=3253460620">IQ Test</a>. I think this is a particularly promising area for applications to develop in.</li>
+
+<li><b>Utilities</b> to help you better use the data in your profile. A great example is <a href="http://www.facebook.com/apps/application.php?id=2442338999&amp;b=&amp;ref=pd_r">Fonebook</a> which puts your friends' profile pictures on your phone, so they appear when your friends call. I also like <a href="http://www.facebook.com/apps/application.php?id=6751187779">FriendCSV</a>, although this is restricted by FB's privacy policy.</li>
+
+<li><b>Integrating</b> with other sites. This can be to publish on FB, e.g. sharing your Flickr photos, or having your blog posts appear as FB notes. It can also be for the site to use people's FB identity, to avoid registration, e.g. <a href="http://www.facebook.com/apps/application.php?id=6953377468">Zoosk</a>.</li>
+
+<li><b>Adding external information</b> to your profile, e.g. <a href="http://www.facebook.com/apps/application.php?id=5235256929">News Headlines</a>. This takes FB a little away from social networking and more towards a general portal. But there is a social element too - posting stories that interest you to your own news feed.</li>
+</ul>
+
+
+<h2>Criticisms</h2>
+
+<p>I have a few criticisms of FB. Some could be fixed relatively easily, while others are more fundamental.</p>
+
+<ul class="gap">
+<li><b>Duplication</b> of existing services. Messages is a good example - I already have email that I use regularly, but now I get FB messages too. This ends up with me having two inboxes, two sites I need to check, something I've always wanted to avoid. The FB messaging system is not nearly as feature-rich as <a redirect="1" href="http://www.gmail.com/">Gmail</a>. The cause of this is the next criticism.</li>
+
+<li><b>Closed system</b> - in many ways, FB is a self-contained site. There is some integration, but it's generally in one direction. Other sites can effectively become a part of FB, through the platform. But FB will not generally be a part of other sites. Crucially, you can't add friends on MySpace or Bebo to your FB account. It seems that FB wants to be everyone's main portal; some people describe this as FB "trying to take over the Internet". Note: FB Connect appears to address some parts of this criticism; I will update in due course.</li>
+
+<li><b>Privacy model</b> - while FB clearly have made great efforts in this area, I don't think it's quite right yet. Specifically:
+    <ul class="nogap">
+    <li>Applications get access to a lot of information, while most only need a little. I'd much prefer a more granular system, where I could add most applications without worrying, as they only get very little access.</li>
+    <li>Conversely, applications can't always do what you want. I'd like FriendCSV to do a CSV dump that includes all my friends' emails and phone numbers. This is information that my friends allow me to see, and I'd like to pass this privilege to an application. However, FB policy prevents FriendCSV from doing this.</li>
+    <li>My friends list is public by default. For me, and I think most people, I'm happy with friends seeing this, but not unknown people. I am happy for non-friends to see the mutual friends they and I have in common.</li>
+    <li>My profile is visible to people in my network by default. This makes sense where network membership is controlled, e.g. a university. But for a non-controlled network (which most non-students are in) this effectively gives a backdoor for non-friends to view my profile.</li>
+    </ul>
+</li>
+
+<li><b>A Dubious Patent</b> - FB filed <a href="http://appft1.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&amp;Sect2=HITOFF&amp;u=%2Fnetahtml%2FPTO%2Fsearch-adv.html&amp;r=1&amp;p=1&amp;f=G&amp;l=50&amp;d=PG01&amp;S1=20070192299.PGNR.&amp;OS=dn/20070192299&amp;RS=DN/20070192299">this patent</a> which (as I understand it) basically covers the "request friend / confirm friend" process. The same system has existed for years with private mailing lists, where you request membership and a moderator must approve the request. I'm disappointed the patent office allowed this. In my opinion, FB has little that is original, its success comes instead from bringing others' innovations to the mainstream.</li>
+
+<li><b>Minor criticisms</b> - I'm sure FB will address these over time:
+    <ul class="nogap">
+    <li>The photo uploader is generally good. However, it sometimes fails for no apparent reason, and this is really annoying when you've waited ages for an upload!</li>
+    <li>Tagging people is very slow in Internet Explorer, but fine in Firefox. In general the site is a bit slow.</li>
+    <li>Only a single login session is allowed per account, so you can't use Firefox and IE at the same time.</li>
+    <li>Replying to a wall post is a bit cumbersome; it would be handy to just click reply and get an inline text box. Similarly, a "reply by private message" link.</li>
+    <li>There are several places to check for new incoming data - notifications, requests, inbox and news feed. Although you can see most of this at a glance on the home page, I'd like to see this better integrated.</li>
+    <li>Searches are accent sensitive. For example, I have a friend called Chlo&#233; and if I search for Chloe, she doesn't appear.</li>
+    <li>There's no way to turn off all email notifications. I've disabled all the individual events one-by-one, but the odd notification email still appears, from an application.</li>
+    </ul>
+</li>
+</ul>
+
+<p>One criticism I have not included is viral applications. Sometimes applications appear that craftily spread through your friends, by posting enticing news items, and requiring you to add the application before you can read the detail. This could be a serious problem. However, FB seems to have quite a good handle on these, and annoying applications do not stay around for long.</p>
+
+<p>I also haven't mentioned the much criticised privacy policy changes, because in my eyes FB got more of a hard time than was deserved.</p>
+
+
+<h2>Conclusion</h2>
+
+<p>I think FB is wonderful, it's still in a honeymoon period, which will come to an end at some point. There's a big challenge for FB in becoming profitable, and how much this will affect the user experience. The other big issue is how far FB will open up and become interoperable with other sites. I'm positive about the outcomes. There's a lot of work being done on "open social networking", like <a href="http://openid.net/">OpenID</a> and <a href="http://code.google.com/apis/opensocial/">Open Social</a>. I think in a few years we'll be in a world with multiple, integrated social networking sites, which are profitable, and of which FB is a leader. FB can keep on bringing innovations to the masses, people will have a choice of sites to use, and we'll all have lots of friends, that we actually keep in touch with.</p>
+
+</body>
+</pipp>

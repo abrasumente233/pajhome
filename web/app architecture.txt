@@ -1,0 +1,69 @@
+Some things I think are good idea for most/all applications.
+These apply to the sort of apps I write, which are...
+    business bespoke?
+They don't apply to, say, writing an OS.
+Also, these are just guidelines, there will be exceptions!
+I've been prescriptive for simplicity - many things I say are false in rare circumstances
+
+
+
+<h2>Use an iterative development process</h2>
+
+<p>During development, start with the big wins - the easy things that will give a lot of benefit. Get something simple working early on, and gets users to try this out. Incorporate user feedback into later iterations. Generally, work in lots of small steps, rather than big jumps. This approach is also called "Rapid Application Development" (RAD). Experience shows this works better that the traditional "waterfall" model of requirements, design and implementation. There are concerns that this approach is less managable, for example, getting an up-front time estimate is harder.</p>
+
+<h2>Build browser-based applications</h2>
+
+<p>With modern browsers, most applications can work just as well in the browser as they could as a standalone application. Online applications such as <a href="http://docs.google.com/">Google Docs & Spreadsheets</a> demonstrate this well. The big advantage is that the user doesn't need to install an application on their computer, and that upgrades are rolled out to all users quickly and easily. Concerns about responsiveness can be addressed by prudent design and technologies such as Ajax. One major concern is offline use of the application, although <a href="http://gears.google.com/">Google Gears</a> points towards a solution.</p>
+
+<h2>Single sign-on</h2>
+
+<p>Remembering lots of passwords is troublesome for users, and creates overhead for administrators. Single sign-on (SSO) can significantly help with this. Also, if the main sign-on is strengthened (e.g. by using smart cards in addition to passwords), all the applications using SSO get the benefit of this. In corporate environments, the Windows Active Directory is a viable SSO provider; use of this is relatively common and growing. At present, there is no pervasive SSO provider on the Internet, largely due to there being no single entity who everyone trusts. However, <a href="http://openid.net/">OpenID</a> points towards a decentralised solution.</p>
+
+
+
+
+
+<h1>Specifics of development</h1>
+
+<h2>SQL database</h2>
+
+<p>If the application needs to store state, it's almost certainly worth using an SQL database. This provides scalability and administration tools, and allows complex operations. Even for simple storage requirements (e.g. a list of email addresses), a database will do it better than a text file. One exception is for storing files, such as images, which most SQL databases are able to do, but this may not be the best choice. Standalone applications can use <a href="http://www.sqlite.org/">SQLite</a> as an embedded SQL engine. Other types of database do exist (e.g. object-orientated databases), but these are only useful for specialist applications.</p>
+
+<h2>Model View Controller (MVC) Pattern</h2>
+
+<p>The MVC pattern is the most useful architectural pattern I've come across. 
+
+</p>
+
+<h2>Application frameworks</h2>
+
+<p>Use a framework that lets you work mostly at a high-level, but allows low-level control as necessary.
+This avoids RITW, and gets you going quickly
+At the very least, use lots of libraries
+</p>
+
+<h2>High-level languages</h2>
+
+Easy string handling
+And other data types - lists & dicts
+No worrying about memory allocation/freeing
+Exceptions
+classes
+
+Some languages that meet all this are: Java, C# and Python. There are many more.
+
+
+
+
+<h2>Unit Tests</h2>
+
+
+<h2>Documentation in Code</h2>
+
+I don't actually do this, but it's still a good idea :-)
+
+
+<h2>Object-Relational Mappers</h2>
+
+Use for you db access, it's much easier!
+
