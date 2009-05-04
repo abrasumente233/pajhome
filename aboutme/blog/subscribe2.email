@@ -1,0 +1,17 @@
+To: <%(email)s>
+From: Paul Johnston <paj@pajhome.org.uk>
+Subject: Welcome to Paj on the Road
+Date: %(date)s
+
+Hi,
+
+You are now subscibed to the Paj on the Road blog on http://pahome.org.uk/
+You will be sent an email whenever the blog is updated.
+
+If you want to unsubscribe at any time, click this link:
+
+http://pajhome.org.uk/aboutme/blog/subscribe.cgi?action=unsub&email=%(email)s&auth=%(token)s
+
+Best wishes,
+
+Paj

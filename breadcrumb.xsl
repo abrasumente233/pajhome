@@ -11,7 +11,12 @@
     <xsl:if test="count(children/page) &gt; 0">
         <div id="{$prefix}_popup">
             <xsl:for-each select="children/page">
-                <span class="fakelink" onclick="document.location='{exports/link}'; return false;"><xsl:value-of select="exports/title"/></span><br/>
+                <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
+                <xsl:if test="not(exports/nonav)">
+                    <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
+                    <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
+                    <span class="fakelink" onclick="document.location='{exports/link}'; return false;"><xsl:value-of select="exports/title"/></span><br/>
+                </xsl:if>
             </xsl:for-each>
         </div>
     </xsl:if>
@@ -41,7 +46,7 @@
 
     <div id="breadcrumb" style="width:100%">
         <strong>
-        <xsl:for-each select="ancestor-or-self::page">
+        <xsl:for-each select="ancestor-or-self::page[not(exports/nonav)]">
             <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
             <a id="crumb{position()}_link" href="{exports/link}"><xsl:value-of select="exports/title"/>

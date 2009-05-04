@@ -14,18 +14,21 @@
     <xsl:value-of select="pipp:export-depend(pipp:file-name(), 'children')"/>
     <dl>
         <xsl:for-each select="//page[exports/link=pipp:file-name()]/children/page">
-            <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
-            <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
-            <xsl:value-of select="pipp:export-depend(@src, 'desc')"/>
-            <xsl:value-of select="pipp:export-depend(@src, 'status')"/>
-            <dt>
-                <xsl:if test="exports/status = 'new'">
-                    <xsl:value-of select="pipp:file('/logos/new.png')"/>
-                    <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" border="0" title="New content"/>
-                </xsl:if>
-                <xsl:value-of select="exports/title"/>
-            </dt>
-            <dd><xsl:apply-templates select="exports/desc"/>&#160;<a href="{pipp:relative-path(exports/link)}">more...</a></dd>
+            <xsl:value-of select="pipp:export-depend(@src, 'nonav')"/>
+            <xsl:if test="not(exports/nonav)">
+                <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
+                <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
+                <xsl:value-of select="pipp:export-depend(@src, 'desc')"/>
+                <xsl:value-of select="pipp:export-depend(@src, 'status')"/>
+                <dt>
+                    <xsl:if test="exports/status = 'new'">
+                        <xsl:value-of select="pipp:file('/logos/new.png')"/>
+                        <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" border="0" title="New content"/>
+                    </xsl:if>
+                    <xsl:value-of select="exports/title"/>
+                </dt>
+                <dd><xsl:apply-templates select="exports/desc"/>&#160;<a href="{pipp:relative-path(exports/link)}">more...</a></dd>
+            </xsl:if>
         </xsl:for-each>
     </dl>
 </xsl:template>

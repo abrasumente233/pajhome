@@ -4,11 +4,27 @@
 <status>new</status>
 <body>
 
+<pipp-child src="subscribe.pip"/>
+<pipp-file src="subscribe.cgi"/>
+<pipp-file src="subscribe.email"/>
+<pipp-file src="subscribe2.email"/>
+
 <pipp-child src="photos/index.pip"/>
 
-<p>In November 2008, I left my job in England, gave up my house, and hopped on a plane to Delhi. I'd never been in Asia in my life, and on Wednesday 12th I was getting off the plane, all on my own in a far-away land. It's been quite a journey since, I've seen a lot of temples and beaches, met people from all over the world, even been in a Bollywood movie. Read on for the fully story.</p>
+<p>In November 2008, I left my job in England, gave up my house, and hopped on a plane to Delhi. I'd never been in Asia in my life, and on Wednesday 12th I was getting off the plane, all on my own in a far-away land. It's been quite a journey since, I've seen a lot of temples and beaches, met people from all over the world, even been in a Bollywood movie. Read on for the fully story. You can also browse all the <a href="photos/index.html">photos</a>.</p>
+
+<p>If you'd like to get an email when the blog is updated, enter your address:</p>
+
+<form action="subscribe.cgi" class="indented">
+<input type="hidden" name="action" value="send"/>
+<input type="text" name="email"/>
+<input type="submit" value="Subscribe"/>
+</form>
 
 <p>If you were following the old blog at LiveJournal, it now reads in the opposite direction - the latest entries are at the bottom. Sorry the updates have been so infrequent, I'm going to try and update more regularly from now.</p>
+
+
+
 
 <h3>Last Days in Bo's (Sat 28 Mar)</h3>
 

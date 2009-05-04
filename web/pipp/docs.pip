@@ -12,7 +12,7 @@
 
 <h2><a name="install">Manual Installation</a></h2>
 
-<p><b>Note:</b> If you're using Windows, it is easier to use the <a noimg="1" href="http://pipp.googlecode.com/files/pipp-2.0.2.exe">Pipp Windows Installer</a>. Manual installation is required on other platforms, and if you want to modify the Pipp source code.</p>
+<p><b>Note:</b> If you're using Windows, it is easier to use the <a noimg="1" href="http://pipp.googlecode.com/files/pipp-2.0.2.exe">Pipp Windows Installer</a>. Manual installation is required on other platforms, and if you want to use the development version, or modify the Pipp source code.</p>
 
 <p>The following dependencies are required:</p>
 
@@ -40,6 +40,15 @@
 <li>Go into the directory and type "pipp.py -s ."</li>
 <li>Browse to http://127.0.0.1:8080/</li>
 </ol>
+
+
+<h3>Development Version</h3>
+
+<p>You can get a checkout of the latest development version from the Subversion repository at Google Code:</p>
+
+<p class="indented"><code>svn checkout http://pipp.googlecode.com/svn/trunk/ pipp</code></p>
+
+<p>Be aware that this may not be as stable as the release version.</p>
 
 
 <h2>Directory Layout</h2>
