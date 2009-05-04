@@ -1,7 +1,7 @@
-To: <%(email)s>
+To: <$email>
 From: Paul Johnston <paj@pajhome.org.uk>
 Subject: Welcome to Paj on the Road
-Date: %(date)s
+Date: $date
 
 Hi,
 
@@ -10,7 +10,7 @@ You will be sent an email whenever the blog is updated.
 
 If you want to unsubscribe at any time, click this link:
 
-http://pajhome.org.uk/aboutme/blog/subscribe.cgi?action=unsub&email=%(email)s&auth=%(token)s
+http://pajhome.org.uk/aboutme/blog/subscribe.cgi?action=unsub&email=$email&auth=$token
 
 Best wishes,
 
