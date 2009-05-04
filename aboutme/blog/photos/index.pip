@@ -1,0 +1,89 @@
+<pipp>
+<title>Photos</title>
+<desc>See all the photos from the trip so far.</desc>
+<body>
+
+<table style="width:100%">
+<tr><td style="width:50%">
+<pipp-img src="delhi.jpg" nolink="1" align="left"/>
+<strong>Delhi &amp; Agra</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="pushkar.jpg" nolink="1" align="left" style="margin-bottom:40px"/>
+<strong>Pushkar</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="jaisalmer.jpg" nolink="1" align="left"/>
+<strong>Jaisalmer</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+
+<pipp-img src="mumbai.jpg" nolink="1" align="left"/>
+<strong>Mumbai</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="goa2.jpg" nolink="1" align="left"/>
+<strong>More Goa</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="bangkok2.jpg" nolink="1" align="left"/>
+<strong>More Bangkok</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="kohkong.jpg" nolink="1" align="left"/>
+<strong>Koh Kong</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="kampot.jpg" nolink="1" align="left"/>
+<strong>Kampot</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+</td><td>
+
+<pipp-img src="jaipur.jpg" nolink="1" align="left"/>
+<strong>Jaipur</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="jodhpur.jpg" nolink="1" align="left"/>
+<strong>Jodhpur</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="udaipur.jpg" nolink="1" align="left"/>
+<strong>Udaipur</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="goa.jpg" nolink="1" align="left"/>
+<strong>Goa</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="bangkok.jpg" nolink="1" align="left"/>
+<strong>Bangkok</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="kohchang.jpg" nolink="1" align="left"/>
+<strong>Koh Samet &amp; Koh Chang</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+<pipp-img src="chiphat.jpg" nolink="1" align="left" style="margin-bottom:40px"/>
+<strong>Chi Phat</strong> <br/><a href="xxx">more...</a>
+<br clear="all"/>
+<br/>
+
+</td></tr></table>
+
+</body>
+</pipp>

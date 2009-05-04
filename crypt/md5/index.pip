@@ -58,7 +58,8 @@
     req.send('');
 </script>
 
-<form><table class="indented">
+<div class="indented">
+<form><table>
   <tr><th>Input</th><td><input type="text" name="input" size="40"/></td></tr>
   <tr><th>Calculate</th>
   <td style="text-align:center">
@@ -71,7 +72,7 @@
 hex_md5("message digest") = "f96b697d7cb7938d525a2f31aaf161d0"
 hex_sha1("160-bit hash") = "90d925d853c3d35cd54070bb75280fefad9de9e7"
 </pipp-code>
-
+</div>
 
 <h2>More Information</h2>
 

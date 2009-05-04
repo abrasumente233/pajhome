@@ -6,7 +6,6 @@
 <p>I aim to do the following within a reasonable timeframe:</p>
 
 <ul>
-<li>Version 3.0 of JavaScript hashing - I already have a lot towards this, e.g. utg-8 encoding. Also, a solid reference implementation of the back-end.</li>
 <li>More programming advice - using version control, unit tests, unicode</li>
 <li>More articles on security:
 <ul>
