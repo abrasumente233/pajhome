@@ -3,10 +3,6 @@
 <desc>How to use the scripts to calculate hashes.</desc>
 <body>
 
-<style>
-.source { margin-left: 50px; }
-</style>
-
 <p><b>Note:</b> If you want to use JavaScript hashing to protect passwords, read <a href="auth.html">these instructions</a>.</p>
 
 <h2>Quick instructions</h2>

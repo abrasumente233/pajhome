@@ -3,8 +3,6 @@
 <desc>How to build a web login system that protects passwords with JavaScript MD5.</desc>
 <body>
 
-<pipp-child src="advancedauth.pip"/>
-
 <p>A user's password is the crown jewels of any password-based authentication system. Such an important asset needs protection; best practice is that a password is encrypted when:</p>
 
 <ul>

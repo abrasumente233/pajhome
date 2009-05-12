@@ -19,7 +19,9 @@
 <pipp-child src="scripts.pip"/>
 <pipp-child src="instructions.pip"/>
 <pipp-child src="auth.pip"/>
+<pipp-child src="advancedauth.pip"/>
 <pipp-child src="uses.pip"/>
+<pipp-child src="browsertest.pip"/>
 
 <pipp-file src="browsertest.cgi"/>
 <pipp-file src="2.2/md5-min.js"/>

@@ -1,5 +1,6 @@
 <pipp>
-<title>Advanced</title>
+<title>Advanced Authentication</title>
+<desc>More ideas for protecting passwords, to cope with some of the limitations of the basic system.</desc>
 <body>
 
 <p>Most of the ideas in this section are hypothetical, although some have been implemented successfully. I would be interested to hear from people who try to implement anything on this page.</p>

@@ -49,7 +49,6 @@
             var node = document.getElementById("crumb" + i + "_link");
             var popup = document.getElementById("crumb" + i + "_popup");
             if(!node || !popup) break;
-            popup.setAttribute("className", "crumb");
             var posX = 0;
             var posY = 0;
             while(node != null){
