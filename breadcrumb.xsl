@@ -24,27 +24,7 @@
 
 <xsl:template match="/page">
     <xsl:for-each select="//page[exports/link=pipp:import('link')]">
-    <script>
-    function align_popups(){
-        for(i = 1;; i++)
-        {
-            var node = document.getElementById("crumb" + i + "_link");
-            var popup = document.getElementById("crumb" + i + "_popup");
-            if(!node || !popup) break;
-            var posX = 0;
-            var posY = 0;
-            while(node != null){
-                posX += node.offsetLeft;
-                posY += node.offsetTop;
-                node = node.offsetParent;
-            }
-            popup.style.top = posY + 10;
-            popup.style.left = posX - 10;
-        }
-    }
-    </script>
-
-    <div id="breadcrumb" style="width:100%">
+    <div style="width:100%">
         <strong>
         <xsl:for-each select="ancestor-or-self::page">
             <xsl:value-of select="pipp:export-depend(@src, 'nonav')"/>
@@ -52,7 +32,7 @@
         <xsl:for-each select="ancestor-or-self::page[not(exports/nonav)]">
             <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
-            <a id="crumb{position()}_link" href="{exports/link}"><xsl:value-of select="exports/title"/>
+            <a class="crumb" id="crumb{position()}_link" href="{exports/link}"><xsl:value-of select="exports/title"/>
                 <xsl:call-template name="popup">
                     <xsl:with-param name="prefix" select="concat('crumb', position())"/>
                 </xsl:call-template>
@@ -63,6 +43,24 @@
         </xsl:for-each>
         </strong>
     </div>
+    <script>
+        for(i = 1;; i++)
+        {
+            var node = document.getElementById("crumb" + i + "_link");
+            var popup = document.getElementById("crumb" + i + "_popup");
+            if(!node || !popup) break;
+            popup.setAttribute("className", "crumb");
+            var posX = 0;
+            var posY = 0;
+            while(node != null){
+                posX += node.offsetLeft;
+                posY += node.offsetTop;
+                node = node.offsetParent;
+            }
+            popup.style.top = posY + 10;
+            popup.style.left = posX - 10;
+        }
+    </script>
 
     </xsl:for-each>
 </xsl:template>

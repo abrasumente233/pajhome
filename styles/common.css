@@ -49,16 +49,25 @@ dd                  { margin-bottom: 1em; }
   font-weight:  normal;
 }
 
-div#breadcrumb a div {display: none;}
+a.crumb div {display: none;}
 
-div#breadcrumb a:hover div {
+a.crumb:hover div {
     position: absolute;
     display: block;
     padding: 5px; margin: 10px; z-index: 100;
     font-size: 0.85em;
+    background: white;
+    border: 2px blue solid
 }
 
 .fakelink {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.clearit {
+    clear: both;
+    height: 0px;
+    line-height: 0px;
+    font-size: 0px;
 }
