@@ -41,7 +41,7 @@ elif action == 'send':
         msg = subscribed and msg_sub or msg_nosub
         action = subscribed and 'unsub' or 'sub'
         send_email(tmpl_subst(open('subscribe.email').read(), locals()))
-    msg = 'An email has been sent to this address, with further instructions.'
+    msg = 'An email has been sent to this address, with further instructions. If you do not receive the email, please check your spam folder. It is send from the address paj@pajhome.org.uk'
 
 elif action in ('sub', 'unsub'):
     if auth != token:
