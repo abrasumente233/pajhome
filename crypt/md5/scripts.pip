@@ -3,9 +3,11 @@
 <desc>Download the scripts, see information about their history and future plans, and links to other resources.</desc>
 <body>
 
-<pipp-child src="md4src.pip"/>
-<pipp-child src="md5src.pip"/>
-<pipp-child src="sha1src.pip"/>
+<pipp-child src="md5.pip"/>
+<pipp-child src="ripemd160.pip"/>
+<pipp-child src="sha1.pip"/>
+<pipp-child src="sha256.pip"/>
+<pipp-child src="sha512.pip"/>
 
 <pipp-file src="jshash-1.1.zip"/>
 <pipp-file src="jshash-2.1.zip"/>
@@ -19,11 +21,22 @@
 <li>Old version - <a href="jshash-1.1.zip">jshash-1.1.zip</a></li>
 </ul>
 
-<h2>Future Plans</h2>
+<p>The 2.2-beta version is very close to final release; this will be June 2009 at the latest.</p>
 
-<p>The 2.2-beta version is planned to become a final release in June 2009.</p>
+<h2>Future Version 3.0</h2>
 
-<p>Version 3.0 is planned (no time frame yet) that will break backward-compatibility. The most significant change will be presenting the hash algorithm as a JavaScript object. Some potential approaches have been submitted, and further suggestions are welcome:</p>
+<p>A 3.0 version is planned (no time frame as yet) that will break backward-compatibility. Some of the desired features for this are:</p>
+
+<ul>
+<li>JavaScript object interface. This is by far the most frequently requested change.</li>
+<li>Removing the global variables. The current arrangement can make multiple uses of the script on a single page interfere with each other.</li>
+<li>Improved performance. safe_add is slow, and only needed for very old browsers. Also, I belive Firefox allows JavaScript to access a cryptographic library, which would likely be much faster.</li>
+<li>Streaming support. Currently, you have to put everything you want to hash into a single string. This would allow you to add data to a hash, bit by bit.</li>
+<li>JavaScript password strength checker. It may be more appropriate to release this as a separate script.</li>
+<li>Currently, several chunks of code have been copied and pasted between the scripts. This is general considered bad programming practice. We need to find some way to avoid this, while still providing users with a single, self-contained file for each hash.</li>
+</ul>
+
+<p>Some potential approaches have been submitted for the object interface, and further suggestions are welcome:</p>
 
 <ul>
 <li><a href="contrib/md5-obj1.js">Version A</a> by <a href="mailto:andrewrcollins@yahoo.com">Andrew Collins</a></li>

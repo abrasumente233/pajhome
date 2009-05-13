@@ -83,9 +83,12 @@ hex_sha1("160-bit hash") = "90d925d853c3d35cd54070bb75280fefad9de9e7"
 <h2>Algorithm Information</h2>
 
 <table class="hgap">
-<tr><th>MD4</th><td><a href="md4src.html">view source</a></td><td><a href="http://www.ietf.org/rfc/rfc1320.txt">RFC 1320</a></td></tr>
-<tr><th>MD5</th><td><a href="md5src.html">view source</a></td><td><a href="http://www.ietf.org/rfc/rfc1321.txt">RFC 1321</a></td></tr>
-<tr><th>SHA-1</th><td><a href="sha1src.html">view source</a></td><td><a href="http://www.itl.nist.gov/fipspubs/fip180-1.htm">FIPS PUB 180-1</a></td></tr>
+<tr><th>MD5</th><td><a href="md5.html">Source</a></td><td><a href="http://www.ietf.org/rfc/rfc1321.txt">Specification</a></td></tr>
+<tr><th>RIPEMD-160</th><td><a href="ripemd160.html">Source</a></td><td><a href="http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html">Specification</a></td></tr>
+<tr><th>SHA-1</th><td><a href="sha1.html">Source</a></td><td><a href="http://www.itl.nist.gov/fipspubs/fip180-1.htm">Specification</a></td></tr>
+<tr><th>SHA-256</th><td><a href="sha256.html">Source</a></td><td><a href="http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf">Specification</a></td></tr>
+<tr><th>SHA-512</th><td><a href="sha512.html">Source</a></td><td><a href="http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf">Specification</a></td></tr>
+<tr><th>HMAC</th><td></td><td><a href="http://www.ietf.org/rfc/rfc2104.txt">Specification</a></td></tr>
 </table>
 
 <h2>Collision Weakness</h2>
