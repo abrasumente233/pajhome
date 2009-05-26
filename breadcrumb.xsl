@@ -43,22 +43,22 @@
         </xsl:for-each>
         </strong>
     </div>
-    <script>
-        for(i = 1;; i++)
-        {
-            var node = document.getElementById("crumb" + i + "_link");
-            var popup = document.getElementById("crumb" + i + "_popup");
-            if(!node || !popup) break;
-            var posX = 0;
-            var posY = 0;
-            while(node != null){
-                posX += node.offsetLeft;
-                posY += node.offsetTop;
-                node = node.offsetParent;
-            }
-            popup.style.top = posY + 10;
-            popup.style.left = posX - 10;
+    <script type="text/javascript">
+    for(i = 1;; i++)
+    {
+        var node = document.getElementById("crumb" + i + "_link");
+        var popup = document.getElementById("crumb" + i + "_popup");
+        if(!node || !popup) break;
+        var posX = 0;
+        var posY = 0;
+        while(node != null){
+            posX += node.offsetLeft;
+            posY += node.offsetTop;
+            node = node.offsetParent;
         }
+        popup.style.top = posY + 10;
+        popup.style.left = posX - 10;
+    }
     </script>
 
     </xsl:for-each>

@@ -12,7 +12,7 @@
  !-->
 <xsl:template match="/page">
     <xsl:value-of select="pipp:export-depend(@src, 'children')"/>
-    <p align="center"><table width="90%" align="center"><tr>
+    <p align="center"><table style="width: 90%; align: center;"><tr>
         <xsl:for-each select="children/page">
             <xsl:value-of select="pipp:export-depend(@src, 'logo')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
@@ -23,10 +23,10 @@
                 <xsl:variable name="logo" select="concat(substring($xlogo, 0, string-length($xlogo)-3), '_mini.jpg')"/>
                 <xsl:value-of select="pipp:file($logo)"/>
                 <strong><a href="{pipp:relative-path(exports/link)}">
-                    <img width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" src="{$logo}" align="left" border="0"/>
+                    <img width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" src="{$logo}" align="left" style="border: none" alt=""/>
                     <xsl:if test="exports/status = 'new'">
                         <xsl:value-of select="pipp:file('/logos/new.png')"/>
-                        <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" border="0" title="New content"/>
+                        <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" style="border: none" title="New content" alt=""/>
                     </xsl:if>
                     <xsl:value-of select="exports/title"/>
                 </a></strong><br/>
@@ -39,7 +39,7 @@
                     <a href="{pipp:relative-path(exports/link)}">
                         <xsl:if test="exports/status = 'new'">
                             <xsl:value-of select="pipp:file('/logos/new.png')"/>
-                            <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" border="0" title="New content"/>
+                            <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" title="New content" style="border: none"/>
                         </xsl:if>
                         <xsl:value-of select="exports/title"/>
                     </a>

@@ -163,14 +163,14 @@
         <xsl:value-of select="pipp:link(@href)"/>
     </xsl:if>
     <a>
-        <xsl:apply-templates select="@*"/>
+        <xsl:apply-templates select="@*[name() != 'noimg']"/>
         <xsl:if test="starts-with(@href, 'mailto') and not(@noimg)">
             <xsl:value-of select="pipp:file('/logos/email.png')"/>
-            <img src="{pipp:relative-path('/logos/email.png')}" border="0" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
+            <img src="{pipp:relative-path('/logos/email.png')}" alt="" border="0" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
         </xsl:if>
         <xsl:if test="starts-with(@href, 'http') and not(@noimg)">
             <xsl:value-of select="pipp:file('/logos/elink.png')"/>
-            <img src="{pipp:relative-path('/logos/elink.png')}" border="0" width="{pipp:image-width('/logos/elink.png')}" height="{pipp:image-height('/logos/elink.png')}"/>
+            <img src="{pipp:relative-path('/logos/elink.png')}" alt="" border="0" width="{pipp:image-width('/logos/elink.png')}" height="{pipp:image-height('/logos/elink.png')}"/>
         </xsl:if>
         <xsl:apply-templates/>
     </a>
