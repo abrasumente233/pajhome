@@ -12,18 +12,18 @@
  !-->
 <xsl:template match="/page">
     <xsl:value-of select="pipp:export-depend(@src, 'children')"/>
-    <p align="center"><table style="width: 90%; align: center;"><tr>
+    <table style="width:90%; padding-left:5%"><tr>
         <xsl:for-each select="children/page">
             <xsl:value-of select="pipp:export-depend(@src, 'logo')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'children')"/>
-            <td width="50%" style="padding-bottom:0.5em; vertical-align:top;">
+            <td style="padding-bottom:0.5em; vertical-align:top; width: 50%">
                 <xsl:variable name="xlogo" select="pipp:relative-path(concat('/logos/', (ancestor-or-self::node()/exports/logo)[last()]))"/>
                 <xsl:variable name="logo" select="concat(substring($xlogo, 0, string-length($xlogo)-3), '_mini.jpg')"/>
                 <xsl:value-of select="pipp:file($logo)"/>
                 <strong><a href="{pipp:relative-path(exports/link)}">
-                    <img width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" src="{$logo}" align="left" style="border: none" alt=""/>
+                    <img width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" src="{$logo}" style="border:none; float:left; margin-right: 5px" alt=""/>
                     <xsl:if test="exports/status = 'new'">
                         <xsl:value-of select="pipp:file('/logos/new.png')"/>
                         <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" style="border: none" title="New content" alt=""/>
@@ -39,18 +39,18 @@
                     <a href="{pipp:relative-path(exports/link)}">
                         <xsl:if test="exports/status = 'new'">
                             <xsl:value-of select="pipp:file('/logos/new.png')"/>
-                            <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" title="New content" style="border: none"/>
+                            <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" style="border: none" title="New content" alt=""/>
                         </xsl:if>
                         <xsl:value-of select="exports/title"/>
                     </a>
                     <xsl:if test="position() != last()">, </xsl:if>
                 </xsl:for-each>
             </td>
-            <xsl:if test="position() mod 2 = 0">
+            <xsl:if test="position() mod 2 = 0 and position() != last()">
                 <xsl:value-of disable-output-escaping="yes" select="'&lt;/tr&gt;&lt;tr&gt;'"/>
             </xsl:if>
         </xsl:for-each>
-    </tr></table></p>
+    </tr></table>
 </xsl:template>
 
 </xsl:stylesheet>

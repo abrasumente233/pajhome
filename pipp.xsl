@@ -41,22 +41,21 @@
     </head>
     <body>
       <xsl:value-of disable-output-escaping="yes" select="pipp:map-view('/breadcrumb.xsl')"/>
-      <table style="width:100%">
+      <div class="clearit"/>
+      <table style="width:100%; border-collapse: collapse">
         <!--
          ! Create the side bar
          !-->
         <tr>
         <td style="width:170px">
-          <p style="text-align:center">
             <xsl:variable name="logo" select="concat('/logos/', pipp:import('logo'))"/>
             <xsl:value-of select="pipp:file($logo)"/>
             <xsl:if test="pipp:import('style') = 'blue-white'">
-                <a href="{pipp:relative-path('/site/logos.html')}"><img border="0" src="{pipp:relative-path($logo)}" width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}"/></a>
+                <a href="{pipp:relative-path('/site/logos.html')}"><img src="{pipp:relative-path($logo)}" width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" alt="" style="border:none"/></a>
             </xsl:if>
             <xsl:if test="pipp:import('style') = 'rave'">
-                <img border="0" src="{pipp:relative-path($logo)}" width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}"/>
+                <img src="{pipp:relative-path($logo)}" width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" alt="" style="border:none"/>
             </xsl:if>
-          </p>
           <p style="text-align:center">
             <xsl:if test="@sidebar">
               <xsl:apply-templates/>
@@ -104,9 +103,9 @@
             </xsl:call-template>
             <xsl:apply-templates/>
             <xsl:call-template name="hr"/>
-            <p style="margin-top:5px;">&#169; 1998 - 2009
-            <img src="{pipp:relative-path('/logos/email.png')}" border="0" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
-            <a href="mailto:paj@pajhome.org.uk">Paul Johnston</a>, distributed under the <a href="{pipp:relative-path('/site/legal.html')}#bsdlicense">BSD License</a> &#160; <b>Updated:</b> <xsl:value-of select="pipp:file-time('%d %b %Y')"/></p>
+            <div style="margin-top:0.5em;">&#169; 1998 - 2009
+            <img src="{pipp:relative-path('/logos/email.png')}" style="border:none" alt="" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
+            <a href="mailto:paj@pajhome.org.uk">Paul Johnston</a>, distributed under the <a href="{pipp:relative-path('/site/legal.html')}#bsdlicense">BSD License</a> &#160; <b>Updated:</b> <xsl:value-of select="pipp:file-time('%d %b %Y')"/></div>
           </td>
         </xsl:if>
       </tr></table>
@@ -129,9 +128,9 @@
     </xsl:if>
   </xsl:variable>
 
-  <p style="text-align:center">
+  <div style="text-align:center">
     <img src="{$src}" alt="{$text}" width="{pipp:image-width($src)}" height="{pipp:image-height($src)}"/>
-  </p>
+  </div>
 </xsl:template>
 
 <!--
@@ -139,7 +138,7 @@
  | <hr>s end up with an ugly border.
  !-->
 <xsl:template match="hr" name="hr">
-  <p style="margin-bottom:0"><table cellspacing="0" class="hr"><tr><td/></tr></table></p>
+  <table class="hr"><tr><td/></tr></table>
 </xsl:template>
 
 <!--
@@ -166,11 +165,11 @@
         <xsl:apply-templates select="@*[name() != 'noimg']"/>
         <xsl:if test="starts-with(@href, 'mailto') and not(@noimg)">
             <xsl:value-of select="pipp:file('/logos/email.png')"/>
-            <img src="{pipp:relative-path('/logos/email.png')}" alt="" border="0" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
+            <img src="{pipp:relative-path('/logos/email.png')}" alt="" style="border:none" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
         </xsl:if>
         <xsl:if test="starts-with(@href, 'http') and not(@noimg)">
             <xsl:value-of select="pipp:file('/logos/elink.png')"/>
-            <img src="{pipp:relative-path('/logos/elink.png')}" alt="" border="0" width="{pipp:image-width('/logos/elink.png')}" height="{pipp:image-height('/logos/elink.png')}"/>
+            <img src="{pipp:relative-path('/logos/elink.png')}" alt="" style="border:none" width="{pipp:image-width('/logos/elink.png')}" height="{pipp:image-height('/logos/elink.png')}"/>
         </xsl:if>
         <xsl:apply-templates/>
     </a>

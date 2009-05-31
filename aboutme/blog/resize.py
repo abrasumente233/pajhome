@@ -6,7 +6,8 @@ for p in glob.glob('*.jpg'):
     w,h = img.size
     if w == 160 or h == 160:
         continue
-    newsize = w > h and (160, 120) or (120, 160)
+    new_w = w > h and 160 or 120
+    newsize = (new_w, h * new_w / w)
     img = img.resize(newsize, Image.ANTIALIAS)
     comment = jpeg.getComments(p)
     img.save(p)

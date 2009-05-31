@@ -21,17 +21,17 @@
 <pipp-map-view src="contents.xsl"/>
 
 <hr/>
-<h1>Introduction</h1>
+<div style="margin-top:1em; margin-bottom:1em"><h1>Introduction</h1></div>
 
-<table><tr>
-<td><a noimg="1" href="http://www.facebook.com/photo.php?pid=1169384&amp;id=514659623&amp;l=9478c2777c"><pipp-img src="aboutme/me_thumb.jpg" border="0" alt="Me as a Bollywood star!"/></a></td>
-<td>
-<p>Hi, I'm Paul, and I often get called <a href="aboutme/index.html#paj">Paj</a>. I'm a credit crunch victim, booted out from corporate land, I'm traveling the world looking for answers. So far, all I've found is more questions, but I've had plenty of fun on the way. <a href="aboutme/blog/index.html">more...</a></p>
+<p><a noimg="1" href="http://www.facebook.com/photo.php?pid=1169384&amp;id=514659623&amp;l=9478c2777c"><pipp-img src="aboutme/me_thumb.jpg" style="border:none; float:left; margin-right: 5px" alt="Me as a Bollywood star!"/></a>
+
+Hi, I'm Paul, and I often get called <a href="aboutme/index.html#paj">Paj</a>. I'm a credit crunch victim, booted out from corporate land, I'm traveling the world looking for answers. So far, all I've found is more questions, but I've had plenty of fun on the way. <a href="aboutme/blog/index.html">more...</a></p>
 
 <p>I think the Internet is just fantastic for sharing information. I learned huge amounts of what I know about computers by reading websites, and all the time working, I continued to use the web daily. I'm keen not to be just a consumer, and this site is my contribution to the pool of knowledge. It mostly covers computer <a href="progs/index.html">programming</a> and <a href="security/index.html">security</a>, and there's a little bit <a href="aboutme/index.html">about me</a> too.</p>
 
 <p>If you're just passing through, read the <a href="security/intro.html">security introduction</a> as everyone who ever uses a computer needs to know this.</p>
-</td></tr></table>
+
+<div class="clearit"/>
 
 </body>
 </pipp>

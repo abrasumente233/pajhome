@@ -76,6 +76,7 @@ Sites that have a financial incentive for hackers, e.g. online banking, face eve
 <ul>
 <li><a href="http://www.owasp.org/index.php/OWASP_Guide_Project">The OWASP Guide</a></li>
 <li><a href="http://westpoint.ltd.uk/advisories/Paul_Johnston_GSEC.pdf">Authentication and Session Management on the Web</a> - I wrote this paper as part of my <a href="http://www.giac.org/">GSEC</a> certification.</li>
+<li><a href="http://research.microsoft.com/pubs/79323/pbp-final-with-update.pdf">Pretty Bad Proxy</a> - this paper gives an excellent insight into how to think about security.</li>
 </ul>
 
 

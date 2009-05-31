@@ -31,6 +31,8 @@
 
 <h2><a name="strengthen">Strengthening Authentication</a></h2>
 
+<p>One option for strengthen authentication is using the <a href="http://srp.stanford.edu/">Secure Remote Password (SRP)</a> protocol. This is more complicated than challenge-response, but also more secure. In particular, it prevents brute force attacks, and avoids password equivalents being stored on the server. There is a JavaScript implementation in the <a href="http://sourceforge.net/projects/clipperz">ClipperZ</a> project.</p>
+
 <dl>
 <dt>Session ID is Unencrypted</dt>
 <dd>This can be strengthened, but doing so greatly increases complexity. As well as using a session cookie, each URL needs an individual authentication token. <a href="#sessionid">more...</a></dd>
@@ -50,7 +52,7 @@
 </ul></dd>
 
 <dt><a name="brute">Brute Force Attacks</a></dt>
-<dd>Several approaches can be used to strengthen this:
+<dd>SRP prevents brute force attacks. For challenge-response, several approaches can be used to make brute force attacks harder, but not to stop them altogether:
 <ul>
 <li>Force users to use complex passwords, e.g. 8 characters, at least one letter and one number. However, the server only ever sees hashes, not the original password, so it can't enforce this. JavaScript password strength checking is being considered for future versions of the script.</li>
 <li>Avoid the challenge and response being transmitted together. This forces an attacker to capture the traffic in both directions, to conduct a brute force attack. However, this is of limited benefit, as in most sniffing attacks, traffic in both directions can be captured.</li>
@@ -58,7 +60,7 @@
 </ul></dd>
 
 <dt>Stored Password Equivalents</dt>
-<dd>The alternative login system solves this. <a href="#alternative">more...</a></dd>
+<dd>Both SRP and the alternative login system solve this. <a href="#alternative">more...</a></dd>
 </dl>
 
 
