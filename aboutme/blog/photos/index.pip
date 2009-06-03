@@ -3,116 +3,73 @@
 <desc>See all the photos from the trip so far.</desc>
 <body>
 
-<table style="width:100%">
+<table style="width:100%" class="blog_photos">
 <tr><td style="width:50%">
-<pipp-img src="delhi.jpg" nolink="1" align="left"/>
-<strong>Delhi &amp; Agra</strong> <br/><a href="http://www.facebook.com/album.php?aid=45027&amp;id=514659623&amp;l=2031892d22">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="pushkar.jpg" nolink="1" align="left" style="margin-bottom:40px"/>
-<strong>Pushkar</strong> <br/><a href="http://www.facebook.com/album.php?aid=46506&amp;id=514659623&amp;l=1fb665d660">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="jaisalmer.jpg" nolink="1" align="left"/>
-<strong>Jaisalmer</strong> <br/><a href="http://www.facebook.com/album.php?aid=49902&amp;id=514659623&amp;l=8533d74a64">more...</a>
-<br clear="all"/>
-<br/>
-
-
-<pipp-img src="mumbai.jpg" nolink="1" align="left"/>
-<strong>Mumbai</strong> <br/><a href="http://www.facebook.com/album.php?aid=51242&amp;id=514659623&amp;l=9478c2777c">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="goa2.jpg" nolink="1" align="left"/>
-<strong>More Goa</strong> <br/><a href="http://www.facebook.com/album.php?aid=61681&amp;id=514659623&amp;l=2504e8a670">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="bangkok2.jpg" nolink="1" align="left"/>
-<strong>More Bangkok</strong> <br/><a href="http://www.facebook.com/album.php?aid=70018&amp;id=514659623&amp;l=7e4af2c61b">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="kohkong.jpg" nolink="1" align="left"/>
-<strong>Koh Kong</strong> <br/><a href="http://www.facebook.com/album.php?aid=73614&amp;id=514659623&amp;l=574dd62a4c">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="kampot.jpg" nolink="1" align="left"/>
-<strong>Kampot</strong> <br/><a href="http://www.facebook.com/album.php?aid=74976&amp;id=514659623&amp;l=68abf9ca67">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="fullmoon.jpg" nolink="1" align="left"/>
-<strong>Full Moon Party</strong> <br/><a href="http://www.facebook.com/album.php?aid=78634&amp;id=514659623&amp;l=34651a86f2">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="cooking.jpg" nolink="1" align="left"/>
-<strong>Cooking Course</strong> <br/><a href="http://www.facebook.com/album.php?aid=81636&amp;id=514659623&amp;l=2ebc277c66">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="gibbon.jpg" nolink="1" align="left"/>
-<strong>Flight of the Gibbon</strong> <br/><a href="http://www.facebook.com/album.php?aid=82177&amp;id=514659623&amp;l=901658737d">more...</a>
-<br clear="all"/>
-<br/>
-
+    <pipp-img src="delhi.jpg" nolink="1" class="photo"/>
+    <h3>Delhi &amp; Agra</h3><a href="http://www.facebook.com/album.php?aid=45027&amp;id=514659623&amp;l=2031892d22">more...</a>
 </td><td>
-
-<pipp-img src="jaipur.jpg" nolink="1" align="left"/>
-<strong>Jaipur</strong> <br/><a href="http://www.facebook.com/album.php?aid=46229&amp;id=514659623&amp;l=a1dca4b090">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="jodhpur.jpg" nolink="1" align="left"/>
-<strong>Jodhpur</strong> <br/><a href="http://www.facebook.com/album.php?aid=48276&amp;id=514659623&amp;l=5d4ce1c184">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="udaipur.jpg" nolink="1" align="left"/>
-<strong>Udaipur</strong> <br/><a href="http://www.facebook.com/album.php?aid=49905&amp;id=514659623&amp;l=a4a6d753ef">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="goa.jpg" nolink="1" align="left"/>
-<strong>Goa</strong> <br/><a href="http://www.facebook.com/album.php?aid=56149&amp;id=514659623&amp;l=211452cbae">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="bangkok.jpg" nolink="1" align="left"/>
-<strong>Bangkok</strong> <br/><a href="http://www.facebook.com/album.php?aid=65924&amp;id=514659623&amp;l=d323ceddc">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="kohchang.jpg" nolink="1" align="left"/>
-<strong>Koh Samet &amp; Koh Chang</strong> <br/><a href="http://www.facebook.com/album.php?aid=70020&amp;id=514659623&amp;l=56e52048e3">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="chiphat.jpg" nolink="1" align="left" style="margin-bottom:40px"/>
-<strong>Chi Phat</strong> <br/><a href="http://www.facebook.com/album.php?aid=73784&amp;id=514659623&amp;l=7ee7088009">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="angkor.jpg" nolink="1" align="left"/>
-<strong>Angkor Temples</strong> <br/><a href="http://www.facebook.com/album.php?aid=78632&amp;id=514659623&amp;l=880c24f82d">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="kohphangan.jpg" nolink="1" align="left"/>
-<strong>Koh Phangan</strong> <br/><a href="http://www.facebook.com/album.php?aid=78889&amp;id=514659623&amp;l=ebbb8326b0">more...</a>
-<br clear="all"/>
-<br/>
-
-<pipp-img src="trekking.jpg" nolink="1" align="left"/>
-<strong>Trekking</strong> <br/><a href="http://www.facebook.com/album.php?aid=81640&amp;id=514659623&amp;l=c303386998">more...</a>
-<br clear="all"/>
-<br/>
-
+    <pipp-img src="jaipur.jpg" nolink="1" class="photo"/>
+    <h3>Jaipur</h3><a href="http://www.facebook.com/album.php?aid=46229&amp;id=514659623&amp;l=a1dca4b090">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="pushkar.jpg" nolink="1" class="photo"/>
+    <h3>Pushkar</h3><a href="http://www.facebook.com/album.php?aid=46506&amp;id=514659623&amp;l=1fb665d660">more...</a>
+</td><td>
+    <pipp-img src="jodhpur.jpg" nolink="1" class="photo"/>
+    <h3>Jodhpur</h3><a href="http://www.facebook.com/album.php?aid=48276&amp;id=514659623&amp;l=5d4ce1c184">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="jaisalmer.jpg" nolink="1" class="photo"/>
+    <h3>Jaisalmer</h3><a href="http://www.facebook.com/album.php?aid=49902&amp;id=514659623&amp;l=8533d74a64">more...</a>
+</td><td>
+    <pipp-img src="udaipur.jpg" nolink="1" class="photo"/>
+    <h3>Udaipur</h3><a href="http://www.facebook.com/album.php?aid=49905&amp;id=514659623&amp;l=a4a6d753ef">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="mumbai.jpg" nolink="1" class="photo"/>
+    <h3>Mumbai</h3><a href="http://www.facebook.com/album.php?aid=51242&amp;id=514659623&amp;l=9478c2777c">more...</a>
+</td><td>
+    <pipp-img src="goa.jpg" nolink="1" class="photo"/>
+    <h3>Goa</h3><a href="http://www.facebook.com/album.php?aid=56149&amp;id=514659623&amp;l=211452cbae">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="goa2.jpg" nolink="1" class="photo"/>
+    <h3>More Goa</h3><a href="http://www.facebook.com/album.php?aid=61681&amp;id=514659623&amp;l=2504e8a670">more...</a>
+</td><td>
+    <pipp-img src="bangkok.jpg" nolink="1" class="photo"/>
+    <h3>Bangkok</h3><a href="http://www.facebook.com/album.php?aid=65924&amp;id=514659623&amp;l=d323ceddc">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="bangkok2.jpg" nolink="1" class="photo"/>
+    <h3>More Bangkok</h3><a href="http://www.facebook.com/album.php?aid=70018&amp;id=514659623&amp;l=7e4af2c61b">more...</a>
+</td><td>
+    <pipp-img src="kohchang.jpg" nolink="1" class="photo"/>
+    <h3>Koh Samet &amp; Koh Chang</h3><a href="http://www.facebook.com/album.php?aid=70020&amp;id=514659623&amp;l=56e52048e3">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="kohkong.jpg" nolink="1" class="photo"/>
+    <h3>Koh Kong</h3><a href="http://www.facebook.com/album.php?aid=73614&amp;id=514659623&amp;l=574dd62a4c">more...</a>
+</td><td>
+    <pipp-img src="chiphat.jpg" nolink="1" class="photo"/>
+    <h3>Chi Phat</h3><a href="http://www.facebook.com/album.php?aid=73784&amp;id=514659623&amp;l=7ee7088009">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="kampot.jpg" nolink="1" class="photo"/>
+    <h3>Kampot</h3><a href="http://www.facebook.com/album.php?aid=74976&amp;id=514659623&amp;l=68abf9ca67">more...</a>
+</td><td>
+    <pipp-img src="angkor.jpg" nolink="1" class="photo"/>
+    <h3>Angkor Temples</h3><a href="http://www.facebook.com/album.php?aid=78632&amp;id=514659623&amp;l=880c24f82d">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="fullmoon.jpg" nolink="1" class="photo"/>
+    <h3>Full Moon Party</h3><a href="http://www.facebook.com/album.php?aid=78634&amp;id=514659623&amp;l=34651a86f2">more...</a>
+</td><td>
+    <pipp-img src="kohphangan.jpg" nolink="1" class="photo"/>
+    <h3>Koh Phangan</h3><a href="http://www.facebook.com/album.php?aid=78889&amp;id=514659623&amp;l=ebbb8326b0">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="cooking.jpg" nolink="1" class="photo"/>
+    <h3>Chiang Mai</h3><a href="http://www.facebook.com/album.php?aid=81636&amp;id=514659623&amp;l=2ebc277c66">more...</a>
+</td><td>
+    <pipp-img src="trekking.jpg" nolink="1" class="photo"/>
+    <h3>Trekking</h3><a href="http://www.facebook.com/album.php?aid=81640&amp;id=514659623&amp;l=c303386998">more...</a>
+</td></tr><tr><td>
+    <pipp-img src="gibbon.jpg" nolink="1" class="photo"/>
+    <h3>Flight of the Gibbon</h3><a href="http://www.facebook.com/album.php?aid=82177&amp;id=514659623&amp;l=901658737d">more...</a>
+</td><td>
+    <pipp-img src="pai.jpg" nolink="1" class="photo"/>
+    <h3>Pai</h3><a href="http://www.facebook.com/album.php?aid=83049&amp;id=514659623&amp;l=af1b2626fa">more...</a>
 </td></tr></table>
 
 </body>

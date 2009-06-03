@@ -77,8 +77,6 @@ dd                  { margin-bottom: 1em; }
     background: white;
     border: 2px blue solid;
     padding: 2px 2px 2px 2px;
-    margin-top: 1.2em;
-    margin-left: -100px;
 }
 
 #nav li ul li {
@@ -87,4 +85,17 @@ dd                  { margin-bottom: 1em; }
 
 #nav li:hover ul, #nav li.sfhover ul {
     left: auto;
+}
+
+img.photo {
+    float: left;
+    border: none;
+    margin-right: 5px;
+    margin-bottom: 1em;
+}
+
+h3 { margin-top: 1em; }
+.blog_photos h3 {
+    margin-top: 0;
+    margin-bottom: 0;
 }
