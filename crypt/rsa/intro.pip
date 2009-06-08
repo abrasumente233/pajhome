@@ -19,7 +19,7 @@
 
 <p align="center"><pipp-img src="publickey.gif"/></p>
 
-<p>Public key encryption is different, because it splits the key up into a public key for encryption and a secret key for decrpytion. It's not possible to determine the secret key from the public key. In the diagram, Bob generates a pair of keys and tells everybody (including Eve) his public key, while only he knows his secret key. Anyone can use Bob's public key to send him an encrypted message, but only Bob knows the secret key to decrypt it. This scheme allows Alice and Bob to communicate in secret without having to meet.</p>
+<p>Public key encryption is different, because it splits the key up into a public key for encryption and a secret key for decryption. It's not possible to determine the secret key from the public key. In the diagram, Bob generates a pair of keys and tells everybody (including Eve) his public key, while only he knows his secret key. Anyone can use Bob's public key to send him an encrypted message, but only Bob knows the secret key to decrypt it. This scheme allows Alice and Bob to communicate in secret without having to meet.</p>
 
 <p>However, if Eve can tamper with Alice and Bob's communication as well as passively listening, she could substitute her public key for Bob's, and then decrypt Alice's messages using her own private key. The <a href="pract.html">practicalities</a> section explains how problems like this are avoided.</p>
 

@@ -5,12 +5,12 @@
 
 <h2>Foreword</h2>
 
-<p>The following article was written in early 2001. The computer world has changed considerably since then and I have not updated this page. It's still worth a read as a balanced discussion of an often contentious subject. Looking back at this, I'd like to add a couple of genereal points:</p>
+<p>The following article was written in early 2001. The computer world has changed considerably since then and I have not updated this page. It's still worth a read as a balanced discussion of an often contentious subject. Looking back at this, I'd like to add a couple of general points:</p>
 
 <ul>
 <li>One of the consequences of the growth of Linux is that it has forced Microsoft to make Windows better. A few years ago I could not imagine tools like libpcap and nmap running on Windows, but now they do. Reading over my article again, almost all the measurable differences between the operating systems have been addressed.</li>
 
-<li>However, Linux and Windows represent a different philosophy. To get people to pay for software, Microsoft have to create products that provide tangiable functionality. On the other hand, Linux consists of many small tools, which you often need to combine to do real-world tasks. Each individual tool does not provide tangiable functionality, but the toolkit as a whole does. I think this inbalance is in favor of Linux - ultimately because a computer is a tool not a product.</li>
+<li>However, Linux and Windows represent a different philosophy. To get people to pay for software, Microsoft have to create products that provide tangible functionality. On the other hand, Linux consists of many small tools, which you often need to combine to do real-world tasks. Each individual tool does not provide tangible functionality, but the toolkit as a whole does. I think this imbalance is in favour of Linux - ultimately because a computer is a tool not a product.</li>
 </ul>
 
 <h2>Introduction</h2>
@@ -25,15 +25,15 @@
 
 <h2>Programming</h2>
 
-<p>Both OSs have quite adequate tracing and debugging hooks. Windows has much better (costly) tools for GUI creation than Linux, but I have absolutely no interest in that. For my kind of programming I almost always use the Cygwin emulation layer. For advanced tasks, Unix turns out to be considerably preferable. For example, you can get raw access to a disk by just opening e.g. /dev/hda1. There is presumably a way of doing this under NT, but you'd need to find the proprietory API and documentation.</p>
+<p>Both OSs have quite adequate tracing and debugging hooks. Windows has much better (costly) tools for GUI creation than Linux, but I have absolutely no interest in that. For my kind of programming I almost always use the Cygwin emulation layer. For advanced tasks, Unix turns out to be considerably preferable. For example, you can get raw access to a disk by just opening e.g. /dev/hda1. There is presumably a way of doing this under NT, but you'd need to find the proprietary API and documentation.</p>
 
 <h2>Hardware Support</h2>
 
-<p>Linux supports a greater variety of CPUs than NT, but this is an academic issue for the hobbyist programmers I know, who all use x86 compatibles. Almost every bit of PC hardware has NT drivers. Many also have Linux drivers, but Linux hardware support is less comprehensive and likely to remain so. For example, NT fully supports my graphics card, but Linux can't use its hardware accelaration features. In principle you can write your own drivers for either OS, but that would be beyond me.</p>
+<p>Linux supports a greater variety of CPUs than NT, but this is an academic issue for the hobbyist programmers I know, who all use x86 compatibles. Almost every bit of PC hardware has NT drivers. Many also have Linux drivers, but Linux hardware support is less comprehensive and likely to remain so. For example, NT fully supports my graphics card, but Linux can't use its hardware acceleration features. In principle you can write your own drivers for either OS, but that would be beyond me.</p>
 
 <h2>Security</h2>
 
-<p>The recent scares with Microsoft products are against applications like Internet Explorer or Outlook, not the operating system. There are security scares with Unix products as well, but the bugs get exploited far less. Sadly, the modern trend of having loads of applications installed is not a good security policy. You need to make a conscious effort to run a tight ship whatever your operating system. In theory, NT's "access control list" policy offers more flexibility here, but in practice it's easier to do this under Linux. So I would in general say that Linux is more secure. NT does have some clever security features though, like digitally signed drivers and "press ctrl-alt-delete to logon".</p>
+<p>The recent scares with Microsoft products are against applications like Internet Explorer or Outlook, not the operating system. There are security scares with Unix products as well, but the bugs get exploited far less. Sadly, the modern trend of having loads of applications installed is not a good security policy. You need to make a conscious effort to run a tight ship whatever your operating system. In theory, NT's "access control list" policy offers more flexibility here, but in practise it's easier to do this under Linux. So I would in general say that Linux is more secure. NT does have some clever security features though, like digitally signed drivers and "press ctrl-alt-delete to logon".</p>
 
 <h2>Reliability</h2>
 
@@ -47,19 +47,19 @@
 
 <h2>File System</h2>
 
-<p>I believe modern operating systems should certainly use journalled file systems, as they are highly resiliant to corruption. NT has had this in NTFS for ages, and now Linux has this in ReiserFS. Both also now have auto-mounting and mounting into directories. However, NT is quite limited in the variety of file systems it can read, while Linux supports loads, including FAT and read-only NTFS.</p>
+<p>I believe modern operating systems should certainly use journaled file systems, as they are highly resilient to corruption. NT has had this in NTFS for ages, and now Linux has this in ReiserFS. Both also now have auto-mounting and mounting into directories. However, NT is quite limited in the variety of file systems it can read, while Linux supports loads, including FAT and read-only NTFS.</p>
 
 <h2>Speed</h2>
 
-<p>Linux advocates have figures to prove that Linux is faster. Microsoft have figures to prove that NT is faster. I choose to ignore all these figures, rather than work out who's lying. On my box, a K6/400 with 128mb ram (modest by today's standards), both run plenty fast enough. Linux doesn't use my hardware graphics accelaration, so drag full windows isn't as smooth as on NT but, contrary to popular belief, that is not the best measure of a computer's speed!</p>
+<p>Linux advocates have figures to prove that Linux is faster. Microsoft have figures to prove that NT is faster. I choose to ignore all these figures, rather than work out who's lying. On my box, a K6/400 with 128MB ram (modest by today's standards), both run plenty fast enough. Linux doesn't use my hardware graphics acceleration, so drag full windows isn't as smooth as on NT but, contrary to popular belief, that is not the best measure of a computer's speed!</p>
 
 <h2>Price</h2>
 
-<p>Linux and its software is generally free, while NT isn't. Fortunately, I qualified for a reduced price student license when I bought it, and have no need for a server license. As I don't use Office, most of the sortware I run is free. I don't have any other commercial software, and just two bits of registered shareware. I have to admit that there's one more I should register soon. Hah, for many people the issue is actually the legality of using a free version of Unix or NT!</p>
+<p>Linux and its software is generally free, while NT isn't. Fortunately, I qualified for a reduced price student license when I bought it, and have no need for a server license. As I don't use Office, most of the software I run is free. I don't have any other commercial software, and just two bits of registered shareware. I have to admit that there's one more I should register soon. Hah, for many people the issue is actually the legality of using a free version of Unix or NT!</p>
 
 <h2>Conclusion</h2>
 
-<p>Both operating systems are fantastic really. However, NT supports more hardware and has a better set of applications, in part because it also has most Linux programs. There are extra security risks with NT, but these can be controlled, and I think they're less than the risk of my computer being physically stolen. All in all, I prefer the experience of using NT to Linux. Personally, I use Windows 2000 with Cygwin, including the bash shell. I do have Linux installed on another partition, but I tend to only use it for specific things, e.g. doing a tcpdump. Interting to note that my non-techie housemates were just as comfortable with KDE as Windows.</p>
+<p>Both operating systems are fantastic really. However, NT supports more hardware and has a better set of applications, in part because it also has most Linux programs. There are extra security risks with NT, but these can be controlled, and I think they're less than the risk of my computer being physically stolen. All in all, I prefer the experience of using NT to Linux. Personally, I use Windows 2000 with Cygwin, including the bash shell. I do have Linux installed on another partition, but I tend to only use it for specific things, e.g. doing a tcpdump. Interesting to note that my non-techie house mates were just as comfortable with KDE as Windows.</p>
 
 </body>
 </pipp>

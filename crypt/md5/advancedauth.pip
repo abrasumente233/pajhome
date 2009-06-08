@@ -7,13 +7,13 @@
 
 <h2><a name="nojs">If JavaScipt is not Available</a></h2>
 
-<p>If JavaScipt is not available, the site has a choice - it can either allow a login with the password unencrypted, or block the login altogether. I recommend allowing unencypted logins; sites that can't accept this risk should probably be using SSL. However, the site should warn the user that their password will be at risk.</p>
+<p>If JavaScipt is not available, the site has a choice - it can either allow a login with the password unencrypted, or block the login altogether. I recommend allowing unencrypted logins; sites that can't accept this risk should probably be using SSL. However, the site should warn the user that their password will be at risk.</p>
 
 <p>To allow an unencrypted login, the server code to check a password needs to be updated. Calculate hex_hmac_md5(server salt, received password); if this matches the stored serve value, login is successful. To warn users of unencrypted logins, have a script block in the login form, with a noscript tag containing a phrase like "Warning: this login will not be encrypted".</p>
 
 <p>If you want to block unencrypted logins, remove the login button from the HTML, and have JavaScript insert it dynamically. If JavaScript is not available, the user will simply not see the login button.</p>
 
-<p>There is the possibility that JavaScript is available, but the hash scripts don't work. This will be very rare in practice. To help cope with this, the scripts have a function like <code>md5_vm_test</code> that returns true if the script is functioning correctly. If the script is not working, you will want to behave as if JavaScript is not available.</p>
+<p>There is the possibility that JavaScript is available, but the hash scripts don't work. This will be very rare in practise. To help cope with this, the scripts have a function like <code>md5_vm_test</code> that returns true if the script is functioning correctly. If the script is not working, you will want to behave as if JavaScript is not available.</p>
 
 
 <h2>Efficiency</h2>
@@ -46,7 +46,7 @@
 <dt>Registration and Change Password</dt>
 <dd>Several ways to strengthen this have been suggested:
 <ul>
-<li>Encyrpting using <a href="http://www.ohdave.com/rsa/">JavaScript RSA</a>. Unfortunately, JavaScript RSA is too slow with secure key sizes.</li>
+<li>Encrypting using <a href="http://www.ohdave.com/rsa/">JavaScript RSA</a>. Unfortunately, JavaScript RSA is too slow with secure key sizes.</li>
 <li>Encrypting using <a href="http://www-cse.ucsd.edu/~fritz/rijndael.html">JavaScript AES</a>, with the old password as the key. However, this doesn't fix registration, and is dubious in the case that a user is changing their password because they're worried the old password was compromised.</li>
 <li>The alternative login system solves this. <a href="#alternative">more...</a></li>
 </ul></dd>
@@ -73,7 +73,7 @@
 <h3>Implementation</h3>
 
 <ol class="gap">
-<li>Store the server secret in global application config. Note: unlike the server salt in the other system, server secret does need to be kept secret.</li>
+<li>Store the server secret in global application configuration. Note: unlike the server salt in the other system, server secret does need to be kept secret.</li>
 
 <li>Add a column to the user table to store the current challenge.</li>
 
@@ -82,7 +82,7 @@
 <li>Add a hidden field "next_challenge" containing a randomly generated challenge.</li>
 <li>Add an empty hidden field "next_password".</li>
 <li>Add a script tag to link to <code>md5.js</code></li>
-<li>Add a JavaScript onchange event to the username field. This makes an Ajax call to fetch the current challenge.</li>
+<li>Add a JavaScript onchange event to the user name field. This makes an Ajax call to fetch the current challenge.</li>
 <li>Add a JavaScript onsubmit event:<br/>
 <pipp-code lexer="js">
 password.value = hex_hmac_md5(password.value, challenge.value);
@@ -90,7 +90,7 @@ next_password.value = hex_md5(hex_hmac_md5(password.value, next_challenge.value)
 </pipp-code></li>
 </ul></li>
 
-<li>Create the ajax callback:
+<li>Create the Ajax callback:
 <ul class="nogap">
 <li>Fetch the user's challenge.</li>
 <li>If the user doesn't exist, we don't want to reveal this. Instead, return hex_hmac_md5(server secret, user name).</li>
@@ -136,7 +136,7 @@ confirm_password.value =
 <ul>
 <li>At login, JavaScript saves the password on the client. One way to store this is a cookie with a random path attribute that doesn't exist on the server, so the cookie is never transmitted.</li>
 <li>When a page is requested without a valid token (a URL parameter "auth"), the server produces a stub page containing a challenge, and some JavaScript code. The code uses the saved password and the challenge to generate a valid token, and redirects to the new URL.</li>
-<li>The stub page will need to be coded carefully to work with form posts. For this to work with ajax requests, all the JavaScript that makes ajax requests will need to be recoded to handle the stub page correctly.</li>
+<li>The stub page will need to be coded carefully to work with form posts. For this to work with Ajax requests, all the JavaScript that makes Ajax requests will need to be recoded to handle the stub page correctly.</li>
 <li>The stub page increases page load time. It can be avoided in many circumstances, by having every page include a challenge, with JavaScript to generate the token when links are clicked. The stub page will still be needed in some circumstances, e.g. if the user has used the browser's back button, and the challenge is now invalid.</li>
 <li>For efficiency, it is recommended that static files, such as images and JavaScript files, are not protected by this system. For most sites, it is only a minor risk for static files to be accessible without authentication.</li>
 <li>It is best to avoid saving the password on the client. Instead, a temporary password can be derived from the plaintext password, and the login challenge, and all tokens generated from this.</li>

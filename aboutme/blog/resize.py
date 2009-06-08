@@ -8,7 +8,7 @@ for p in glob.glob('*.jpg'):
         continue
     new_w = w > h and 160 or 120
     newsize = (new_w, h * new_w / w)
-    img = img.resize(newsize, Image.ANTIALIAS)
+    img = img.thumbnail(newsize, Image.ANTIALIAS)
     comment = jpeg.getComments(p)
     img.save(p)
     jpeg.setComments(comment, p)

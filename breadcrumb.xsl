@@ -10,58 +10,50 @@
     <xsl:param name="prefix"/>
     <xsl:if test="count(children/page) &gt; 0">
         <div id="{$prefix}_popup">
-            <xsl:for-each select="children/page">
-                <xsl:value-of select="pipp:export-depend(@src, 'nonav')"/>
-                <xsl:if test="not(exports/nonav)">
-                    <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
-                    <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
-                    <span class="fakelink" onclick="document.location='{exports/link}'; return false;"><xsl:value-of select="exports/title"/></span><br/>
-                </xsl:if>
-            </xsl:for-each>
         </div>
     </xsl:if>
 </xsl:template>
 
 <xsl:template match="/page">
     <xsl:for-each select="//page[exports/link=pipp:import('link')]">
-    <div style="width:100%">
-        <strong>
+    <div><ul id="nav">
         <xsl:for-each select="ancestor-or-self::page">
             <xsl:value-of select="pipp:export-depend(@src, 'nonav')"/>
         </xsl:for-each>
         <xsl:for-each select="ancestor-or-self::page[not(exports/nonav)]">
             <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
-            <a class="crumb" id="crumb{position()}_link" href="{exports/link}"><xsl:value-of select="exports/title"/>
-                <xsl:call-template name="popup">
-                    <xsl:with-param name="prefix" select="concat('crumb', position())"/>
-                </xsl:call-template>
-            </a>
-            <xsl:if test="position() != last()">
-                <xsl:value-of select="': '"/>
-            </xsl:if>
+            <li>
+                <a href="{exports/link}"><xsl:value-of select="exports/title"/></a>
+                <xsl:if test="position() != last()">:</xsl:if>
+                &#160;
+                <xsl:if test="children/page">
+                    <ul>
+                        <xsl:for-each select="children/page">
+                            <xsl:value-of select="pipp:export-depend(@src, 'nonav')"/>
+                            <xsl:if test="not(exports/nonav)">
+                                <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
+                                <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
+                                <li><a href="{exports/link}"><xsl:value-of select="exports/title"/></a><br/></li>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </ul>
+                </xsl:if>
+            </li>
         </xsl:for-each>
-        </strong>
-    </div>
-    <script type="text/javascript">
-    for(i = 1;; i++)
-    {
-        var node = document.getElementById("crumb" + i + "_link");
-        var popup = document.getElementById("crumb" + i + "_popup");
-        if(!node || !popup) break;
-        var posX = 0;
-        var posY = 0;
-        while(node != null){
-            posX += node.offsetLeft;
-            posY += node.offsetTop;
-            node = node.offsetParent;
-        }
-        popup.style.top = posY + 10;
-        popup.style.left = posX - 10;
-    }
-    </script>
-
+    </ul></div>
     </xsl:for-each>
+   <!--<script type="text/javascript">
+    var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+    for(var i=0; i &lt; sfEls.length; i++) {
+        sfEls[i].onmouseover=function() {
+            this.className+=" sfhover";
+        }
+        sfEls[i].onmouseout=function() {
+            this.className=this.className.replace(new RegExp(" sfhover"), "");
+        }
+    }
+    </script> -->
 </xsl:template>
 
 </xsl:stylesheet>

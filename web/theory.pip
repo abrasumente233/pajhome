@@ -1,10 +1,10 @@
 <pipp>
 <title>Theory Test</title>
 <status>old</status>
-<desc>A Perl script to mark practice driving theory tests.</desc>
+<desc>A Perl script to mark practise driving theory tests.</desc>
 <body>
 
-<p>This is a Perl script to mark practice driving theory tests. I made it for <a href="mailto:ray@2pass.co.uk">Ray Williams</a> <a href="http://www.2pass.co.uk/">2pass</a> site. It has since been replaced by a more comprehensive solution that my cousin, Kevin wrote.</p>
+<p>This is a Perl script to mark practise driving theory tests. I made it for <a href="mailto:ray@2pass.co.uk">Ray Williams</a> <a href="http://www.2pass.co.uk/">2pass</a> site. It has since been replaced by a more comprehensive solution that my cousin, Kevin wrote.</p>
 
 <pipp-code src="theory.pl"/>
 </body>

@@ -9,7 +9,7 @@
 
 <h2>Introduction</h2>
 
-<p>This document discusses the problem of keeping malicious software off desktop computers. It applies to both home and business users. The content is most applicable to Windows computers; other operating systems are not technically immune, but are attacked much less in practice. Keeping malware off your computer is not the whole of computer security, but it is a very significant part.</p>
+<p>This document discusses the problem of keeping malicious software off desktop computers. It applies to both home and business users. The content is most applicable to Windows computers; other operating systems are not technically immune, but are attacked much less in practise. Keeping malware off your computer is not the whole of computer security, but it is a very significant part.</p>
 
 <p>A <a href="virtual.html">companion document</a> presents an approach you can use to protect your most sensitive data assets, such as your online banking passwords.</p>
 
@@ -51,11 +51,11 @@
 <li>Use anti-malware software</li>
 </ul>
 
-<p>A firewall is very effective for preventing network attacks. But it does not protect user-iniated actions, such as visiting a web site.</p>
+<p>A firewall is very effective for preventing network attacks. But it does not protect user-initiated actions, such as visiting a web site.</p>
 
-<p>Enabling automatic updates is good for preventing technical vulnerabilities. However, it's difficult to be sure everything is patched - Windows automatic updates only covers Microsoft software, and this feature is only starting to be common in other software. Another problem is "Zero day" attacks, where attacks start occuring before a patch is available to protect against them. These are rare but becoming more common.</p>
+<p>Enabling automatic updates is good for preventing technical vulnerabilities. However, it's difficult to be sure everything is patched - Windows automatic updates only covers Microsoft software, and this feature is only starting to be common in other software. Another problem is "Zero day" attacks, where attacks start occurring before a patch is available to protect against them. These are rare but becoming more common.</p>
 
-<p>Anti-malware, in other words anti-virus and anti-spyware helps cover the gaps. This protects against both technical vulnerabilities and user deception. However, it only works against software known to be bad - if a new piece of malware is developed, it will take a little time before anti-malware software can detect it. That's why it's important for anti-malware products to regularly update their signatures. It's becoming more common for malware to "mutate" to avoid detection. To cope with this, anti-malware software vendors are starting to implement behaviour based detection, to detect malware without a signature. It is not yet clear how effective this will be in practice.</p>
+<p>Anti-malware, in other words anti-virus and anti-spyware helps cover the gaps. This protects against both technical vulnerabilities and user deception. However, it only works against software known to be bad - if a new piece of malware is developed, it will take a little time before anti-malware software can detect it. That's why it's important for anti-malware products to regularly update their signatures. It's becoming more common for malware to "mutate" to avoid detection. To cope with this, anti-malware software vendors are starting to implement behaviour based detection, to detect malware without a signature. It is not yet clear how effective this will be in practise.</p>
 
 <p>So, all told, these are wise precautions, but not enough to ensure complete protection.</p>
 
@@ -89,7 +89,7 @@
 
 <ul>
 <li>The new "Security Center" instructs users to apply the basic precautions mentioned above. In particular, the firewall is enabled by default.</li>
-<li>The source of downloaded files is recorded; if you open an .exe that was downloaded from the internet, you get a warning about the dangers of doing so.</li>
+<li>The source of downloaded files is recorded; if you open an .exe that was downloaded from the Internet, you get a warning about the dangers of doing so.</li>
 <li>Many under-the-hood changes to reduce attack surface, addresses subtle weaknesses, and limit the exploitability of new vulnerabilities.</li>
 </ul>
 
@@ -106,7 +106,7 @@
 <li>No configuration changes are allowed to be made.</li>
 </ul>
 
-<p>Then it would be almost impossible for a user to accidentally give away control of their computer. In practice, controls this tight will stop legitimate users doing their work. And it's technically difficult to implement these restrictions, although Windows Group Policy is a good start.</p>
+<p>Then it would be almost impossible for a user to accidentally give away control of their computer. In practise, controls this tight will stop legitimate users doing their work. And it's technically difficult to implement these restrictions, although Windows Group Policy is a good start.</p>
 
 
 </body>

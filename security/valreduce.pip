@@ -9,15 +9,15 @@
 
 <h2>Payment Fraud</h2>
 
-<p>The original intention of credit and debit cards was that the card would have to be physically present for a transaction. However, "card holder not present" transactions are now allowed, to enable use over the phone and internet. One protection for these transactions is to only deliver to the billing address. However, sometimes it's desirable to deliver to other addresses (e.g. for gifts) and sometimes there is no physical good to deliver (e.g. purchasing funding for a PayPal account).</p>
+<p>The original intention of credit and debit cards was that the card would have to be physically present for a transaction. However, "card holder not present" transactions are now allowed, to enable use over the phone and Internet. One protection for these transactions is to only deliver to the billing address. However, sometimes it's desirable to deliver to other addresses (e.g. for gifts) and sometimes there is no physical good to deliver (e.g. purchasing funding for a PayPal account).</p>
 
 <p>Given this, someone who knows a credit (or debit) card number, and associated details such as card holder name and expiry date can potentially use that information to make purchases. There are several precautions against such abuse:</p>
 
 <ul>
-<li>Fraud monitoring - card issuers monitor transaction patterns, and where high-risk transactions are identied, will request additional authorisation (e.g. by phoning the customer) or decline the transaction.</li>
-<li>Card verification value (CVV) - the three digit number on the back of the card. The idea is to strengthen the authentication; the CVV is required for purchases, but never stored by merchants. In principle, if a merchant suffers a breach, the CVV will not be captured. In practice it is a relatively weak control; much stolen card data includes the CVV.</li>
+<li>Fraud monitoring - card issuers monitor transaction patterns, and where high-risk transactions are identified, will request additional authorisation (e.g. by phoning the customer) or decline the transaction.</li>
+<li>Card verification value (CVV) - the three digit number on the back of the card. The idea is to strengthen the authentication; the CVV is required for purchases, but never stored by merchants. In principle, if a merchant suffers a breach, the CVV will not be captured. In practise it is a relatively weak control; much stolen card data includes the CVV.</li>
 <li><a href="http://www.visaeurope.com/merchant/handlingvisapayments/cardnotpresent/verifiedbyvisa.jsp">Verified by Visa</a> / <a href="http://www.mastercard.com/us/personal/en/cardholderservices/securecode/index.html">MasterCard SecureCode</a> - these approaches also strengthen the authentication. A step is added to Internet transactions, where the customer is directed to their card issuer's website, and required to enter a password. This is potentially a strong control, although current implementations allow a degree of <a href="http://www.channel4.com/news/articles/business_money/verified+by+visa/994747">bypass</a>, to cope with forgotten passwords, etc.</li>
-<li>One-time card numbers - allow a user to generate a temporary card number for use with merchants the user has concerns about. These have a pre-defined limit and short lifespan, reducing the exposure.</li>
+<li>One-time card numbers - allow a user to generate a temporary card number for use with merchants the user has concerns about. These have a predefined limit and short lifespan, reducing the exposure.</li>
 </ul>
 
 <p>Despite all these precautions, stolen card details can still be used to make payments. This is primarily because controls aren't universally applied, e.g. verified by Visa doesn't apply to phone transactions. And ultimately, this is because card issuers don't want to hinder legitimate users. If fraud problems become worse, they may be more willing to do so.</p>
@@ -33,7 +33,7 @@
 
 <p>This problem is somewhat harder to fix that the card fraud problem, primarily because the organisation handling the application doesn't have an existing relationship with the customer. If they wanted to speak to the customer to verify the application, they only have contact information provided on the form, which has been submitted by the identity thief.</p>
 
-<p>Some tactical steps may help, for example, risk assessing applications and subjecting some (e.g. recent change of address) to particular scutiny. Consumers can at least be alerted when this occurs by subscribing to credit monitoring services. Attempts to fix the problem more generally tend to rely on an organisation being the overall authority for people's identity, for example:</p>
+<p>Some tactical steps may help, for example, risk assessing applications and subjecting some (e.g. recent change of address) to particular scrutiny. Consumers can at least be alerted when this occurs by subscribing to credit monitoring services. Attempts to fix the problem more generally tend to rely on an organisation being the overall authority for people's identity, for example:</p>
 
 <ul>
 <li>A national ID card system</li>

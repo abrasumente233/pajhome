@@ -12,18 +12,18 @@
  !-->
 <xsl:template match="/page">
     <xsl:value-of select="pipp:export-depend(@src, 'children')"/>
-    <table style="width:90%; padding-left:5%"><tr>
+    <table class="contents"><tr>
         <xsl:for-each select="children/page">
             <xsl:value-of select="pipp:export-depend(@src, 'logo')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
             <xsl:value-of select="pipp:export-depend(@src, 'children')"/>
-            <td style="padding-bottom:0.5em; vertical-align:top; width: 50%">
+            <td>
                 <xsl:variable name="xlogo" select="pipp:relative-path(concat('/logos/', (ancestor-or-self::node()/exports/logo)[last()]))"/>
                 <xsl:variable name="logo" select="concat(substring($xlogo, 0, string-length($xlogo)-3), '_mini.jpg')"/>
                 <xsl:value-of select="pipp:file($logo)"/>
                 <strong><a href="{pipp:relative-path(exports/link)}">
-                    <img width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" src="{$logo}" style="border:none; float:left; margin-right: 5px" alt=""/>
+                    <img width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" src="{$logo}" alt="" class="contimg"/>
                     <xsl:if test="exports/status = 'new'">
                         <xsl:value-of select="pipp:file('/logos/new.png')"/>
                         <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" style="border: none" title="New content" alt=""/>

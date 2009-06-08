@@ -6,7 +6,7 @@
 
 <h2>Dig</h2>
 
-<p>My favorite tool for investigating the DNS is dig, because it produces very clear and detailed output, for example:</p>
+<p>My favourite tool for investigating the DNS is dig, because it produces very clear and detailed output, for example:</p>
 
 <pre class="indented">$ dig pajhome.org.uk
 
@@ -35,7 +35,7 @@ ns0.serve.net.uk.       103288  IN      A       212.69.192.11
 ;; WHEN: Fri Dec 20 17:40:36 2002
 ;; MSG SIZE  rcvd: 149</pre>
 
-<p>Here we have looked for the A record - the IP address corresponding to the domain name. We get this back in the "answer" section, but we also get the "authority" section which specifies the autorative nameservers for the domain. The "additional" section is for efficiency - it saves us looking up the IP addresses of the nameservers.</p>
+<p>Here we have looked for the A record - the IP address corresponding to the domain name. We get this back in the "answer" section, but we also get the "authority" section which specifies the authoritative name servers for the domain. The "additional" section is for efficiency - it saves us looking up the IP addresses of the name servers.</p>
 
 <p>Most of the complexity here is only needed for communication between DNS servers - clients have little need for the details, but they are still present in the protocol. Dig provides a complete readable dump of the packet received. </p>
 
@@ -110,9 +110,9 @@ Relevance of glue records
 
 <h2>Query flags</h2>
 
-<p>More interesting one is 'aa' - authorative answer.</p>
+<p>More interesting one is 'aa' - authoritative answer.</p>
 
-<p>You always get an aa repsponse from a server that is authorative for that domain. If you query a recursive resolver, you get an aa response if it's not cached, but then non-aa in future.</p>
+<p>You always get an aa response from a server that is authoritative for that domain. If you query a recursive resolver, you get an aa response if it's not cached, but then non-aa in future.</p>
 
 <h2>Nominet</h2>
 

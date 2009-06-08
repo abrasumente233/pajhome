@@ -29,7 +29,7 @@ Apparently an algorithm has now been discovered that can prove primality in poly
 
 <h2>Secure Randomness</h2>
 
-<p>For us, java.security.SecureRandom takes care of this, but again this hides a fair bit of hard work. Computers are deterministic, predictible things and not at all suited to generating randomness. The most common source of unpredictibility is user input - key strokes and mouse movement. For example, you could time the gap between key strokes, in microseconds, and then take the lowest bit of this number. Techniques like this are random enough for cryptographic purposes. Nowadays, many kernels include this functionality, which is a good idea as they have more time than a process to build up an entropy pool.</p>
+<p>For us, java.security.SecureRandom takes care of this, but again this hides a fair bit of hard work. Computers are deterministic, predictable things and not at all suited to generating randomness. The most common source of unpredictability is user input - key strokes and mouse movement. For example, you could time the gap between key strokes, in microseconds, and then take the lowest bit of this number. Techniques like this are random enough for cryptographic purposes. Nowadays, many kernels include this functionality, which is a good idea as they have more time than a process to build up an entropy pool.</p>
 
 <h2>I want to encrypt strings</h2>
 

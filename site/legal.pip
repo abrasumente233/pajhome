@@ -1,13 +1,13 @@
 <pipp>
 <title>Legal Notice</title>
-<desc>This page describes the license that pajhome is distibuted under.</desc>
+<desc>This page describes the license that pajhome is distributed under.</desc>
 <body>
 
 <a href="../crypt/md5/index.html"><b>Click here for the JavaScript MD5 library</b></a>
 
 <h2>Copyright</h2>
 
-<p>The copyright for the majority of the site is owned by Paul Johnston; the parts which have been contributed are clearly marked. Most things are distibuted under the BSD license, which allows free distribution is most circumstances. However, these items have further restrictions, described below:</p>
+<p>The copyright for the majority of the site is owned by Paul Johnston; the parts which have been contributed are clearly marked. Most things are distributed under the BSD license, which allows free distribution is most circumstances. However, these items have further restrictions, described below:</p>
 
 <ul>
 <li>Juggle Master Java</li>
@@ -84,14 +84,14 @@ JuggleMaster X Version 0.42 Copyright (C) 1996 MASUDA Kazuyoshi<br/>
 JuggleMaster Java Version 1.03 Copyright (C) 1997-1999 Yuji Konishi, ASANUMA Nobuhiko<br/>
 </p>
 
-<p>By downloading the software, you agree to the terms and conditions of the license. In the case of disagreement, dipose of the bundle of which the definition is given below.</p>
+<p>By downloading the software, you agree to the terms and conditions of the license. In the case of disagreement, dispose of the bundle of which the definition is given below.</p>
 
 <p>Definition: 'JuggleMaster Java' is what you downloaded. JuggleMaster Java's 'Bundle' consists of files with extension 'jar', 'class', 'java', and 'jm', which are included in JuggleMaster Java.</p>
 
 <ol>
 <li>You have the right to modify some or whole parts of Bundle.</li>
 <li>You can re-distribute Bundle, or make it public, regardless if it is modified or not, as long as it is free and copyrights are specified. In the case of re-distribution, you should also attach to it the license with exact terms 1 and 2 given here, either in English or Japanese. You are allowed to re-define 'Bundle', provided that it includes all the components of Bundle you received, and modified ones.</li>
-<li>You don't have any restrictions about what you dowonloaded but not included in Bundle.</li>
+<li>You don't have any restrictions about what you downloaded but not included in Bundle.</li>
 <li>The distributor of JuggleMaster Java shall not be liable for any damages you suffer as a result of using JuggleMaster Java.</li>
 </ol>
 

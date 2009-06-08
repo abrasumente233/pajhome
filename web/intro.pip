@@ -1,6 +1,6 @@
 <pipp>
 <title>Introduction</title>
-<desc>Web applications have become an incredibly important area in computing. Almost every aspect of life can be managed through a web app now - banking, ticket booking, even reporting crimes. A great variety of technologies have appeared around this space, from browser plugins for flashy graphics up to hardware appliances for web server acceleration. A set of technologies I am particularly intereted in is web frameworks. These are development environments that make it faster and easier to build quality web apps.</desc>
+<desc>Web applications have become an incredibly important area in computing. Almost every aspect of life can be managed through a web app now - banking, ticket booking, even reporting crimes. A great variety of technologies have appeared around this space, from browser plugins for flashy graphics up to hardware appliances for web server acceleration. A set of technologies I am particularly interested in is web frameworks. These are development environments that make it faster and easier to build quality web apps.</desc>
 <body>
 
 <p>Web frameworks are development environments that make it faster and easier to build quality web apps. Many frameworks exist, including ASP.NET and Java Struts. Different frameworks have radically different approaches, resulting in a variety of strengths and weaknesses. Recently there has been particular interest around frameworks in dynamic languages, where Ruby on Rails is a pioneer.</p>

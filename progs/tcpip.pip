@@ -1,6 +1,6 @@
 <pipp>
 <title>TCP/IP</title>
-<desc>Here I describe briefly how TCP/IP works; this is the protocol that runs the internet.</desc>
+<desc>Here I describe briefly how TCP/IP works; this is the protocol that runs the Internet.</desc>
 <keywords>tcp, ip, tcp/ip, tcpip, networking, ip4, routing, dns, bind</keywords>
 <body>
 
@@ -8,9 +8,9 @@
 
 <p align="center"><pipp-img src="architecture.png"/></p>
 
-<p>This is a high-level overview of the TCP/IP protocol suite. At the bottom is the <b>Physical Layer</b> with protcols like 10baseT add G703 that specify line voltages, cable characteristics and connector types. V90 encodes data as audio tones, and is used by modems. There are other kinds of physical protocols, like "Tunnel" that we'll talk about later. The protocols shown are only a sample of the many available.</p>
+<p>This is a high-level overview of the TCP/IP protocol suite. At the bottom is the <b>Physical Layer</b> with protocols like 10baseT add G703 that specify line voltages, cable characteristics and connector types. V90 encodes data as audio tones, and is used by modems. There are other kinds of physical protocols, like "Tunnel" that we'll talk about later. The protocols shown are only a sample of the many available.</p>
 
-<p>Above this is the <b>Device Layer</b> which is a set of software protocols. These check for transmission errors in the device layer and control the "line discipline" of setting up the connection. PPP - Point to Point Protcol - is a common device-level protcol, because it can run over various physical protocols.  </p>
+<p>Above this is the <b>Device Layer</b> which is a set of software protocols. These check for transmission errors in the device layer and control the "line discipline" of setting up the connection. PPP - Point to Point Protocol - is a common device-level protocol, because it can run over various physical protocols.  </p>
 
 <p>IP stands for <b>Internetworking Protocol</b>. It ties all the device layers together, enabling messages to be routed between networks that are not directly connected. Each packet has to go through multiple hops. ICMP provides the control messages this requires like "Host unreachable" and "Connection refused". BGP and OSPF are vital, because they let routers exchange information about who is connected to who. This is what enables a packet to go from your computer to anywhere in the world.</p>
 

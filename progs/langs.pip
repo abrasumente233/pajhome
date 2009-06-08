@@ -6,7 +6,7 @@
 
 <h2>Introduction</h2>
 
-<p>I've been programming for years now and have used many languages, here I talk about my favorites. On one level they're all quite similar - if you can program in any one of these, you've cleared the main hurdle; learning another is a smaller effort. There is no 'best' language - this depends on what you use it for. However I would say that my favorite language is Python.</p>
+<p>I've been programming for years now and have used many languages, here I talk about my favourites. On one level they're all quite similar - if you can program in any one of these, you've cleared the main hurdle; learning another is a smaller effort. There is no 'best' language - this depends on what you use it for. However I would say that my favourite language is Python.</p>
 
 <h2>Machine Code &amp; Assembler</h2>
 
@@ -14,13 +14,13 @@
 
 <p>This promotes a certain logical way of thinking, as you are forced to think in terms of the very simple things the processor can directly do. However, it takes forever to create just a trivial assembler program, and the code is completely processor specific. Because of this, few people now program assembler.</p>
 
-<p>For most general-purpose programming, assembler doesn't run significantly faster than optimised C. However, particularly CPU intensive taks, e.g. encryption, are sometimes written in assembler. Slimming these down by microseconds is a highly-skilled discipline. Another use of assembler is performing processor specific tasks, e.g. implementing virtual memory.</p>
+<p>For most general-purpose programming, assembler doesn't run significantly faster than optimised C. However, particularly CPU intensive tasks, e.g. encryption, are sometimes written in assembler. Slimming these down by microseconds is a highly-skilled discipline. Another use of assembler is performing processor specific tasks, e.g. implementing virtual memory.</p>
 
 <h2>C</h2>
 
 <p>C is low-level and compiled; in a way it's portable assembler. You have a good idea what your code will translate to in machine code, but the language offers enough built-in features to make programming practical. It is intended for building serious programs, OS kernels, networking stacks and interpreters.  It is one of the most popular languages; Unix operating systems are built on and around it. The user space library is called "libc".</p>
 
-<p>Using C, you have unmonitored memory access and complete control over memory allocation. This invites efficency, but makes it prone to hard-to-find bugs. Despite all the tools available, developing a robust C program is a much greater task than doing so in a higher-level language. Maintaining good programming style is always possible in C, but often hard work - the language does very little to help you. </p>
+<p>Using C, you have unmonitored memory access and complete control over memory allocation. This invites efficiency, but makes it prone to hard-to-find bugs. Despite all the tools available, developing a robust C program is a much greater task than doing so in a higher-level language. Maintaining good programming style is always possible in C, but often hard work - the language does very little to help you. </p>
 
 <p>A feature pretty unique to C is the pre-processor. This lets you have sections of code that are included or excluded at compile time. One thing this enables is having both a debug and a release build of a product. The debug one contains a load of code to double check things are working ok, provide tracing hooks, etc. The release version is lean and mean.</p>
 
@@ -28,7 +28,7 @@
 
 <p>This a very high-level language - a line of shell script often translates to running an entire C program. There are loads of utilities made for shell scripts, e.g. sed, awk, basename, sort, tr. By putting these together creatively, you can do very powerful things easily, for example to process a kind of log file I had into a list of URLs and hit counts:
 <p class="code">cat log.txt | awk '-F|' '{print $5}' | sort | uniq -c &gt; pghits</p>
-A similar C program would require at least 25 lines, even in its most hacky form, and without much further complication would impose arbitrary limits on length of lines in the log file and the number of different URLs. However, trying to handle shell script errors intelligently is difficult, so they aren't particularly suitible for distribution.</p>
+A similar C program would require at least 25 lines, even in its most hacky form, and without much further complication would impose arbitrary limits on length of lines in the log file and the number of different URLs. However, trying to handle shell script errors intelligently is difficult, so they aren't particularly suitable for distribution.</p>
 
 <h2>Perl</h2>
 
@@ -43,7 +43,7 @@ A similar C program would require at least 25 lines, even in its most hacky form
 <p class="code">for i in range(1,10):<br/>
  &#160;print i</p>
 
-<p>Now, Python is probably my favorite language, but Perl still beats it for doing quick hacks. For example the other day I wanted to add up a list of numbers quickly. This is a few lines of python, but perl was brilliant:</p>
+<p>Now, Python is probably my favourite language, but Perl still beats it for doing quick hacks. For example the other day I wanted to add up a list of numbers quickly. This is a few lines of python, but perl was brilliant:</p>
 
 <p class="code">perl -ne '$a+=$_; END{print $a}'</p>
 
@@ -53,7 +53,7 @@ A similar C program would require at least 25 lines, even in its most hacky form
 
 <h2>Java</h2>
 
-<p>The language itself is quite similar to C++, though it lacks features like templates and operator overloading. In Java pointers are hidden behind references in a very clean way, and it has built-in garbage collecting. The major difference is that Java is compiled to byte-code, not assembly. This is portable, which allows clever things like embeding Java in web page. Java is a fantastic language, but I don't actually use it that much.</p>
+<p>The language itself is quite similar to C++, though it lacks features like templates and operator overloading. In Java pointers are hidden behind references in a very clean way, and it has built-in garbage collecting. The major difference is that Java is compiled to byte-code, not assembly. This is portable, which allows clever things like embedding Java in web page. Java is a fantastic language, but I don't actually use it that much.</p>
 
 <h2>SML</h2>
 

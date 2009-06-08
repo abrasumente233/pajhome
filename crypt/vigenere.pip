@@ -1,6 +1,6 @@
 <pipp>
 <title>Vigenere Cipher</title>
-<desc>The is an old cipher, from the days of paper-based cryptography. With a computer it becomes quite easy to cryptanalyse. I have written a program which allows you to encrypt and decrypt strings and files. Given enough ciphertext, it can decode English plaintexts without the key.</desc>
+<desc>The is an old cipher, from the days of paper-based cryptography. With a computer it becomes quite easy to cryptanalyze. I have written a program which allows you to encrypt and decrypt strings and files. Given enough ciphertext, it can decode English plaintexts without the key.</desc>
 <body>
 
 <pipp-child src="vigenere_src.pip"/>
@@ -20,12 +20,12 @@
 
 <h2>Using the Program</h2>
 
-<p>The <a href="vigenere.zip">download package</a> contains a Windows 32-bit executable, HTML documention and C source code. So far, I've tested the code using DevStudio and gcc under Windows NT, but it should work on most platforms. If you are familiar with computers and basic cryptography then the program is largely self explanatory, although these points are worth highlighting:</p>
+<p>The <a href="vigenere.zip">download package</a> contains a Windows 32-bit executable, HTML documentation and C source code. So far, I've tested the code using DevStudio and gcc under Windows NT, but it should work on most platforms. If you are familiar with computers and basic cryptography then the program is largely self explanatory, although these points are worth highlighting:</p>
 
 <ul>
 <li>To work with a file, enter <code>!filename</code> when prompted for a string. The output is written to <code>filename.vig</code></li>
 <li>At any prompts ending <code>(suggest ...)</code>, just press enter to use the suggested value</li>
-<li>While trying to work out an unknown key, a sample of the ciphertext is shown in lower case, alongside a sample of the uncovered plaintext in captials.</li>
+<li>While trying to work out an unknown key, a sample of the ciphertext is shown in lower case, alongside a sample of the uncovered plaintext in capitals.</li>
 </ul>
 
 <h2>How the Cipher Works</h2>
@@ -75,9 +75,9 @@ KEYKEYKEYKEYKEYK
 
 <h2>Cracking the Cipher</h2>
 
-<p>Decrypting a ciphertext without a key is usually possible, provided that the message is substantially longer than the key (the program only works with keys of less than 255 characters), and the plaintext's language is known (the program only works with English). Of course, the program can't be <em>sure</em> of what the key is - it can only find the most likely possibility. Because of this, information about each decision is presented to the user, who then has a chance to override the automatic suggestion.</p>
+<p>Decrypting a ciphertext without a key is usually possible, provided that the message is substantially longer than the key (the program only works with keys of less than 255 characters), and the language of the plaintext is known (the program only works with English). Of course, the program can't be <em>sure</em> of what the key is - it can only find the most likely possibility. Because of this, information about each decision is presented to the user, who then has a chance to override the automatic suggestion.</p>
 
-<p>The first step is to determine the length of the key, using the method of <em>coincidence indices</em>. To calculate a coincidence index, shift the ciphertext and compare against itself, counting character matches:</p>
+<p>The first step is to determine the length of the key, using the method of <em>coincidence indexes</em>. To calculate a coincidence index, shift the ciphertext and compare against itself, counting character matches:</p>
 
 <p class="code">
 CIPHERTEXT<br/>
@@ -98,7 +98,7 @@ CIPHERTEXT<br/>
 <li>Errors are handled by calling vig_error as soon as the error is detected. This uses setjmp/longjmp to escape back to the main menu, so there's no null return codes to worry about.</li>
 <li>vig_malloc is used instead of malloc. This keeps track of allocated memory, so calling vig_freeall frees everything.</li>
 <li>Functional style low-level routines are written, e.g. vig_loadfile takes a file name and loads it into newly allocated memory.</li>
-<li>For portability, size and endianness of data types doesn't matter, and only POSIX system calls are used. The program assumes at least an 80 x 25 character terminal.</li>
+<li>For portability, size and endian of data types doesn't matter, and only POSIX system calls are used. The program assumes at least an 80 x 25 character terminal.</li>
 <li>Global variables are avoided, except where necessary in low level functions, e.g. storing the stack environment for error handling. Function names all have the prefix vig_.</li>
 </ul>
 

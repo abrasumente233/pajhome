@@ -24,7 +24,7 @@
 
 <p>In the long term, a promising solution is to reduce the value of personal data to fraudsters. For example, at present identity theft is possible just by knowing fairly basic personal information. If organisations put stronger controls on account applications, identity theft would be much harder, and the value of stolen personal data would be reduced. Organisations would still have to protect this information (it's confidential in and of itself), but the primary threat would be removed</p>
 
-<p>Unfortunately, it seems there is no easy way to strengthen account application; it would involve substatial changes to how people conduct their affairs. A strong national ID card system could be used for this, although there are concerns that would create an even greater temptation for criminals to compromise the ID cards.</p>
+<p>Unfortunately, it seems there is no easy way to strengthen account application; it would involve substantial changes to how people conduct their affairs. A strong national ID card system could be used for this, although there are concerns that would create an even greater temptation for criminals to compromise the ID cards.</p>
 
 <p>Read the <a href="valreduce.html">full article</a> on possible solutions.</p>
 
@@ -43,23 +43,23 @@
 
 <h2>Don't Store the Data</h2>
 
-<p>Obvious as this solution sounds, it is only now it is really being explored. Traditionally, merchants that take credit cards have stored a lot of data for audit purposes, inadventently making them a target (e.g. <a href="http://www.tjx.com/TJX_press_release_Jan_17_%2007.pdf">the T.J. Maxx breach</a>). In reality, there is no need for merchants to store this data; the card issuers could do it instead. Some merchants choose to store details to support features like repeat payments, although this practice may become less common in the future.</p>
+<p>Obvious as this solution sounds, it is only now it is really being explored. Traditionally, merchants that take credit cards have stored a lot of data for audit purposes, inadvertently making them a target (e.g. <a href="http://www.tjx.com/TJX_press_release_Jan_17_%2007.pdf">the T.J. Maxx breach</a>). In reality, there is no need for merchants to store this data; the card issuers could do it instead. Some merchants choose to store details to support features like repeat payments, although this practise may become less common in the future.</p>
 
-<p>In some cases this is not an option. For example, a credit card issuer absolutely has to store all the credit card information, along with the customer's details. But where this is possible, it is the most effective defense.</p>
+<p>In some cases this is not an option. For example, a credit card issuer absolutely has to store all the credit card information, along with the customer's details. But where this is possible, it is the most effective defence.</p>
 
 
 <h2>Restrict Access</h2>
 
 <p>In many organisations, customer-facing staff have access to all customer records. Access is logged, but logs are rarely reviewed. In principle, there is no need to give so many people this access.</p>
 
-<p>One possible solution is to only allow access to internal staff when the customer has successfully authenticated, e.g. by giving their passcode over the phone. There will still need to be some staff who have wider access, e.g. to deal with forgotten passcodes, but this significantly reduces the exposure. In addition, analytical staff can usually work with anonymised data. All told, the number of people needing open access can be reduced considerably. If reduced far enough, it could eventually be subject to dual-control - two people would have to work together to get access.</p>
+<p>One possible solution is to only allow access to internal staff when the customer has successfully authenticated, e.g. by giving their pass code over the phone. There will still need to be some staff who have wider access, e.g. to deal with forgotten pass codes, but this significantly reduces the exposure. In addition, analytical staff can usually work with anonymized data. All told, the number of people needing open access can be reduced considerably. If reduced far enough, it could eventually be subject to dual-control - two people would have to work together to get access.</p>
 
 <p>I think this is something organisations should strive for, but realistically it's a medium to long-term measure. It would involve major changes to internal procedures, that would cost a great deal and affect customer service.</p>
 
 
 <h2>Contain Data</h2>
 
-<p>Getting control of points that data can leave an organisation ("egress" points) is often persued as a tactical solution. One difficulty is that there are many egress points, including:</p>
+<p>Getting control of points that data can leave an organisation ("egress" points) is often explored as a tactical solution. One difficulty is that there are many egress points, including:</p>
 
 <ul>
 <li>Removable storage - writable CDs, floppy disks, USB drives, bluetooth, SD cards, firewire, etc.</li>

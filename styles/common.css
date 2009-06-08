@@ -94,8 +94,29 @@ img.photo {
     margin-bottom: 1em;
 }
 
-h3 { margin-top: 1em; }
-.blog_photos h3 {
+h3 { margin-top: 0; }
+.blog_photos h3, .logos h3 {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+table.contents {
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+.contents td {
+    padding-bottom:0.5em;
+    vertical-align:top;
+    width: 50%
+}
+
+img.contimg {
+    border:none;
+    float:left;
+    margin-right: 5px;
+}
+
+.blog h3 { clear: both; }

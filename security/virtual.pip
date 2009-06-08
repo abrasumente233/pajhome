@@ -11,7 +11,7 @@
 
 
 
-<h2>Feasability</h2>
+<h2>Feasibility</h2>
 
 <p>I tried this myself for several weeks, to gauge how feasible it is. I used VMWare Converter to create an image of my physical machine, and VMWare Player to use it. Both are free downloads. My overall impression is that it is not feasible to work inside a virtual machine at all times - the performance impact is too great. Performance aside, my impressions are positive:</p>
 
@@ -55,7 +55,7 @@
 <ul>
 <li>Windows needed to be reactivated due to significant hardware changes.</li>
 <li>"Duplicate computer name" errors - until I renamed the VM to "pajvm"</li>
-<li>On my 1gb machine, VMWare initially gave the guest OS 768mb, which caused heavy swapping and a significant slow down. Setting this to 512mb improved performance considerably.</li>
+<li>On my 1GB machine, VMWare initially gave the guest OS 768MB, which caused heavy swapping and a significant slow down. Setting this to 512MB improved performance considerably.</li>
 <li>The extra buttons (forward and back) on my Intellimouse didn't work, but adding the following line to the .vmx file fixed this:<br/><code>mouse.vusb.enable = "TRUE"</code></li>
 <li>The extra buttons on my keyboard (home, mute, etc.) don't work, and nothing so far has fixed this.</li>
 <li>CD writing and ripping (capturing audio tracks) didn't work at first, but turning off "Legacy emulation" fixed this.</li>
@@ -64,7 +64,7 @@
 <p>General tips:</p>
 
 <ul>
-<li>Set VMWare tools to do "Time synchronization between the VM and the host".</li>
+<li>Set VMWare tools to do "Time synchronisation between the VM and the host".</li>
 <li><a href="http://communities.vmware.com/thread/90970">Shared drives</a> can be done in VMWare player; you need to edit the .vmx file.</li>
 <li>For me, putting the host into standby worked fine without suspending the guest. The manual recommends you suspend the guest before doing this.</li>
 </ul>

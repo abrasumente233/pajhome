@@ -3,24 +3,24 @@
 <desc>How to build a web login system that protects passwords with JavaScript MD5.</desc>
 <body>
 
-<p>A user's password is the crown jewels of any password-based authentication system. Such an important asset needs protection; best practice is that a password is encrypted when:</p>
+<p>A user's password is the crown jewels of any password-based authentication system. Such an important asset needs protection; best practise is that a password is encrypted when:</p>
 
 <ul>
-<li>it is transmitted over the internet, or</li>
+<li>it is transmitted over the Internet, or</li>
 <li>it is stored on a server.</li>
 </ul>
 
-<p>This is the bare minimum, that all sites should be doing. Some sites require strong security, such as online banking, and use SSL. SSL offers strong protection, but can be costly to implement. Many sites do not need SSL, which is a reasonable business decision. However, most non-SSL sites transmit passwords over the internet without encryption. This is not reasonable - it's below the bare minimum that everyone should be doing.</p>
+<p>This is the bare minimum, that all sites should be doing. Some sites require strong security, such as online banking, and use SSL. SSL offers strong protection, but can be costly to implement. Many sites do not need SSL, which is a reasonable business decision. However, most non-SSL sites transmit passwords over the Internet without encryption. This is not reasonable - it's below the bare minimum that everyone should be doing.</p>
 
 <p>By using JavaScript MD5, sites that do not use SSL can still meet these basic minimums. I strongly recommend this for all non-SSL sites that use passwords.</p>
 
 
 <h2>Implementing MD5 Passwords</h2>
 
-<p>I generally recommend using an autentication library, rather than implementing authentication yourself.
+<p>I generally recommend using an authentication library, rather than implementing authentication yourself.
 Most languages and frameworks have such a library. However, at present, few authentication libraries support JavaScipt MD5. If you're involved in the development of a framework and would like to add this feature, do <a href="mailto:paj@pajhome.org.uk">email me</a>.</p>
 
-<p>The instructions below describe in general terms how to implement an MD5 authentication system. They avoid refering to any specific server-side language, so apply equally to ASP.Net and Ruby on Rails. Some language-specific instructions are also available, from other sites:</p>
+<p>The instructions below describe in general terms how to implement an MD5 authentication system. They avoid referring to any specific server-side language, so apply equally to ASP.Net and Ruby on Rails. Some language-specific instructions are also available, from other sites:</p>
 
 <ul>
 <li><a href="http://www.devarticles.com/c/a/JavaScript/Building-a-CHAP-Login-System-An-ObjectOriented-Approach/">PHP</a></li>
@@ -33,7 +33,7 @@ Most languages and frameworks have such a library. However, at present, few auth
 
 <dl>
 <dt>Session Cookie</dt>
-<dd>When the user does a successful login, the server issues a session cookie. This is effectively a random number that an attacker can't guess. The cookie is used to authorize subsequent access to protected pages. When the user does a logout, the cookie is deleted. This basic design is used by almost all web authentication systems.</dd>
+<dd>When the user does a successful login, the server issues a session cookie. This is effectively a random number that an attacker can't guess. The cookie is used to authorise subsequent access to protected pages. When the user does a logout, the cookie is deleted. This basic design is used by almost all web authentication systems.</dd>
 
 <dt>Challenge-Response Login</dt>
 <dd>The difference with an MD5 login is the "challenge-response" exchange. The server generates a challenge and sends this to the client, as a hidden field in the login form. The simplest challenge to use is the server's current time. Once the user has entered their password and clicked login, the client performs a hash operation including both the challenge and the password. It sends the result to the server, and the server checks this against its own calculation. During this exchange, the password is never transmitted unencrypted. If the hash is captured, it cannot be used again, as the challenge changes for each login. </dd>
@@ -42,7 +42,7 @@ Most languages and frameworks have such a library. However, at present, few auth
 <dd>The server stores password hashes, instead of unencrypted passwords. A random number unique to the server is included in the hash. This number is called the "salt", and it is not secret. It is also included in a hidden field in the login form. The purpose of the server-specific salt is to ensure that a captured password cannot be used on a different server.</dd>
 
 <dt>HMAC</dt>
-<dd>Both login and storing passwords require hashes that include both the password, and a random number. We could simply hash the two strings concatonated. However, there is an alternative technique called <a href="http://www.ietf.org/rfc/rfc2104.txt">HMAC</a>, which uses two hash operations and some extra logic. This is specifically designed to be secure for such purposes, making it preferable to simple concatonation.</dd>
+<dd>Both login and storing passwords require hashes that include both the password, and a random number. We could simply hash the two strings concatenated. However, there is an alternative technique called <a href="http://www.ietf.org/rfc/rfc2104.txt">HMAC</a>, which uses two hash operations and some extra logic. This is specifically designed to be secure for such purposes, making it preferable to simple concatenation.</dd>
 </dl>
 
 <p>Some further technical considerations are discussed in the advanced section. <a href="advancedauth.html">more...</a></p>
@@ -50,7 +50,7 @@ Most languages and frameworks have such a library. However, at present, few auth
 <h2>Adding MD5 to an Authentication System</h2>
 
 <ol class="gap">
-<li>Store the server salt in global application config.</li>
+<li>Store the server salt in global application configuration.</li>
 
 <li>Modify the login form:
 <ul class="nogap">
@@ -104,7 +104,7 @@ confirm_password.value =
 <dd>Over the web, JS cryptography can only protect against passive eavesdropping, as the JavaScript itself is downloaded over an insecure link. If an attacker can modify network traffic, they can make malicious changes to the JavaScript code.</dd>
 
 <dt>Registration and Change Password</dt>
-<dd>Both registration and change password transmit a "password equivalent" over the internet. If someone captures this, they can use it to login to the site. The unencrypted password is still never transmitted over the internet.</dd>
+<dd>Both registration and change password transmit a "password equivalent" over the Internet. If someone captures this, they can use it to login to the site. The unencrypted password is still never transmitted over the Internet.</dd>
 
 <dt>Brute Force Attacks</dt>
 <dd>In a "brute force" attack, an attacker tries many different passwords for a user, until they eventually succeed. The use of challenge-response login creates a new risk here. If an attacker captures a password hash, they can later conduct an offline brute force attack, where passwords are checked without accessing the server. This bypasses any server restrictions, such as locking an account after three incorrect passwords. Some simple steps can make this harder for an attacker. <a href="advancedauth.html#brute">more...</a></dd>

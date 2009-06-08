@@ -26,7 +26,7 @@ print "\n" if($cnt % 10 == 0); # print a new line every tenth iteration
 
 <p>A good approach is to use lots of small functions. Each one focuses on a specific purpose, following a clear step by step procedure. If half the function deals with special cases, bounds checking, error handling and such, consider splitting the function up further. My <a href="../crypt/vigenere_src.html">Vigenere program</a> is a good example of this.</p>
 
-<p>However, some programming tasks are very sequential, and in this case I prefer avoiding functions altogether. For programs around 100-200 lines, this is the most readabile approach. There is a general rule here:</p>
+<p>However, some programming tasks are very sequential, and in this case I prefer avoiding functions altogether. For programs around 100-200 lines, this is the most readable approach. There is a general rule here:</p>
 
 <p class="emphasized">Only define a function if it is used two or more times.</p>
 
@@ -57,11 +57,11 @@ print "\n" if($cnt % 10 == 0); # print a new line every tenth iteration
 
 <h2>Efficiency</h2>
 
-<p>To some extent there is trade-off between code clarity and efficiency. I've seen some C code which used 15 instructions instead of 20, by using a very obscure while loop. This is worth doing when the code is used a lot, but if that loop was just used once on startup there would be no point in the optimisation. There is an important priciple here:</p>
+<p>To some extent there is trade-off between code clarity and efficiency. I've seen some C code which used 15 instructions instead of 20, by using a very obscure while loop. This is worth doing when the code is used a lot, but if that loop was just used once on startup there would be no point in the optimisation. There is an important principle here:</p>
 
-<p class="emphasized">Premature optimization is the root of all evil.</p>
+<p class="emphasized">Premature optimisation is the root of all evil.</p>
 
-<p>If you program in a logical, readable way then your code will generally be quite efficient. Once you have it working you may want to apply some optimizations. It's only worth doing these in cases they'll make a real difference - long loops, widely-used low-level functions, etc. Often a clean program structure makes it easy to add features like caching in a nice, readable way. If you do have to resort to obscure while loops to save nanoseconds, put a comment next to it with the unoptimized code.</p>
+<p>If you program in a logical, readable way then your code will generally be quite efficient. Once you have it working you may want to apply some optimisations. It's only worth doing these in cases they'll make a real difference - long loops, widely-used low-level functions, etc. Often a clean program structure makes it easy to add features like caching in a nice, readable way. If you do have to resort to obscure while loops to save nanoseconds, put a comment next to it with the unoptimised code.</p>
 
 <h2>Random points</h2>
 <ul>

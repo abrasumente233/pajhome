@@ -16,7 +16,7 @@
 
 <p>The scripts don't interfere with each other - you can use them all in the same document.</p>
 
-<p>Alternatively, you can copy the code and paste it straight into your html file, inside a script tag. I tend to keep the code separate, but inlining it will load faster.</p>
+<p>Alternatively, you can copy the code and paste it straight into your html file, inside a script tag. I tend to keep the code separate, but including it will load faster.</p>
 
 <h3>Calculating a hash</h3>
 
@@ -26,7 +26,7 @@
     hash = hex_md5("input string");
 &lt;/script&gt;</pipp-code>
 
-<p>Note that the input must be a string - hex_md5(Math.random()) will not funcation correctly; you must do hex_md5(Math.random().toString()).</p>
+<p>Note that the input must be a string - hex_md5(Math.random()) will not function correctly; you must do hex_md5(Math.random().toString()).</p>
 
 <p>You can also get the result in base-64 encoding:</p>
 
@@ -36,9 +36,9 @@
 
 <p>You can also get the result as a binary string; this is discussed below.</p>
 
-<h3>HMACs - keyed hashes</h3>
+<h3>HMAC - keyed hashes</h3>
 
-<p>In many uses of hashes you end up wanting to combine a key with some data. It isn't so bad to do this by simple concatonation, but HMAC is specifically designed for this use. The usage is:</p>
+<p>In many uses of hashes you end up wanting to combine a key with some data. It isn't so bad to do this by simple concatenation, but HMAC is specifically designed for this use. The usage is:</p>
 
 <pipp-code lexer="html">&lt;script type="text/javascript"&gt;
     hash = hex_hmac_md5("key", "data");
@@ -46,7 +46,7 @@
 
 <p>The HMAC result is also available base-64 encoded or as a binary string, using b64_hmac_* or str_hmac_*.</p>
 
-<p>Some other hash libraries have the arguments the other way round. If JavaScript HMACs don't match what your server library generates, try swapping the order.</p>
+<p>Some other hash libraries have the arguments the other way round. If the JavaScript HMAC doesn't match the value your server library generates, try swapping the order.</p>
 
 <h3>Configurable options</h3>
 
@@ -55,10 +55,10 @@
 <table class="indent">
   <tr><th>hexcase</th><td>The case of the letters A-F in hexadecimal output</td><td>0 - lower case (default)<br/>1 - upper case</td></tr>
   <tr><th>b64pad</th><td>The character used to pad base-64 output to a multiple of 3 bytes</td><td>"" - no padding (default)<br/>"=" - for strict RFC compliance</td></tr>
-  <tr><th>chrsz</th><td>Whether string input should be treated as ASCII or unicode.</td><td>8 - ASCII (default)<br/>16 - unicode</td></tr>
+  <tr><th>chrsz</th><td>Whether string input should be treated as ASCII or Unicode.</td><td>8 - ASCII (default)<br/>16 - Unicode</td></tr>
 </table>
 
-<p>The unicode support uses utf-16 encoding, which is rarely what people want. Version 2.2 has better unicode support, with utf-8 encoding.</p>
+<p>The Unicode support uses utf-16 encoding, which is rarely what people want. Version 2.2 has better Unicode support, with utf-8 encoding.</p>
 
 <p>To set a variable, use a syntax like this:</p>
 
@@ -67,7 +67,7 @@
     chrsz = 16;
 &lt;/script&gt;</pipp-code>
 
-<p>In general, it's ok to change the values of these variables between calls to the library; for example you can do ASCII and unicode hashes on the same page. However, you can't change chrsz and then re-use data returned by a str_* function.</p>
+<p>In general, it's ok to change the values of these variables between calls to the library; for example you can do ASCII and Unicode hashes on the same page. However, you can't change chrsz and then re-use data returned by a str_* function.</p>
 
 <h3>Binary string output</h3>
 
@@ -79,7 +79,7 @@
 double_hash = hex_md5(str_md5(data));
 </pipp-code>
 
-<p>The string is encoded so each character of a string represents either one or two bytes, in ASCII and unicode respectively. This would be troublesome to send over HTTP as form data, but JavaScript strings are completely binary safe.</p>
+<p>The string is encoded so each character of a string represents either one or two bytes, in ASCII and Unicode respectively. This would be troublesome to send over HTTP as form data, but JavaScript strings are completely binary safe.</p>
 
 <h2>2.2-Beta Instructions</h2>
 

@@ -38,7 +38,7 @@
 <tr><td>A</td><td>append text at end of line</td></tr>
 <tr><td>cw</td><td>change a word</td></tr>
 <tr><td>C</td><td>change from cursor to end of line</td></tr>
-<tr><td>s</td><td>subsitute character at cursor</td></tr>
+<tr><td>s</td><td>substitute character at cursor</td></tr>
 </table>
 
 <h2>Others</h2>
