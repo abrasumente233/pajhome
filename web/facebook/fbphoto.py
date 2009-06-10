@@ -129,7 +129,7 @@ def resize(picdir, fb_thumbs):
             w,h = img.size
             # find closest matching aspect ratio
             dims = sorted((((d-float(w)/h)**2, dimens[d]) for d in dimens), key=lambda x: x[0])
-            img = img.resize(dims[0][1]) # Image.ANTIALIAS removed for speed
+            img = img.thumbnail(dims[0][1], Image.ANTIALIAS)
             img.save(os.path.join(workdir, lt.fname))
     return loc_thumbs
 
@@ -165,13 +165,14 @@ def match_thumb(fb_thumbs, loc_thumbs, picdir):
         match = None
         for x,y in likely:
             for loc_thumb in y:
-                if img_diff(fb_thumb.img, loc_thumb.img) < match_cutoff:
+                qqq = img_diff(fb_thumb.img, loc_thumb.img)
+                if qqq < match_cutoff:
                     match = loc_thumb
                     break
             if match:
                 break
         if match:
-            matches.append((fb_thumb, loc_thumb))
+            matches.append((fb_thumb, loc_thumb, qqq))
         else:
             print "Warning - no match for %s" % fb_thumb.fname
     matches.sort(key = lambda x: x[1].orig_name.lower())
@@ -180,8 +181,8 @@ def match_thumb(fb_thumbs, loc_thumbs, picdir):
         jpeg.setComments(ft.fburl, os.path.join(picdir, lt.orig_name))
 
     fh = open(os.path.join(workdir, 'check.html'), 'w')
-    tmpl = '<img src="%s"/><img src="%s"/><br/>'
-    cont = '\n'.join(tmpl % (ft.fname, lt.fname) for ft,lt in matches)
+    tmpl = '<img src="%s"/><img src="%s"/>%d<br/>'
+    cont = '\n'.join(tmpl % (ft.fname, lt.fname, qqq) for ft,lt,qqq in matches)
     fh.write('<html><body>%s</body></html>' % cont)
     fh.close()
 

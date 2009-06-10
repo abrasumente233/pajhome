@@ -43,7 +43,7 @@ Try to bypass filters using wide-ASCII, or other Unicode equivalents<br/>
 </p>
 <p><b>Content Checks</b><br/>
 No script or CSS tags reference resources on other servers<br/>
-No script or CSS tags on a page that can be accessed over https use URLs beginning http://<br/>
+No script or CSS tags on a page that can be accessed over HTTPS use URLs beginning http://<br/>
 Use of eval, document.write, innerHTML, etc. does not cause XSS<br/>
 Comments in files do not reveal sensitive information<br/>
 Frames/iframes, if used, have frame spoofing protection<br/>

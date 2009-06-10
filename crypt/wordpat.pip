@@ -7,7 +7,7 @@
 <pipp-child-file src="wordpat.zip" title="Download"/>
 <pipp-child-file src="patterns.zip" title="Patterns"/>
 
-<p>This program generates word codes showing the patterns of repeating letters in words. It is intended for use in breaking simple substitution ciphers such as monoalphabets.</p>
+<p>This program generates word codes showing the patterns of repeating letters in words. It is intended for use in breaking simple substitution ciphers such like a monoalphabet.</p>
 
 <ul>
 <li><a href="wordpat.zip">Download the program</a> to generate word patterns from any word list.</li>

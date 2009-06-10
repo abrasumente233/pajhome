@@ -10,7 +10,7 @@
 
 <h2>Introduction</h2>
 
-<p>These pages provide some pertient information about Unix. When I worked as a sys-admin, I originally planned to expand this part of the site considerably. However, my work and interests have changed since then and it is no longer updated.</p>
+<p>These pages provide some pertinent information about Unix. When I worked as a sys-admin, I originally planned to expand this part of the site considerably. However, my work and interests have changed since then and it is no longer updated.</p>
 
 <ul>
 <li><a href="linuxnt.html">Linux vs NT</a></li>
@@ -49,7 +49,7 @@ And <b>please,</b> learn how to restore from the backups. There may be some gotc
 <li>Use python instead of bash for the startup scripts.</li>
 <li>Startup scripts have a dependency tree, rather than a numerical order.</li>
 <li>Store configuration in a database (probably MySQL or PostgreSQL). When a service is installed, it adds itself to the startup table, the log rotate table, etc. This would replace files in /etc like passwd, aliases, etc.</li>
-<li>There's a tool that works like RedHat's "service iptables save" that saves the current network configuration. This means you can setup the network using ifconfig/route directly, then just save it. Or if you like, you can edit the save file and reload it.</li>
+<li>There's a tool that works like RedHat "service iptables save" that saves the current network configuration. This means you can setup the network using ifconfig/route directly, then just save it. Or if you like, you can edit the save file and reload it.</li>
 </ul>
 
 <p>Delivering this is no simple task. You need to update all software to understand the configuration database. However, quite a lot of software does this already, e.g. Exim, MyDNS, Apache, Courier IMAP/POP3.</p>

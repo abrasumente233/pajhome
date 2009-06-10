@@ -1,5 +1,6 @@
 <pipp>
 <title>wordpat.c</title>
+<spell>no</spell>
 <body>
 <p><a href="wordpat.zip">Download</a> this program</p>
 <pipp-code src="wordpat.c"/>

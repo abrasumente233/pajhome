@@ -6,7 +6,7 @@
 
 <p>The VRML 1.0 Final Specification explains this:</p>
 
-<p class="emphasized">VRML uses a cartesian, right-handed, 3-dimensional coordinate system. By default, objects are projected onto a 2-dimensional device by projecting them in the direction of the positive Z axis, with the positive X axis to the right and the positive Y axis up. A camera or modeling transformation may be used to alter this default projection. The standard unit for lengths and distances specified is meters. The standard unit for angles is radians.</p>
+<p class="emphasized">VRML uses a Cartesian, right-handed, 3-dimensional coordinate system. By default, objects are projected onto a 2-dimensional device by projecting them in the direction of the positive Z axis, with the positive X axis to the right and the positive Y axis up. A camera or modelling transformation may be used to alter this default projection. The standard unit for lengths and distances specified is meters. The standard unit for angles is radians.</p>
 
 <h2>Vectors</h2>
 
@@ -34,7 +34,7 @@
 <ul>
 <li>position (SFVec3f) - The initial position of the viewer.</li>
 <li>orientation (3FRotation) - The vector part of this specifies the direction the viewer is looking, and the angle rotates their head. </li>
-<li>heightAngle (SFFloat) - Sets the width of view: large values are like a wide angled lense, while small values telescopic.</li>
+<li>heightAngle (SFFloat) - Sets the width of view: large values are like a wide angled lens, while small values telescopic.</li>
 </ul>
 
 <p align="center"><pipp-img src="heightang.gif"/></p>

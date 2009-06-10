@@ -17,23 +17,23 @@
 
 <ol>
 <li>Connecting directly to the desktop, which is possible if the Citrix server is in the default configuration.</li>
-<li>Sending ctrl-alt-delete - this activates the Windows security dialog on the Citrix server, from where task manager can be run. In task manager, "new task" can be used to start a command prompt.</li>
-<li>Common dialogs - if the user can access a file open or save dialog, they will usually be able to browser to c:\windows\system32 and open cmd.exe.</li>
+<li>Sending ctrl-alt-delete - this activates the Windows security dialogue on the Citrix server, from where task manager can be run. In task manager, "new task" can be used to start a command prompt.</li>
+<li>Common dialogues - if the user can access a file open or save dialogue, they will usually be able to browser to c:\windows\system32 and open cmd.exe.</li>
 <li>Visual Basic, or other scripting languages, present in software such as Microsoft Office.</li>
 </ol>
 
-<p>Experience of testing such systems is that one of these conditions is commonly present. For example, the main application may have no open/save dialogs, but it is possible to access help, and from there a common dialog. Issues 1 can be dealt with using Citrix configuration, and the other issues largely mitigated using group policy. However, making a published application tight against these kinds of attacks is a challenging undertaking, especially for a complex application such as a web browser. There are tools to assist with this, providing fine-grained control to disable individual buttons and menu items.</p>
+<p>Experience of testing such systems is that one of these conditions is commonly present. For example, the main application may have no open/save dialogues, but it is possible to access help, and from there a common dialogue. Issues 1 can be dealt with using Citrix configuration, and the other issues largely mitigated using group policy. However, making a published application tight against these kinds of attacks is a challenging undertaking, especially for a complex application such as a web browser. There are tools to assist with this, providing fine-grained control to disable individual buttons and menu items.</p>
 
 
 <h2>Citrix nfuse - A False Sense of Security</h2>
 
-<p>The nfuse web interface publishes Citrix applications in a way that avoids client software installation. The technology is often used in combination with an SSL VPN, over the internet. A user will access the SSL VPN by browsing to a web site and entering their login details. They are presented with the nfuse interface in their browser, where they choose a published application. The application appears as a new window on their desktop, seamlessly integrated with regular windows.</p>
+<p>The nfuse web interface publishes Citrix applications in a way that avoids client software installation. The technology is often used in combination with an SSL VPN, over the Internet. A user will access the SSL VPN by browsing to a web site and entering their login details. They are presented with the nfuse interface in their browser, where they choose a published application. The application appears as a new window on their desktop, seamlessly integrated with regular windows.</p>
 
 <p>This appears to be good for security; there are few options a user can tamper with. In fact, it would seem that the application is protected against attacks 1 and 2 listed above. However, it turns out that a skilled attacker can in fact use these attacks.</p>
 
 <p>Behind the scenes, when the SSL VPN connection is setup, the browser downloads a signed Java applet. This is a SOCKS5 proxy that listens on the localhost interface. Connections to the applet are tunnelled through the SSL connection and onto the remote network. The server side enforces tight filtering rules, so only TCP connections to specific hosts and ports are allowed. When a published application is selected, the browser downloads a signed ActiveX control. This connects to the Citrix server (via the applet), communicates the ICA protocol and presents the application on the desktop.</p>
 
-<p>Notice that the client needs to connect directly to the Citrix server. The SOCKS proxy must allow the client to access the citrix port (1494) on the Citrix server(s). There is little stopping a someone using any ICA client to access the server. In fact a good client is Citrix Program Neighbourhood (CPN), a free download that is much more configurable than the ActiveX control.</p>
+<p>Notice that the client needs to connect directly to the Citrix server. The SOCKS proxy must allow the client to access the Citrix port (1494) on the Citrix server(s). There is little stopping a someone using any ICA client to access the server. In fact a good client is Citrix Program Neighbourhood (CPN), a free download that is much more configurable than the ActiveX control.</p>
 
 <p>Configuring CPN to go through the applet has some challenges that I won't explain here. Once the application has been accessed, pressing ctrl-f3 sends a ctrl-alt-del sequence to the Citrix server (that only works with CPN, not nfuse). Similarly, it is possible to create a connection to the desktop, instead of a published application. If the Citrix server is not properly configured to prevent these attacks, they will be successful.</p>
 

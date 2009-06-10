@@ -7,7 +7,7 @@
 
 <p>The RSA algorithm itself only encrypts numbers. What usually happens is that RSA is used to encrypt a key for a symmetric cipher, such as Rijndael, and then the message is encrypted using this key. In interactive uses, the first step is called the 'key exchange' and after that, network traffic can flow in both directions using the same symmetric key. Often this will be combined with authentication of client.</p>
 
-<p>All computer data is ultimately just binary numbers, so you could just break this into suitable chunks and apply RSA to each chunk. However, this puts you at some risk of being cryptanalysed, as plaintexts are often predicible to some extent. For example, if an attacker knows you will say either 'attack by land' or 'attack by sea', they can try encrypting both messages with the public key, and compare these ciphertexts to the intercepted ciphertext. You can mitigate this somewhat by including random junk in each encrypted chunk, but there are other attacks. Another reason is that RSA is slow compared to symmetric ciphers.</p>
+<p>All computer data is ultimately just binary numbers, so you could just break this into suitable chunks and apply RSA to each chunk. However, this puts you at some risk of being cryptanalysed, as plaintexts are often predictable to some extent. For example, if an attacker knows you will say either 'attack by land' or 'attack by sea', they can try encrypting both messages with the public key, and compare these ciphertexts to the intercepted ciphertext. You can mitigate this somewhat by including random junk in each encrypted chunk, but there are other attacks. Another reason is that RSA is slow compared to symmetric ciphers.</p>
 
 <h2>Digital Signatures</h2>
 

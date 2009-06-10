@@ -10,7 +10,7 @@
 <pipp-child src="material.pip"/>
 <pipp-file src="*.wrl"/>
 
-<p>Web 3D, or VRML as it used to be called. Virtual Reality Modelling Language lets you put three dimensional, interactive worlds on web pages. The plug-in to view these is widely available. I learned about VRML during two weeks work experience at <a href="http://www.leeds.ac.uk">Leeds University</a>. Here I show off some of my attempts at writing VRML, and also explain some aspects of the language I found difficult.</p>
+<p>Web 3D, or VRML as it used to be called. Virtual Reality Modelling Language lets you put three dimensional, interactive worlds on web pages. The plug-in to view these is widely available. I learnt about VRML during two weeks work experience at <a href="http://www.leeds.ac.uk">Leeds University</a>. Here I show off some of my attempts at writing VRML, and also explain some aspects of the language I found difficult.</p>
 
 
 <p style="text-align:center">
@@ -22,7 +22,7 @@
 
 <h2>Introduction</h2>
 
-<p>Web3D is the new name for VRML. Virtual Reality Modelling Language lets you put three dimensional, interactive worlds on web pages. Verious plug-ins are available on most platforms, and are included in the <em>gold</em> versions of Netscape and Internet Explorer. For background information, look at:</p>
+<p>Web3D is the new name for VRML. Virtual Reality Modelling Language lets you put three dimensional, interactive worlds on web pages. Various plug-ins are available on most platforms, and are included in the <em>gold</em> versions of Netscape and Internet Explorer. For background information, look at:</p>
 
 <ul>
 <li><a href="http://vrmlworks.crispen.org/faq/">The VRML FAQ</a></li>

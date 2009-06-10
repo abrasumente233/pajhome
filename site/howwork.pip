@@ -31,7 +31,7 @@
 
 <h2>HTML Compatibility</h2>
 
-<p>I aspire to make the site HTML 4 and XHTML compatible, and to display correctly in Netscape 4, Mozilla, IE and Opera. I've no desire to maintain backwards compatibility with pre-CSS browsers. The site will never require Java or JavaScript for basic navigation, but will use them as bells and whistles.</p>
+<p>I aspire to make the site HTML 4 and XHTML compatible, and to display correctly in Netscape 4, Mozilla, IE and Opera. I've no desire to maintain backward compatibility with pre-CSS browsers. The site will never require Java or JavaScript for basic navigation, but will use them as bells and whistles.</p>
 
 <p>The guest book contains some clever fall-back code:</p>
 

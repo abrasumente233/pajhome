@@ -8,12 +8,12 @@
 <p>I think there's three things about the FB approach that make it work:</p>
 
 <ol>
-<li>It does what I want - keeping in touch with real-life friends, not making new friends on the internet.</li>
+<li>It does what I want - keeping in touch with real-life friends, not making new friends on the Internet.</li>
 <li>Technical competence - many issues like privacy and spam are quietly taken care of, without me noticing.</li>
 <li>Everyone's on it, near enough.</li>
 </ol>
 
-<p>My top FB tip: If you're on a slow connection, say an internet cafe in India, use the mobile version - <a href="http://m.facebook.com/">m.facebook.com</a>.</p>
+<p>My top FB tip: If you're on a slow connection, say an Internet cafe in India, use the mobile version - <a href="http://m.facebook.com/">m.facebook.com</a>.</p>
 
 
 <h2>Features</h2>
@@ -52,7 +52,7 @@
 
 <li><b>Integrating</b> with other sites. This can be to publish on FB, e.g. sharing your Flickr photos, or having your blog posts appear as FB notes. It can also be for the site to use people's FB identity, to avoid registration, e.g. <a href="http://www.facebook.com/apps/application.php?id=6953377468">Zoosk</a>.</li>
 
-<li><b>Adding external information</b> to your profile, e.g. <a href="http://www.facebook.com/apps/application.php?id=5235256929">News Headlines</a>. This takes FB a little away from social networking and more towards a general portal. But there is a social element too - posting stories that interest you to your own news feed.</li>
+<li><b>Adding external information</b> to your profile, e.g. <a href="http://www.facebook.com/apps/application.php?id=5235256929">News Headlines</a>. This takes FB a little away from social networking and more toward a general portal. But there is a social element too - posting stories that interest you to your own news feed.</li>
 </ul>
 
 
@@ -70,7 +70,7 @@
     <li>Applications get access to a lot of information, while most only need a little. I'd much prefer a more granular system, where I could add most applications without worrying, as they only get very little access.</li>
     <li>Conversely, applications can't always do what you want. I'd like FriendCSV to do a CSV dump that includes all my friends' emails and phone numbers. This is information that my friends allow me to see, and I'd like to pass this privilege to an application. However, FB policy prevents FriendCSV from doing this.</li>
     <li>My friends list is public by default. For me, and I think most people, I'm happy with friends seeing this, but not unknown people. I am happy for non-friends to see the mutual friends they and I have in common.</li>
-    <li>My profile is visible to people in my network by default. This makes sense where network membership is controlled, e.g. a university. But for a non-controlled network (which most non-students are in) this effectively gives a backdoor for non-friends to view my profile.</li>
+    <li>My profile is visible to people in my network by default. This makes sense where network membership is controlled, e.g. a university. But for a non-controlled network (which most non-students are in) this effectively gives a back door for non-friends to view my profile.</li>
     </ul>
 </li>
 

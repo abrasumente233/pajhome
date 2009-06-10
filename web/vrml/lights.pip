@@ -8,7 +8,7 @@
 
 <p align="center"><pipp-img src="lights.gif"/></p>
 
-<p>Light sources only affect subsequent objects in the same separator. If you want to apply a transformation to a lightsource, but still want it to affect later objects, use <code>TransformSeparator</code> instead of <code>Separator</code>.</p>
+<p>Light sources only affect subsequent objects in the same separator. If you want to apply a transformation to a light source, but still want it to affect later objects, use <code>TransformSeparator</code> instead of <code>Separator</code>.</p>
 
 <p>Each type of light has these properties:</p>
 
@@ -30,7 +30,7 @@
 
 <h2>Directional Light</h2>
 
-<p>A direction light source emits parrallel rays which do not diverge or become dimmer with distance, like a laser with an infinitely wide and infinitely thick beam. Typically the headlight is a directional light. It has this property:</p>
+<p>A direction light source emits parallel rays which do not diverge or become dimmer with distance, like a laser with an infinitely wide and infinitely thick beam. Typically the headlight is a directional light. It has this property:</p>
 
 <ul>
 <li>direction (SFVec3f) - All rays are parallel to this vector.</li>
@@ -38,13 +38,13 @@
 
 <h2>SpotLight</h2>
 
-<p>This is a directional light source, where rays originate from a single point. They diverge outwards in the shape of a cone, and so become dimmer with distance. These properties are available:</p>
+<p>This is a directional light source, where rays originate from a single point. They diverge outward in the shape of a cone, and so become dimmer with distance. These properties are available:</p>
 
 <ul>
 <li>location (SFVec3f) - The point that the rays originate from.</li>
 <li>direction (SFVec3f) - The direction of the cone's axis.</li>
 <li>cutOffAngle (SFFloat) - The angle at the tip of the cone.</li>
-<li>dropOffRate (SFFloat) - The rate at which light dimms with distance.</li>
+<li>dropOffRate (SFFloat) - The rate at which light dims with distance.</li>
 </ul>
 
 </body>

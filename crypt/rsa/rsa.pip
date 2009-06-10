@@ -58,13 +58,13 @@ To make the example easy to follow I am going to use small numbers, but this is 
 
 <h3>4) Choose a small number, <span class="math">e</span> coprime to <span class="math">m</span></h3>
 
-<p><span class="math">e</span> coprime to <span class="math">m</span>, means that the largest number that can exactly divide both <span class="math">e</span> and <span class="math">m</span> (their greatest common divisor, or gcd) is 1. Euclid's algorithm is used to find the gcd of two numbers, but the details are omitted here.</p>
+<p><span class="math">e</span> coprime to <span class="math">m</span>, means that the largest number that can exactly divide both <span class="math">e</span> and <span class="math">m</span> (their greatest common divisor, or GCD) is 1. Euclid's algorithm is used to find the GCD of two numbers, but the details are omitted here.</p>
 
 <p class="math">
-  e = 2 => gcd(e, 108) = 2 (no)<br/>
-  e = 3 => gcd(e, 108) = 3 (no)<br/>
-  e = 4 => gcd(e, 108) = 4 (no)<br/>
-  e = 5 => gcd(e, 108) = 1 (yes!)
+  e = 2 => GCD(e, 108) = 2 (no)<br/>
+  e = 3 => GCD(e, 108) = 3 (no)<br/>
+  e = 4 => GCD(e, 108) = 4 (no)<br/>
+  e = 5 => GCD(e, 108) = 1 (yes!)
 </p>
 
 <h3>5) Find <span class="math">d</span>, such that <span class="math">de % m = 1</span></h3>
@@ -96,7 +96,7 @@ n = 3 => d = 325 / 5 <br/>
 
 <h3>Encryption</h3>
 
-<p>The message must be a number less than the smaller of p and q. However, at this point we don't know p or q, so in practice a lower bound on p and q must be published. This can be somewhat below their true value and so isn't a major security concern. For this example, lets use the message "6".</p>
+<p>The message must be a number less than the smaller of p and q. However, at this point we don't know p or q, so in practise a lower bound on p and q must be published. This can be somewhat below their true value and so isn't a major security concern. For this example, lets use the message "6".</p>
 
 <p class="math">C = P<sup>e</sup> % n<br/>
 &#160; = 6<sup>5</sup> % 133<br/>
@@ -105,7 +105,7 @@ n = 3 => d = 325 / 5 <br/>
 
 <h3>Decryption</h3>
 
-<p>This works very much like encryption, but involves a larger exponation, which is broken down into several steps.</p>
+<p>This works very much like encryption, but involves a larger exponentiation, which is broken down into several steps.</p>
 
 <p class="math">
   P = C<sup>d</sup> % n<br/>

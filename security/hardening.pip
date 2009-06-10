@@ -4,7 +4,7 @@
 
 <p><b>(Old content; kept as still useful)</b></p>
 
-<p>There are several ways in which you to harden a system. This is presented in Unix terms, but the underlying priciples apply to all operating systems.</p>
+<p>There are several ways in which you to harden a system. This is presented in Unix terms, but the underlying principles apply to all operating systems.</p>
 
 <b>Against network attacks</b>
 <ul>
@@ -13,7 +13,7 @@
 <li>Turn off many ICMP features - redirects, timestamp requests, netmask requests, etc. Consider whether you need pings.</li>
 <li>Configure services not to advertise their type and version in their banner, headers or in response to queries like help, syst or version.bind.</li>
 <li>Install a firewall, although for a well-configured device this doesn't give as much protection as generally hyped.</li>
-<li>Have a message like "authorized users only" in your banners - this will make it easier to prosecute a hacker.</li>
+<li>Have a message like "authorised users only" in your banners - this will make it easier to prosecute a hacker.</li>
 <li>Don't use rhosts authentication.</li>
 </ul>
 
@@ -33,14 +33,14 @@ This may be an attacker who has already hacked a non-root service.
 <li>Turn off users' access to cron, sendmail, etc.</li>
 <li>Disable ptrace</li>
 <li>The best protection is to keep all users inside a chroot that contains no device nodes or setuid binaries.</li>
-<li>FreeBSD can go one step further and do a chroot jail which restricts network access, as well as filesystem access.</li>
+<li>FreeBSD can go one step further and do a chroot jail which restricts network access, as well as file system access.</li>
 </ul>
 
 <b>Against legitimate users' clumsiness</b>
 <ul>
 <li>Use a password checker to stop people using weak passwords.</li>
 <li>Don't let administrators use the same password for admin services as they do for unencrypted things like POP3.</li>
-<li>Make users home directiories root owned, with permissions 770, so the user can still write to their home directory, but they cannot accidentally change the permissions to let others in.</li>
+<li>Make users home directories root owned, with permissions 770, so the user can still write to their home directory, but they cannot accidentally change the permissions to let others in.</li>
 <li>Gives users a strict default umask, e.g. 077.</li>
 </ul>
 
@@ -69,7 +69,7 @@ This may be an attacker who has already hacked a non-root service.
 
 <b>Against physically-local attacks</b>
 <ul>
-<li>Password protected single-user maintainance mode, and the boot loader (to stop anyone entering kernel parameters).</li>
+<li>Password protected single-user maintenance mode, and the boot loader (to stop anyone entering kernel parameters).</li>
 <li>Set BIOS to only boot off the hard drive, and password protect the BIOS.</li>
 <li>Padlock the case. Most cases are able to do this, though you may have to fit the attachment.</li>
 <li>Disable serial consoles and ctrl-alt-delete.</li>
@@ -82,7 +82,7 @@ This may be an attacker who has already hacked a non-root service.
 <ul>
 <li>Crank up logging</li>
 <li>tripwire</li>
-<li>portscan detector</li>
+<li>port scan detector</li>
 </ul>
 
 </body>

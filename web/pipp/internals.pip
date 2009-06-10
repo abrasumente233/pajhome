@@ -1,13 +1,13 @@
 <pipp>
 <title>Internals</title>
-<desc>Desciption of the internal workings of Pipp. Only advanced users should need to read this.</desc>
+<desc>Description of the internal workings of Pipp. Only advanced users should need to read this.</desc>
 <status>unfinished</status>
 <body>
 
 <h2>State Document</h2>
 
 In-memory XML is used for everything
-The shared dom means that pipp is not thread-safe
+The shared DOM means that pipp is not thread-safe
 
 
 <h2>Build Process</h2>
@@ -33,7 +33,7 @@ The shared dom means that pipp is not thread-safe
 
 <ul>
 <li>To remove orphaned files in out TBD</li>
-<li>pipp:file with wildcard TBD</li>
+<li>pipp:file with wild card TBD</li>
 </ul>
 
 <p>In future versions of Pipp, These issues will be handled in partial builds.</p>
@@ -58,7 +58,7 @@ The shared dom means that pipp is not thread-safe
 
 <h2>Tooltray App</h2>
 
-Use of registy
+Use of registry
 
 
 </body>

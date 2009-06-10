@@ -6,7 +6,7 @@
 
 <pipp-child src="webchecks.pip"/>
 
-<p>Web applications are a target for hackers if not properly secured. There are a number of technical subtles in correctly securing a web application. Coding errors can lead to vulnerabilities like SQL injection and cross-site scripting. Different risks affect sites with different functions:</p>
+<p>Web applications are a target for hackers if not properly secured. There are a number of technical subtleties in correctly securing a web application. Coding errors can lead to vulnerabilities like SQL injection and cross-site scripting. Different risks affect sites with different functions:</p>
 
 <ul class="gap">
 <li><b>Static Sites</b><br/>

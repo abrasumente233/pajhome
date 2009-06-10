@@ -51,7 +51,7 @@ relevant skills from previous jobs.</p>
 were developing and maintaining a web hosting company and an ISP. I developed
 new features such as a domain renewal reminder and an ADSL number checker. This
 involved research, design, coding, testing and documentation, using Python,
-MySQL and Linux. I debugged the pre-existing code and audited it for security
+MySQL and Linux. I debugged the preexisting code and audited it for security
 problems. I found several vulnerabilities caused by design errors and
 insufficient input validation. I fixed the specific bugs and introduced designs
 that reduced the possibility of future bugs. I also reviewed the configuration

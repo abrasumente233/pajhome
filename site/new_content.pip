@@ -3,10 +3,10 @@
 <desc>There's a lot of new content I'd like to develop, given time. Contributions are welcome too.</desc>
 <body>
 
-<p>I aim to do the following within a reasonable timeframe:</p>
+<p>I aim to do the following within a reasonable time frame:</p>
 
 <ul>
-<li>More programming advice - using version control, unit tests, unicode</li>
+<li>More programming advice - using version control, unit tests, Unicode</li>
 <li>More articles on security:
 <ul>
 <li>Components, Interfaces and Security Boundaries</li>
@@ -24,7 +24,7 @@
 <li>Fix the CRC library - not a lot of work needed for a C only interface</li>
 <li>Expand RSA to include details of practical key management systems - SSH, SSL CAs, etc.</li>
 <li>Master Mind - I have a working brute force computer player</li>
-<li>Sudoku - I have some good steps towards a deductive solver, but there are already many of these.</li>
+<li>Sudoku - I have some good steps toward a deductive solver, but there are already many of these.</li>
 <li>aho-corasick implementation - I have a mostly working version in C</li>
 <li>dice game - I have a partial implementation; with some improvement could start running models to determine best strategies for a computer player.</li>
 <li>Better log processing. I think awstats will do most of this, but I will probably have some ideas to submit back to them as well.</li>

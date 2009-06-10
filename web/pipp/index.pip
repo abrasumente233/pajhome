@@ -12,7 +12,7 @@
 <ul>
 <li>Updating content across multiple pages</li>
 <li>Multiple presentations of content (e.g. printable view)</li>
-<li>Hierarchial navigation panes</li>
+<li>Hierarchical navigation panes</li>
 <li>Image width and height tags</li>
 <li>Thumbnail images</li>
 <li>Source code with syntax highlighting</li>
@@ -36,7 +36,7 @@
 
 <p>A good way to start is to take the example site and modify it to suit your requirements. To get going:</p>
 
-<p>Try changing some text in a page, and refresh your browser - the changes will be visible immediately. Change a title of a page; the navigation bar is automatically updated on all pages. You can set a logo on a page, and it is inhereited by its children, unless overridden. Styles work the same way. You can add a new page by creating a new .pip file (or copying an existing one), and adding a pipp-child directive to its parent.</p>
+<p>Try changing some text in a page, and refresh your browser - the changes will be visible immediately. Change a title of a page; the navigation bar is automatically updated on all pages. You can set a logo on a page, and it is inherited by its children, unless overridden. Styles work the same way. You can add a new page by creating a new .pip file (or copying an existing one), and adding a pipp-child directive to its parent.</p>
 
 <p>To update the look of the site, you will need to edit pipp.xsl - an <a href="http://www.w3.org/TR/xslt">XSLT</a> file. You will need basic knowledge of XSLT to make non-trivial changes. To update look of the navigation bar, edit navbar.xsl.</p>
 

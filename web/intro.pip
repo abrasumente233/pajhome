@@ -32,7 +32,7 @@
 <p>As well as helping to structure your application in a useful way, most frameworks try to offer convenient ways to achieve common developer requirements. Some of the more common ones are:</p>
 
 <ul>
-<li>Authentication and authorization, user registration, forgotten passwords, etc.</li>
+<li>Authentication and authorisation, user registration, forgotten passwords, etc.</li>
 <li>Reusable components - popup calendars, rich text editors, etc.</li>
 <li>Libraries for form generation and validation; automatic construction from a database model.</li>
 <li>JavaScript libraries and server-side code to work with JSON.</li>
@@ -53,7 +53,7 @@
 <li>Most ORMs provide portability across a variety of SQL databases (Oracle, MySQL, etc.).</li>
 </ul>
 
-<p>ORMs do not suit all applications. If there is a lot of complex data querying, the ORM may do no more than add another layer of complexity, and using plain SQL would be appropriate. An MVC architecture does not enfore use of an ORM, but they do work well together.</p>
+<p>ORMs do not suit all applications. If there is a lot of complex data querying, the ORM may do no more than add another layer of complexity, and using plain SQL would be appropriate. An MVC architecture does not enforce use of an ORM, but they do work well together.</p>
 
 
 <h2>View - Template Languages</h2>
@@ -61,7 +61,7 @@
 <p>Most frameworks use a templating language for the view. This is generally HTML with some extra annotations. For example, in <a href="http://genshi.edgewall.org/">Genshi</a> templates, py:for can be used to do a for loop. These annotations are processed on the server, so the client only sees regular HTML. Templating languages generally have the following features:</p>
 
 <ul>
-<li>Variable subsitution - e.g. $username is replaced by the username variable.</li>
+<li>Variable substitution - e.g. $username is replaced by the username variable.</li>
 <li>Loops (for) and conditional blocks (if).</li>
 <li>Embedding expressions or code, e.g. ${username.lower()}</li>
 <li>Reusable blocks, somewhat like functions.</li>
