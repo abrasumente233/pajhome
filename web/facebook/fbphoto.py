@@ -1,5 +1,5 @@
 #--
-# fbphoto version 0.2
+# fbphoto version 0.3
 # Match pictures on your local computer with pictures uploaded to Facebook.
 # Copyright Paul Johnston 2009, distributed under the BSD license.
 # More information: http://pajhome.org.uk/web/facebook/fbphoto.html
@@ -12,7 +12,7 @@ src = re.compile('<a href="(http://.*?)".*?><img src="(http://photos-.*?\.jpg)"'
 thumbs_per_page = 20
 samp_spot = (10,10)
 threads = 5
-match_cutoff = 4300
+match_cutoff = 1000
 subdir = 'fbphoto'
 
 
@@ -129,7 +129,7 @@ def resize(picdir, fb_thumbs):
             w,h = img.size
             # find closest matching aspect ratio
             dims = sorted((((d-float(w)/h)**2, dimens[d]) for d in dimens), key=lambda x: x[0])
-            img = img.thumbnail(dims[0][1], Image.ANTIALIAS)
+            img.thumbnail(dims[0][1], Image.ANTIALIAS)
             img.save(os.path.join(workdir, lt.fname))
     return loc_thumbs
 
@@ -141,8 +141,8 @@ def match_thumb(fb_thumbs, loc_thumbs, picdir):
     and performant. Local thumbnails are indexed, based on a sample spot. As each
     facebook thumbnail is examined, the most likely matches are those with the
     closest colour on the sample spot. Image comparison is done by the average
-    sum of squares difference, for each colour and pixel. Experience shows that
-    a value below 4300 usually indicates a match.
+    sum of squares difference, for each colour and pixel. The cutoff value is
+    determined by experiment.
     '''
     diff = lambda a,b: (a[0]-b[0])**2 + (a[1]-b[1])**2 + (a[2]-b[2])**2
     def img_diff(x, y):
@@ -177,7 +177,7 @@ def match_thumb(fb_thumbs, loc_thumbs, picdir):
             print "Warning - no match for %s" % fb_thumb.fname
     matches.sort(key = lambda x: x[1].orig_name.lower())
 
-    for ft,lt in matches:
+    for ft,lt,x in matches:
         jpeg.setComments(ft.fburl, os.path.join(picdir, lt.orig_name))
 
     fh = open(os.path.join(workdir, 'check.html'), 'w')
