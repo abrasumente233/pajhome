@@ -38,8 +38,7 @@ a:hover img         { border-color: #FF8800; }
   background:   #FF4400;
 }
 
-
-div#breadcrumb a:hover div {
+#nav li ul {
     background: #000088;
     border: 2px #FF4400 solid;
 }

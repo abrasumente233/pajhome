@@ -16,7 +16,7 @@
 
 <xsl:template match="/page">
     <xsl:for-each select="//page[exports/link=pipp:import('link')]">
-    <div><ul id="nav">
+    <ul id="nav">
         <xsl:for-each select="ancestor-or-self::page">
             <xsl:value-of select="pipp:export-depend(@src, 'nonav')"/>
         </xsl:for-each>
@@ -41,7 +41,7 @@
                 </xsl:if>
             </li>
         </xsl:for-each>
-    </ul></div>
+    </ul>
     </xsl:for-each>
     <script type="text/javascript">
     if(navigator.userAgent.search(/MSIE/) > -1)
@@ -54,6 +54,24 @@
             sfEls[i].onmouseout=function() {
                 this.className=this.className.replace(new RegExp(" sfhover"), "");
             }
+        }
+
+        var nav = document.getElementById("nav");
+        for(var tnode = nav.firstChild; tnode; tnode = tnode.nextSibling)
+        {
+            popup = tnode.getElementsByTagName("UL");
+            if(popup.length == 0) break;
+            popup = popup[0];
+            var posX = 0;
+            var posY = 0;
+            var node = tnode;
+            while(node != null){
+                posX += node.offsetLeft;
+                posY += node.offsetTop;
+                node = node.offsetParent;
+            }
+            popup.style.top = posY + 18;
+            popup.style.left = posX - 40;
         }
     }
     </script>

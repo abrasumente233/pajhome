@@ -69,9 +69,7 @@ dd                  { margin-bottom: 1em; }
 
 #nav li ul {
     position: absolute;
-    left: -999em;
-    background: white;
-    border: 2px blue solid;
+    display: none;
     padding: 2px 2px 2px 2px;
 }
 
@@ -80,7 +78,7 @@ dd                  { margin-bottom: 1em; }
 }
 
 #nav li:hover ul, #nav li.sfhover ul {
-    left: auto;
+    display: block;
 }
 
 img.photo {

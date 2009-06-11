@@ -35,6 +35,7 @@
 
 <p>In April 2009 I decided to use my website to promote myself as a freelance IT professional, resulting in the <a href="../consult/index.html">consultancy</a> section. To appear more professional, I made an effort to tidy up the site, particularly any half-written pages. This resulted in the new look. The old logos are replaced by <a href="logos.html">photos</a>. The navigation side bar is replaced by a breadcrumb navigator at the top. The section contents pages are now automatically generated, resulting in a more consistent appearance. H2 tags are used less; links with "more..." are used liberally. External and email links now get icons next to them. To help me update the site from low-bandwidth connections, I have moved the big downloads and images off-site, to Google code and Facebook photos. A .zip file of the whole site is now only 2.4mb.</p>
 
+<p>In May 2009 the breadcrumb navigator gained popup functionality. Making this work in the common browsers was a challenge; the code is based on <a href="http://htmldog.com/ptg/archives/000050.php">Son of Suckerfish</a>, but modified to avoid hardcoded widths. In the effort to debug this, it was pointed out that my site is not valid HTML. I've since made an effort to run a tighter ship - all pages should now be valid HTML-4.01/strict, and I've started to use a spell checker.</p>
 
 <h2>Security</h2>
 
