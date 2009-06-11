@@ -9,7 +9,7 @@
 
 <h2>Modular Arithmetic</h2>
 
-<p><pipp-img src="clock.gif" align="left"/>
+<p><pipp-img src="clock.gif" class="photo"/>
 RSA uses modular arithmetic. This is similar to conventional arithmetic, but only uses positive integers that are less than a chosen value, called the modulus. Addition, subtraction and multiplication work like regular maths, but there is no division. You can use any value for the modulus; the diagram uses 13, so counting goes 0, 1, 2, ..., 11, 12, 0, 1, 2 ... The notation used for expressions involving modular arithmetic is:</p>
 
 <p class="math">x = y (mod m)</p>

@@ -9,16 +9,17 @@
 <pipp-child src="memories.pip"/>
 <pipp-child src="themail.pip"/>
 
-<p><pipp-thumb src="partyline.jpg" height="125" alt="Partyline Flyer" align="left"/>
+<p><pipp-thumb src="partyline.jpg" height="125" alt="Partyline Flyer" class="photo"/>
 During 1999, as a result of some very unlikely and unexpected events, I discovered a wonderful scene of all night dance parties in clubs, squats and fields. I love the music - acid techno, gabba, trance, NRG, and more - especially when dancing in a crowd to a big system. Moreover, I really like a lot of people who I've met at these events, and it's been a lot of fun, so I've kept:</p>
 
-<br clear="all"/>
-
-<pipp-map-view src="/section.xsl"/>
+<div class="clearit">
+    <pipp-map-view src="/section.xsl"/>
+</div>
 
 <p style="text-align:center">
-  <pipp-thumb src="waterden.jpg" height="150" alt="Waterden Road Flyer"/>
-  <pipp-thumb src="xbones.gif" height="150" alt="Cross Bones Flyer"/>
+    <pipp-thumb src="waterden.jpg" height="150" alt="Waterden Road Flyer" style="border:none"/>
+    &#160;
+    <pipp-thumb src="xbones.gif" height="150" alt="Cross Bones Flyer" style="border:none"/>
 </p>
 
 </body>

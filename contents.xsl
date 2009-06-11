@@ -22,25 +22,28 @@
                 <xsl:variable name="xlogo" select="pipp:relative-path(concat('/logos/', (ancestor-or-self::node()/exports/logo)[last()]))"/>
                 <xsl:variable name="logo" select="concat(substring($xlogo, 0, string-length($xlogo)-3), '_mini.jpg')"/>
                 <xsl:value-of select="pipp:file($logo)"/>
-                <strong><a href="{pipp:relative-path(exports/link)}">
+                <a href="{pipp:relative-path(exports/link)}">
                     <img width="{pipp:image-width($logo)}" height="{pipp:image-height($logo)}" src="{$logo}" alt="" class="contimg"/>
+                </a>
+                <h3>
                     <xsl:if test="exports/status = 'new'">
                         <xsl:value-of select="pipp:file('/logos/new.png')"/>
                         <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" style="border: none" title="New content" alt=""/>
                     </xsl:if>
+                    <a href="{pipp:relative-path(exports/link)}">
                     <xsl:value-of select="exports/title"/>
-                </a></strong><br/>
+                </a></h3>
                 <xsl:value-of select="pipp:export-depend(@src, 'desc')"/>
                 <xsl:value-of select="exports/desc"/><br/>
                 <xsl:for-each select="children/page">
                     <xsl:value-of select="pipp:export-depend(@src, 'link')"/>
                     <xsl:value-of select="pipp:export-depend(@src, 'title')"/>
                     <xsl:value-of select="pipp:export-depend(@src, 'status')"/>
+                    <xsl:if test="exports/status = 'new'">
+                        <xsl:value-of select="pipp:file('/logos/new.png')"/>
+                        <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" style="border: none" title="New content" alt=""/>
+                    </xsl:if>
                     <a href="{pipp:relative-path(exports/link)}">
-                        <xsl:if test="exports/status = 'new'">
-                            <xsl:value-of select="pipp:file('/logos/new.png')"/>
-                            <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" style="border: none" title="New content" alt=""/>
-                        </xsl:if>
                         <xsl:value-of select="exports/title"/>
                     </a>
                     <xsl:if test="position() != last()">, </xsl:if>

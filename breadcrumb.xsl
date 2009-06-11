@@ -4,7 +4,7 @@
     xmlns:pipp="http://pajhome.org.uk/web/pipp/xml-namespace"
     extension-element-prefixes="pipp"
     version="1.0">
-<xsl:output indent="yes" method="html"/>
+<xsl:output indent="no" method="html"/>
 
 <xsl:template name="popup">
     <xsl:param name="prefix"/>
@@ -43,17 +43,20 @@
         </xsl:for-each>
     </ul></div>
     </xsl:for-each>
-   <!--<script type="text/javascript">
-    var sfEls = document.getElementById("nav").getElementsByTagName("LI");
-    for(var i=0; i &lt; sfEls.length; i++) {
-        sfEls[i].onmouseover=function() {
-            this.className+=" sfhover";
-        }
-        sfEls[i].onmouseout=function() {
-            this.className=this.className.replace(new RegExp(" sfhover"), "");
+    <script type="text/javascript">
+    if(navigator.userAgent.search(/MSIE/) > -1)
+    {
+        var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+        for(var i=0; i &lt; sfEls.length; i++) {
+            sfEls[i].onmouseover=function() {
+                this.className+=" sfhover";
+            }
+            sfEls[i].onmouseout=function() {
+                this.className=this.className.replace(new RegExp(" sfhover"), "");
+            }
         }
     }
-    </script> -->
+    </script>
 </xsl:template>
 
 </xsl:stylesheet>

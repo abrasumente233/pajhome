@@ -159,21 +159,21 @@
  ! Put logos by external/email links
  !-->
 <xsl:template match="a">
-        <xsl:if test="@href">
-                <xsl:value-of select="pipp:link(@href)"/>
-        </xsl:if>
-        <a>
-                <xsl:apply-templates select="@*[name() != 'noimg']"/>
-                <xsl:if test="starts-with(@href, 'mailto') and not(@noimg)">
-                        <xsl:value-of select="pipp:file('/logos/email.png')"/>
-                        <img src="{pipp:relative-path('/logos/email.png')}" alt="" style="border:none" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
-                </xsl:if>
-                <xsl:if test="starts-with(@href, 'http') and not(@noimg)">
-                        <xsl:value-of select="pipp:file('/logos/elink.png')"/>
-                        <img src="{pipp:relative-path('/logos/elink.png')}" alt="" style="border:none" width="{pipp:image-width('/logos/elink.png')}" height="{pipp:image-height('/logos/elink.png')}"/>
-                </xsl:if>
-                <xsl:apply-templates/>
-        </a>
+    <xsl:if test="@href">
+        <xsl:value-of select="pipp:link(@href)"/>
+    </xsl:if>
+    <xsl:if test="starts-with(@href, 'mailto') and not(@noimg)">
+        <xsl:value-of select="pipp:file('/logos/email.png')"/>
+        <img src="{pipp:relative-path('/logos/email.png')}" alt="" style="border:none" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
+    </xsl:if>
+    <xsl:if test="starts-with(@href, 'http') and not(@noimg)">
+        <xsl:value-of select="pipp:file('/logos/elink.png')"/>
+        <img src="{pipp:relative-path('/logos/elink.png')}" alt="" style="border:none" width="{pipp:image-width('/logos/elink.png')}" height="{pipp:image-height('/logos/elink.png')}"/>
+    </xsl:if>
+    <a>
+        <xsl:apply-templates select="@*[name()!='noimg']"/>
+        <xsl:apply-templates/>
+    </a>
 </xsl:template>
 
 </xsl:stylesheet>

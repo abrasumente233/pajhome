@@ -61,14 +61,10 @@ dd                  { margin-bottom: 1em; }
     list-style: none;
 }
 
-#nav a {
-}
-
 #nav li {
     display: block;
     float: left;
     list-style: none;
-    /* width: 8em; */
 }
 
 #nav li ul {
@@ -95,7 +91,7 @@ img.photo {
 }
 
 h3 { margin-top: 0; }
-.blog_photos h3, .logos h3 {
+.blog_photos h3, .logos h3, .contents h3 {
     margin-top: 0;
     margin-bottom: 0;
 }
