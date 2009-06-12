@@ -33,7 +33,7 @@
 <li>Improved performance. safe_add is slow, and only needed for very old browsers. Also, I believe Firefox allows JavaScript to access a cryptographic library, which would likely be much faster.</li>
 <li>Streaming support. Currently, you have to put everything you want to hash into a single string. This would allow you to add data to a hash, bit by bit.</li>
 <li>JavaScript password strength checker. It may be more appropriate to release this as a separate script.</li>
-<li>Currently, several chunks of code have been copied and pasted between the scripts. This is general considered bad programming practise. We need to find some way to avoid this, while still providing users with a single, self-contained file for each hash.</li>
+<li>Currently, several chunks of code have been copied and pasted between the scripts. This is general considered bad programming practice. We need to find some way to avoid this, while still providing users with a single, self-contained file for each hash.</li>
 </ul>
 
 <p>Some potential approaches have been submitted for the object interface, and further suggestions are welcome:</p>

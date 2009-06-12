@@ -13,7 +13,12 @@
 
 <p>If you want to block unencrypted logins, remove the login button from the HTML, and have JavaScript insert it dynamically. If JavaScript is not available, the user will simply not see the login button.</p>
 
-<p>There is the possibility that JavaScript is available, but the hash scripts don't work. This will be very rare in practise. To help cope with this, the scripts have a function like <code>md5_vm_test</code> that returns true if the script is functioning correctly. If the script is not working, you will want to behave as if JavaScript is not available.</p>
+<p>There is the possibility that JavaScript is available, but the hash scripts don't work. This will be very rare in practice. To help cope with this, the scripts have a function like <code>md5_vm_test</code> that returns true if the script is functioning correctly. If the script is not working, you will want to behave as if JavaScript is not available.</p>
+
+
+<h2>Save Password Feature</h2>
+
+<p>Most modern browsers have the ability to save passwords for web sites. JavaScript password hashing can interfere with this. Firefox and Opera save the password value before onsubmit is called, so the feature works correctly with JavaScript hashing. However, Internet Explorer, Safari and Chrome save the values after the onsubmit event. To better support these browsers, save the password hash in a hidden field, and blank the password field. In this case, these browsers will not offer to save the password, which is better than saving a password hash that won't work.</p>
 
 
 <h2>Efficiency</h2>

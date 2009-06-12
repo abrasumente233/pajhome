@@ -43,7 +43,7 @@
 
 <h2>Don't Store the Data</h2>
 
-<p>Obvious as this solution sounds, it is only now it is really being explored. Traditionally, merchants that take credit cards have stored a lot of data for audit purposes, inadvertently making them a target (e.g. <a href="http://www.tjx.com/TJX_press_release_Jan_17_%2007.pdf">the T.J. Maxx breach</a>). In reality, there is no need for merchants to store this data; the card issuers could do it instead. Some merchants choose to store details to support features like repeat payments, although this practise may become less common in the future.</p>
+<p>Obvious as this solution sounds, it is only now it is really being explored. Traditionally, merchants that take credit cards have stored a lot of data for audit purposes, inadvertently making them a target (e.g. <a href="http://www.tjx.com/TJX_press_release_Jan_17_%2007.pdf">the T.J. Maxx breach</a>). In reality, there is no need for merchants to store this data; the card issuers could do it instead. Some merchants choose to store details to support features like repeat payments, although this practice may become less common in the future.</p>
 
 <p>In some cases this is not an option. For example, a credit card issuer absolutely has to store all the credit card information, along with the customer's details. But where this is possible, it is the most effective defence.</p>
 

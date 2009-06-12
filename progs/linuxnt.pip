@@ -33,7 +33,7 @@
 
 <h2>Security</h2>
 
-<p>The recent scares with Microsoft products are against applications like Internet Explorer or Outlook, not the operating system. There are security scares with Unix products as well, but the bugs get exploited far less. Sadly, the modern trend of having loads of applications installed is not a good security policy. You need to make a conscious effort to run a tight ship whatever your operating system. In theory, NT's "access control list" policy offers more flexibility here, but in practise it's easier to do this under Linux. So I would in general say that Linux is more secure. NT does have some clever security features though, like digitally signed drivers and "press ctrl-alt-delete to login".</p>
+<p>The recent scares with Microsoft products are against applications like Internet Explorer or Outlook, not the operating system. There are security scares with Unix products as well, but the bugs get exploited far less. Sadly, the modern trend of having loads of applications installed is not a good security policy. You need to make a conscious effort to run a tight ship whatever your operating system. In theory, NT's "access control list" policy offers more flexibility here, but in practice it's easier to do this under Linux. So I would in general say that Linux is more secure. NT does have some clever security features though, like digitally signed drivers and "press ctrl-alt-delete to login".</p>
 
 <h2>Reliability</h2>
 

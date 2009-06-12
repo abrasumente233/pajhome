@@ -1,7 +1,6 @@
 <pipp>
 <title>Python</title>
 <desc>A quick run down of my favourite Python libraries.</desc>
-<spell>no</spell>
 <body>
 
 <p>I like <a href="http://www.python.org/">Python</a> because it's fun to program in. The syntax is intuitive and easy to read; a lot of people describe it as "clean". There are enough libraries available to get you going quickly with all sorts of tasks. It works well for both simple scripts and complex programs, and advanced programming techniques are possible, such as meta-programming. I've found it to be very stable and reliable; I have yet to see the interpreter crash with an internal error. There are concerns with performance and memory consumption, but I've always found it to work fine, even for bulk data tasks.</p>

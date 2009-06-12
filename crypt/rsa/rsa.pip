@@ -96,7 +96,7 @@ n = 3 => d = 325 / 5 <br/>
 
 <h3>Encryption</h3>
 
-<p>The message must be a number less than the smaller of p and q. However, at this point we don't know p or q, so in practise a lower bound on p and q must be published. This can be somewhat below their true value and so isn't a major security concern. For this example, lets use the message "6".</p>
+<p>The message must be a number less than the smaller of p and q. However, at this point we don't know p or q, so in practice a lower bound on p and q must be published. This can be somewhat below their true value and so isn't a major security concern. For this example, lets use the message "6".</p>
 
 <p class="math">C = P<sup>e</sup> % n<br/>
 &#160; = 6<sup>5</sup> % 133<br/>

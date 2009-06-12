@@ -13,13 +13,13 @@
 
 <p>With RSA, the encryption and decryption techniques are very similar. In fact it is possible to reverse them - encrypt a message using the private key. The ciphertext produced is a digital signature. When decrypted with the public key it reproduces the original message. This process is secure, because the only way to produce a something that decrypts to a chosen message is to know the private key.</p>
 
-<p>Like encryption, you don't in practise sign the whole message. The usual approach is to take a hash of the message, and sign that. The hash is a kind of fingerprint that is (almost) unique to that particular message. It is important to use a secure hash algorithm, so it's impractical for an attacker to find another message that produces the same hash. The chance of a collision occurring randomly is minuscule. There's more information about hashes on my <a href="../md5/index.html">JavaScript MD5</a> page.</p>
+<p>Like encryption, you don't in practice sign the whole message. The usual approach is to take a hash of the message, and sign that. The hash is a kind of fingerprint that is (almost) unique to that particular message. It is important to use a secure hash algorithm, so it's impractical for an attacker to find another message that produces the same hash. The chance of a collision occurring randomly is minuscule. There's more information about hashes on my <a href="../md5/index.html">JavaScript MD5</a> page.</p>
 
 <h2>Certificates</h2>
 
 <p>Certificates provides a secure way of relating a real world identity to a public key. They rely on the concept of a widely trusted central authority. Everyone knows the public key for this central, certification authority (CA). The core parts of a certificate are the person's name, their public key, and a digital signature of the whole certificate, using the CA's private key. As there is more than one CA in the world, certificates also include the name the CA. They can also include other details like the person's email address, and can apply to things other than people - e.g. companies or computers.</p>
 
-<p>The CA's public key must be distributed securely. In practise they come with software like web browsers. This means that you should take extra care downloading browsers off the Internet - CDs are a safer bet.</p>
+<p>The CA's public key must be distributed securely. In practice they come with software like web browsers. This means that you should take extra care downloading browsers off the Internet - CDs are a safer bet.</p>
 
 </body>
 </pipp>

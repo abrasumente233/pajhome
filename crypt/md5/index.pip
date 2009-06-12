@@ -36,7 +36,7 @@
 
 <dl>
 <dt>Protecting Passwords</dt>
-<dd>Without protection, passwords are vulnerable to network sniffing. An attacker could be monitoring an open wireless access point, or using a tool like tcpdump on an ethernet network. JavaScript MD5 protects your users' passwords, without the cost of using SSL. <a href="auth.html">more...</a></dd>
+<dd>Without protection, passwords are vulnerable to network sniffing. An attacker could be monitoring an open wireless access point, or using a tool like tcpdump on an ethernet network. JavaScript MD5 protects your users' passwords, for sites that do not use SSL. <a href="auth.html">more...</a></dd>
 
 <dt>Generating Passwords</dt>
 <dd>Most people have accounts on many different web sites. It isn't possible to remember so many passwords, so most people use the same password everywhere. If one web site suffers a security breach, or has a malicious operator, all your online accounts are at risk. Password generators help solve this problem. <a href="uses.html#passgen">more...</a></dd>

@@ -3,7 +3,7 @@
 <desc>How to build a web login system that protects passwords with JavaScript MD5.</desc>
 <body>
 
-<p>A user's password is the crown jewels of any password-based authentication system. Such an important asset needs protection; best practise is that a password is encrypted when:</p>
+<p>A user's password is the crown jewels of any password-based authentication system. Such an important asset needs protection; best practice is that a password is encrypted when:</p>
 
 <ul>
 <li>it is transmitted over the Internet, or</li>
@@ -18,7 +18,13 @@
 <h2>Implementing MD5 Passwords</h2>
 
 <p>I generally recommend using an authentication library, rather than implementing authentication yourself.
-Most languages and frameworks have such a library. However, at present, few authentication libraries support JavaScipt MD5. If you're involved in the development of a framework and would like to add this feature, do <a href="mailto:paj@pajhome.org.uk">email me</a>.</p>
+Most languages and frameworks have such a library. At present, few authentication libraries support JavaScipt hashing, only:</p>
+
+<ul>
+<li><a href="http://repoze-who-jscrypto.googlecode.com/">repoze.who-jscrypto</a> - a set of plugins for repoze.who to support JavaScript cryptography (Python).</li>
+</ul>
+
+<p>If you're involved in the development of a framework and would like to add this feature, do <a href="mailto:paj@pajhome.org.uk">email me</a>.</p>
 
 <p>The instructions below describe in general terms how to implement an MD5 authentication system. They avoid referring to any specific server-side language, so apply equally to ASP.Net and Ruby on Rails. Some language-specific instructions are also available, from other sites:</p>
 
