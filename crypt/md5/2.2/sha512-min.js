@@ -1,7 +1,7 @@
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-512, as defined
  * in FIPS 180-2
- * Version 2.2-beta Copyright Anonymous Contributor, Paul Johnston 2000 - 2009.
+ * Version 2.2 Copyright Anonymous Contributor, Paul Johnston 2000 - 2009.
  * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
  * Distributed under the BSD License
  * See http://pajhome.org.uk/crypt/md5 for details.

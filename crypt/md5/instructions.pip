@@ -1,11 +1,71 @@
 <pipp>
 <title>Instructions</title>
 <desc>How to use the scripts to calculate hashes.</desc>
-<body>
+<body class="hashinstructions">
 
 <p><b>Note:</b> If you want to use JavaScript hashing to protect passwords, read <a href="auth.html">these instructions</a>.</p>
 
-<h2>2.1 Instructions</h2>
+<h2>Instructions</h2>
+
+<h3>Common Usage</h3>
+
+<p>First download the <a href="jshash-2.2.zip">bundle</a>. For common use, I recommend using the minified scripts, which have been processed by the YUI Compressor. Note that these only support utf-8 input and hex output. Use it like this:</p>
+
+<pipp-code lexer="html">&lt;script type="text/javascript" src="md5-min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    hash = hex_md5("string");
+    hmac = hex_hmac_md5("key", "data");
+&lt;/script&gt;</pipp-code>
+
+<p>The usage for other hashes is essentially the same - sha1, sha256, sha512 or rmd160.</p>
+
+<h3>Other Output Encodings</h3>
+
+<p>The scripts support base64 encoding, although you must use the full script, not the minified version. If necessary, you can create you own minified script, with the functionality you need. Use it like this:</p>
+
+<pipp-code lexer="html">&lt;script type="text/javascript" src="md5.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    hash = b64_md5("string");
+    hmac = b64_hmac_md5("key", "data");
+&lt;/script&gt;</pipp-code>
+
+<p>There is also a mode called "any output encoding". This lets you specify a string of characters, and all those characters will be used to encode the password. The string can be any length - it does not need to be a power of 2. This is useful for applications like password generation, when you want to get as much unpredictability as possible into a short password. Use it like this:</p>
+
+<pipp-code lexer="html">&lt;script type="text/javascript" src="md5.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    hash = any_md5("string", "encoding");
+&lt;/script&gt;</pipp-code>
+
+<p>If the encoding is <code>0123456789ABCDEF</code> the output will be identical to <code>hex_md5</code>. It isn't possible to create output that's identical to base64 encoding.</p>
+
+<h3>Advanced Usage</h3>
+
+<p>If you want to use more advanced features, such as multiple repetitions of a hash, or utf-16 encoding, you need to use a slightly lower-level interface to the scripts. These have the concept of a "raw string"; this is a JavaScript string, but all the characters are between 0 and 255 - essentially a binary array. To get a hex hash, using utf-16 encoding:</p>
+
+<pipp-code lexer="html">&lt;script type="text/javascript" src="md5.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    hash = rstr2hex(rstr_md5(str2rstr_utf16le("string")));
+&lt;/script&gt;</pipp-code>
+
+<p>You can also use <code>str2rstr_utf16be</code>. To perform a double hash:</p>
+
+<pipp-code lexer="html">&lt;script type="text/javascript" src="md5.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    hash = rstr2hex(rstr_md5(rstr_md5(str2rstr_utf8("string"))));
+&lt;/script&gt;</pipp-code>
+
+<p>You can use variants of this to produce just about any hash you may need.</p>
+
+<h3>Unit Tests</h3>
+
+<p>To run the unit tests, you will need Python 2.5 or newer. The script <code>test.py</code> generates an HTML file that runs the tests:</p>
+
+<pipp-code lexer="bash">python test.py > test.html</pipp-code>
+
+<p>Next, open <code>test.html</code> in a browser to run the tests, and see the results. If you want to test the minified versions of the scripts, use <code>test-min.py</code>.</p>
+
+
+<h2>Instructions for Old Version 2.1</h2>
 
 <h3>Loading the libraries</h3>
 
@@ -80,33 +140,6 @@ double_hash = hex_md5(str_md5(data));
 </pipp-code>
 
 <p>The string is encoded so each character of a string represents either one or two bytes, in ASCII and Unicode respectively. This would be troublesome to send over HTTP as form data, but JavaScript strings are completely binary safe.</p>
-
-<h2>2.2-Beta Instructions</h2>
-
-<p>(Under construction)</p>
-
-<h3>Common Usage</h3>
-
-<p>First download the <a href="jshash-2.2-beta.zip">bundle</a>. For common use, I recommend using the minified scripts, which have been processed by the YUI Compressor. Note that these only support utf-8 input and hex output. Use it like this:</p>
-
-<pipp-code lexer="html">&lt;script type="text/javascript" src="md5-min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript"&gt;
-    hash = hex_md5("string");
-    hmac = hex_hmac_md5("key", "data");
-&lt;/script&gt;</pipp-code>
-
-<h3>Other Output Encodings</h3>
-
-any output encoding
-
-<h3>TBD</h3>
-
-how to use rstr_md5 and utf-16
-
-<h3>Unit Tests</h3>
-
-running tests
-
 
 </body>
 </pipp>

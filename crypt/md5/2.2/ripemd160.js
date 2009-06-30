@@ -1,6 +1,6 @@
 /*
  * A JavaScript implementation of the RIPEMD-160 Algorithm
- * Version 2.2-beta Copyright Jeremy Lin, Paul Johnston 2000 - 2009.
+ * Version 2.2 Copyright Jeremy Lin, Paul Johnston 2000 - 2009.
  * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
  * Distributed under the BSD License
  * See http://pajhome.org.uk/crypt/md5 for details.

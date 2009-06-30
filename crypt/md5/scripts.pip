@@ -11,17 +11,20 @@
 
 <pipp-file src="jshash-1.1.zip"/>
 <pipp-file src="jshash-2.1.zip"/>
-<pipp-file src="jshash-2.2-beta.zip"/>
+<pipp-file src="jshash-2.2.zip"/>
 
 <h2>Download</h2>
 
+<p>Current version:</p>
 <ul>
-<li>Current version - <a href="jshash-2.1.zip">jshash-2.1.zip</a></li>
-<li>Next version - <a href="jshash-2.2-beta.zip">jshash-2.2-beta.zip</a></li>
-<li>Old version - <a href="jshash-1.1.zip">jshash-1.1.zip</a></li>
+<li><a href="jshash-2.2.zip">jshash-2.2.zip</a></li>
 </ul>
 
-<p>The 2.2-beta version is very close to final release; this will be June 2009 at the latest.</p>
+<p>Older versions:</p>
+<ul>
+<li><a href="jshash-2.1.zip">jshash-2.1.zip</a></li>
+<li><a href="jshash-1.1.zip">jshash-1.1.zip</a></li>
+</ul>
 
 <h2>Future Version 3.0</h2>
 
@@ -48,7 +51,7 @@
 <h2>Change History</h2>
 
 <dl>
-<dt>2.2-beta (3 May 2009)</dt>
+<dt>2.2 (30 June 2009)</dt>
 <dd><ul>
 <li>More algorithms - RIPEMD-160, SHA-256 and SHA-512 are now supported, based on contributed code. Support for MD4 has been dropped.</li>
 <li>Compressed versions of the scripts are available, processed by <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a>. <code>sha1-min.js</code> is less than 3KB.</li>

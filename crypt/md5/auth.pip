@@ -12,10 +12,10 @@
 
 <p>This is the bare minimum, that all sites should be doing. Some sites require strong security, such as online banking, and use SSL. SSL offers strong protection, but can be costly to implement. Many sites do not need SSL, which is a reasonable business decision. However, most non-SSL sites transmit passwords over the Internet without encryption. This is not reasonable - it's below the bare minimum that everyone should be doing.</p>
 
-<p>By using JavaScript MD5, sites that do not use SSL can still meet these basic minimums. I strongly recommend this for all non-SSL sites that use passwords.</p>
+<p>By using JavaScript MD5, sites that do not use SSL can still meet these basic minimums. While this is not as strong as SSL, I recommend this for all non-SSL sites that use passwords.</p>
 
 
-<h2>Implementing MD5 Passwords</h2>
+<h2>Implementing Hashed Passwords</h2>
 
 <p>I generally recommend using an authentication library, rather than implementing authentication yourself.
 Most languages and frameworks have such a library. At present, few authentication libraries support JavaScipt hashing, only:</p>
@@ -42,7 +42,7 @@ Most languages and frameworks have such a library. At present, few authenticatio
 <dd>When the user does a successful login, the server issues a session cookie. This is effectively a random number that an attacker can't guess. The cookie is used to authorise subsequent access to protected pages. When the user does a logout, the cookie is deleted. This basic design is used by almost all web authentication systems.</dd>
 
 <dt>Challenge-Response Login</dt>
-<dd>The difference with an MD5 login is the "challenge-response" exchange. The server generates a challenge and sends this to the client, as a hidden field in the login form. The simplest challenge to use is the server's current time. Once the user has entered their password and clicked login, the client performs a hash operation including both the challenge and the password. It sends the result to the server, and the server checks this against its own calculation. During this exchange, the password is never transmitted unencrypted. If the hash is captured, it cannot be used again, as the challenge changes for each login. </dd>
+<dd>The difference with an hashed login is the "challenge-response" exchange. The server generates a challenge and sends this to the client, as a hidden field in the login form. The simplest challenge to use is the server's current time. Once the user has entered their password and clicked login, the client performs a hash operation including both the challenge and the password. It sends the result to the server, and the server checks this against its own calculation. During this exchange, the password is never transmitted unencrypted. If the hash is captured, it cannot be used again, as the challenge changes for each login. I recommend using SHA1 as the hash algorithm, simply because it is the smallest JavaScript file.</dd>
 
 <dt>Storing Passwords</dt>
 <dd>The server stores password hashes, instead of unencrypted passwords. A random number unique to the server is included in the hash. This number is called the "salt", and it is not secret. It is also included in a hidden field in the login form. The purpose of the server-specific salt is to ensure that a captured password cannot be used on a different server.</dd>
@@ -60,20 +60,20 @@ Most languages and frameworks have such a library. At present, few authenticatio
 
 <li>Modify the login form:
 <ul class="nogap">
-<li>Add a hidden field containing the server salt</li>
-<li>Add a hidden field containing the current server time</li>
+<li>Add a hidden fields for: the server salt, the current server time, and the password hash</li>
 <li>Add a script tag to link to <code>md5.js</code></li>
 <li>Add a JavaScript onsubmit event:<br/>
 <pipp-code lexer="js">
-password.value = hex_hmac_md5(hex_hmac_md5(password.value,
+pwhash.value = hex_hmac_sha1(hex_hmac_sha1(password.value,
                         server_salt.value), server_time.value);
+password.value = "";
 </pipp-code></li>
 </ul></li>
 
 <li>Modify the handler that receives posted login data:
 <ul class="nogap">
 <li>Check the time stamp received from the client is within the last 5 minutes.</li>
-<li>Calculate hex_hmac_md5(password stored on server, time stamp).</li>
+<li>Calculate hex_hmac_sha1(password stored on server, time stamp).</li>
 <li>If this matches the hash received from the client, the login is successful.</li>
 <li>Consider adding code to cope with JavaScript being unavailable. <a href="advancedauth.html#nojs">more...</a></li>
 </ul></li>
@@ -81,12 +81,12 @@ password.value = hex_hmac_md5(hex_hmac_md5(password.value,
 <li>Update registration and change password:
 <ul class="nogap">
 <li>Add a hidden field containing the server salt.</li>
-<li>Add a script tag to link to <code>md5.js</code>.</li>
+<li>Add a script tag to link to <code>sha1.js</code>.</li>
 <li>Add a JavaScript onsubmit event:<br/>
 <pipp-code lexer="js">
-password.value = hex_hmac_md5(password.value, server_salt.value);
+password.value = hex_hmac_sha1(password.value, server_salt.value);
 confirm_password.value =
-        hex_hmac_md5(confirm_password.value, server_salt.value);
+        hex_hmac_sha1(confirm_password.value, server_salt.value);
 </pipp-code></li>
 </ul></li>
 
