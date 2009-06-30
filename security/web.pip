@@ -1,7 +1,6 @@
 <pipp>
 <title>Web Applications</title>
 <desc>Security on the web is relatively immature, and not widely embedded in development processes. With so many teams building web applications, and these performing critical functions such as online banking, this vector poses a major avenue of attack.</desc>
-<status>new</status>
 <body>
 
 <pipp-child src="webchecks.pip"/>

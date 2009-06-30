@@ -1,7 +1,6 @@
 <pipp>
 <title>Facebook</title>
 <desc>The social networking site that took over my life. If I had more time I would love to get involved in the open social networking developments; technologies like OpenID really interest me.</desc>
-<status>new</status>
 <body>
 
 <pipp-child src="facebook.pip"/>

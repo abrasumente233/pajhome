@@ -2,7 +2,6 @@
 <title>Consultancy</title>
 <logo>consult.jpg</logo>
 <desc>You can hire me on a freelance basis to perform IT work and consultancy.</desc>
-<status>new</status>
 <body>
 
 <pipp-child src="webtest.pip"/>
