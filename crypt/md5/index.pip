@@ -51,14 +51,14 @@
 <script type="text/javascript" src="2.2/sha1-min.js"></script>
 
 <div class="indented">
-<form><table>
-  <tr><th>Input</th><td><input type="text" name="input" size="40"/></td></tr>
+<table>
+  <tr><th>Input</th><td><input type="text" id="input" size="40"/></td></tr>
   <tr><th>Calculate</th>
   <td style="text-align:center">
-  <input type="button" value="MD5" onclick="hash.value = hex_md5(input.value)"/>
-  <input type="button" value="SHA-1" onclick="hash.value = hex_sha1(input.value)"/></td></tr>
-  <tr><th>Result</th><td><input type="text" name="hash" size="40"/></td></tr>
-</table></form>
+  <input type="button" value="MD5" onclick="document.getElementById('hash').value = hex_md5(document.getElementById('input').value)"/>
+  <input type="button" value="SHA-1" onclick="document.getElementById('hash').value = hex_sha1(document.getElementById('input').value)"/></td></tr>
+  <tr><th>Result</th><td><input type="text" id="hash" size="40"/></td></tr>
+</table>
 
 <pipp-code lexer="js">
 hex_md5("message digest") = "f96b697d7cb7938d525a2f31aaf161d0"

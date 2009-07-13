@@ -32,14 +32,12 @@
 
 <p>Another potential use is exchanging more information with Facebook. For example, details who is tagged in the photo could be extracted, and added to the JPEG file. Alternatively, comments made in offline photo software could be posted as Facebook comments.</p>
 
-
 <h3>Future Plans</h3>
 
 <ul>
+<li>Improve performance in the case there are many FB images that don't match local images</li>
 <li>GUI interface, progress indicator</li>
 <li>Is there a better place to save the URL in the JPEG metadata? In particular, it would be good to be able to see the URL in Windows Explorer.</li>
-<li>Make image matching more reliable</li>
-<li>Performance - resize local images while thumbnails are downloading</li>
 <li>Do all albums automatically, in one go</li>
 </ul>
 

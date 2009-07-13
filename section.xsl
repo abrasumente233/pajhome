@@ -23,11 +23,11 @@
                 <dt>
                     <xsl:if test="exports/status = 'new'">
                         <xsl:value-of select="pipp:file('/logos/new.png')"/>
-                        <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" border="0" title="New content"/>
+                        <img width="{pipp:image-width('/logos/new.png')}" height="{pipp:image-height('/logos/new.png')}" src="{'/logos/new.png'}" style="border:none" title="New content" alt=""/>
                     </xsl:if>
                     <xsl:value-of select="exports/title"/>
                 </dt>
-                <dd><xsl:apply-templates select="exports/desc"/>&#160;<a href="{pipp:relative-path(exports/link)}">more...</a></dd>
+                <dd><xsl:value-of select="exports/desc"/>&#160;<a href="{pipp:relative-path(exports/link)}">more...</a></dd>
             </xsl:if>
         </xsl:for-each>
     </dl>

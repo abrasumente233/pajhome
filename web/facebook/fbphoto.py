@@ -163,7 +163,7 @@ def match_thumb(fb_thumbs, loc_thumbs, picdir):
         likely = [(diff(fb_thumb.img.getpixel(samp_spot), s), samp_idx[s]) for s in samp_idx]
         likely.sort(key = lambda x: x[0])
         match = None
-        for x,y in likely:
+        for i,(x,y) in enumerate(likely):
             for loc_thumb in y:
                 qqq = img_diff(fb_thumb.img, loc_thumb.img)
                 if qqq < match_cutoff:
@@ -172,17 +172,17 @@ def match_thumb(fb_thumbs, loc_thumbs, picdir):
             if match:
                 break
         if match:
-            matches.append((fb_thumb, loc_thumb, qqq))
+            matches.append((fb_thumb, loc_thumb, qqq, i))
         else:
             print "Warning - no match for %s" % fb_thumb.fname
     matches.sort(key = lambda x: x[1].orig_name.lower())
 
-    for ft,lt,x in matches:
+    for ft,lt,x,y in matches:
         jpeg.setComments(ft.fburl, os.path.join(picdir, lt.orig_name))
 
     fh = open(os.path.join(workdir, 'check.html'), 'w')
-    tmpl = '<img src="%s"/><img src="%s"/>%d<br/>'
-    cont = '\n'.join(tmpl % (ft.fname, lt.fname, qqq) for ft,lt,qqq in matches)
+    tmpl = '<img src="%s"/><img src="%s"/>%d %d<br/>'
+    cont = '\n'.join(tmpl % (ft.fname, lt.fname, qqq, y) for ft,lt,qqq,y in matches)
     fh.write('<html><body>%s</body></html>' % cont)
     fh.close()
 

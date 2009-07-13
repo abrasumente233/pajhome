@@ -1,55 +1,28 @@
 Todo
 ----
+photo uprighting script
+check blog for photos with no link
+
+more strictly valid html
+    about me - applet tag
+    check whole site
+        http://www.htmlhelp.com/tools/validator/
+
+subscribe spam - use the python mail module
+links
+look tweaking
+    dt being bold and h3 being non-bold causes some weirdness (e.g advanced auth)
+    when you hover over a named link, it looks bad
+
 fbphoto
-    don't repeat images already done
-
-Blog
-    update story
-
-Loose ends
-MD5
-repoze.who-jscrypto
-    browser save password
-    article on using jscrypto with tg2
-        need to quickstart a tg2 app with identity
-
-tw.exp
-http://forum.springsource.org/
-
-
-Tidy up loose ends
-    fix stats
-        to be honest, my thinking is moving towards ditching webalizer
-
-    more strictly valid html
-        after next upload - check all pages are valid
-
-    subscribe spam - use the python mail module
-    links
-    look tweaking
-        dt being bold and h3 being non-bold causes some weirdness (e.g advanced auth)
-        when you hover over a named link, it looks bad
-        "know this" flowing onto next line in IE
-
-blog rss - facebook
-    I want my blog entries to appear as notes
-    ** need an RSS app that works
-
-facebook proxy
+    check files are writable at start
+    the main problem now is mismatches take ages
 
 Consultancy
-    Engagement forms
     link from other sections to advertise
 
 Tweak adwords
     What are the options?
-
-
-Threats and Quantitative Risk Assessments
-
-In recent years, information security has focused more on the threats a system faces. More traditional thinking focused more on hardening systems, with the expectation that they would then be secured against any threat. The problem is, unexpected things happen. A physical intruder stealing a server can usually bypass all the logical controls on a system.
-
-So, considering threats more helps us build systems more resistant to real-world attacks. But you can go too far with this approach.
 
 
 Later
@@ -75,6 +48,7 @@ aspell
     i'd like to add md5 to the dictionary
     i'd like to ignore words that contain underscores
     can you show it areas to ignore?
+facebook proxy
 
 
 Big things
@@ -87,7 +61,6 @@ Facebook app
 rating and commenting/tagging photos on camera
 facebook developments - become a crm
 private area on website
-new tw/sprox/rum
 Web app security scanner
 
 Big things in computing:
@@ -135,7 +108,6 @@ Check through contrib (and old emails on my pc at home)
 
 http://marketingtechblog.com/2007/08/27/javascript-password-strength/
 what access to md5.js am I getting? these are direct linkers
-browser test - update results nightly? no - remove it!
 scripts
     Tidy up "more hash scripts"
 Kevin Sheldrake's MD5 hacks - email him?
@@ -156,6 +128,9 @@ repoze.who-jscrypto
     js rsa
     srp
     http://pypi.python.org/pypi/repoze.who-friendlyform/1.0b3
+    browser save password
+    article on using jscrypto with tg2
+        need to quickstart a tg2 app with identity
 
 
 Content
@@ -276,5 +251,4 @@ create table blocked_email (
     email varchar(255) primary key
 );
 
-
-aspell --master=british --home-dir=c:/paj --mode=sgml check index.pip
+tunnel - 6280m!
