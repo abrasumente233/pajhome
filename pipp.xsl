@@ -40,7 +40,7 @@
             <xsl:if test="@target"><base target="{@target}"/></xsl:if>
         </head>
         <body>
-            <xsl:apply-templates select="@*"/>
+            <xsl:apply-templates select="@*[name() != 'sidebar']"/>
             <xsl:value-of disable-output-escaping="yes" select="pipp:map-view('/breadcrumb.xsl')"/>
             <div class="clearit"/>
             <table style="width:100%; border-collapse: collapse">
@@ -171,7 +171,7 @@
         <img src="{pipp:relative-path('/logos/elink.png')}" alt="" style="border:none" width="{pipp:image-width('/logos/elink.png')}" height="{pipp:image-height('/logos/elink.png')}"/>
     </xsl:if>
     <a>
-        <xsl:apply-templates select="@*[name()!='noimg']"/>
+        <xsl:apply-templates select="@*[name()!='noimg' and name()!='redirect']"/>
         <xsl:apply-templates/>
     </a>
 </xsl:template>

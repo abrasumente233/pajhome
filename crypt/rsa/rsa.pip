@@ -5,9 +5,9 @@
 
 <h2>Overview</h2>
 
-<p align="center"><table class="lined" width="80%" align="center">
+<table class="lined centered" style="width:80%">
 <tr>
-  <td width="50%" rowspan="3">
+  <td stlye="width:50%" rowspan="3">
     <h3 style="text-align:center">Key Generation</h3>
     <ol>
       <li>Generate two large prime numbers, <span class="math">p</span> and <span class="math">q</span></li>
@@ -31,7 +31,7 @@
 <tr><td style="text-align:center">
   <span class="math">x % y</span> means the remainder of <span class="math">x</span> divided by <span class="math">y</span>
 </td></tr>
-</table></p>
+</table>
 
 <p>The reasons why this algorithm works are discussed in the <a href="maths.html">mathematics</a> section. Its security comes from the computational difficulty of factoring large numbers. To be secure, very large numbers must be used for <span class="math">p</span> and <span class="math">q</span> - 100 decimal digits at the very least.</p>
 
@@ -79,7 +79,7 @@ n = 3 => d = 325 / 5 <br/>
 
 <p>To do this with big numbers, a more sophisticated algorithm called extended Euclid must be used.</p>
 
-<p align="center"><table class="lined" align="center"><tr>
+<table class="lined centered"><tr>
   <td width="50%">
     <h3 style="text-align:center">Public Key</h3>
     <p><span class="math">n = 133<br/>

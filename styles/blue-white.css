@@ -92,6 +92,16 @@ a:hover img                 { border-color: #0000FF; }
   background:   #AAAAFF;
 }
 
+#nav li ul {
+    background: white;
+    border: 2px blue solid;
+}
+
+.cycle img {
+    border: none;
+    vertical-align: top;
+}
+
 .source .c { color: green; } /* Comment */
 .source .err { background: red; } /* Error */
 .source .k { color: purple; font-weight: bold } /* Keyword */
@@ -151,9 +161,3 @@ a:hover img                 { border-color: #0000FF; }
 .source .vg { color: #19177C } /* Name.Variable.Global */
 .source .vi { color: #19177C } /* Name.Variable.Instance */
 .source .il { color: #666666 } /* Literal.Number.Integer.Long */
-
-
-#nav li ul {
-    background: white;
-    border: 2px blue solid;
-}

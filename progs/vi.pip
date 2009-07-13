@@ -11,7 +11,7 @@
 
 <h2>Moving about</h2>
 <table>
-<tr><td width="100">w</td><td>forward a word</td></tr>
+<tr><td style="width:100px">w</td><td>forward a word</td></tr>
 <tr><td>b</td><td>back a word</td></tr>
 <tr><td>$</td><td>end of line</td></tr>
 <tr><td>0</td><td>beginning of line</td></tr>
@@ -23,7 +23,7 @@
 
 <h2>Cut &amp; paste</h2>
 <table>
-<tr><td width="100">dd</td><td>cut the current line</td></tr>
+<tr><td style="width:100px">dd</td><td>cut the current line</td></tr>
 <tr><td>yy</td><td>copy the current line</td></tr>
 <tr><td>dw</td><td>delete a word</td></tr>
 <tr><td>D</td><td>cut from cursor until end of line</td></tr>
@@ -33,7 +33,7 @@
 
 <h2>Getting into insert mode</h2>
 <table>
-<tr><td width="100">i</td><td>insert text before cursor</td></tr>
+<tr><td style="width:100px">i</td><td>insert text before cursor</td></tr>
 <tr><td>a</td><td>append text after cursor</td></tr>
 <tr><td>A</td><td>append text at end of line</td></tr>
 <tr><td>cw</td><td>change a word</td></tr>
@@ -43,7 +43,7 @@
 
 <h2>Others</h2>
 <table>
-<tr><td width="100">.</td><td>repeats last operation. very good with 'dd'</td></tr>
+<tr><td style="width:100px">.</td><td>repeats last operation. very good with 'dd'</td></tr>
 <tr><td>&lt;num&gt;&lt;cmd&gt;</td><td>do <em>cmd</em> repeated <em>num</em> times</td></tr>
 <tr><td>r&lt;chr&gt;</td><td>replace a character without going into insert mode</td></tr>
 <tr><td>ZZ</td><td>save and quit</td></tr>

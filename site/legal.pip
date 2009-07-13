@@ -15,7 +15,7 @@
 <li>JavaScript MD5</li>
 </ul>
 
-<a name="bsdlicense"><h2>The BSD License</h2></a>
+<h2><a name="bsdlicense">The BSD License</a></h2>
 
 <p>Copyright (c) 1998 - 2009, Paul Johnston &amp; Contributors<br/>
 All rights reserved.</p>
@@ -76,7 +76,7 @@ documentation and/or software.</p>
 
 <p>This copyright does not prohibit distribution of the JavaScript MD5 code under the BSD license.</p>
 
-<a name="jugglem"><h2>Juggle Master</h2></a>
+<h2><a name="jugglem">Juggle Master</a></h2>
 
 <p class="indented">
 JuggleMaster Version 1.60 Copyright (C) 1995-1996 Ken Matsuoka<br/>

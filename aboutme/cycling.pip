@@ -3,21 +3,23 @@
 <desc>A fantastic cycle journey from Amsterdam to Barcelona - over 1200 miles.</desc>
 <body>
 
+<div class="cycle">
 <p>The idea was conceived by two long-time friends of mine, Steve Futcher and Ben Baxter. Their plan was to start the summer by flying to Amsterdam, cycle across Europe to Barcelona, take the ferry to Ibiza and spend the summer working there. In 2001 they attempted the journey and completed about three-quarters of the distance by bike. Problems with one the bikes and a shortage of money forced them to take the train for a section.</p>
 
 <p>In 2002, Steve and I completed the journey in 19 days, 1250 miles in total. Another long-time friend, Robin Jones (we're all Manchester Grammar lads) completed the first five days, but a knee problem forced him to retire.</p>
 
-<pipp-img src="steve_bridge.jpg" border="0"/>
-<pipp-img src="me_cycling.jpg" border="0" align="top"/>
-<pipp-img src="canal_du_midi.jpg" border="0"/>
-<pipp-img src="san_antonio.jpg" border="0"/>
+<pipp-img src="steve_bridge.jpg"/>
+<pipp-img src="me_cycling.jpg"/>
+<pipp-img src="canal_du_midi.jpg"/>
+<pipp-img src="san_antonio.jpg"/>
 
 <p>Not content with doing it once, in 2003, Ben and I did the journey again. Having had a practice run, we were unstoppable this time, completing in 14 days.</p>
 
-<pipp-img src="reading_map.jpg" border="0" alt="Reading the map"/>
-<pipp-img src="tent.jpg" border="0" alt="Test"/>
-<pipp-img src="tour_de_france.jpg" border="0" alt="Tour de France"/>
-<pipp-img src="barcelona_sign.jpg" border="0" alt="Nearly there now"/>
+<pipp-img src="reading_map.jpg" alt="Reading the map"/>
+<pipp-img src="tent.jpg" alt="Tent"/>
+<pipp-img src="tour_de_france.jpg" alt="Tour de France"/>
+<pipp-img src="barcelona_sign.jpg" alt="Nearly there now"/>
+</div>
 
 <h2>Distance Chart</h2>
 

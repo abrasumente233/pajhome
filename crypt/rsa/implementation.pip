@@ -10,7 +10,7 @@
 
 <p>A Java implementation of RSA is just a transcription of the algorithm:</p>
 
-<p class="indented"><pipp-code src="rsa.java"/></p>
+<div class="indented"><pipp-code src="rsa.java"/></div>
 
 <h2>That's too easy!</h2>
 

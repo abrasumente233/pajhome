@@ -26,9 +26,11 @@
 
 <h2>Shell Scripts</h2>
 
-<p>This a very high-level language - a line of shell script often translates to running an entire C program. There are loads of utilities made for shell scripts, e.g. sed, awk, basename, sort, tr. By putting these together creatively, you can do very powerful things easily, for example to process a kind of log file I had into a list of URLs and hit counts:
+<p>This a very high-level language - a line of shell script often translates to running an entire C program. There are loads of utilities made for shell scripts, e.g. sed, awk, basename, sort, tr. By putting these together creatively, you can do very powerful things easily, for example to process a kind of log file I had into a list of URLs and hit counts:</p>
+
 <p class="code">cat log.txt | awk '-F|' '{print $5}' | sort | uniq -c &gt; pghits</p>
-A similar C program would require at least 25 lines, even in its most hacky form, and without much further complication would impose arbitrary limits on length of lines in the log file and the number of different URLs. However, trying to handle shell script errors intelligently is difficult, so they aren't particularly suitable for distribution.</p>
+
+<p>A similar C program would require at least 25 lines, even in its most hacky form, and without much further complication would impose arbitrary limits on length of lines in the log file and the number of different URLs. However, trying to handle shell script errors intelligently is difficult, so they aren't particularly suitable for distribution.</p>
 
 <h2>Perl</h2>
 

@@ -227,7 +227,7 @@ On arrival I go for a wander around, but still knackered from the journey, and i
 
 <p>I have the urge to trash the computers in Sai Travels (who ripped me off). In the end I decide not to do this, it's a bit low really, but I do come up with a great one-line piece of malware:</p>
 
-<blockquote><code>echo shutdown -r -t0 > "%USERPROFILE%/Start Menu/Programs/Startup/hello.bat"</code></blockquote>
+<p class="code">echo shutdown -r -t0 > "%USERPROFILE%/Start Menu/Programs/Startup/hello.bat"</p>
 
 <p>For the non-geeks reading, at first this will appear to do nothing, the computer works just fine. But when it is next rebooted, it will go into an endless cycle of reboots. This is fairly non-destructive - it can be fixed easily by someone knowledgeable. You could put this malware in a batch file on a website (or on a USB stick) and get someone non-technical to go into the cyber cafe. Anyway, do not try this at home! Just a reminder of how easy it is to perform attacks like this.</p>
 

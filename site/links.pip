@@ -3,9 +3,9 @@
 <desc>Some interesting sites for work and fun, and friends' sites.</desc>
 <body>
 
-<table width="100%">
+<table style="width:100%">
   <tr>
-    <td width="50%">
+    <td style="width:50%">
 
       <p><strong>Sites I helped build</strong><br/>
       <a href="http://home.abel.co.uk/support/adsl-instructions.html">ADSL Instructions</a>,

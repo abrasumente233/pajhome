@@ -6,7 +6,7 @@
 
 <p>Obviously you need lights in a world to see anything. Typically, the browser will provide the viewer with some kind of headlight, so they can see what they're looking at. In addition, you will often want to deliberately put lights at specific points in the world. VRML provides three types of light sources for this:</p>
 
-<p align="center"><pipp-img src="lights.gif"/></p>
+<p style="text-align:center"><pipp-img src="lights.gif"/></p>
 
 <p>Light sources only affect subsequent objects in the same separator. If you want to apply a transformation to a light source, but still want it to affect later objects, use <code>TransformSeparator</code> instead of <code>Separator</code>.</p>
 

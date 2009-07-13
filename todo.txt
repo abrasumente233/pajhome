@@ -1,13 +1,11 @@
 Todo
 ----
-photo uprighting script
+Halong bay
+http://www.facebook.com/album.php?aid=91611&id=514659623&l=5b8e3e4337
+
+remove turbogears status
+fix validation errors
 check blog for photos with no link
-
-more strictly valid html
-    about me - applet tag
-    check whole site
-        http://www.htmlhelp.com/tools/validator/
-
 subscribe spam - use the python mail module
 links
 look tweaking
@@ -17,10 +15,9 @@ look tweaking
 fbphoto
     check files are writable at start
     the main problem now is mismatches take ages
-
+photo uprighting script
 Consultancy
     link from other sections to advertise
-
 Tweak adwords
     What are the options?
 

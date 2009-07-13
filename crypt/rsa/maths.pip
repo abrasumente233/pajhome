@@ -18,10 +18,10 @@ RSA uses modular arithmetic. This is similar to conventional arithmetic, but onl
 
 <p class="math">a + kp = a (mod p)</p>
 
-<p>You can visualise this on the diagram - each time you add <span class="math">p</span> you go round the circle, back to where you started. It doesn't matter where you start, how big the circle is, or how many times you do it, it's always true.<br clear="all"/></p>
+<p>You can visualise this on the diagram - each time you add <span class="math">p</span> you go round the circle, back to where you started. It doesn't matter where you start, how big the circle is, or how many times you do it, it's always true.</p>
 
 
-<h2>Primality and Coprimality</h2>
+<h2 class="clearit">Primality and Coprimality</h2>
 <ul>
 <li>A number is prime if the only numbers that exactly divide it are 1 and itself. e.g. 17 is prime, but 15 isn't, because it's divisible by 3 and 5.</li>
 <li>A pair of numbers are coprime if the largest number that exactly divides both of them is 1. The numbers themselves don't have to be prime. e.g. 8 and 9 are coprime, but 8 and 10 are not, because they're both divisible by 2.</li>

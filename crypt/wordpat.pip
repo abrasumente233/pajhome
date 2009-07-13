@@ -16,14 +16,14 @@
 
 <h2>About Word Patterns</h2>
 
-Examples:
+<p>Examples:</p>
 
-<p><table>
+<table>
 <tr><td>ABBA</td><td>4-1221</td></tr>
 <tr><td>COMPUTER</td><td>8-12345678</td></tr>
 <tr><td>IT</td><td>2-12</td></tr>
 <tr><td>APPROPRIATE</td><td>11-12234235167</td></tr>
-</table></p>
+</table>
 
 <p>Lets look at what the parts mean. The first number, before the dash is the length of the word.  After that, there is a number for each letter in the word. Every time a particular letter appears, the corresponding number is the same - both the 'A's is Abba are '1' and both 'B's are '2'. If there are more than nine different letters in a word, then 'A' 'B' 'C' etc are used after '9'. The numbers are given out in order - '1' is given to the first letter, then '2' to the second letter - unless the second letter is the same as the first, in which case '2' is given to the third letter, and so on. This means that the number after the dash will always be '1'. </p>
 

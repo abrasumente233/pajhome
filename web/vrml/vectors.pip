@@ -14,9 +14,9 @@
 
 <ul>
 <li>SFVec2f - Two-dimension vector made of x and y displacements.
-<p align="center"><pipp-img src="2dvec.gif"/></p></li>
+<p style="text-align:center"><pipp-img src="2dvec.gif"/></p></li>
 <li>SFVec3f - Two-dimension vector made of x, y and z displacements.
-<p align="center"><pipp-img src="3dvec.gif"/></p></li>
+<p style="text-align:center"><pipp-img src="3dvec.gif"/></p></li>
 </ul>
 
 <p>Any of the displacements - x, y or z - can be negative. There are also types for lists of vectors - MFVec2f and MFVec3f.</p>
@@ -25,7 +25,7 @@
 
 <p>To apply a rotation to an object, you need to specify the axis of rotation using a vector, and the angle of rotation.</p>
 
-<p align="center"><pipp-img src="rotate.gif"/></p>
+<p style="text-align:center"><pipp-img src="rotate.gif"/></p>
 
 <h2>Camera Views</h2>
 
@@ -37,7 +37,7 @@
 <li>heightAngle (SFFloat) - Sets the width of view: large values are like a wide angled lens, while small values telescopic.</li>
 </ul>
 
-<p align="center"><pipp-img src="heightang.gif"/></p>
+<p style="text-align:center"><pipp-img src="heightang.gif"/></p>
 
 </body>
 </pipp>

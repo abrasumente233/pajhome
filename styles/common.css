@@ -114,3 +114,8 @@ img.contimg {
 }
 
 .blog h3 { clear: both; }
+
+.centered {
+    margin-left:auto;
+    margin-right:auto;
+}
