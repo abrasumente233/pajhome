@@ -3,8 +3,11 @@ Todo
 Halong bay
 http://www.facebook.com/album.php?aid=91611&id=514659623&l=5b8e3e4337
 
-remove turbogears status
 fix validation errors
+    applet
+    frames
+        bar - base/target
+        frameset
 check blog for photos with no link
 subscribe spam - use the python mail module
 links

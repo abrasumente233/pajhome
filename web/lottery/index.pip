@@ -12,7 +12,7 @@
 
 <p>This page is just a demonstration of the JavaScript. For the checking service visit <a href="http://www.lotterycheck.co.uk">LotteryCheck.co.uk</a></p>
 
-<table bgcolor="#316BA9" cellspacing="0" cellpadding="3" border="0" align="center">
+<table style="background-color:#316BA9" class="centered">
 <tr><td>
 <script type="text/javascript">
 var blank_img = "blank.gif"
@@ -78,9 +78,9 @@ for(i = 0; i &lt; 6; i++)
 </td></tr>
 </table>
 
-<form name="data" onsubmit="dosubmit(); return false">
-<p align="center"><input type="submit" value="Done"/></p>
-<p align="center">No JavaScript? Use this: <input type="text" name="numbers"/></p>
+<form name="data" action="about:blank" onsubmit="dosubmit(); return false">
+<p style="text-align:center"><input type="submit" value="Done"/></p>
+<p style="text-align:center">No JavaScript? Use this: <input type="text" name="numbers"/></p>
 </form>
 
 </body>

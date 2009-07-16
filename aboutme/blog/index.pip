@@ -15,11 +15,11 @@
 
 <p>If you'd like to get an email when the blog is updated, enter your address:</p>
 
-<form action="subscribe.cgi" class="indented">
+<form action="subscribe.cgi" class="indented"><div>
 <input type="hidden" name="action" value="send"/>
 <input type="text" name="email"/>
 <input type="submit" value="Subscribe"/>
-</form>
+</div></form>
 
 
 <h3>Flight of the Gibbon (Fri 29 May)</h3>

@@ -7,7 +7,7 @@
 
 <table class="lined centered" style="width:80%">
 <tr>
-  <td stlye="width:50%" rowspan="3">
+  <td style="width:50%" rowspan="3">
     <h3 style="text-align:center">Key Generation</h3>
     <ol>
       <li>Generate two large prime numbers, <span class="math">p</span> and <span class="math">q</span></li>
@@ -16,7 +16,7 @@
       <li>Choose a small number <span class="math">e</span>, coprime to <span class="math">m</span></li>
       <li>Find <span class="math">d</span>, such that <span class="math">de % m = 1</span></li>
     </ol>
-    <p align="center">Publish <span class="math">e</span> and <span class="math">n</span> as the public key.<br/>
+    <p style="text-align:center">Publish <span class="math">e</span> and <span class="math">n</span> as the public key.<br/>
     Keep <span class="math">d</span> and <span class="math">n</span> as the secret key.</p>
   </td>
   <td style="width:50%; text-align:center">
@@ -80,17 +80,17 @@ n = 3 => d = 325 / 5 <br/>
 <p>To do this with big numbers, a more sophisticated algorithm called extended Euclid must be used.</p>
 
 <table class="lined centered"><tr>
-  <td width="50%">
+  <td style="width:50%">
     <h3 style="text-align:center">Public Key</h3>
     <p><span class="math">n = 133<br/>
     e = 5</span></p>
   </td>
-  <td width="50%">
+  <td>
     <h3 style="text-align:center">Secret Key</h3>
     <p><span class="math">n = 133<br/>
     d = 65</span></p>
   </td>
-</tr></table></p>
+</tr></table>
 
 <h2>Communication</h2>
 

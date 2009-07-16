@@ -4,7 +4,6 @@
 <body>
 
 <pipp-child src="intro.pip"/>
-<pipp-child src="turbogears.pip"/>
 <pipp-child src="satalkbar.pip"/>
 
 <pipp-map-view src="/section.xsl"/>
@@ -20,7 +19,7 @@
     <li>Numerous bug fixes and minor enhancements</li>
     <li>Greatly improved documentation</li>
     <li>Created <a href="http://toscawidgets.org/documentation/tw.dynforms/">tw.dynforms</a>, a widget library for dynamic websites</li>
-    <li>Started the ToscaWidgets-experimental branch</li>
+    <li>Started the ToscaWidgets-experimental branch, leading to Toscawidgets 2.</li>
 </ul></dd>
 
 <dt>SQLAlchemy</dt>
