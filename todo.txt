@@ -3,6 +3,10 @@ Todo
 Halong bay
 http://www.facebook.com/album.php?aid=91611&id=514659623&l=5b8e3e4337
 
+Upload videos
+
+
+
 fix validation errors
     applet
     frames
