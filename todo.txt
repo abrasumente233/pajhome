@@ -1,11 +1,17 @@
 Todo
 ----
-Halong bay
-http://www.facebook.com/album.php?aid=91611&id=514659623&l=5b8e3e4337
+Photos
+    Halong bay
+    http://www.facebook.com/album.php?aid=91611&id=514659623&l=5b8e3e4337
+    Hoi An
+    Tubing
 
-Upload videos
-
-
+Upload videos - but clip first
+    flight of the gibbon
+    tubing swing
+    break dancing
+    gareth playing keepy uppy
+    jim fire
 
 fix validation errors
     applet
