@@ -2,16 +2,15 @@ Todo
 ----
 Photos
     Halong bay
-    http://www.facebook.com/album.php?aid=91611&id=514659623&l=5b8e3e4337
+        http://www.facebook.com/album.php?aid=91611&id=514659623&l=5b8e3e4337
     Hoi An
+        http://www.facebook.com/album.php?aid=92925&id=514659623&l=1c6c9749aa
     Tubing
+        http://www.facebook.com/album.php?aid=93500&id=514659623&l=192e5bfd82
 
-Upload videos - but clip first
-    flight of the gibbon
-    tubing swing
-    break dancing
-    gareth playing keepy uppy
+Upload videos
     jim fire
+    links from blog - not possible with fb video. use YouTube?
 
 fix validation errors
     applet
