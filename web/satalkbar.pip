@@ -2,6 +2,7 @@
 <title>SQLAlchemy</title>
 <desc>I presented a talk on SQLAlchemy at PyConUK 2007. The slides are here; an audio recording is also available.</desc>
 <link>/web/satalkframe.html</link>
+<dtd>transitional</dtd>
 <body sidebar="1" target="_top">
 <pipp-file src="satalkframe.html"/>
 <pipp-file src="satalk"/>

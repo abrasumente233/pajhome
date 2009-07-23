@@ -3,7 +3,8 @@
 Todo
 ----
 fix validation errors
-    applet, frames - use transitional dtd
+    applet, frames - use transitional dtd ** needs a new pipp feature
+    inheriting is not the behaviour I want
 check blog for photos with no link
 subscribe spam - use the python mail module
 links

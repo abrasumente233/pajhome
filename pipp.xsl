@@ -40,7 +40,7 @@
             <xsl:if test="@target"><base target="{@target}"/></xsl:if>
         </head>
         <body>
-            <xsl:apply-templates select="@*[name() != 'sidebar']"/>
+            <xsl:apply-templates select="@*[name() != 'sidebar' and name() != 'target']"/>
             <xsl:value-of disable-output-escaping="yes" select="pipp:map-view('/breadcrumb.xsl')"/>
             <div class="clearit"/>
             <table style="width:100%; border-collapse: collapse">

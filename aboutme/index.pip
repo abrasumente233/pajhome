@@ -2,6 +2,7 @@
 <title>About Me</title>
 <logo>aboutme.jpg</logo>
 <desc>Find out about me, including my current adventure in Asia.</desc>
+<dtd>transitional</dtd>
 <body>
 
 <pipp-child src="blog/index.pip"/>
