@@ -58,10 +58,12 @@ function dosubmit()
   document.data.numbers.value = s;
 }
 
+var lt = String.fromCharCode(60);
+var gt = String.fromCharCode(62);
 for(i = 1; i &lt; 50; i++)
 {
   n = i &lt; 10 ? "0"+i : i
-  document.write("&lt;a href='javascript:select(\""+n+"\")'&gt;&lt;img name='i"+n+"' border=0 src='" + ball_img(n) + "'&gt;&lt;/a&gt;")
+  document.write(lt+"a href='javascript:select(\""+n+"\")'"+gt+lt+"img name='i"+n+"' border=0 src='" + ball_img(n) + "'"+gt+lt+"/a"+gt)
   if(i % 10 == 0) document.write("&lt;p&gt;");
 }
 </script>
@@ -71,7 +73,7 @@ for(i = 1; i &lt; 50; i++)
 <script type="text/javascript">
 for(i = 0; i &lt; 6; i++)
 {
-  document.write("&lt;a href='javascript:unselect("+i+")'&gt;&lt;img name='s"+i+"' border=0 src='" + blank_img +"'&gt;&lt;/a&gt;")
+  document.write(lt+"a href='javascript:unselect("+i+")'"+gt+lt+"img name='s"+i+"' border=0 src='" + blank_img +"'"+gt+lt+"/a"+gt)
 }
 </script>
 
