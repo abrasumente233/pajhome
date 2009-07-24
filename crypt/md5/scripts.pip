@@ -26,6 +26,27 @@
 <li><a href="jshash-1.1.zip">jshash-1.1.zip</a></li>
 </ul>
 
+
+
+<h2>Contributed Code</h2>
+
+<ul>
+<li><a href="contrib/md5_crypt.js">md5_crypt.js</a> - this lets you calculate hashes that match MD5 hashes in unix password files. <a href="mailto:x-alina@gmx.net">Alina Friedrichsen</a></li>
+<li><a href="contrib/sha1_strad.js">sha1_stream()</a> - this lets you generate SHA-1 hashes block by block, without needing the entire string in memory at any one time. <a href="http://www.jasondavies.com">Jason Davies</a></li>
+<li><a href="contrib/md5.wsc">Automation Object</a> (ActiveX, COM) by Don Arsenault</li>
+<li>Java versions of both <a href="contrib/md5.java">MD5</a> and <a href="contrib/sha1_java.zip">SHA-1</a> have been contributed, although I recommend using the built-in Java cryptography libraries instead.</li>
+<li><a href="contrib/OneWayEncrypt.inc">VB Script wrapper</a> by <a href="mailto:ian@cyrona.com">Ian Brennan</a></li>
+</ul>
+
+<h2>More Hash Scripts</h2>
+<ul>
+<li><a href="http://mivo.truxoft.com/art0037.htm">Miva</a> by Petr Kutil and <a href="mailto:truxa@truxoft.com">Ivo Truxa</a></li>
+<li><a href="http://www.lundin.info/files/md5_aspnet.zip">.NET</a> version by <a href="http://www.lundin.info/">Patrik Lundin</a></li>
+<li><a href="http://www.devpro.it/as2_id_44.html">ActionScript Class</a> by <a href="mailto:andrea@3site.it">Andrea Giammarchi</a></li>
+<li><a href="http://www.onicos.com/staff/iz/amuse/javascript/expert/md5.txt">Alternative JavaScript MD5</a> by Masanao Izumo</li>
+</ul>
+
+
 <h2>Future Version 3.0</h2>
 
 <p>A 3.0 version is planned (no time frame as yet) that will break backward-compatibility. Some of the desired features for this are:</p>
@@ -98,18 +119,6 @@
 </ul></dd>
 
 </dl>
-
-
-<h2>More Hash Scripts</h2>
-<ul>
-<li><a href="contrib/md5.wsc">Automation Object</a> (ActiveX, COM) by Don Arsenault</li>
-<li>Java versions of both <a href="contrib/md5.java">MD5</a> and <a href="contrib/sha1_java.zip">SHA-1</a> have been contributed, although I recommend using the built-in Java cryptography libraries instead.</li>
-<li><a href="http://mivo.truxoft.com/art0037.htm">Miva</a> by Petr Kutil and <a href="mailto:truxa@truxoft.com">Ivo Truxa</a></li>
-<li><a href="contrib/OneWayEncrypt.inc">VB Script wrapper</a> by <a href="mailto:ian@cyrona.com">Ian Brennan</a></li>
-<li><a href="http://www.lundin.info/files/md5_aspnet.zip">.NET</a> version by <a href="http://www.lundin.info/">Patrik Lundin</a></li>
-<li><a href="http://www.devpro.it/as2_id_44.html">ActionScript Class</a> by <a href="mailto:andrea@3site.it">Andrea Giammarchi</a></li>
-<li><a href="http://www.onicos.com/staff/iz/amuse/javascript/expert/md5.txt">Alternative JavaScript MD5</a> by Masanao Izumo</li>
-</ul>
 
 
 </body>
