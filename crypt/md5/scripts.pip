@@ -32,7 +32,7 @@
 
 <ul>
 <li><a href="contrib/md5_crypt.js">md5_crypt.js</a> - this lets you calculate hashes that match MD5 hashes in unix password files. <a href="mailto:x-alina@gmx.net">Alina Friedrichsen</a></li>
-<li><a href="contrib/sha1_strad.js">sha1_stream()</a> - this lets you generate SHA-1 hashes block by block, without needing the entire string in memory at any one time. <a href="http://www.jasondavies.com">Jason Davies</a></li>
+<li><a href="contrib/sha1_stream.js">sha1_stream()</a> - this lets you generate SHA-1 hashes block by block, without needing the entire string in memory at any one time. <a href="http://www.jasondavies.com">Jason Davies</a></li>
 <li><a href="contrib/md5.wsc">Automation Object</a> (ActiveX, COM) by Don Arsenault</li>
 <li>Java versions of both <a href="contrib/md5.java">MD5</a> and <a href="contrib/sha1_java.zip">SHA-1</a> have been contributed, although I recommend using the built-in Java cryptography libraries instead.</li>
 <li><a href="contrib/OneWayEncrypt.inc">VB Script wrapper</a> by <a href="mailto:ian@cyrona.com">Ian Brennan</a></li>
