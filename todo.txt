@@ -1,8 +1,15 @@
 "c:/program files/aspell/bin/aspell" --master=british --home-dir=c:/paj/www --mode=sgml --rem-sgml-check=alt check index.pip
 
+Phuket
+http://www.facebook.com/album.php?aid=95309&id=514659623&l=600968b621
+
+Koh phangang
+http://www.facebook.com/album.php?aid=98767&id=514659623&l=4f9c038d43
+
 Todo
 ----
 check blog for photos with no link
+    and links to my profile
 subscribe spam - use the python mail module
 links
 look tweaking

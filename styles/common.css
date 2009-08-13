@@ -91,6 +91,13 @@ img.photo {
     margin-bottom: 1em;
 }
 
+img.photor {
+    float: right;
+    border: none;
+    margin-left: 5px;
+    margin-bottom: 1em;
+}
+
 h3 { margin-top: 0; }
 .blog_photos h3, .logos h3, .contents h3 {
     margin-top: 0;
