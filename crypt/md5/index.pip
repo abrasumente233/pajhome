@@ -90,6 +90,7 @@ hex_sha1("160-bit hash") = "90d925d853c3d35cd54070bb75280fefad9de9e7"
 <h2>Users of the Script</h2>
 <ul>
 <li>Yahoo used it for non-SSL logins, around 2001 - 2006.</li>
+<li>Verizon wireless routers use it for admin logins.</li>
 <li><a href="http://users.guardian.co.uk/signin/0,12930,-1,00.html">Guardian Unlimited</a> use it for registered user login.</li>
 <li><a href="http://paradigm-healthcare.com/">Paradigm Healthcare</a> use it for admin logins. One of their engineers contributed a bug fix to the base-64 routines.</li>
 <li>The <a href="http://captchas.net/">Captchas</a> project.</li>

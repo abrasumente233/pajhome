@@ -16,7 +16,6 @@
 <pipp-child src="security/index.pip"/>
 <pipp-child src="progs/index.pip"/>
 <pipp-child src="web/index.pip"/>
-<pipp-child src="consult/index.pip"/>
 
 <pipp-map-view src="contents.xsl"/>
 

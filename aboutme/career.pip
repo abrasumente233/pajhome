@@ -3,18 +3,25 @@
 <desc>I've had an interesting and varied career in IT, doing programming, system administration and security.</desc>
 <body>
 
+<h2>2008 - 2009: Travelling Sabbatical</h2>
+
+<p>I took a one year career break to see the world. I rode through the Indian desert on camel back, explored Goa on a scooter and stayed in remote villages in Thailand, Cambodia and Vietnam. It was a wonderful experience that has shaped me profoundly.</p>
+
+
 <h2>2005 - 2008: HBOS Plc - Penetration Testing Manager</h2>
 
 <p>I had a varied role in Group Information &amp; IT Risk, a group-wide operational risk function which specialises in information and IT risks. The team won the SC magazine "Best FS Information Security Team" in 2007. Primary responsibilities:</p>
 
 <ul>
-<li><b>Penetration testing</b> - I have embedded pen tests in the project governance cycle, and transformed what was primarily a systems vulnerability assessment service into a comprehensive penetration testing service, with a heavily involvement in web applications. Particular emphasis is placed on making business-aware risk assessments and communicating these appropriately, especially when a significant vulnerability is discovered.</li>
-<li><b>Non-compliance assessment</b> - I am a front-line assessor of security standards non-compliances, tasked with performing risk assessments, challenging business areas' risk assumptions, accepting minor risks, and influencing key stakeholders to make tough steps, when major risks are identified.</li>
-<li><b>Project governance</b> - I have provided support for several projects to meet their governance requirements, from design to delivery, ensuring compliance with the group information security policy, which is broadly aligned to BS7799/ISO270001. </li>
-<li><b>Standards maintenance</b> - I provide input into new standards and ongoing reviews of existing standards, to ensure the technical details reflect the control objectives defined in policy, and are current.</li>
-<li><b>Forum representation</b> - I have represented information and IT risk concerns at a number of specialist forums, e.g. e-commerce security forum and design authorities.</li>
+<li><b>Penetration testing</b> - I embedded pen tests in the project governance cycle, and transformed what was primarily a systems vulnerability assessment service into a comprehensive penetration testing service, with a heavily involvement in web applications. This involved line managing team members and being the interface between the team and the department leadership team. Particular emphasis is placed on making business-aware risk assessments and communicating these appropriately.</li>
+<li><b>Non-compliance assessment</b> - I was a front-line assessor of security standards non-compliances, tasked with performing risk assessments, challenging business areas' risk assumptions, accepting minor risks, and influencing key stakeholders to make tough steps, when major risks are identified.</li>
+<li><b>Project governance</b> - I provided support for numerous projects to meet their governance requirements, from design to delivery, ensuring compliance with the group information security policy, which is broadly aligned to BS7799/ISO270001. Key projects included: wireless, PCI compliance and remote working.</li>
+<li><b>Systems assurance</b> - I worked on a number of reviews of existing business systems, using the IRAM methodology. Reviews included: branch counter systems and the MQ infrastructure.</li>
+<li><b>Standards maintenance</b> - I provided input into new standards and ongoing reviews of existing standards, to ensure the technical details reflect the control objectives defined in policy, and are current.</li>
+<li><b>Forum representation</b> - I represented information and IT risk concerns at a number of specialist forums, e.g. e-commerce security forum and design authorities.</li>
 <li><b>Vendor relationships</b> - I managed the group's relationship with penetration testing companies, establishing an approved supplier panel, identifying vendors' key strengths and setting up procedural aspects such as NDAs, preferred points of contact, etc.</li>
-<li><b>Operation risk challenge</b> - Using knowledge gained during technical work, I have challenged capital adequacy calculations.</li>
+<li><b>Operation risk</b> - Using knowledge gained during technical work, I provided input to capital adequacy calculations for operational risk.</li>
+<li><b>Technical consultancy</b> - I was often used as a general source of information on any technical issue.</li>
 </ul>
 
 
@@ -66,7 +73,7 @@ email, central file stores and shared printers. The technical knowledge of the
 customers varied considerably and all solutions had to be appropriate to their
 level.</p>
 
-<h2>2000 - 2001: World Online - Unix systems administrator</h2>
+<h2>2000 - 2001: World Online - Unix Systems Administrator</h2>
 
 <p>I worked in a busy NOC, responding to monitoring systems,
 serving as technical backup for customer services and identifying trouble spots
@@ -86,7 +93,7 @@ discovered and resolved numerous security issues without affecting the customer
 experience. In some cases it was necessary to completely reinstall hosts and
 rewrite control scripts.</p>
 
-<h2>1998 - 1999: Data Connection - Software developer</h2>
+<h2>1998 - 1999: Data Connection - Software Developer</h2>
 
 <p>I worked in the "SNA for Unix" group, which produces a
 networking toolkit to connect legacy mainframes to TCP/IP networks. I developed

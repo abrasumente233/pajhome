@@ -3,24 +3,20 @@
 Singapore
 http://www.facebook.com/album.php?aid=99522&id=514659623&l=4f72706ee9
 
-<h3>Singapore (Thu 13 Aug)</h3>
+Melbourne and Sydney
+http://www.facebook.com/album.php?aid=101739&id=514659623&l=8008e9adfa
 
-<p>I'm feeling knackered by the journey, but arriving at the hostel cheers me up immediately. It's got a lovely communal space, and is full of like-minded people. I know straight away I'll have fun here. I have to wait a little while for my bed, then I get a well-earned snooze. When I wake up, my friend Sze has appeared. I met her in England, way back in 2000, and we've had occasional email contact since. Well, we finally managed to meet up again! And I've got a true local to show me round the city.</p>
-
-<p>
-Wander - temple, library, waterfront, wheel
-</p>
-
-<p>Come evening, I go to explore the nearby nightlife with a
-Laura
-expensive drinks on the riverside
-
-Irish girls
-</p>
+Byron and Nimbin
+http://www.facebook.com/album.php?aid=109796&id=514659623&l=ada100ed0a
 
 
 Todo
 ----
+
+social networking
+    update facebook page - quite out of date
+    open social **    
+
 check blog for photos with no link
     and links to my profile
 subscribe spam - use the python mail module
@@ -33,8 +29,7 @@ fbphoto
     check files are writable at start
     the main problem now is mismatches take ages
 photo uprighting script
-Consultancy
-    link from other sections to advertise
+
 Tweak adwords
     What are the options?
 
@@ -42,9 +37,7 @@ Tweak adwords
 Later
 -----
 Sniffing demo to show need for password protection
-Look for affiliates
 blog
-    comments
     route map
     summary page
 Security
@@ -57,7 +50,6 @@ logos - rounded corners / blurred edges?
 loads badly with adsense included - but what can I do? avoid the whole-page table?
 download fb tagged photos
 Joomla - web vuln scanner
-Write articles for sabbir bhimani
 aspell
     i'd like to add md5 to the dictionary
     i'd like to ignore words that contain underscores
