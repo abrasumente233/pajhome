@@ -1,0 +1,90 @@
+<pipp>
+<title>Open Social Networking</title>
+<desc>A high-level proposal for a distributed social networking system that avoids the need for an all-powerful central server.</desc>
+<body>
+
+<h2>Introduction</h2>
+
+<p>With current social networks, if you're on one site, say Facebook, you can't add a friend who's on another site, say MySpace. The goal of open social networking is to allow people to connect as friends across different sites. This would make social networking more like email, where users on one site, such as Gmail, can send emails to users on Hotmail.</p>
+
+<p>There are two main motivations for this:</p>
+
+<ul class="gap">
+<li><b>Reduced central control</b> - It avoids the need for a powerful central social networking site. A single company could end up treating users badly (e.g. around privacy) - competition helps avoid this.</li>
+<li><b>Convenience</b> - For someone who only uses Bebo, the immediate benefit is being able to connect to someone who only uses Orkut. It avoids people needing accounts on multiple sites, and using aggregators.</li>
+</ul>
+
+<p>With the massive dominance of Facebook, the first reason is the more compelling.</p>
+
+
+<h2>Overview</h2>
+
+<p>Some technical standard needs to be defined, that describe how sites interact. When a user is on a compliant site, they can connect to people on compatible sites. Most people are likely to use a large public hosting site, much like the existing social networking sites. Advanced users can run their own software, on their own web server. This decentralised arrangement has worked for decades for email. A key part of such a system is a distributed single sign-on system, which has already been invented with <a href="http://openid.net/">OpenID</a>.</p>
+
+<p>It's quite difficult to define exactly what social networking is, but the main features are:</p>
+
+<ul>
+<li>Profile - a place to post information. Mostly as a news feed - messages ("tweets"), photos, links, etc. But also static information - home town, date of birth, etc.</li>
+<li>Friends - a list of people who's posts I'm interested in, and more importantly, who I'm willing to share my posts with.</li>
+<li>Aggregation - a single place to see all my friend's recent posts.</li>
+<li>Interaction - the ability to comment on a post, tag people in a photo, etc.</li>
+</ul>
+
+<p>As well as these features, two aspects are important to users: privacy and spam control.</p>
+
+<p>The standard should be flexible and allow software to implement features in different ways. For example, one site could keep a simple list of friends, while another would record the date you became friends, and allow you to organise friends in groups.</p>
+
+
+<h2>Existing Solutions</h2>
+
+<p>There are existing distributed solutions to most of the required features already. These vary in how they compare to the offerings from centralised social networking sites.</p>
+
+<ul class="gap">
+<li><b>Profile</b> - effectively a blog, social networking just encourages frequent short updates, rather than longer ramblings. And while it is possible to have a private blog, this isn't a common arrangement. With social networking, restricting profile access to friends is the norm.</li>
+
+<li><b>Friends</b> - similar to an address book in an email program, and especially to an online address books where contacts can update their own details. However, using the friend list to control access to your information is a new development, somewhat unique to social networking.</li>
+
+<li><b>Aggregation</b> - currently done by RSS readers.</li>
+
+<li><b>Interaction</b> - most blogs have the ability for visitors to leave comments. An alternative approach is linkbacks, where a visitor can comment by making their own blog post, including a link back to the original. Social networking takes this somewhat further, with tagging in photos and notifications.</li>
+</ul>
+
+
+<h2>What's Needed?</h2>
+
+<p>To create a basic distributed social networking system, the first step is to create web-based software with the features of a blog, and an RSS reader. Creating good usability for social networking may make the user interface somewhat different to a traditional blog or RSS reader, but the basic features will be the same.</p>
+
+<p>For privacy, access to information needs to be controlled, and this requires identifying users. It would be impractical to have people create themselves a user name and password on every one of the friends' profiles, so a single sign-on (SSO) system is needed. OpenID is a distributed SSO where users can choose their own identity provider, without relying on a central authority. The blog software needs to authenticate viewers using OpenID, and restrict access based on the profile owner's privacy controls. The RSS reader needs to authenticate as the profile owner, to access friends' profiles. There also needs to be a system for a user to request a friend relation, and for the profile owner to confirm or deny this.</p>
+ 
+<p>The blog needs to allow for two main types of interaction - comments and logging. When Alice comments on an item on Bob's profile, this should cause a notification to be added to Alice's profile - "Alice commented on Bob's post". To help control spam, the process should originate on Alice's profile - like the linkback model for blog comments. Tagging is potentially a three-way operation - "Alice tagged Bob in Carol's post", although most commonly will be two-way "Alice tagged Bob in her post". Once Alice has interacted with Bob's post, she will want to be notified of further interactions by other users.</p>
+
+
+<h2>Challenges</h2>
+
+<p>Removing the central server changes the security considerations substantially. Previously, all users would trust the central server. In a distributed environment, users will trust their own server, but not necessarily servers used by other users. This leads to some potential problems:</p>
+
+<ul class="gap">
+<li><b>Spoofing</b> - A user has complete control of their own profile and can include false information on it. For example, Alice could post a fake offensive comment, appearing to come from Bob. It may be possible to create "verify this" links that go to Bob's profile and confirm whether a comment is genuine. Users may also accept this as an inherent risk, and use their judgement.</li>
+
+<li><b>Data propagation</b> - Alice may make a post that she wants Bob to see, but not Carol. However, once Bob can see the post, he can repost on his own profile, so Carol can view it. This problem is not specific to distributed social networking, but the lack of a central server makes it harder to introduce controls.</li>
+
+<li><b>Mutual friendship</b> - it's desirable for friendship relations to be mutual. However, this cannot be enforced in a distributed environment. Alice's profile cannot reliably check that Bob lists Alice as a friend, as Bob's server could give a false response. This is probably not a major issue.</li>
+</ul>
+
+<p>There are also some practical challenges:</p>
+
+<ul class="gap">
+<li><b>Aggregator scalability</b> - RSS readers do not scale particularly well with a large number of feeds. Having 500 friends is not uncommon, so a new solution may be needed if people want to follow all their friends. It may not be possible to solve this in a fully distributed manner, but a small number of central aggregators could work, in a similar manner to web search engines are. A privacy challenge in this area is that users must trust the aggregators with their data.</li>
+
+<li><b>OpenID propagation</b> - a site can authenticate a visitor using OpenID when the site knows the visitor's identity. However, it would be prohibitively inconvenient for a user to enter their OpenID URL for each profile they visit. A profile could save this in a cookie - but that doesn't help in environments like an Internet cafe. When profiles include links to other profiles, these could include the visitor's OpenID URL in the link. However, this risks leaking the user's identity too widely.</li>
+</ul>
+
+
+<h2>Next Steps</h2>
+
+<p>The next step is to create prototype software to support this. To support the distributed principle, this software needs to be open-source. It may be best to adapt existing blog and RSS reader software, although highly complex software should be avoided.</p>
+
+<p>We also need to create a community to share and discuss ideas. As lessons are learned developing the prototype software, the community can start drafting standards. It's important as well to start thinking early about the challenges, and what compromises may need to be made to overcome them.</p>
+
+</body>
+</pipp>

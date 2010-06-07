@@ -12,32 +12,29 @@ http://www.facebook.com/album.php?aid=109796&id=514659623&l=ada100ed0a
 
 Todo
 ----
+jpeg lib
+blog
+    photo albums / fbphoto
+    aus blog photos
 
-social networking
-    update facebook page - quite out of date
-    open social **    
 
-check blog for photos with no link
-    and links to my profile
-subscribe spam - use the python mail module
 links
 look tweaking
     dt being bold and h3 being non-bold causes some weirdness (e.g advanced auth)
     when you hover over a named link, it looks bad
-
 fbphoto
     check files are writable at start
     the main problem now is mismatches take ages
 photo uprighting script
-
 Tweak adwords
-    What are the options?
 
 
 Later
 -----
+google analytics
 Sniffing demo to show need for password protection
 blog
+    check photo links
     route map
     summary page
 Security
@@ -62,16 +59,12 @@ Big things
 Shithead
 Learn debuggers
 proving your profile pic is you - silly pose unique to the site
-Sell TSRweb
 Facebook app
+    friends coincidences
 rating and commenting/tagging photos on camera
 facebook developments - become a crm
 private area on website
-Web app security scanner
-
-Big things in computing:
-    open social networking
-    centralised place that checks for software updates
+centralised place that checks for software updates
 
 
 Pipp

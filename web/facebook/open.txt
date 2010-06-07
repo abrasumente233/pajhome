@@ -1,0 +1,64 @@
+Minor featurees - groups, messages, chat, searching, blocking, report abuse...
+
+<li>Groups - connecting to people with shared interests, lifestyles, places of work, etc.</li>
+<li>Messages - email, but hopefully without the spam</li>
+
+<li>Groups - have long existed as usenet forums, mailing lists, and more recently web forums. In fact, these systems tend to be have a better relationship with their users, compared to Facebook groups like "If a million people join I'll call my baby Luke Skywalker".</p>
+
+<li>Messages - just like email of course. Many users prefer social network's private messages, primarily because email is so swamped by spam, you often worry that an important message will get lost in a spam filter. Private messages seem more reliable.</li>
+</ul>
+
+<li><b>Profile</b> - The user's main page, where they publish information about themselves, and other people can interact with this. The standard makes no requirements about the content and appearance of the profile; this is completely controlled by the user. To work with the system it must authenticate visitors using OpenID, and any interactions must call the visitor's interaction callback.</li>
+
+
+<h3>OpenID Propagation</h3>
+
+<p>To provide a seamless interface between different servers, the OpenID URL needs to be passed between them. Otherwise, the user would have to enter their URL repeatedly. To do this, links to other tw2.social servers will include the OpenID as a URL parameter. There are potential privacy concerns with this, so there will be a privacy setting, but the default is to share with all. It may also be a good idea for a server to save the user's OpenID URL in a persistent cookie. <b>TBD</b> ask OpenID people if there's a general approach to this.</p>
+
+
+<h2>Friends List</h2>
+
+<p>The friends list is not standardised; it is a feature of each users profile. Some profile software may have minimal functionality, while others record information such as "how you know each other" and allow you to organise friends. In general, when Alice is viewing Bob's profile, there will be a button for "add as friend". When Alice clicks this, Bob's profile adds Alice as a friend (subject to confirmation by Bob) and passes the request to Alice's interaction callback.</p>
+
+
+
+<h3>Interaction Token</h3>
+
+<p>An interaction token allows an application to prove that a user has interacted with it. The application must generate an iframe with a URL on the user's interaction callback, like http://openid/user/gettoken?refer=http://app/blah. The page inside the iframe includes a visually distinctive image (configurable by the user), and clicking this generates the interaction token. The click submits the page, and this causes a redirect to pass the token back to the calling application.</p>
+
+<p>The iframe would usually be included in a form, where the button is used like a submit button. When the app receives the redirect with the token, it returns a page containing JavaScript that automatically submits the form. This provides a seamless interface for users to generate these tokens. By default the token is valid for one week and allows two interactions to be registered.</p>
+
+
+<h2>Interaction Callback</h2>
+
+<p>When Alice interacts with an item on Bob's profile, Bob's profile needs to inform Alice's profile. There are three modes this can occur in:</p>
+
+<ul class="gap">
+<li><b>Interaction</b> - Alice has interacted with Bob's profile. Bob's profile connects directly to Alice's callback, authenticated by OpenID, and supplies the URL of the item. This callback is open - it can be connected to by anyone, but it requires an interaction token (see below). It also checks that Bob owns the URL.</li>
+
+<li><b>Tagging</b> - Alice has been tagged in Bob's photo by Carol. Carol's browser connects to Alice's callback, and this indicates whether the action is allowed, denied, or needs to be confirmed. The browser connects rather than the profile, because Carol may be allowed to tag Alice, while Bob is not. However, Bob's profile also connects to Alice's callback, to be sure Carol relayed the response correctly. Bob passes an authentication token with the request; if the response is that confirmation is needed, Alice's profile can later use this token to authorise the tag.</li>
+
+<li><b>Friend Add</b> - Alice has clicked a button on Bob's profile to add him as a friend. Bob's profile actions this, subject to confirmation by Bob. The profile then creates an iframe with a URL on Alice's profile. Alice's browser connects to this, and it triggers a popup. This asks Alice to confirm the friend add, and if accepted, adds Bob to her friends list.</li>
+</ul>
+
+
+<li><b>Searching</b> - To locate a user, it's necessary to search all compatible sites. The only practical way to do this is to leverage an Internet search engine. <b>TBD</b>.</li>
+
+
+<li><b>Security</b> - In single-site social networking, Alice and Bob may not trust each other, but both trust the site. However, in open social networking, Alice may not trust Bob's profile server, and vice-versa. We need to carefully consider the issue of a malicious server. In general, this can be dealt with quite adequately with technical solutions transparent to the user.</li>
+
+
+<p>Several basic features need to be standardised:</p>
+
+<ul class="gap">
+<li><b>Identity</b> - We need a globally unique method to identify users, and a way that a user can prove their identity to a site. OpenID is a decentralised authentication system that meets these requirements. It identifies users with a URL, and authentication is achieved by the user proving they control the URL. There is also an extension to publish personal information in a structured manner. (<b>TBD</b>)</li>
+
+<li><b>Interaction callback</b> - When Alice interacts with Bob's profile, she wants her own profile to be updated to show the interaction. Her interactions with Bob take place on Bob's profile. When this is done, Bob's profile connects to Alice's, to update it.</li>
+</ul>
+
+<p>In this system, privacy is entirely controlled by the user. The user configures who can access their structured personal information and profile. A very common arrangement will be that anyone can access basic personal information, and only friends can access the profile.</p>
+
+
+
+<li><b>Aggregators</b> - Users want to see an aggregated feed, of all their friends' feeds combined. The fully distributed way to do this is to fetch the news feed from each friend in turn. However, this presents a serious scalability problem - if a user has 200 friends, they have to wait for 200 network connections to complete in the background, while the feed loads. The most likely solution is a small number of central aggregators.</li>
+

@@ -1,0 +1,95 @@
+<pipp>
+<title>Open Social Applications</title>
+<body>
+
+<h2>Introduction</h2>
+
+<p>This proposal provides a way for applications to plug in to a user's social networking profile. It builds on the <a href="open.html">Open Social Networking</a> proposal. A common deployment would be to have a web application, say a photo sharing site, that can plug into users profiles. A single instance of the application can plug into users' profiles on multiple site. A key feature is that the user should only have to place minimal trust in most applications.</p>
+
+<p>Just like users, applications are identified by OpenID URL. Applications can serve pages directly to users, and can interact with the profile in the following ways:</p>
+
+<ul class="gap">
+<li><b>Actions</b> - An application can attach action buttons to items and the owner. When a button is clicked, a form is displayed to the user. To do this, the profile generates an iframe and includes a page from the application that includes the form.</li>
+
+<li><b>Items</b> - An application can post items to a user's profile. The application can include arbitrary HTML, but this is sanitised by the profile to prevent cross-site scripting attacks. The HTML can reference resources served directly by the application. In general, posting an item requires an interaction token.</li>
+</ul>
+
+
+<h2>Serving Pages</h2>
+
+<p>Applications can serve pages directly to users. For example, a photo gallery application will have pages to display albums and photos. Some pages are simply static and public, e.g. information about the app. Some applications will serve pages that contain user data; in this case care is needed to maintain privacy.</p>
+
+<p>All a user's privacy controls are centralised on their profile; applications will not have their own privacy controls. When an application stores user data, it should always create a feed item that links to the data. If the application can display the data directly, it should apply the same privacy controls as the feed item. It will achieve this by requiring OpenID authentication, and connecting to the feed server to confirm access is allowed. <b>TBD</b> user name leakage.</p>
+
+<p><b>TBD</b> For images loading from an item, OpenID authentication may be too heavyweight, so these use time-based cryptographic tokens.</p>
+
+
+<h2>Interface Details</h2>
+
+<p>Application are identified by their URL. Fetching the URL returns JSON data about the application, e.g.</p>
+
+<pre style="margin-left:50px">{
+    'feeds': [{'name':'blog', 'display_name':'Blog'}],
+    'actions': [{'name':'blog', 'type':'person', 'privacy':'owner'}]
+}</pre>
+
+
+<p>In the JSON, functions can have the following fields:</p>
+
+<ul>
+<li>Name - used in URLs below</li>
+<li>Display name - displayed to the user, in the title tag of the button.</li>
+<li>Type - person / feed / appitem / anyitem</li>
+<li>Privacy - owner / config / noconfirm</li>
+<li>Default privacy</li>
+</ul>
+
+<p>The application must define the following URLs for each action:</p>
+
+<ul>
+<li><code>app/actions/name</code> - This responds to a GET request with the form, which the profile will place inside an iframe. POST requests must be OpenID authenticated and only accept requests from the feed owner. <b>TBD</b> refine this.</li>
+<li><code>app/actions/name/icon{d,n,h}</code> - icon disabled / normal / highlighted</li>
+</ul>
+
+
+<h2>Adding Apps</h2>
+
+<p>The usual way a user will add an application is:</p>
+
+<ol>
+<li>The user locates the application website (search engine, friend recommendation, etc.)</li>
+<li>The user authenticates to the application using OpenID</li>
+<li>After authentication, an "add application" button is visible on the website.</li>
+<li>When this is clicked, it triggers a popup from the users feed server. The feed server fetches the app definition, and the popup explains what the app will do. The user can either confirm or deny the app.</li>
+</ol>
+
+
+<h2>Application Permissions</h2>
+
+Minimal - can't read feed, anti-spoofing, etc.
+
+Applications can request the following privileges:
+
+<ul>
+<li>Post item, with an interaction token</li>
+<li>Post item, no interaction token</li>
+<li>Check item access, with an interaction token</li>
+</ul>
+
+<p>It is expected that most applications will be public; anyone can add them. Some applications may want to be private. In this case, the app meta data is controlled by OpenID. However, actions and pages will generally have the privacy controls delegated to the user.</p>
+
+
+<h2>Examples</h2>
+
+<ul class="gap">
+<li><b>Blog</b> - defines a "Blog" action on the person, only visible to the owner. The form prompts for a blog entry; the worker posts this as an item.</li>
+
+<li><b>Messages</b> - defines a "Send Message" action on the person. The form prompts for a message; the worker posts the message as an item, and calls the visitors interaction callback.</li>
+
+<li><b>Comments</b> - defines a "Comment" action on all items. The form prompts for a message; the worker posts the comment as an interaction on the item, and calls the visitors interaction callback.</li>
+
+<li><b>Photos</b> - defines a "Create Album" action on the person, only visible to the owner. The form prompts to upload photos. The worker saves the photos in the application, and creates a feed item that links to the album. Albums and photos are served directly by the app. There's also an edit photo action, which is only visible on a photo page, not in the feed. This allows users to crop and rotate images, subject to privacy controls. <b>TBD</b> defined edit photo more precisely</li>
+</ul>
+
+</body>
+</pipp>

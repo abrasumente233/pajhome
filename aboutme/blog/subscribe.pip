@@ -1,9 +1,0 @@
-<pipp>
-<title>Subscribe</title>
-<nonav>1</nonav>
-<body>
-<h3>Subscription Request for $email</h3>
-<p>$msg</p>
-<p><a href="index.html">Return to the blog</a></p>
-</body>
-</pipp>

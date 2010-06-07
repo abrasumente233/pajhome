@@ -1,8 +1,10 @@
 <pipp>
 <title>Social Networking</title>
 <desc>Since late 2007, the Facebook social networking site has become an important part of my life. It has made a great difference to how I interact with friends and keep in touch with people.</desc>
+<status>new</status>
 <body>
 
+<pipp-child src="open.pip"/>
 <pipp-child src="facebook.pip"/>
 <pipp-child src="fbphoto.pip"/>
 
