@@ -44,34 +44,35 @@
     </ul>
     </xsl:for-each>
     <script type="text/javascript">
-    if(navigator.userAgent.search(/MSIE/) > -1)
-    {
-        var sfEls = document.getElementById("nav").getElementsByTagName("LI");
-        for(var i=0; i &lt; sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
+    if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){         
+        if(new Number(RegExp.$1) &lt; 8) {
+            var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+            for(var i=0; i &lt; sfEls.length; i++) {
+                sfEls[i].onmouseover=function() {
+                    this.className+=" sfhover";
+                }
+                sfEls[i].onmouseout=function() {
+                    this.className=this.className.replace(new RegExp(" sfhover"), "");
+                }
             }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover"), "");
+    
+            var nav = document.getElementById("nav");
+            for(var tnode = nav.firstChild; tnode; tnode = tnode.nextSibling)
+            {
+                popup = tnode.getElementsByTagName("UL");
+                if(popup.length == 0) break;
+                popup = popup[0];
+                var posX = 0;
+                var posY = 0;
+                var node = tnode;
+                while(node != null){
+                    posX += node.offsetLeft;
+                    posY += node.offsetTop;
+                    node = node.offsetParent;
+                }
+                popup.style.top = posY + 18;
+                popup.style.left = posX - 40;
             }
-        }
-
-        var nav = document.getElementById("nav");
-        for(var tnode = nav.firstChild; tnode; tnode = tnode.nextSibling)
-        {
-            popup = tnode.getElementsByTagName("UL");
-            if(popup.length == 0) break;
-            popup = popup[0];
-            var posX = 0;
-            var posY = 0;
-            var node = tnode;
-            while(node != null){
-                posX += node.offsetLeft;
-                posY += node.offsetTop;
-                node = node.offsetParent;
-            }
-            popup.style.top = posY + 18;
-            popup.style.left = posX - 40;
         }
     }
     </script>
