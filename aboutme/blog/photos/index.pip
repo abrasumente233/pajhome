@@ -109,6 +109,17 @@
     <pipp-img src="kuala_lumpur.jpg" nolink="1" class="photo"/>
     <h3>Kuala Lumpur</h3><a href="http://www.facebook.com/album.php?aid=99337&amp;id=514659623&amp;l=ae0b440146">more...</a>
 </td></tr>
+<tr><td>
+    <pipp-img src="singapore.jpg" nolink="1" class="photo"/>
+    <h3>Singapore</h3><a href="http://www.facebook.com/album.php?aid=99522&amp;id=514659623&amp;l=4f72706ee9">more...</a>
+</td><td>
+    <pipp-img src="melb_sydney.jpg" nolink="1" class="photo"/>
+    <h3>Melbourne and Sydney</h3><a href="http://www.facebook.com/album.php?aid=101739&amp;id=514659623&amp;l=8008e9adfa">more...</a>
+</td></tr>
+<tr><td>
+    <pipp-img src="byron_nimbin.jpg" nolink="1" class="photo"/>
+    <h3>Byron and Nimbin</h3><a href="http://www.facebook.com/album.php?aid=109796&amp;id=514659623&amp;l=ada100ed0a">more...</a>
+</td></tr>
 </table>
 
 </body>
