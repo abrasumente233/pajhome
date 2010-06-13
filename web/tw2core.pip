@@ -1,0 +1,19 @@
+<pipp>
+<title>ToscaWidgets 2</title>
+<desc>ToscaWidgets is a framework for building reusable web components. The system allows a web developer to use a complex widget in their application with ease - the internal complexity of the widget is hidden. This helps rapidly develop compelling web applications. ToscaWidgets 2 is an experimental rewrite from scratch of the framework, that I have developed.</desc>
+<body>
+
+<p><a href="http://www.toscawidgets.org/documentation/tw2.core/">ToscaWidgets 2</a> is a foundation upon which people can construct innovative, engaging web pages and applications in much less time than you might think. The word `widget` is applied to many things in the modern world, but here it is simply representative of a small portion of code, a web template or a resource based on JavaScript or CSS, with the main unifying factor being that each can be recycled and reused. The basic ideology behind ToscaWidgets 2 is simplicity, with a focus on providing high performance and scalability with a clear, concise outline as to how the tools can be applied.</p>
+
+<p>In order to get ToscaWidgets 2 running on your severs it will be necessary to install various components, including tw2.core, which is obviously essential for enabling the basic features of which applications can then take advantage and tw2.devtools, which allows you to browse widgets and examine the catalogue of pre-formed templates. Depending on your server and interface type there are additional packages prefaced by tw2. to install.</p>
+
+<p>In order to start using ToscaWidgets 2 you will first of all need to mock up a basic Web Server Gateway Interface (WSGI) application. The necessary code to perform this function is available online without the need for in-house creation, so you can get started straight away with the widgets. Adding widgets to an existing WSGI application is a simple process that involves finding and editing the necessary code to your specifications and then incorporating it into the necessary fields in order to get the widgets up and running. If performed correctly you should be able to open a web browser after running myapp.py and then visting http://localhost:8000/.</p>
+
+<p>Widgets should allow you to create an operational control that is compatible with any HTML browser. The HTML is generated automatically by the widget and you can define the parameters which dictate how the widget will appear on the page in its final form. Widgets can possess both static and dynamic properties, with the former remaining consistent throughout the application`s use, while the latter can change with each new request that is made. As a result it is necessary to generate a new instance for the widget every time a request is made, with substrata of the widget dictating its static properties.</p>
+
+<p>In order to modify the way in which a widget appears and operates it will be necessary to add in parameters. Although widgets primarily require coded parameters for the purposes of thorough documentation, some can influence the application in an active manner. The parameters are not set in stone, as a separate widget function can be used to override them, depending on the context and the settings for the default values which have been added.</p>
+
+<p>The world of ToscaWidgets 2 goes a lot deeper than it is possible to examine here, although hopefully this brief tutorial has provided an outline as to the possibilities offered by the platform. Whether you are creating widgets that can be viewed on <a href="http://www.mobiles.co.uk/">cheap phones</a> or highly polished content for desktop users, ToscaWidgets 2 provides you with the right tools for the job.</p>
+
+</body>
+</pipp>

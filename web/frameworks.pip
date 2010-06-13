@@ -5,6 +5,7 @@
 
 <pipp-child src="intro.pip"/>
 <pipp-child src="satalkbar.pip"/>
+<pipp-child src="tw2core.pip"/>
 
 <pipp-map-view src="/section.xsl"/>
 
