@@ -8,7 +8,7 @@ import urllib2 as ul, re, glob, os, Image, time, operator, sys, threading
 import optparse, shutil
 from jpeg import jpeg
 
-src = re.compile('<a href="(http://.*?)".*?><img src="(http://photos-.*?\.jpg)"')
+src = re.compile('<a[^>]*href="(http://.*?)".*?><img[^>]*src="(http://photos-.*?\.jpg)"')
 thumbs_per_page = 20
 samp_spot = (10,10)
 threads = 5
