@@ -81,7 +81,7 @@
                     </p>
 
                     <xsl:if test="not(contains(pipp:import('title'), 'Home'))">
-                            <p style="text-align:left">Play real money casino games on the leading <a href="http://www.gamentor.com/">online casinos</a> and <a href="http://www.seekandplay.com/">online poker rooms</a></p>
+                        <p style="text-align:left">Play real money casino games on the leading <a href="http://www.gamentor.com/">online casinos</a> and <a href="http://www.winner-takes-all.com/">Real money poker</a> - the best way to learn how to win in online poker.</p>
                     </xsl:if>
                 </td>
 

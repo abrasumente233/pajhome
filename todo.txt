@@ -2,6 +2,13 @@
 
 Todo
 ----
+http://developers.facebook.com/docs/authentication/permissions
+    From June 2010, apps get much less permission by default
+
+tw2 strategy
+    http://www.theregister.co.uk/2010/06/14/vroom_forms/
+    Look at Microsoft InfoPath - dynamic forms
+
 Google translate? - if it can be non-intrusive
 IDEA - links to specific times in videos
 links
