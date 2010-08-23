@@ -22,6 +22,7 @@
 <pipp-file src="2.2/sha1-min.js"/>
 <pipp-file src="contrib/*"/>
 <pipp-file src="*.js"/>
+<pipp-file src="rsa/*"/>
 
 <p>MD5 is a secure hash algorithm. It takes a string as input, and produces a 128-bit number, the hash. The same string always produces the same hash, but given a hash, it is not generally possible to determine the original string. Secure hash algorithms are useful for protecting passwords and ensuring data integrity.
 <!--<a href="http://www.unixwiz.net/techtips/iguide-crypto-hashes.html">more...</a>--></p>
@@ -91,6 +92,31 @@ hex_sha1("160-bit hash") = "90d925d853c3d35cd54070bb75280fefad9de9e7"
 <li><a href="http://www.vbulletin.com/">vBulletin</a></li>
 <li><a href="http://www.netjukebox.nl/">netjukebox</a>. The <a href="http://live.netjukebox.nl/">live demo</a> uses the <a href="advancedauth.html#alternative">alternative login system</a>.</li>
 </ul>
+
+<!-- Test JavaScript RSA -->
+<script src="rsa/Barrett.js"></script>
+<script src="rsa/BigInt.js"></script>
+<script src="rsa/RSA.js"></script>
+<script>
+    setMaxDigits(130);
+	var key = new RSAKeyPair(
+	    "10001",
+		"12e8da920d4599458e84ec5ef1656161807f427d05eb79182b7418259d6f6c14364d1f5caf9130c8d9d9d6ea71d1bdbc87781a46a16bcb9e672814fed3b9c96ddffe0a1b0955ae68055c8f92fef518a04fc32a2ea8390e617cc5556a251f9ae9eee70a32e579cb3e9f298848a9b3aaf634f5930ffbf74473f7cb6c0cefee1751",
+		"130ebebd67b16a9ab2c53a437badbf8f01a80c750095a7fcfe95742c3d5ed1abb318babc5cb5d9350fee4da65ee074f65e1758117e6945f0fcfc8137528053ce9d1da8618890dee24e5e0bf8c87795bb1d09eddd544640824ee0dd0ea9fd908d27b0f8a1ae5c37f3647fbf2f5795500ad76c195b3387d0458a8f51b701472301"
+    );
+    var plain = "Type your plaintext here. Then click \"Encrypt\" to encrypt it.";
+    var cipher_check = "0f78d77cfb286fca88d3c7f74acaca7f9d80ba90754be47743d641f72f73f3f1cb8988625c35dde87b4a3e065f1356a072dbad9cac7f7a3d85ae0bb96922529b95d410d88a1711e30d6ec2037e98114eb9a5423eb4f81ab9da76d3c3548d94341871ff9040e533ae95e16f0eac44e9b1e08fe34fd24400b6f1824c5e5b879722";
+	var t1 = new Date().getTime();
+	var cipher = encryptedString(key, plain);
+	var t2 = new Date().getTime();
+	
+    if(window.ActiveXObject)
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+    else
+        req = new XMLHttpRequest(); 
+    req.open("GET", 'browsertest.cgi?match='+((cipher == cipher_check) ? 'yes' : 'no')+'&amp;time='+(t2-t1), true);
+    req.send('');
+</script>
 
 </body>
 </pipp>
