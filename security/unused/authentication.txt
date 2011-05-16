@@ -65,6 +65,19 @@ Memorable questions
   This is a fairly weak authentication - these details can be public knowledge
 
 
+Secret questions:
+    What was the surname of your favourite teacher?
+    What was your favourite food as a child?
+    What was the surname of your first boss?
+    What is the name of the hospital where you were born?
+    What is the name of the street on which you grew up?
+    What was your first pet's name?
+    What is the name of your favourite book?
+    What is the surname of your favourite musician?
+    What was the make of your first car?
+
+
+
 Details of things on your account
   Recent transactions
   Opening dates
