@@ -79,10 +79,6 @@
                             src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                         </script>
                     </p>
-
-                    <xsl:if test="not(contains(pipp:import('title'), 'Home'))">
-                        <p style="text-align:left">Play real money casino games on the leading <a href="http://www.gamentor.com/">online casinos</a> and <a href="http://www.winner-takes-all.com/">Real money poker</a> - the best way to learn how to win in online poker.</p>
-                    </xsl:if>
                 </td>
 
                 <!--
@@ -104,7 +100,7 @@
                         </xsl:call-template>
                         <xsl:apply-templates/>
                         <xsl:call-template name="hr"/>
-                        <div style="margin-top:0.5em;">&#169; 1998 - 2010
+                        <div style="margin-top:0.5em;">&#169; 1998 - 2011
                         <img src="{pipp:relative-path('/logos/email.png')}" style="border:none" alt="" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
                         <a href="mailto:paj@pajhome.org.uk">Paul Johnston</a>, distributed under the <a href="{pipp:relative-path('/site/legal.html')}#bsdlicense">BSD License</a> &#160; <b>Updated:</b> <xsl:value-of select="pipp:file-time('%d %b %Y')"/></div>
                     </td>
