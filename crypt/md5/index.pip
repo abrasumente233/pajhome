@@ -19,12 +19,10 @@
 <pipp-child src="uses.pip"/>
 <pipp-child src="browsertest.pip"/>
 
-<pipp-file src="browsertest.cgi"/>
 <pipp-file src="2.2/md5-min.js"/>
 <pipp-file src="2.2/sha1-min.js"/>
 <pipp-file src="contrib/*"/>
 <pipp-file src="*.js"/>
-<pipp-file src="rsa/*"/>
 
 <p>MD5 is a secure hash algorithm. It takes a string as input, and produces a 128-bit number, the hash. The same string always produces the same hash, but given a hash, it is not generally possible to determine the original string. Secure hash algorithms are useful for protecting passwords and ensuring data integrity.
 <!--<a href="http://www.unixwiz.net/techtips/iguide-crypto-hashes.html">more...</a>--></p>
@@ -80,9 +78,10 @@ hex_sha1("160-bit hash") = "90d925d853c3d35cd54070bb75280fefad9de9e7"
 
 <h2>Collision Weakness</h2>
 
-<p>In 2004, a cryptographic weakness was discovered in both the MD5 and SHA-1 algorithms. One of the design goals of secure hash algorithms is "collision resistance". In others words, someone can't find two strings that hash to the same value. Because MD5 is 128-bit, by random chance you will find a collision by producing 2<sup>64</sup> hashes. The weakness in MD5 is that a way has been found to produce such collisions with only 2<sup>42</sup> hashes. This makes producing collisions practical and I have seen an example of 100 different collisions. <a href="http://cryptography.hyperlink.cz/MD5_collisions.html">more...</a></p>
+<p>In 2004, a cryptographic weakness was discovered in both the MD5 and SHA-1 algorithms. One of the design goals of secure hash algorithms is "collision resistance". In others words, someone can't find two strings that hash to the same value. Because MD5 is 128-bit, by random chance you will find a collision by producing 2<sup>64</sup> hashes. The weakness in MD5 is that a way has been found to produce such collisions with only 2<sup>42</sup> hashes, which makes producing collisions practical. In 2008 a paper was released demonstrating a collision attack that produced a false certificate authority - allowing impersonation of any SSL site on the internet. <a href="http://www.win.tue.nl/hashclash/rogue-ca/">more...</a></p>
 
-<p>Most uses of JavaScript hashing (e.g. protecting passwords) do not rely on the collision resistance property. These weaknesses do not create any vulnerability in such web sites. I recommend continuing to use these algorithms for JavaScript hashing.</p>
+<p>While it is imperitive for ceritifcate authorities to stop issuing MD5 certificates, most uses of JavaScript hashing (e.g. protecting passwords) do not rely on the collision resistance property. These weaknesses do not create a vulnerability in such web sites. It is acceptable to continue using MD5 for such puposes, although I recommend that new sites use SHA-256 or stronger.</p>
+
 
 <h2>Users of the Script</h2>
 <ul>
@@ -94,29 +93,6 @@ hex_sha1("160-bit hash") = "90d925d853c3d35cd54070bb75280fefad9de9e7"
 <li><a href="http://www.vbulletin.com/">vBulletin</a></li>
 <li><a href="http://www.netjukebox.nl/">netjukebox</a>. The <a href="http://live.netjukebox.nl/">live demo</a> uses the <a href="advancedauth.html#alternative">alternative login system</a>.</li>
 </ul>
-
-<!-- Test JavaScript RSA -->
-<script src="rsa/jsbn.js"></script>
-<script src="rsa/rsa2.js"></script>
-<script>
-    var rsa = new RSAKey();
-    rsa.setPublic(
-		"130ebebd67b16a9ab2c53a437badbf8f01a80c750095a7fcfe95742c3d5ed1abb318babc5cb5d9350fee4da65ee074f65e1758117e6945f0fcfc8137528053ce9d1da8618890dee24e5e0bf8c87795bb1d09eddd544640824ee0dd0ea9fd908d27b0f8a1ae5c37f3647fbf2f5795500ad76c195b3387d0458a8f51b701472301",
-	    "10001"
-    );
-    var plain = "Type your plaintext here. Then click \"Encrypt\" to encrypt it.";
-    var cipher_check = "07046663c201d49633a998a97117c3d3fa63b6353362ba43d3078a4915c8e19551d3b4036246aba3f54e150404a3b84f5b15e4cfbf9eca0d986c9fcaf147908ee7ea7c754007ebd34d557afb81bc43115258e4446c787712bda6403bf0472246fb338b440e4139538b6feb32bf79f42eb05f9186e05cc61f5734e8e61b31293b";
-	var t1 = new Date().getTime();    
-	var cipher = rsa.encrypt(plain).toString(16);
-	var t2 = new Date().getTime();
-	
-    if(window.ActiveXObject)
-        req = new ActiveXObject("Microsoft.XMLHTTP");
-    else
-        req = new XMLHttpRequest(); 
-    req.open("GET", 'browsertest.cgi?match='+((cipher == cipher_check) ? 'yes' : 'no')+'&amp;time='+(t2-t1), true);
-    req.send('');
-</script>
 
 </body>
 </pipp>

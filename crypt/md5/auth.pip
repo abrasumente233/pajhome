@@ -3,16 +3,13 @@
 <desc>How to build a web login system that protects passwords with JavaScript MD5.</desc>
 <body>
 
-<p>A user's password is the crown jewels of any password-based authentication system. Such an important asset needs protection; best practice is that a password is encrypted when:</p>
+<h2>When to use JavaScript hashing</h2>
 
-<ul>
-<li>it is transmitted over the Internet, or</li>
-<li>it is stored on a server.</li>
-</ul>
+<p>In general, it is best to use SSL to protect passwords. This provides stronger protection than any JavaScript hashing, and is becoming easier all the time. SSL certificates can now be obtained <a href="http://www.startssl.com/">for free</a>. Also, the performance impact of SSL is becoming less (<a href="http://www.imperialviolet.org/2010/06/25/overclocking-ssl.html">more...</a>). If SSL is used, I recommend that JavaScript hashing <b>not</b> be used - it won't add any security, and could cost you some.</p>
 
-<p>This is the bare minimum, that all sites should be doing. Some sites require strong security, such as online banking, and use SSL. SSL offers strong protection, but can be costly to implement. Many sites do not need SSL, which is a reasonable business decision. However, most non-SSL sites transmit passwords over the Internet without encryption. This is not reasonable - it's below the bare minimum that everyone should be doing.</p>
+<p>There are still circumstances when SSL can't be used. It generally requires a dedicated IP address, as support for <a href="http://www.ietf.org/rfc/rfc3546.txt">TLS Server Name Indication</a> is not quite widespread enough, so it is not common on shared hosting platforms. Embedded applications, such as web management of a wireless router, may not have enough CPU power for responsive SSL. Packaged applications, such as a forum system, don't usually force the sys-admin who installs it to use SSL, so they may want to provide basic security when SSL is not used.</p>
 
-<p>By using JavaScript MD5, sites that do not use SSL can still meet these basic minimums. While this is not as strong as SSL, I recommend this for all non-SSL sites that use passwords.</p>
+<p>In most of the situations where SSL can't be used, the security requirements are not high. However, as people tend to <a href="http://xkcd.com/792/">reuse passwords</a>, it is best to protect them. JavaScript hashing provides basic security for these situations.</p>
 
 
 <h2>Implementing Hashed Passwords</h2>
