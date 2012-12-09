@@ -10,6 +10,7 @@
 <pipp-child src="datatheft.pip"/>
 <pipp-child src="infra.pip"/>
 <pipp-child src="web.pip"/>
+<pipp-child src="clouddata.pip"/>
 
 <pipp-map-view src="/section.xsl"/>
 

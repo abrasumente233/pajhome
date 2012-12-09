@@ -100,7 +100,7 @@
                         </xsl:call-template>
                         <xsl:apply-templates/>
                         <xsl:call-template name="hr"/>
-                        <div style="margin-top:0.5em;">&#169; 1998 - 2011
+                        <div style="margin-top:0.5em;">&#169; 1998 - 2012
                         <img src="{pipp:relative-path('/logos/email.png')}" style="border:none" alt="" width="{pipp:image-width('/logos/email.png')}" height="{pipp:image-height('/logos/email.png')}"/>
                         <a href="mailto:paj@pajhome.org.uk">Paul Johnston</a>, distributed under the <a href="{pipp:relative-path('/site/legal.html')}#bsdlicense">BSD License</a> &#160; <b>Updated:</b> <xsl:value-of select="pipp:file-time('%d %b %Y')"/></div>
                     </td>

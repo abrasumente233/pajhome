@@ -1,0 +1,52 @@
+﻿<pipp>
+<title>Cloud data</title>
+<desc>Cloud applications have an important security responsibility to keep tennants' data separate. This can be difficult to implement, resulting in parameter tampering vulnerabilities. This page discusses an approach to enforcing privilege separation, which could reduce coding errors.</desc>
+<body>
+
+<h3>Securely partitioning data in a cloud application</h3>
+
+<p>One of the key differences between traditional and cloud applications is that a traditional application typically serves just one tennant, while cloud applications are multi-tennant. This gives cloud applications an important security responsibility: keeping tennants' data separate from each other.</p>
+
+<p>Most applications are backed by an SQL database, and typical cloud applications service multiple tennants from a single database. Data is separated by having a foreign key from each data table to the tennants table. For example, an order tracking system may have a "companies" table and an "orders" table. The orders table would have a "company_id" field that has a foreign key relation to the companies table. The application then has to make sure all data operations correctly use the company_id field.</p>
+
+<h3>The problem</h3>
+
+<p>The problem with this approach is that it's too easy to accidentally introduce security vulnerabilities. If there are insufficient checks in place, a malicious user can perform a "parameter tampering" attack, and access other users' data. For example, the order tracking system would have a page "list_orders" that shows all the orders for the currently logged-in company. Each order would have a "view details" link to a page like "view_order?id=1234". In normal usage, a user would only see links related to their company. However, if they edit the URL and change "1234" to "1235" then they might be able to access an order for a different company.</p>
+
+<p>These kinds of vulnerability are relatively common in complex applications. The cause of this is the need to apply correct checks in all the application entry points that could be affected. As well as URL parameters this includes hidden fields, ajax callbacks, and more. In a complex application there could be hundreds of entry points to be protected, so it's not surprising mistakes sometimes happen. These will not be identified in usability testing, as they only happen when malicious modifications are made to requests. Security scanning tools are generally poor at identifying parameter tampering vulnerabilities. Manual application security testing is the main way such issues are identified.</p>
+
+<h3>Is there an alternative?</h3>
+
+<p>So this made me wonder: is there some way we can avoid every application entry point having to do its own checks?</p>
+
+<p>Some web frameworks do offer protection against parameter tampering, using encryption. The ID parameters are encrypted, using a key only known to the server, and this stops a user tampering with the parameter. There are a few subtleties to doing this correctly, but it can be done. Unfortunately, doing so introduces issues related to bookmarks and JavaScript functionality.</p>
+
+<p>I decided to investigate an alternative that does not use paramter encryption. Instead, the model layer of the application is linked to the authentication library. Every data access operation has the company_id extracted from the authenticated session, and applied to the query. This is feasible for an application that uses an object-relational mapper, by hooking into the ORM. I have produced a prototype implementation in Python, which uses SQLAlchemy and ToscaWidgets.</p>
+
+<p>The key element is to create a custom SQLAchemy Session object. This hooks the "query" method, to add a filter on company_id. It also hooks the "add" method, to ensure new object have the company_id set correctly. This is the code:</p>
+
+<pipp-code lexer="python">
+    class ZoningSession(sa.orm.Session):
+        def query(self, *entities, **kwargs):
+            query = super(ZoningSession, self).query(*entities, **kwargs)
+            for e in entities:
+                if e.tables[0].name == 'user':
+                    continue
+                if e.has_property('company_id') and twa.get_user():
+                    query = query.enable_assertions(False).filter(e.class_.company_id == twa.get_user().company_id)
+            return query
+            
+        def add(self, instance):
+            if hasattr(instance, 'company_id') and twa.get_user():
+                instance.company_id = twa.get_user().company_id
+            super(ZoningSession, self).add(instance)
+</pipp-code>
+
+<p>This is now working fine on a production application of mine, and it has the additional benefit of simplifying the application code. Some parts of the application are not covered: api callbacks and long-running operations in separate threads. Those parts could be addressed by improving the authentication framework.</p>
+
+<p>This approach works well for an application with a simple authorisation model, where every data table has a foreign key to the company table. That may not always be the case, for example "order_item" might have a foreign key to "order" but not to "company". Also, some parts of the application may be restrict on a per-user basis, while others are on a per-company basis. The ZoningSession class could be extended to cope with these situations, but this approach does not scale well for as the complexity grows.</p>
+
+<p>But even if the authorisation model is complex, the underlying concept remains valid. By attaching authorisation checks to the data, rather than the application entry points, the amount of security critical code is kept to a minimum. It may be possible to extend this work to create a library that allows developers to specify authorisation controls in the model, perhaps using decorators. If you would be interested in working on this, please get in touch.</p>
+
+</body>
+</pipp>
