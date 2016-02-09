@@ -1,0 +1,1 @@
+This is the pipp source code to pajhome.org.uk. Most users will not need to see this. It allows Pajhome contributors to send diffs. It may be useful to advanced Pipp users, to see how I have implemented the site.
